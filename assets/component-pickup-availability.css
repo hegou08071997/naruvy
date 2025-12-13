@@ -56,10 +56,7 @@ pickup-availability-drawer {
   border-width: 0 0 0 var(--drawer-border-width);
   border-color: rgba(var(--color-foreground), var(--drawer-border-opacity));
   border-style: solid;
-  filter: drop-shadow(
-    var(--drawer-shadow-horizontal-offset) var(--drawer-shadow-vertical-offset) var(--drawer-shadow-blur-radius)
-      rgba(var(--color-shadow), var(--drawer-shadow-opacity))
-  );
+  filter: drop-shadow(var(--drawer-shadow-horizontal-offset) var(--drawer-shadow-vertical-offset) var(--drawer-shadow-blur-radius) rgba(var(--color-shadow), var(--drawer-shadow-opacity)));
 }
 
 pickup-availability-drawer[open] {
@@ -117,7 +114,7 @@ pickup-availability-drawer[open] {
   text-transform: capitalize;
 }
 
-.pickup-availability-variant > * + strong {
+.pickup-availability-variant>*+strong {
   margin-left: 1rem;
 }
 
@@ -130,11 +127,11 @@ pickup-availability-drawer[open] {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
-.pickup-availability-list__item > * {
+.pickup-availability-list__item>* {
   margin: 0;
 }
 
-.pickup-availability-list__item > * + * {
+.pickup-availability-list__item>*+* {
   margin-top: 1rem;
 }
 
@@ -149,27 +146,13 @@ pickup-availability-drawer[open] {
 }
 
 @keyframes animateDrawerOpen {
-  @media screen and (max-width: 749px) {
-    0% {
-      opacity: 0;
-      transform: translateX(100%);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
   }
 
-  @media screen and (min-width: 750px) {
-    0% {
-      opacity: 0;
-      transform: translateX(100%);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
