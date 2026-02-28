@@ -9,9 +9,9 @@
             "background": "#FFFFFF",
             "background_gradient": "",
             "text": "#121212",
-            "button": "#121212",
+            "button": "#E22120",
             "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
+            "secondary_button_label": "#E22120",
             "shadow": "#121212"
           }
         },
@@ -20,9 +20,9 @@
             "background": "#F3F3F3",
             "background_gradient": "",
             "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
+            "button": "#E22120",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#E22120",
             "shadow": "#121212"
           }
         },
@@ -31,8 +31,8 @@
             "background": "#242833",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#000000",
+            "button": "#E22120",
+            "button_label": "#FFFFFF",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
@@ -42,27 +42,27 @@
             "background": "#121212",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
+            "button": "#E22120",
+            "button_label": "#FFFFFF",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
         },
         "scheme-5": {
           "settings": {
-            "background": "#334FB4",
+            "background": "#E22120",
             "background_gradient": "",
             "text": "#FFFFFF",
             "button": "#FFFFFF",
-            "button_label": "#334FB4",
+            "button_label": "#E22120",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
         }
       },
-      "type_header_font": "assistant_n4",
+      "type_header_font": "jost_n4",
       "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_body_font": "jost_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
