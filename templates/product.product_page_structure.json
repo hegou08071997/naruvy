@@ -83,6 +83,8 @@
             "text": "Rated <strong>4.8 Excellent</strong> 50,312+ Reviews",
             "star_color": "#ffcc00",
             "star_bg_color": "#ececec",
+            "star_size": 1.3,
+            "star_gap": 0.4,
             "bg_color": "#ffffff",
             "button_bg_color": "#000000",
             "button_text_color": "#ffffff",
@@ -118,6 +120,100 @@
         "padding_bottom": 12
       }
     },
+    "image_with_text_pMTMwR": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7nexyY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image avec texte",
+            "heading_size": "h1"
+          }
+        },
+        "text_wCED9Y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Associez un texte à une image pour mettre en avant le produit, la collection ou l’article de blog de votre choix. Ajoutez des informations sur la disponibilité ou le style. Vous pouvez même fournir un avis.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_LWkVNY": {
+          "type": "button",
+          "settings": {
+            "button_label": "Texte du bouton",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7nexyY",
+        "text_wCED9Y",
+        "button_LWkVNY"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_jFJHti": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_mVbMGy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image avec texte",
+            "heading_size": "h1"
+          }
+        },
+        "text_frJWmg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Associez un texte à une image pour mettre en avant le produit, la collection ou l’article de blog de votre choix. Ajoutez des informations sur la disponibilité ou le style. Vous pouvez même fournir un avis.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_CRJLwP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Texte du bouton",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mVbMGy",
+        "text_frJWmg",
+        "button_CRJLwP"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -140,6 +236,8 @@
   },
   "order": [
     "main",
+    "image_with_text_pMTMwR",
+    "image_with_text_jFJHti",
     "related-products"
   ]
 }
