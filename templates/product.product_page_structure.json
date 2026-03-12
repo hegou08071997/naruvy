@@ -76,14 +76,13 @@
         "trust_microcopy": {
           "type": "trust_microcopy",
           "settings": {
+            "font_size": 1.6,
             "bg_color": "",
             "text_color": "",
             "text_1": "30-day money-back guarantee",
             "icon_name_1": "verified_user",
             "text_2": "Free Shipping",
-            "icon_name_2": "local_shipping",
-            "text_3": "30-day money-back guarantee",
-            "icon_name_3": "verified_user"
+            "icon_name_2": "local_shipping"
           }
         },
         "sticky_cart": {
