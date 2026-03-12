@@ -175,22 +175,25 @@
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
       width: 100%;
-      isolation: isolate;
     }
     .trust-card__bg {
       position: absolute;
-      inset: 0;
-      z-index: -2;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
       background: var(--tc-gradient);
     }
     .trust-card__bg-image {
       position: absolute;
-      inset: 0;
-      z-index: -1;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
       background-repeat: no-repeat;
       background-position: center right;
       background-size: cover;
       opacity: var(--tc-img-opacity, 0.15);
+    }
+    .trust-card__content {
+      position: relative;
+      z-index: 2;
     }
     .trust-card__heading {
       color: var(--tc-text-color, #fff);
@@ -1376,26 +1379,30 @@
                   <div class="trust-card__bg"></div>
                   {%- if block.settings.bg_image != blank -%}
                     <div class="trust-card__bg-image" style="background-image: url('{{ block.settings.bg_image | image_url: width: 800 }}');"></div>
+                  {%- else -%}
+                    <div class="trust-card__bg-image" style="background-image: url('{{ 'image' | placeholder_svg_tag | split: 'src="' | last | split: '"' | first }}');"></div>
                   {%- endif -%}
-                  {%- if block.settings.heading != blank -%}
-                    <div class="trust-card__heading">{{ block.settings.heading }}</div>
-                  {%- endif -%}
-                  {%- if tc_has_items -%}
-                    <div class="trust-card__grid">
-                      {%- for tid in tc_items -%}
-                        {%- assign tval = block.settings[tid] -%}
-                        {%- if tval != blank -%}
-                          <div class="trust-card__item">
-                            <span class="material-symbols-outlined" aria-hidden="true">{{ block.settings.icon_name }}</span>
-                            <span>{{ tval }}</span>
-                          </div>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
-                  {%- endif -%}
-                  {%- if block.settings.tagline != blank -%}
-                    <div class="trust-card__tagline">{{ block.settings.tagline }}</div>
-                  {%- endif -%}
+                  <div class="trust-card__content">
+                    {%- if block.settings.heading != blank -%}
+                      <div class="trust-card__heading">{{ block.settings.heading }}</div>
+                    {%- endif -%}
+                    {%- if tc_has_items -%}
+                      <div class="trust-card__grid">
+                        {%- for tid in tc_items -%}
+                          {%- assign tval = block.settings[tid] -%}
+                          {%- if tval != blank -%}
+                            <div class="trust-card__item">
+                              <span class="material-symbols-outlined" aria-hidden="true">{{ block.settings.icon_name }}</span>
+                              <span>{{ tval }}</span>
+                            </div>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.tagline != blank -%}
+                      <div class="trust-card__tagline">{{ block.settings.tagline }}</div>
+                    {%- endif -%}
+                  </div>
                 </div>
               {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
