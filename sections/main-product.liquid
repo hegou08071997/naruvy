@@ -72,6 +72,43 @@
       line-height: 1.4;
     }
 
+    /* Trust microcopy */
+    .trust-microcopy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding-top: 15px;
+    }
+    .trust-microcopy__item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .trust-microcopy__icon {
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+      display: flex;
+      align-items: center;
+    }
+    .trust-microcopy__icon svg,
+    .trust-microcopy__icon img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+    .trust-microcopy__divider {
+      color: rgba(var(--color-foreground), 0.3);
+      font-weight: 300;
+      user-select: none;
+    }
+    .trust-microcopy--count-1 .trust-microcopy__item { font-size: 1.4rem; }
+    .trust-microcopy--count-2 .trust-microcopy__item { font-size: 1.3rem; }
+    .trust-microcopy--count-3 .trust-microcopy__item { font-size: 1.2rem; }
+
     /* Sticky ATC */
     .sticky-atc {
       position: fixed;
@@ -971,6 +1008,52 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'trust_microcopy' -%}
+                {%- liquid
+                  assign trust_texts = 'text_1,text_2,text_3' | split: ','
+                  assign trust_icons = 'icon_name_1,icon_name_2,icon_name_3' | split: ','
+                  assign trust_images = 'icon_image_1,icon_image_2,icon_image_3' | split: ','
+                  assign trust_count = 0
+                  for tid in trust_texts
+                    assign tval = block.settings[tid]
+                    if tval != blank
+                      assign trust_count = trust_count | plus: 1
+                    endif
+                  endfor
+                -%}
+                {%- if trust_count > 0 -%}
+                  <div
+                    class="trust-microcopy trust-microcopy--count-{{ trust_count }}"
+                    style="
+                      {%- if block.settings.bg_color != blank and block.settings.bg_color != 'rgba(0,0,0,0)' -%}background-color: {{ block.settings.bg_color }}; padding: 10px 15px; border-radius: 6px;{%- endif -%}
+                      {%- if block.settings.text_color != blank and block.settings.text_color != 'rgba(0,0,0,0)' -%}color: {{ block.settings.text_color }};{%- endif -%}
+                    "
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- assign shown = 0 -%}
+                    {%- for tid in trust_texts -%}
+                      {%- assign tval = block.settings[tid] -%}
+                      {%- assign icon_name = block.settings[trust_icons[forloop.index0]] -%}
+                      {%- assign icon_img = block.settings[trust_images[forloop.index0]] -%}
+                      {%- if tval != blank -%}
+                        {%- assign shown = shown | plus: 1 -%}
+                        {%- if shown > 1 -%}
+                          <span class="trust-microcopy__divider" aria-hidden="true">|</span>
+                        {%- endif -%}
+                        <span class="trust-microcopy__item">
+                          {%- if icon_img != blank -%}
+                            <span class="trust-microcopy__icon">
+                              <img src="{{ icon_img | image_url: width: 40 }}" alt="" loading="lazy" width="auto" height="auto">
+                            </span>
+                          {%- elsif icon_name != blank -%}
+                            <span class="trust-microcopy__icon material-symbols-outlined" aria-hidden="true">{{ icon_name }}</span>
+                          {%- endif -%}
+                          <span>{{ tval }}</span>
+                        </span>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
               {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
                   {% style %}
@@ -2952,6 +3035,82 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "trust_microcopy",
+      "name": "Trust microcopy",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
+        },
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Text",
+          "default": "30-day money-back guarantee"
+        },
+        {
+          "type": "text",
+          "id": "icon_name_1",
+          "label": "Google icon name",
+          "info": "e.g. verified_user, local_shipping, lock"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image_1",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "icon_name_2",
+          "label": "Google icon name"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image_2",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "icon_name_3",
+          "label": "Google icon name"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image_3",
+          "label": "Custom icon"
         }
       ]
     },

@@ -73,6 +73,17 @@
             "button_text_transform": "uppercase"
           }
         },
+        "trust_microcopy": {
+          "type": "trust_microcopy",
+          "settings": {
+            "text_1": "30-day money-back guarantee",
+            "icon_name_1": "verified_user",
+            "text_2": "",
+            "icon_name_2": "",
+            "text_3": "",
+            "icon_name_3": ""
+          }
+        },
         "sticky_cart": {
           "type": "sticky_cart",
           "settings": {
@@ -116,6 +127,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "trust_microcopy",
         "sticky_cart"
       ],
       "settings": {
