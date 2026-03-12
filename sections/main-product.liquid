@@ -20,11 +20,9 @@
     .product__star-rating {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: nowrap;
       white-space: nowrap;
-      overflow: hidden;
-      max-width: 100%;
     }
     .star-rating__stars {
       display: flex;
@@ -38,9 +36,12 @@
       flex-shrink: 0;
     }
     .star-rating__text {
-      font-size: var(--star-size, 16px);
+      font-size: calc(var(--star-size, 16px) * 0.85);
       line-height: 1;
       color: inherit;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
   </style>
 
