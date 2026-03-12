@@ -114,6 +114,7 @@
 
     /* Slider mode */
     .feature-cards--mobile-slider .feature-cards__viewport {
+      display: block;
       overflow: hidden;
     }
     .feature-cards--mobile-slider .feature-cards__track {
@@ -227,7 +228,7 @@
           <div
             class="feature-card"
             {{ block.shopify_attributes }}
-            style="--fc-card-bg: {{ block.settings.card_bg_color | default: '#f5f5f5' }};"
+            style="--fc-card-bg: {% if block.settings.card_bg_color != blank %}{{ block.settings.card_bg_color }}{% else %}transparent{% endif %};"
           >
             <div class="feature-card__image-wrapper">
               {%- if block.settings.image != blank -%}
