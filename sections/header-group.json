@@ -122,18 +122,18 @@
       "settings": {
         "heading": "ST PATRICK'S DAY SALE",
         "heading_color": "#ffffff",
-        "heading_font_size": 16,
+        "heading_font_size": 20,
         "heading_font_weight": "700",
-        "heading_letter_spacing": 2.5,
+        "heading_letter_spacing": 1,
         "heading_transform": "uppercase",
         "subtext": "Shop Now and Get Up To 70% Off",
         "subtext_color": "#ffffffe6",
-        "subtext_font_size": 12,
+        "subtext_font_size": 14,
         "subtext_font_weight": "400",
         "show_timer": true,
         "timer_hours": 2,
         "timer_color": "#ffffff",
-        "background_color": "#2E5BFF",
+        "background_color": "#2e5bff",
         "padding_top": 10,
         "padding_bottom": 10
       }
