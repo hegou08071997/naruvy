@@ -41,14 +41,15 @@
       text-overflow: ellipsis;
       min-width: 0;
     }
+    .product__benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+    }
     .product__benefit-item {
       display: flex;
       align-items: center;
       gap: 0.5em;
-      margin-bottom: 0.6em;
-    }
-    .product__benefit-item:last-child {
-      margin-bottom: 0;
     }
     .benefit-item__icon {
       flex-shrink: 0;
@@ -197,24 +198,26 @@
                     </h2>
                   </a>
                 </div>
-              {%- when 'benefit_item' -%}
-                <div class="product__benefit-item" {{ block.shopify_attributes }}>
-                  <span class="benefit-item__icon">
-                    {%- if block.settings.icon_image != blank -%}
-                      <img
-                        src="{{ block.settings.icon_image | image_url: width: 48 }}"
-                        alt=""
-                        width="24"
-                        height="24"
-                        loading="lazy"
-                      >
-                    {%- else -%}
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.icon_color }}"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              {%- when 'benefits_list' -%}
+                <div class="product__benefits-list" {{ block.shopify_attributes }}>
+                  {%- assign benefit_texts = 'benefit_1,benefit_2,benefit_3,benefit_4,benefit_5,benefit_6' | split: ',' -%}
+                  {%- assign benefit_icons = 'icon_1,icon_2,icon_3,icon_4,icon_5,icon_6' | split: ',' -%}
+                  {%- for benefit_id in benefit_texts -%}
+                    {%- assign txt = block.settings[benefit_id] -%}
+                    {%- assign img = block.settings[benefit_icons[forloop.index0]] -%}
+                    {%- if txt != blank -%}
+                      <div class="product__benefit-item">
+                        <span class="benefit-item__icon">
+                          {%- if img != blank -%}
+                            <img src="{{ img | image_url: width: 48 }}" alt="" width="24" height="24" loading="lazy">
+                          {%- else -%}
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.icon_color }}"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                          {%- endif -%}
+                        </span>
+                        <span class="benefit-item__text">{{ txt }}</span>
+                      </div>
                     {%- endif -%}
-                  </span>
-                  {% if block.settings.text != blank %}
-                    <span class="benefit-item__text">{{ block.settings.text }}</span>
-                  {% endif %}
+                  {%- endfor -%}
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -941,15 +944,10 @@
       "limit": 1
     },
     {
-      "type": "benefit_item",
-      "name": "Benefit item",
+      "type": "benefits_list",
+      "name": "Benefits list",
+      "limit": 1,
       "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "Benefit text"
-        },
         {
           "type": "color",
           "id": "icon_color",
@@ -957,10 +955,89 @@
           "default": "#9f3f3f"
         },
         {
+          "type": "header",
+          "content": "Benefit 1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_1",
+          "label": "Text",
+          "default": "Benefit text"
+        },
+        {
           "type": "image_picker",
-          "id": "icon_image",
-          "label": "Custom icon image",
-          "info": "Replaces the default checkmark icon"
+          "id": "icon_1",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Benefit 2"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_2",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Benefit 3"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_3",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Benefit 4"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_4",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_4",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Benefit 5"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_5",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_5",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Benefit 6"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "benefit_6",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_6",
+          "label": "Custom icon"
         }
       ]
     },
