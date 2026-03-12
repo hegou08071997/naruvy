@@ -78,8 +78,9 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: 2px;
-      white-space: nowrap;
+      margin-top: -10px;
+      overflow: hidden;
+      max-width: 100%;
     }
     .trust-microcopy__item {
       display: inline-flex;
@@ -118,10 +119,8 @@
     }
     .trust-microcopy--count-1 { font-size: 1.4rem; }
     .trust-microcopy--count-2 { font-size: 1.2rem; }
-    .trust-microcopy--count-3 { font-size: 1.0rem; }
     @media screen and (max-width: 749px) {
       .trust-microcopy--count-2 { font-size: 1.0rem; }
-      .trust-microcopy--count-3 { font-size: 0.85rem; }
     }
 
     /* Sticky ATC */
@@ -1025,9 +1024,9 @@
                 {% render 'icon-with-text', block: block %}
               {%- when 'trust_microcopy' -%}
                 {%- liquid
-                  assign trust_texts = 'text_1,text_2,text_3' | split: ','
-                  assign trust_icons = 'icon_name_1,icon_name_2,icon_name_3' | split: ','
-                  assign trust_images = 'icon_image_1,icon_image_2,icon_image_3' | split: ','
+                  assign trust_texts = 'text_1,text_2' | split: ','
+                  assign trust_icons = 'icon_name_1,icon_name_2' | split: ','
+                  assign trust_images = 'icon_image_1,icon_image_2' | split: ','
                   assign trust_count = 0
                   assign has_google_icon = false
                   for tid in trust_texts
@@ -3115,25 +3114,6 @@
         {
           "type": "image_picker",
           "id": "icon_image_2",
-          "label": "Custom icon"
-        },
-        {
-          "type": "header",
-          "content": "Item 3"
-        },
-        {
-          "type": "text",
-          "id": "text_3",
-          "label": "Text"
-        },
-        {
-          "type": "text",
-          "id": "icon_name_3",
-          "label": "Google icon name"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_image_3",
           "label": "Custom icon"
         }
       ]
