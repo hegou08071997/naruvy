@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "text_6k77Ym": {
+          "type": "text",
+          "settings": {
+            "text": "testtt",
+            "text_style": "body"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -40,6 +47,7 @@
         }
       },
       "block_order": [
+        "text_6k77Ym",
         "title",
         "price",
         "variant_picker",
