@@ -310,6 +310,69 @@
         "padding_bottom": 36
       }
     },
+    "testimonial_slider": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "ticker_1": { "type": "ticker_image", "settings": {} },
+        "ticker_2": { "type": "ticker_image", "settings": {} },
+        "ticker_3": { "type": "ticker_image", "settings": {} },
+        "ticker_4": { "type": "ticker_image", "settings": {} },
+        "ticker_5": { "type": "ticker_image", "settings": {} },
+        "ticker_6": { "type": "ticker_image", "settings": {} },
+        "ticker_7": { "type": "ticker_image", "settings": {} },
+        "ticker_8": { "type": "ticker_image", "settings": {} },
+        "ticker_9": { "type": "ticker_image", "settings": {} },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": "4.9",
+            "quote": "\"Haven't been sick in months!\"",
+            "details": "I started taking [BRAND] daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
+            "author_name": "HAILEY A.",
+            "tag_1": "Immunity Boost",
+            "tag_2": "Prevention"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": "5.0",
+            "quote": "\"Helped my digestion more than probiotics.\"",
+            "details": "I've struggled with bloating and irregular digestion for years. [BRAND] made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
+            "author_name": "DANA H.",
+            "tag_1": "Gut Support",
+            "tag_2": "Bloat Relief"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": "4.9",
+            "quote": "\"A clean product that actually works.\"",
+            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. [BRAND] is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
+            "author_name": "MIKE M.",
+            "tag_1": "Clean Ingredients",
+            "tag_2": "Whole-Body Health"
+          }
+        }
+      },
+      "block_order": [
+        "ticker_1", "ticker_2", "ticker_3", "ticker_4", "ticker_5",
+        "ticker_6", "ticker_7", "ticker_8", "ticker_9",
+        "review_1", "review_2", "review_3"
+      ],
+      "settings": {
+        "heading": "Real Stories, <strong>Real Results</strong>",
+        "subheading": "See what our customers are saying about [BRAND]",
+        "highlight_color": "#009370",
+        "star_color": "#009370",
+        "verified_color": "#009370",
+        "tag_color": "#009370",
+        "ticker_speed": 30,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -333,6 +396,7 @@
   "order": [
     "main",
     "feature_cards",
+    "testimonial_slider",
     "related-products"
   ]
 }
