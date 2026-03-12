@@ -103,7 +103,7 @@
           "type": "urgency_notice",
           "settings": {
             "line_1": "<p><strong>WARNING: Low Stock Notice</strong></p>",
-            "line_2": "<p>This product sold out <em>12 times</em> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Subscribing protects you against future stockouts. <strong>PS:</strong> Only available here, don't buy <em>fakes on Amazon/eBay</em></p>",
+            "line_2": "<p>This product sold out <span style=\"text-decoration:underline\">12 times</span> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Subscribing protects you against future stockouts. <strong>PS:</strong> Only available here, don't buy <span style=\"text-decoration:underline\">fakes on Amazon/eBay</span></p>",
             "font_size": 1.2,
             "bg_color": "#fef2f2",
             "text_color": "#9f3f3f",
