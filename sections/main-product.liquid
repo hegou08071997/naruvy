@@ -118,10 +118,10 @@
       user-select: none;
     }
     .trust-microcopy--count-1 { font-size: var(--trust-size); }
-    .trust-microcopy--count-2 { font-size: calc(var(--trust-size) * 0.78); }
+    .trust-microcopy--count-2 { font-size: var(--trust-size-2); }
     @media screen and (max-width: 749px) {
       .trust-microcopy--count-1 { font-size: calc(var(--trust-size) * 0.85); }
-      .trust-microcopy--count-2 { font-size: calc(var(--trust-size) * 0.6); }
+      .trust-microcopy--count-2 { font-size: calc(var(--trust-size-2) * 0.85); }
     }
 
     /* Sticky ATC */
@@ -1050,6 +1050,7 @@
                     class="trust-microcopy trust-microcopy--count-{{ trust_count }}"
                     style="
                       --trust-size: {{ block.settings.font_size }}rem;
+                      --trust-size-2: {{ block.settings.font_size_2_items }}rem;
                       {%- if block.settings.bg_color != blank and block.settings.bg_color != 'rgba(0,0,0,0)' -%}background-color: {{ block.settings.bg_color }}; padding: 10px 15px; border-radius: 6px;{%- endif -%}
                       {%- if block.settings.text_color != blank and block.settings.text_color != 'rgba(0,0,0,0)' -%}color: {{ block.settings.text_color }};{%- endif -%}
                     "
@@ -3071,11 +3072,21 @@
         {
           "type": "range",
           "id": "font_size",
-          "label": "Font size",
+          "label": "Font size (1 item)",
           "min": 1.0,
           "max": 2.0,
           "step": 0.1,
           "default": 1.5,
+          "unit": "rem"
+        },
+        {
+          "type": "range",
+          "id": "font_size_2_items",
+          "label": "Font size (2 items)",
+          "min": 0.8,
+          "max": 1.8,
+          "step": 0.1,
+          "default": 1.2,
           "unit": "rem"
         },
         {
