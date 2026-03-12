@@ -1,0 +1,456 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .feature-cards {
+    width: 100%;
+  }
+
+  .feature-cards__heading {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 2rem;
+  }
+
+  .feature-cards__heading strong {
+    color: var(--fc-highlight-color, #2e5bff);
+  }
+
+  .feature-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--fc-columns, 4), 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--fc-card-bg, #f5f5f5);
+    border-radius: var(--fc-card-radius, 12px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-card__image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--fc-img-radius, 0.8rem);
+  }
+
+  .feature-card__image-wrapper img,
+  .feature-card__image-wrapper svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .feature-card__content {
+    padding: 1.2rem 1rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .feature-card__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .feature-card__text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  /* Desktop: always grid */
+  @media screen and (min-width: 750px) {
+    .feature-cards__heading {
+      font-size: 3.4rem;
+    }
+    .feature-cards__slider-controls {
+      display: none !important;
+    }
+    .feature-cards__track {
+      display: grid !important;
+      grid-template-columns: repeat(var(--fc-columns, 4), 1fr) !important;
+      gap: 1.5rem !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .feature-cards__heading {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Grid mode */
+    .feature-cards--mobile-grid .feature-cards__track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .feature-cards--mobile-grid .feature-cards__slider-controls {
+      display: none !important;
+    }
+
+    /* Slider mode */
+    .feature-cards--mobile-slider .feature-cards__viewport {
+      overflow: hidden;
+    }
+    .feature-cards--mobile-slider .feature-cards__track {
+      display: flex;
+      transition: transform 0.35s ease;
+    }
+    .feature-cards--mobile-slider .feature-cards__track .feature-card {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Slider controls */
+  .feature-cards__slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .feature-cards__dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .feature-cards__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .feature-cards__dot.active {
+    background: var(--fc-highlight-color, #2e5bff);
+  }
+
+  .feature-cards__arrow {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .feature-cards__arrow:hover {
+    border-color: #999;
+    background: #f5f5f5;
+  }
+
+  .feature-cards__arrow svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Hidden states for pagination options */
+  .feature-cards__slider-controls[data-pagination="dots"] .feature-cards__arrow {
+    display: none;
+  }
+  .feature-cards__slider-controls[data-pagination="arrows"] .feature-cards__dots {
+    display: none;
+  }
+</style>
+
+<div
+  class="section-{{ section.id }}-padding feature-cards feature-cards--mobile-{{ section.settings.mobile_layout }}"
+  style="
+    --fc-highlight-color: {{ section.settings.highlight_color }};
+    --fc-card-bg: {{ section.settings.card_bg_color }};
+    --fc-card-radius: {{ section.settings.card_border_radius }}px;
+    --fc-img-radius: {{ section.settings.image_border_radius }}rem;
+    --fc-columns: {{ section.blocks.size | at_most: 4 }};
+    {% if section.settings.section_bg_color != blank %}background: {{ section.settings.section_bg_color }};{% endif %}
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="feature-cards__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <feature-cards-slider class="feature-cards__viewport" data-mobile-layout="{{ section.settings.mobile_layout }}">
+      <div class="feature-cards__track">
+        {%- for block in section.blocks -%}
+          <div
+            class="feature-card"
+            {{ block.shopify_attributes }}
+            {% if block.settings.card_bg_color != blank %}
+              style="--fc-card-bg: {{ block.settings.card_bg_color }};"
+            {% endif %}
+          >
+            <div class="feature-card__image-wrapper">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 600
+                  | image_tag: loading: 'lazy', widths: '300,400,600', sizes: '(min-width: 750px) 25vw, 100vw'
+                }}
+              {%- else -%}
+                {{ 'product-apparel-2' | placeholder_svg_tag: 'feature-card__placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="feature-card__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="feature-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="feature-card__text">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </feature-cards-slider>
+
+    {%- if section.settings.mobile_layout == 'slider' and section.blocks.size > 1 -%}
+      <div class="feature-cards__slider-controls" data-pagination="{{ section.settings.pagination_type }}">
+        <button class="feature-cards__arrow feature-cards__arrow--prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="feature-cards__dots">
+          {%- for block in section.blocks -%}
+            <button class="feature-cards__dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+          {%- endfor -%}
+        </div>
+        <button class="feature-cards__arrow feature-cards__arrow--next" aria-label="Next">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  if (!customElements.get('feature-cards-slider')) {
+    class FeatureCardsSlider extends HTMLElement {
+      constructor() {
+        super();
+        this.currentIndex = 0;
+      }
+
+      connectedCallback() {
+        if (this.dataset.mobileLayout !== 'slider') return;
+
+        this.track = this.querySelector('.feature-cards__track');
+        this.cards = this.track ? [...this.track.children] : [];
+        this.total = this.cards.length;
+        if (this.total <= 1) return;
+
+        const section = this.closest('.feature-cards');
+        this.dots = section ? [...section.querySelectorAll('.feature-cards__dot')] : [];
+        this.prevBtn = section ? section.querySelector('.feature-cards__arrow--prev') : null;
+        this.nextBtn = section ? section.querySelector('.feature-cards__arrow--next') : null;
+
+        this.prevBtn?.addEventListener('click', () => this.goTo(this.currentIndex - 1));
+        this.nextBtn?.addEventListener('click', () => this.goTo(this.currentIndex + 1));
+        this.dots.forEach((dot) => {
+          dot.addEventListener('click', () => this.goTo(parseInt(dot.dataset.index)));
+        });
+
+        let startX = 0;
+        let diff = 0;
+        this.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+        this.addEventListener('touchmove', (e) => { diff = e.touches[0].clientX - startX; }, { passive: true });
+        this.addEventListener('touchend', () => {
+          if (Math.abs(diff) > 50) {
+            this.goTo(this.currentIndex + (diff < 0 ? 1 : -1));
+          }
+          diff = 0;
+        });
+      }
+
+      goTo(index) {
+        if (index < 0) index = 0;
+        if (index >= this.total) index = this.total - 1;
+        this.currentIndex = index;
+        this.track.style.transform = `translateX(-${index * 100}%)`;
+        this.dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      }
+    }
+
+    customElements.define('feature-cards-slider', FeatureCardsSlider);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Feature cards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Discover the <strong>Key Benefits</strong>"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Heading highlight color",
+      "default": "#2e5bff"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Default card background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "default": 0.8,
+      "unit": "rem"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        { "value": "grid", "label": "Grid (stacked)" },
+        { "value": "slider", "label": "Slider" }
+      ],
+      "default": "slider"
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "label": "Slider pagination",
+      "options": [
+        { "value": "both", "label": "Dots & Arrows" },
+        { "value": "dots", "label": "Dots only" },
+        { "value": "arrows", "label": "Arrows only" }
+      ],
+      "default": "both",
+      "info": "Only applies to mobile slider mode"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Pair text with an image to focus on your chosen product, collection, or blog post."
+        },
+        {
+          "type": "color",
+          "id": "card_bg_color",
+          "label": "Card background color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature cards",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
