@@ -130,8 +130,9 @@
       align-items: center;
       gap: 12px;
       padding: 10px 16px;
-      border-radius: 8px;
+      border-radius: var(--spb-radius, 8px);
       margin-top: 10px;
+      width: 100%;
     }
     .social-proof-banner__avatars {
       display: flex;
@@ -1142,7 +1143,7 @@
               {%- when 'social_proof_banner' -%}
                 <div
                   class="social-proof-banner"
-                  style="background-color: {{ block.settings.bg_color }};"
+                  style="background-color: {{ block.settings.bg_color }}; --spb-radius: {{ block.settings.border_radius }}px;"
                   {{ block.shopify_attributes }}
                 >
                   {%- liquid
@@ -3254,6 +3255,16 @@
           "id": "bg_color",
           "label": "Background color",
           "default": "#F5F5F5"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "default": 8,
+          "unit": "px"
         },
         {
           "type": "inline_richtext",
