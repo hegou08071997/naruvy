@@ -23,6 +23,9 @@
   .ticker-bar-{{ section.id }} .ticker__track {
     display: flex;
     width: max-content;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__track.is-ready {
     animation: ticker-scroll-{{ section.id }} var(--ticker-speed) linear infinite;
   }
 
@@ -64,14 +67,7 @@
     font-weight: {{ section.settings.font_weight }};
   }
 
-  @keyframes ticker-scroll-{{ section.id }} {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
+  /* keyframes injected by JS to match exact clone count */
 {%- endstyle -%}
 
 {% if section.blocks.size > 0 %}
@@ -81,34 +77,92 @@
 
 <div class="ticker-bar-{{ section.id }}" role="marquee" aria-label="{{ section.settings.aria_label }}">
   {% if section.blocks.size > 0 %}
-    <div class="ticker__track">
-      {% comment %} Render two identical groups so the animation loops seamlessly {% endcomment %}
-      {% for i in (1..2) %}
-        <div class="ticker__group">
-          {% for block in section.blocks %}
-            <div class="ticker__item" {{ block.shopify_attributes }}>
-              {% if block.settings.icon_image != blank %}
-                <img
-                  class="ticker__icon-img"
-                  src="{{ block.settings.icon_image | image_url: width: 64 }}"
-                  alt="{{ block.settings.text | escape }}"
-                  width="{{ section.settings.icon_size }}"
-                  height="{{ section.settings.icon_size }}"
-                  loading="lazy"
-                >
-              {% elsif block.settings.icon_name != blank %}
-                <span class="material-icons ticker__icon-font" aria-hidden="true">{{ block.settings.icon_name }}</span>
-              {% endif %}
-              {% if block.settings.text != blank %}
-                <span class="ticker__text">{{ block.settings.text }}</span>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endfor %}
+    <div class="ticker__track" data-ticker-track>
+      <div class="ticker__group" data-ticker-group>
+        {% for block in section.blocks %}
+          <div class="ticker__item" {{ block.shopify_attributes }}>
+            {% if block.settings.icon_image != blank %}
+              <img
+                class="ticker__icon-img"
+                src="{{ block.settings.icon_image | image_url: width: 64 }}"
+                alt="{{ block.settings.text | escape }}"
+                width="{{ section.settings.icon_size }}"
+                height="{{ section.settings.icon_size }}"
+                loading="lazy"
+              >
+            {% elsif block.settings.icon_name != blank %}
+              <span class="material-icons ticker__icon-font" aria-hidden="true">{{ block.settings.icon_name }}</span>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <span class="ticker__text">{{ block.settings.text }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
   {% endif %}
 </div>
+
+<script>
+  (function () {
+    var container = document.querySelector('.ticker-bar-{{ section.id }}');
+    if (!container) return;
+    var track = container.querySelector('[data-ticker-track]');
+    var group = container.querySelector('[data-ticker-group]');
+    if (!track || !group) return;
+
+    function init() {
+      /* Remove old clones if re-initialising (theme editor) */
+      track.querySelectorAll('[data-ticker-clone]').forEach(function (el) { el.remove(); });
+      track.classList.remove('is-ready');
+
+      var groupWidth = group.offsetWidth;
+      var viewportWidth = container.offsetWidth;
+      if (groupWidth === 0) return;
+
+      /* We need enough copies so total width >= 2 × viewport */
+      var copies = Math.ceil((viewportWidth * 2) / groupWidth);
+      if (copies < 2) copies = 2;
+
+      for (var i = 0; i < copies; i++) {
+        var clone = group.cloneNode(true);
+        clone.setAttribute('data-ticker-clone', '');
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+
+      /* The animation translates by exactly 1 group width out of (1 + copies) total groups.
+         percentage = 1 / (1 + copies) * 100 */
+      var totalGroups = 1 + copies;
+      var pct = (1 / totalGroups) * 100;
+      var stylesheetId = 'ticker-anim-{{ section.id }}';
+      var existing = document.getElementById(stylesheetId);
+      if (existing) existing.remove();
+
+      var style = document.createElement('style');
+      style.id = stylesheetId;
+      style.textContent =
+        '@keyframes ticker-scroll-{{ section.id }}{0%{transform:translateX(0)}100%{transform:translateX(-' + pct + '%)}}';
+      document.head.appendChild(style);
+
+      track.classList.add('is-ready');
+    }
+
+    /* Run after fonts / images have had a chance to load */
+    if (document.readyState === 'complete') {
+      init();
+    } else {
+      window.addEventListener('load', init);
+    }
+
+    /* Re-init on resize so clone count stays correct */
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 200);
+    });
+  })();
+</script>
 
 {% schema %}
 {
