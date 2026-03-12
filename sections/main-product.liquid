@@ -1112,6 +1112,7 @@
                           id="StickyAtcBtn-{{ section.id }}"
                           type="button"
                           class="button button--has-spinner"
+                          style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};"
                           {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}disabled{% endif %}
                         >
                           <span class="sticky-atc__error" style="display:none;"></span>
@@ -1137,7 +1138,7 @@
                           </div>
                         </button>
                       {%- else -%}
-                        <button class="button sticky-atc__scroll-btn">
+                        <button class="button sticky-atc__scroll-btn" style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};">
                           <span>
                             {% if block.settings.mobile_show_price_in_button or block.settings.desktop_show_price_in_button %}
                               <span id="sticky-atc-price-{{ section.id }}" class="
@@ -3014,6 +3015,41 @@
           "id": "stars_label",
           "label": "Stars label",
           "default": "(xxxx Reviews)"
+        },
+        {
+          "type": "header",
+          "content": "Button typography"
+        },
+        {
+          "type": "range",
+          "id": "button_font_size",
+          "label": "Button font size",
+          "min": 1.2,
+          "max": 2.4,
+          "step": 0.1,
+          "default": 1.5,
+          "unit": "rem"
+        },
+        {
+          "type": "select",
+          "id": "button_font_weight",
+          "label": "Button font weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "600", "label": "Semi-bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        },
+        {
+          "type": "select",
+          "id": "button_text_transform",
+          "label": "Uppercase text",
+          "options": [
+            { "value": "none", "label": "No" },
+            { "value": "uppercase", "label": "Yes" }
+          ],
+          "default": "uppercase"
         },
         {
           "type": "header",
