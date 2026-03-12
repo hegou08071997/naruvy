@@ -67,7 +67,7 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false,
-            "button_font_size": 1.5,
+            "button_font_size": 1.8,
             "button_font_weight": "700"
           }
         }
