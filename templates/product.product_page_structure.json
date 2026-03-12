@@ -99,6 +99,23 @@
             "image_3": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
           }
         },
+        "urgency_notice": {
+          "type": "urgency_notice",
+          "settings": {
+            "line_1": "<p><strong>WARNING: Low Stock Notice</strong></p>",
+            "line_2": "<p>This product sold out <em>12 times</em> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Subscribing protects you against future stockouts. <strong>PS:</strong> Only available here, don't buy <em>fakes on Amazon/eBay</em></p>",
+            "font_size": 1.2,
+            "bg_color": "#fef2f2",
+            "text_color": "#9f3f3f",
+            "border_width": 2,
+            "border_style": "dashed",
+            "border_color": "#fca5a5",
+            "border_radius": 3,
+            "icon_name": "error",
+            "icon_color": "#d61717",
+            "icon_scale": 1.2
+          }
+        },
         "sticky_cart": {
           "type": "sticky_cart",
           "settings": {
@@ -144,6 +161,7 @@
         "buy_buttons",
         "trust_microcopy",
         "social_proof_banner",
+        "urgency_notice",
         "sticky_cart"
       ],
       "settings": {

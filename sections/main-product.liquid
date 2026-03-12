@@ -124,6 +124,48 @@
       .trust-microcopy--count-2 { font-size: calc(var(--trust-size-2) * 0.85); }
     }
 
+    /* Urgency notice */
+    .urgency-notice {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+      width: 100%;
+      padding: 1.5rem;
+      border-radius: var(--un-radius, 3px);
+      font-size: var(--un-font-size, 1.2rem);
+      margin-top: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .urgency-notice--has-border {
+      border: var(--un-border-width, 2px) var(--un-border-style, dashed) var(--un-border-color, rgba(252, 165, 165, 1));
+    }
+    .urgency-notice__line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4em;
+      line-height: 1.5;
+    }
+    .urgency-notice__icon {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      font-size: calc(1em * var(--un-icon-scale, 1.2));
+      line-height: 1;
+    }
+    .urgency-notice__icon.material-symbols-outlined {
+      font-size: calc(1em * var(--un-icon-scale, 1.2));
+    }
+    .urgency-notice__icon img {
+      width: 1em;
+      height: 1em;
+      object-fit: contain;
+    }
+    @media screen and (max-width: 749px) {
+      .urgency-notice {
+        padding: 1.2rem;
+      }
+    }
+
     /* Social proof banner */
     .social-proof-banner {
       display: flex;
@@ -1183,6 +1225,56 @@
                       <div class="social-proof-banner__subtitle">{{ block.settings.subtitle }}</div>
                     {%- endif -%}
                   </div>
+                </div>
+              {%- when 'urgency_notice' -%}
+                {%- liquid
+                  assign un_has_icon = false
+                  if block.settings.icon_name != blank or block.settings.icon_image != blank
+                    assign un_has_icon = true
+                  endif
+                  assign un_has_google_icon = false
+                  if block.settings.icon_name != blank and block.settings.icon_image == blank
+                    assign un_has_google_icon = true
+                  endif
+                -%}
+                {%- if un_has_google_icon -%}
+                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+                {%- endif -%}
+                <div
+                  class="urgency-notice{% if block.settings.border_width > 0 %} urgency-notice--has-border{% endif %}"
+                  style="
+                    --un-font-size: {{ block.settings.font_size }}rem;
+                    --un-radius: {{ block.settings.border_radius }}px;
+                    --un-icon-scale: {{ block.settings.icon_scale }};
+                    {%- if block.settings.bg_color != blank and block.settings.bg_color != 'rgba(0,0,0,0)' -%}background-color: {{ block.settings.bg_color }};{%- endif -%}
+                    {%- if block.settings.text_color != blank and block.settings.text_color != 'rgba(0,0,0,0)' -%}color: {{ block.settings.text_color }};{%- endif -%}
+                    {%- if block.settings.border_width > 0 -%}
+                      --un-border-width: {{ block.settings.border_width }}px;
+                      --un-border-style: {{ block.settings.border_style }};
+                      {%- if block.settings.border_color != blank -%}--un-border-color: {{ block.settings.border_color }};{%- endif -%}
+                    {%- endif -%}
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.line_1 != blank -%}
+                    <div class="urgency-notice__line">
+                      {%- if un_has_icon -%}
+                        {%- if block.settings.icon_image != blank -%}
+                          <span class="urgency-notice__icon"{% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %} style="color: {{ block.settings.icon_color }};"{% endif %}>
+                            <img src="{{ block.settings.icon_image | image_url: width: 40 }}" alt="" loading="lazy" width="1em" height="1em">
+                          </span>
+                        {%- elsif block.settings.icon_name != blank -%}
+                          <span class="urgency-notice__icon material-symbols-outlined" style="{% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %}color: {{ block.settings.icon_color }};{% endif %}" aria-hidden="true">{{ block.settings.icon_name }}</span>
+                        {%- endif -%}
+                      {%- endif -%}
+                      <span>{{ block.settings.line_1 }}</span>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.line_2 != blank -%}
+                    <div class="urgency-notice__line">
+                      <span>{{ block.settings.line_2 }}</span>
+                    </div>
+                  {%- endif -%}
                 </div>
               {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
@@ -3302,6 +3394,123 @@
           "type": "image_picker",
           "id": "image_3",
           "label": "Image 3"
+        }
+      ]
+    },
+    {
+      "type": "urgency_notice",
+      "name": "Urgency notice",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "line_1",
+          "label": "Line 1 (with icon)",
+          "default": "<p><strong>WARNING: Low Stock Notice</strong></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "line_2",
+          "label": "Line 2",
+          "default": "<p>This product sold out <em>12 times</em> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Subscribing protects you against future stockouts. <strong>PS:</strong> Only available here, don't buy <em>fakes on Amazon/eBay</em></p>"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "label": "Font size",
+          "min": 1.0,
+          "max": 1.8,
+          "step": 0.1,
+          "default": 1.2,
+          "unit": "rem"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#fef2f2"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#9f3f3f"
+        },
+        {
+          "type": "header",
+          "content": "Border"
+        },
+        {
+          "type": "range",
+          "id": "border_width",
+          "label": "Border width",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 2,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "border_style",
+          "label": "Border style",
+          "default": "dashed",
+          "options": [
+            { "value": "solid", "label": "Solid" },
+            { "value": "dashed", "label": "Dashed" },
+            { "value": "dotted", "label": "Dotted" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border color",
+          "default": "#fca5a5"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "default": 3,
+          "unit": "px"
+        },
+        {
+          "type": "header",
+          "content": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_name",
+          "label": "Google icon name",
+          "default": "error",
+          "info": "e.g. error, warning, info"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#d61717"
+        },
+        {
+          "type": "range",
+          "id": "icon_scale",
+          "label": "Icon scale",
+          "min": 0.8,
+          "max": 2.0,
+          "step": 0.1,
+          "default": 1.2
         }
       ]
     },
