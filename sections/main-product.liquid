@@ -29,11 +29,11 @@
       gap: 2px;
     }
     .star-rating__star {
-      width: var(--star-size, 18px);
-      height: var(--star-size, 18px);
+      width: var(--star-size, 16px);
+      height: var(--star-size, 16px);
     }
     .star-rating__text {
-      font-size: 0.875rem;
+      font-size: var(--star-size, 16px);
       line-height: 1.4;
       color: inherit;
     }
@@ -874,12 +874,13 @@
         {
           "type": "range",
           "id": "star_size",
-          "label": "Star size",
+          "label": "Size",
+          "info": "Applies to both stars and text",
           "min": 12,
           "max": 32,
           "step": 1,
           "unit": "px",
-          "default": 18
+          "default": 16
         },
         {
           "type": "select",

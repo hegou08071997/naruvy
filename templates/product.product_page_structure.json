@@ -19,7 +19,7 @@
             "text": "Rated <strong>4.8 Excellent<\/strong> 50,312+ Reviews",
             "star_color": "#ffcc00",
             "star_bg_color": "#ececec",
-            "star_size": 18,
+            "star_size": 16,
             "alignment": "flex-start"
           }
         },
