@@ -78,9 +78,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: 6px;
+      margin-top: 2px;
       white-space: nowrap;
-      overflow: hidden;
     }
     .trust-microcopy__item {
       display: inline-flex;
@@ -88,12 +87,6 @@
       gap: 5px;
       white-space: nowrap;
       line-height: 1.3;
-      min-width: 0;
-      flex-shrink: 1;
-    }
-    .trust-microcopy__item span:last-child {
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .trust-microcopy__icon {
       flex-shrink: 0;
@@ -102,18 +95,18 @@
       justify-content: center;
     }
     .trust-microcopy__icon img {
-      width: 17px;
-      height: 17px;
+      width: 1em;
+      height: 1em;
       display: block;
       object-fit: contain;
     }
     .trust-microcopy__icon svg {
-      width: 17px;
-      height: 17px;
+      width: 1em;
+      height: 1em;
       display: block;
     }
     .trust-microcopy__icon.material-symbols-outlined {
-      font-size: 17px;
+      font-size: inherit;
       line-height: 1;
       width: auto;
       height: auto;
@@ -122,11 +115,14 @@
       color: inherit;
       font-weight: 300;
       user-select: none;
-      flex-shrink: 0;
     }
-    .trust-microcopy--count-1 .trust-microcopy__item { font-size: 1.4rem; }
-    .trust-microcopy--count-2 .trust-microcopy__item { font-size: 1.2rem; }
-    .trust-microcopy--count-3 .trust-microcopy__item { font-size: 1.1rem; }
+    .trust-microcopy--count-1 { font-size: 1.4rem; }
+    .trust-microcopy--count-2 { font-size: 1.2rem; }
+    .trust-microcopy--count-3 { font-size: 1.0rem; }
+    @media screen and (max-width: 749px) {
+      .trust-microcopy--count-2 { font-size: 1.0rem; }
+      .trust-microcopy--count-3 { font-size: 0.85rem; }
+    }
 
     /* Sticky ATC */
     .sticky-atc {
