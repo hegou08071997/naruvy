@@ -117,9 +117,11 @@
       font-weight: 300;
       user-select: none;
     }
+    .trust-microcopy--count-1 { font-size: var(--trust-size); }
     .trust-microcopy--count-2 { font-size: calc(var(--trust-size) * 0.78); }
     @media screen and (max-width: 749px) {
-      .trust-microcopy--count-2 { font-size: calc(var(--trust-size) * 0.65); }
+      .trust-microcopy--count-1 { font-size: calc(var(--trust-size) * 0.85); }
+      .trust-microcopy--count-2 { font-size: calc(var(--trust-size) * 0.6); }
     }
 
     /* Sticky ATC */
@@ -1048,7 +1050,6 @@
                     class="trust-microcopy trust-microcopy--count-{{ trust_count }}"
                     style="
                       --trust-size: {{ block.settings.font_size }}rem;
-                      font-size: var(--trust-size);
                       {%- if block.settings.bg_color != blank and block.settings.bg_color != 'rgba(0,0,0,0)' -%}background-color: {{ block.settings.bg_color }}; padding: 10px 15px; border-radius: 6px;{%- endif -%}
                       {%- if block.settings.text_color != blank and block.settings.text_color != 'rgba(0,0,0,0)' -%}color: {{ block.settings.text_color }};{%- endif -%}
                     "
