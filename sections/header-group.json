@@ -11,6 +11,51 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "ticker_bar": {
+      "type": "ticker-bar",
+      "blocks": {
+        "ticker_item_1": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Subscribe & Save",
+            "icon_name": "loyalty"
+          }
+        },
+        "ticker_item_2": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Buy 2 Get 1 Free",
+            "icon_name": "card_giftcard"
+          }
+        },
+        "ticker_item_3": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Up To 70% Off",
+            "icon_name": "sell"
+          }
+        }
+      },
+      "block_order": [
+        "ticker_item_1",
+        "ticker_item_2",
+        "ticker_item_3"
+      ],
+      "settings": {
+        "background_color": "#8b1a2b",
+        "text_color": "#ffffff",
+        "border_position": "none",
+        "border_thickness": 1,
+        "border_color": "#ffffff",
+        "font_size": 14,
+        "font_weight": "600",
+        "spacing": 40,
+        "icon_size": 20,
+        "speed": 20,
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
@@ -83,6 +128,7 @@
     }
   },
   "order": [
+    "ticker_bar",
     "announcement-bar",
     "header",
     "custom_liquid_PMex7k"

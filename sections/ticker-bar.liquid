@@ -1,0 +1,308 @@
+{%- style -%}
+  .ticker-bar-{{ section.id }} {
+    --ticker-bg: {{ section.settings.background_color }};
+    --ticker-text: {{ section.settings.text_color }};
+    --ticker-gap: {{ section.settings.spacing }}px;
+    --ticker-speed: {{ section.settings.speed }}s;
+    --ticker-font-size: {{ section.settings.font_size }}px;
+    --ticker-border-color: {{ section.settings.border_color }};
+    --ticker-border-width: {{ section.settings.border_thickness }}px;
+    background-color: var(--ticker-bg);
+    color: var(--ticker-text);
+    overflow: hidden;
+    position: relative;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    {% if section.settings.border_position == 'top' or section.settings.border_position == 'both' %}
+      border-top: var(--ticker-border-width) solid var(--ticker-border-color);
+    {% endif %}
+    {% if section.settings.border_position == 'bottom' or section.settings.border_position == 'both' %}
+      border-bottom: var(--ticker-border-width) solid var(--ticker-border-color);
+    {% endif %}
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll-{{ section.id }} var(--ticker-speed) linear infinite;
+  }
+
+  .ticker-bar-{{ section.id }}:hover .ticker__track {
+    animation-play-state: paused;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 calc(var(--ticker-gap) / 2);
+    white-space: nowrap;
+    font-size: var(--ticker-font-size);
+    line-height: 1.3;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__icon-img {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__icon-font {
+    font-size: {{ section.settings.icon_size }}px;
+    line-height: 1;
+    color: var(--ticker-text);
+    flex-shrink: 0;
+  }
+
+  .ticker-bar-{{ section.id }} .ticker__text {
+    font-weight: {{ section.settings.font_weight }};
+  }
+
+  @keyframes ticker-scroll-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></noscript>
+{% endif %}
+
+<div class="ticker-bar-{{ section.id }}" role="marquee" aria-label="{{ section.settings.aria_label }}">
+  {% if section.blocks.size > 0 %}
+    <div class="ticker__track">
+      {% comment %} Render two identical groups so the animation loops seamlessly {% endcomment %}
+      {% for i in (1..2) %}
+        <div class="ticker__group">
+          {% for block in section.blocks %}
+            <div class="ticker__item" {{ block.shopify_attributes }}>
+              {% if block.settings.icon_image != blank %}
+                <img
+                  class="ticker__icon-img"
+                  src="{{ block.settings.icon_image | image_url: width: 64 }}"
+                  alt="{{ block.settings.text | escape }}"
+                  width="{{ section.settings.icon_size }}"
+                  height="{{ section.settings.icon_size }}"
+                  loading="lazy"
+                >
+              {% elsif block.settings.icon_name != blank %}
+                <span class="material-icons ticker__icon-font" aria-hidden="true">{{ block.settings.icon_name }}</span>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <span class="ticker__text">{{ block.settings.text }}</span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Ticker bar",
+  "tag": "section",
+  "class": "section-ticker-bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Border"
+    },
+    {
+      "type": "select",
+      "id": "border_position",
+      "label": "Border position",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "both", "label": "Top and bottom" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "label": "Border thickness",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Spacing between items",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll speed (lower = faster)",
+      "min": 5,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Accessibility label",
+      "default": "Scrolling announcements"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ticker_item",
+      "name": "Ticker item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Ticker item"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "icon_name",
+          "label": "Google icon name",
+          "info": "Enter a [Material Icons](https://fonts.google.com/icons) name (e.g. 'verified', 'local_shipping'). Used only if no image is uploaded."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ticker bar",
+      "blocks": [
+        {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Free Shipping on Orders $50+",
+            "icon_name": "local_shipping"
+          }
+        },
+        {
+          "type": "ticker_item",
+          "settings": {
+            "text": "30-Day Money Back Guarantee",
+            "icon_name": "verified"
+          }
+        },
+        {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Subscribe & Save 15%",
+            "icon_name": "loyalty"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
