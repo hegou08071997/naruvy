@@ -48,7 +48,8 @@
             "sale_badge_text": "St Patrick's Day Sale - Save 69%",
             "sale_badge_weight": "600",
             "price_font_size": 2,
-            "price_font_weight": "700"
+            "price_font_weight": "700",
+            "compare_font_size": 1.8
           }
         },
         "variant_picker": {
@@ -68,7 +69,8 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false,
             "button_font_size": 1.8,
-            "button_font_weight": "700"
+            "button_font_weight": "700",
+            "button_text_transform": "none"
           }
         }
       },
