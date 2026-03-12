@@ -73,6 +73,40 @@
             "button_text_transform": "uppercase"
           }
         },
+        "sticky_cart": {
+          "type": "sticky_cart",
+          "settings": {
+            "function": "add_to_cart",
+            "display_when": "after_scroll",
+            "button_label": "ADD TO CART",
+            "enable_custom_btn_color": false,
+            "custom_btn_color": "#dd1d1d",
+            "color_scheme": "scheme-1",
+            "star_color": "#ffcc00",
+            "stars_label": "Rated 4.8 Excellent - 50,312+ Reviews",
+            "button_font_size": 1.8,
+            "button_font_weight": "700",
+            "button_text_transform": "uppercase",
+            "desktop_show_image": true,
+            "desktop_show_title": true,
+            "desktop_rating_stars": true,
+            "desktop_show_price": false,
+            "desktop_show_sale_badge": false,
+            "desktop_variant_picker": true,
+            "desktop_full_button_width": false,
+            "desktop_show_price_in_button": false,
+            "desktop_transparent_bg": false,
+            "mobile_show_image": true,
+            "mobile_show_title": true,
+            "mobile_rating_stars": false,
+            "mobile_show_price": false,
+            "mobile_show_sale_badge": false,
+            "mobile_variant_picker": true,
+            "mobile_full_button_width": false,
+            "mobile_show_price_in_button": false,
+            "mobile_transparent_bg": false
+          }
+        },
         "trust_microcopy": {
           "type": "trust_microcopy",
           "settings": {
@@ -116,38 +150,49 @@
             "icon_scale": 1.2
           }
         },
-        "sticky_cart": {
-          "type": "sticky_cart",
+        "collapsible_tab_mjEF8T": {
+          "type": "collapsible_tab",
           "settings": {
-            "function": "add_to_cart",
-            "display_when": "after_scroll",
-            "button_label": "ADD TO CART",
-            "enable_custom_btn_color": false,
-            "custom_btn_color": "#dd1d1d",
-            "color_scheme": "scheme-1",
-            "star_color": "#ffcc00",
-            "stars_label": "Rated 4.8 Excellent - 50,312+ Reviews",
-            "button_font_size": 1.8,
-            "button_font_weight": "700",
-            "button_text_transform": "uppercase",
-            "desktop_show_image": true,
-            "desktop_show_title": true,
-            "desktop_rating_stars": true,
-            "desktop_show_price": false,
-            "desktop_show_sale_badge": false,
-            "desktop_variant_picker": true,
-            "desktop_full_button_width": false,
-            "desktop_show_price_in_button": false,
-            "desktop_transparent_bg": false,
-            "mobile_show_image": true,
-            "mobile_show_title": true,
-            "mobile_rating_stars": false,
-            "mobile_show_price": false,
-            "mobile_show_sale_badge": false,
-            "mobile_variant_picker": true,
-            "mobile_full_button_width": false,
-            "mobile_show_price_in_button": false,
-            "mobile_transparent_bg": false
+            "heading": "Clinically proven benefits",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_gBgAbF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key ingredients",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_akEwJj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How it works",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_MTCgw9": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How long before I see results?",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_FPPE7p": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Money Back Guarantee",
+            "icon": "none",
+            "content": "",
+            "page": ""
           }
         }
       },
@@ -159,10 +204,15 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "sticky_cart",
         "trust_microcopy",
         "social_proof_banner",
         "urgency_notice",
-        "sticky_cart"
+        "collapsible_tab_mjEF8T",
+        "collapsible_tab_gBgAbF",
+        "collapsible_tab_akEwJj",
+        "collapsible_tab_MTCgw9",
+        "collapsible_tab_FPPE7p"
       ],
       "settings": {
         "enable_sticky_info": true,
