@@ -166,6 +166,81 @@
       object-fit: contain;
     }
 
+    /* Trust card */
+    .trust-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--tc-radius, 12px);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      isolation: isolate;
+    }
+    .trust-card__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: var(--tc-gradient);
+    }
+    .trust-card__bg-image {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: cover;
+      opacity: var(--tc-img-opacity, 0.15);
+    }
+    .trust-card__heading {
+      color: var(--tc-text-color, #fff);
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      margin-top: 0.8rem;
+    }
+    .trust-card__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2em;
+      row-gap: 1em;
+      margin-bottom: 1.2rem;
+    }
+    .trust-card__item {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      color: var(--tc-text-color, #fff);
+      font-size: 1.4rem;
+      white-space: nowrap;
+    }
+    .trust-card__item .material-symbols-outlined {
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
+    .trust-card__tagline {
+      color: var(--tc-text-color, #fff);
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    @media screen and (max-width: 749px) {
+      .trust-card {
+        padding: 1.2rem;
+      }
+      .trust-card__heading {
+        font-size: 1.8rem;
+      }
+      .trust-card__item {
+        font-size: 1.2rem;
+      }
+      .trust-card__tagline {
+        font-size: 1.2rem;
+      }
+    }
+
     /* Social proof banner */
     .social-proof-banner {
       display: flex;
@@ -1274,6 +1349,52 @@
                     <div class="urgency-notice__line">
                       <span>{{ block.settings.line_2 }}</span>
                     </div>
+                  {%- endif -%}
+                </div>
+              {%- when 'trust_card' -%}
+                {%- liquid
+                  assign tc_items = 'item_1,item_2,item_3,item_4,item_5,item_6' | split: ','
+                  assign tc_has_items = false
+                  for tid in tc_items
+                    if block.settings[tid] != blank
+                      assign tc_has_items = true
+                      break
+                    endif
+                  endfor
+                -%}
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+                <div
+                  class="trust-card"
+                  style="
+                    --tc-gradient: linear-gradient(180deg, {{ block.settings.gradient_start }} 35%, {{ block.settings.gradient_end }} 94%);
+                    --tc-text-color: {{ block.settings.text_color }};
+                    --tc-radius: {{ block.settings.border_radius }}px;
+                    --tc-img-opacity: {{ block.settings.image_opacity | divided_by: 100.0 }};
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  <div class="trust-card__bg"></div>
+                  {%- if block.settings.bg_image != blank -%}
+                    <div class="trust-card__bg-image" style="background-image: url('{{ block.settings.bg_image | image_url: width: 800 }}');"></div>
+                  {%- endif -%}
+                  {%- if block.settings.heading != blank -%}
+                    <div class="trust-card__heading">{{ block.settings.heading }}</div>
+                  {%- endif -%}
+                  {%- if tc_has_items -%}
+                    <div class="trust-card__grid">
+                      {%- for tid in tc_items -%}
+                        {%- assign tval = block.settings[tid] -%}
+                        {%- if tval != blank -%}
+                          <div class="trust-card__item">
+                            <span class="material-symbols-outlined" aria-hidden="true">{{ block.settings.icon_name }}</span>
+                            <span>{{ tval }}</span>
+                          </div>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.tagline != blank -%}
+                    <div class="trust-card__tagline">{{ block.settings.tagline }}</div>
                   {%- endif -%}
                 </div>
               {%- when 'sticky_cart' -%}
@@ -3511,6 +3632,119 @@
           "max": 2.0,
           "step": 0.1,
           "default": 1.2
+        }
+      ]
+    },
+    {
+      "type": "trust_card",
+      "name": "Trust card",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?"
+        },
+        {
+          "type": "header",
+          "content": "Items"
+        },
+        {
+          "type": "text",
+          "id": "item_1",
+          "label": "Item 1",
+          "default": "Odorless Formula"
+        },
+        {
+          "type": "text",
+          "id": "item_2",
+          "label": "Item 2",
+          "default": "Non-GMO"
+        },
+        {
+          "type": "text",
+          "id": "item_3",
+          "label": "Item 3",
+          "default": "No Artificial Additives"
+        },
+        {
+          "type": "text",
+          "id": "item_4",
+          "label": "Item 4",
+          "default": "Gluten-Free"
+        },
+        {
+          "type": "text",
+          "id": "item_5",
+          "label": "Item 5",
+          "default": "Gentle on the Stomach"
+        },
+        {
+          "type": "text",
+          "id": "item_6",
+          "label": "Item 6",
+          "default": "Easy-to-Swallow Softgels"
+        },
+        {
+          "type": "text",
+          "id": "icon_name",
+          "label": "Icon name",
+          "default": "verified",
+          "info": "Google icon name for all items"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "<strong>Clean, High-Quality Formula</strong>"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "gradient_start",
+          "label": "Background gradient start",
+          "default": "#08000c"
+        },
+        {
+          "type": "color",
+          "id": "gradient_end",
+          "label": "Background gradient end",
+          "default": "#9f3f3f"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background image"
+        },
+        {
+          "type": "range",
+          "id": "image_opacity",
+          "label": "Image opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 15,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "default": 12,
+          "unit": "px"
         }
       ]
     },
