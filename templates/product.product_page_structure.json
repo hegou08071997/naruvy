@@ -376,7 +376,8 @@
             "author_name": "HAILEY A.",
             "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Immunity Boost",
-            "tag_2": "Prevention"
+            "tag_2": "Prevention",
+            "card_bg_color": ""
           }
         },
         "review_2": {
@@ -388,7 +389,8 @@
             "author_name": "DANA H.",
             "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Gut Support",
-            "tag_2": "Bloat Relief"
+            "tag_2": "Bloat Relief",
+            "card_bg_color": ""
           }
         },
         "review_3": {
@@ -400,7 +402,8 @@
             "author_name": "MIKE M.",
             "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Clean Ingredients",
-            "tag_2": "Whole-Body Health"
+            "tag_2": "Whole-Body Health",
+            "card_bg_color": ""
           }
         },
         "review_4": {
@@ -410,8 +413,10 @@
             "quote": "\"My go-to during flu season.\"",
             "details": "Every time I feel something coming on, I take [BRAND] and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
             "author_name": "NELSON A.",
+            "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Cold Prevention",
-            "tag_2": "Daily Defense"
+            "tag_2": "Daily Defense",
+            "card_bg_color": ""
           }
         },
         "review_5": {
@@ -421,8 +426,10 @@
             "quote": "\"Finally, a supplement I can actually feel working.\"",
             "details": "I've tried so many supplements that promise results but never deliver. [BRAND] is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "JESSICA R.",
+            "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Energy",
-            "tag_2": "Digestive Health"
+            "tag_2": "Digestive Health",
+            "card_bg_color": ""
           }
         }
       },
@@ -449,6 +456,7 @@
         "star_color": "#009370",
         "verified_color": "#009370",
         "tag_color": "#009370",
+        "tag_bg_color": "",
         "ticker_speed": 30,
         "section_bg_color": "#f1f5ff",
         "padding_top": 36,
