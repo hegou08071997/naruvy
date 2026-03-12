@@ -251,141 +251,56 @@
         "padding_bottom": 12
       }
     },
-    "image_with_text_pMTMwR": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_7nexyY": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image avec texte",
-            "heading_size": "h1"
-          }
-        },
-        "text_wCED9Y": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Associez un texte à une image pour mettre en avant le produit, la collection ou l’article de blog de votre choix. Ajoutez des informations sur la disponibilité ou le style. Vous pouvez même fournir un avis.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_LWkVNY": {
-          "type": "button",
-          "settings": {
-            "button_label": "Texte du bouton",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_7nexyY",
-        "text_wCED9Y",
-        "button_LWkVNY"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_jFJHti": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_mVbMGy": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image avec texte",
-            "heading_size": "h1"
-          }
-        },
-        "text_frJWmg": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Associez un texte à une image pour mettre en avant le produit, la collection ou l’article de blog de votre choix. Ajoutez des informations sur la disponibilité ou le style. Vous pouvez même fournir un avis.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_CRJLwP": {
-          "type": "button",
-          "settings": {
-            "button_label": "Texte du bouton",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_mVbMGy",
-        "text_frJWmg",
-        "button_CRJLwP"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "feature_cards": {
       "type": "feature-cards",
       "blocks": {
         "card_1": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
             "title": "Feature title",
-            "text": "Pair text with an image to focus on your chosen product, collection, or blog post."
+            "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
+            "card_bg_color": ""
           }
         },
-        "card_2": {
+        "card_bYRYEb": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
             "title": "Feature title",
-            "text": "Pair text with an image to focus on your chosen product, collection, or blog post."
+            "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
+            "card_bg_color": ""
           }
         },
-        "card_3": {
+        "card_GPx6MR": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
             "title": "Feature title",
-            "text": "Pair text with an image to focus on your chosen product, collection, or blog post."
+            "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
+            "card_bg_color": ""
           }
         },
-        "card_4": {
+        "card_xANGWn": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
             "title": "Feature title",
-            "text": "Pair text with an image to focus on your chosen product, collection, or blog post."
+            "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
+            "card_bg_color": ""
           }
         }
       },
       "block_order": [
         "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
+        "card_bYRYEb",
+        "card_GPx6MR",
+        "card_xANGWn"
       ],
       "settings": {
-        "heading": "Discover the <strong>Key Benefits</strong>",
+        "heading": "4 Clinically Studied Benefits of <strong>Aged Garlic</strong>",
         "highlight_color": "#2e5bff",
+        "section_bg_color": "",
         "card_bg_color": "#f5f5f5",
         "card_border_radius": 12,
         "image_border_radius": 0.8,
@@ -417,8 +332,6 @@
   },
   "order": [
     "main",
-    "image_with_text_pMTMwR",
-    "image_with_text_jFJHti",
     "feature_cards",
     "related-products"
   ]
