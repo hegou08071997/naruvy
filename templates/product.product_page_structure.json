@@ -72,6 +72,24 @@
             "button_font_weight": "700",
             "button_text_transform": "uppercase"
           }
+        },
+        "sticky_cart": {
+          "type": "sticky_cart",
+          "settings": {
+            "show_image": true,
+            "show_title": true,
+            "show_stars": true,
+            "rating": 4.8,
+            "text": "Rated <strong>4.8 Excellent</strong> 50,312+ Reviews",
+            "star_color": "#ffcc00",
+            "star_bg_color": "#ececec",
+            "bg_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_font_size": 1.5,
+            "button_font_weight": "700",
+            "button_text_transform": "uppercase"
+          }
         }
       },
       "block_order": [
@@ -81,7 +99,8 @@
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "sticky_cart"
       ],
       "settings": {
         "enable_sticky_info": true,

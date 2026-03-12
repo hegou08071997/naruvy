@@ -71,6 +71,81 @@
     .benefit-item__text {
       line-height: 1.4;
     }
+
+    /* Sticky Cart */
+    .sticky-cart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      background-color: var(--sticky-cart-bg, #ffffff);
+      box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.15);
+      transform: translateY(100%);
+      transition: transform 0.25s ease-in-out;
+      padding: 0.8rem 0;
+    }
+    .sticky-cart--visible {
+      transform: translateY(0);
+    }
+    .sticky-cart__inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sticky-cart__image {
+      flex-shrink: 0;
+    }
+    .sticky-cart__image img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .sticky-cart__info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .sticky-cart__title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-cart__stars {
+      justify-content: flex-start;
+    }
+    .sticky-cart__button {
+      flex-shrink: 0;
+    }
+    .sticky-cart__atc {
+      background-color: var(--sticky-cart-btn-bg, #000000);
+      color: var(--sticky-cart-btn-text, #ffffff);
+      border: none;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .sticky-cart__atc:hover {
+      opacity: 0.85;
+    }
+
+    @media screen and (max-width: 749px) {
+      .sticky-cart__info .sticky-cart__stars {
+        display: none;
+      }
+      .sticky-cart__title {
+        font-size: 1.2rem;
+      }
+      .sticky-cart__atc {
+        padding: 0.8rem 1.5rem;
+      }
+    }
   </style>
 
   {% unless product.has_only_default_variant %}
@@ -819,6 +894,126 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'sticky_cart' -%}
+                <sticky-cart
+                  id="StickyCart-{{ section.id }}"
+                  class="sticky-cart"
+                  data-section="{{ section.id }}"
+                  style="
+                    --sticky-cart-bg: {{ block.settings.bg_color }};
+                    --sticky-cart-btn-bg: {{ block.settings.button_bg_color }};
+                    --sticky-cart-btn-text: {{ block.settings.button_text_color }};
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  <div class="sticky-cart__inner page-width">
+                    {%- if block.settings.show_image -%}
+                      <div class="sticky-cart__image">
+                        {%- if product.featured_image -%}
+                          <img
+                            src="{{ product.featured_image | image_url: width: 100 }}"
+                            alt="{{ product.featured_image.alt | escape }}"
+                            width="50"
+                            height="50"
+                            loading="lazy"
+                          >
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+
+                    <div class="sticky-cart__info">
+                      {%- if block.settings.show_title -%}
+                        <h4 class="sticky-cart__title">{{ product.title }}</h4>
+                      {%- endif -%}
+
+                      {%- if block.settings.show_stars -%}
+                        {%- assign sticky_rating_floor = block.settings.rating | floor -%}
+                        {%- assign sticky_rating_remainder = block.settings.rating | minus: sticky_rating_floor -%}
+                        {%- assign sticky_partial_index = sticky_rating_floor | plus: 1 -%}
+                        {%- assign sticky_partial_pct = sticky_rating_remainder | times: 100 -%}
+                        <div
+                          class="sticky-cart__stars product__star-rating"
+                          style="--star-size: {{ block.settings.star_size }}rem; --star-gap: {{ block.settings.star_gap }}rem;"
+                        >
+                          <div class="star-rating__stars" aria-hidden="true">
+                            {%- for i in (1..5) -%}
+                              {%- if i <= sticky_rating_floor -%}
+                                <svg class="star-rating__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                  <path fill="{{ block.settings.star_color }}" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                </svg>
+                              {%- elsif i == sticky_partial_index and sticky_rating_remainder > 0 -%}
+                                <svg class="star-rating__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                  <defs>
+                                    <linearGradient id="sticky-star-grad-{{ i }}-{{ block.id }}">
+                                      <stop offset="{{ sticky_partial_pct }}%" stop-color="{{ block.settings.star_color }}"/>
+                                      <stop offset="{{ sticky_partial_pct }}%" stop-color="{{ block.settings.star_bg_color }}"/>
+                                    </linearGradient>
+                                  </defs>
+                                  <path fill="url(#sticky-star-grad-{{ i }}-{{ block.id }})" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                </svg>
+                              {%- else -%}
+                                <svg class="star-rating__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                  <path fill="{{ block.settings.star_bg_color }}" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                </svg>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </div>
+                          {%- if block.settings.text != blank -%}
+                            <span class="star-rating__text">{{ block.settings.text }}</span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+
+                    <div class="sticky-cart__button">
+                      <button
+                        type="button"
+                        class="sticky-cart__atc button"
+                        style="
+                          font-size: {{ block.settings.button_font_size }}rem;
+                          font-weight: {{ block.settings.button_font_weight }};
+                          text-transform: {{ block.settings.button_text_transform }};
+                        "
+                      >
+                        <span class="sticky-cart__atc-text">{{ 'products.product.add_to_cart' | t }}</span>
+                      </button>
+                    </div>
+                  </div>
+                </sticky-cart>
+
+                <script>
+                  if (!customElements.get('sticky-cart')) {
+                    customElements.define('sticky-cart', class StickyCart extends HTMLElement {
+                      connectedCallback() {
+                        this.mainBtn = document.getElementById('ProductSubmitButton-{{ section.id }}');
+                        if (!this.mainBtn) return;
+
+                        this.atcBtn = this.querySelector('.sticky-cart__atc');
+                        this.hidden = true;
+
+                        this.observer = new IntersectionObserver((entries) => {
+                          entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                              this.classList.remove('sticky-cart--visible');
+                            } else {
+                              this.classList.add('sticky-cart--visible');
+                            }
+                          });
+                        }, { threshold: 0 });
+
+                        this.observer.observe(this.mainBtn);
+
+                        this.atcBtn.addEventListener('click', () => {
+                          this.mainBtn.click();
+                        });
+                      }
+
+                      disconnectedCallback() {
+                        if (this.observer) this.observer.disconnect();
+                      }
+                    });
+                  }
+                </script>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -2490,6 +2685,143 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "sticky_cart",
+      "name": "Sticky cart",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Display"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show product image",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show product title",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stars",
+          "label": "Show star rating",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Star rating"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "default": 4.8
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Rated <strong>4.8 Excellent</strong> 50,312+ Reviews"
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star color",
+          "default": "#ffcc00"
+        },
+        {
+          "type": "color",
+          "id": "star_bg_color",
+          "label": "Empty star color",
+          "default": "#ececec"
+        },
+        {
+          "type": "range",
+          "id": "star_size",
+          "label": "Star size",
+          "min": 0.8,
+          "max": 2.0,
+          "step": 0.1,
+          "unit": "rem",
+          "default": 1.3
+        },
+        {
+          "type": "range",
+          "id": "star_gap",
+          "label": "Gap between stars and text",
+          "min": 0.1,
+          "max": 1.5,
+          "step": 0.1,
+          "unit": "rem",
+          "default": 0.4
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Button typography"
+        },
+        {
+          "type": "range",
+          "id": "button_font_size",
+          "label": "Button font size",
+          "min": 1.2,
+          "max": 2.4,
+          "step": 0.1,
+          "default": 1.5,
+          "unit": "rem"
+        },
+        {
+          "type": "select",
+          "id": "button_font_weight",
+          "label": "Button font weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "600", "label": "Semi-bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        },
+        {
+          "type": "select",
+          "id": "button_text_transform",
+          "label": "Uppercase text",
+          "options": [
+            { "value": "none", "label": "No" },
+            { "value": "uppercase", "label": "Yes" }
+          ],
+          "default": "uppercase"
         }
       ]
     }
