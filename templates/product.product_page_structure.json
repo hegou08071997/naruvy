@@ -19,6 +19,8 @@
             "text": "Rated <strong>4.8 Excellent</strong> 50,312+ Reviews",
             "star_color": "#ffcc00",
             "star_bg_color": "#ececec",
+            "star_size": 1.3,
+            "star_gap": 0.4,
             "alignment": "flex-start"
           }
         },
@@ -40,7 +42,14 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "price_color": "#2e5bff",
+            "compare_price_color": "",
+            "sale_badge_text": "St Patrick's Day Sale - Save 69%",
+            "sale_badge_weight": "600",
+            "price_font_size": 2,
+            "price_font_weight": "700"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -57,7 +66,9 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_gift_card_recipient": false,
+            "button_font_size": 1.5,
+            "button_font_weight": "700"
           }
         }
       },
