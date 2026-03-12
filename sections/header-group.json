@@ -117,14 +117,25 @@
         "padding_bottom": 20
       }
     },
-    "custom_liquid_PMex7k": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+    "sale_banner": {
+      "type": "sale-banner",
       "settings": {
-        "custom_liquid": "{% comment %}\n  ST PATRICK'S DAY SALE — Announcement Bar\n  Paste this into a Custom Liquid section in your Shopify theme editor.\n  Timer starts at 2 hours on first visit, persists via cookie on refresh.\n  New browser / incognito = fresh 2-hour timer.\n{% endcomment %}\n\n<style>\n  .sale-banner {\n    background-color: #2E5BFF;\n    width: 100%;\n    padding: 10px 20px;\n    box-sizing: border-box;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n    position: relative;\n    z-index: 100;\n  }\n\n  .sale-banner__inner {\n    max-width: 1400px;\n    margin: 0 auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 30px;\n  }\n\n  .sale-banner__text {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 2px;\n  }\n\n  .sale-banner__heading {\n    color: #ffffff;\n    font-size: 16px;\n    font-weight: 700;\n    letter-spacing: 2.5px;\n    text-transform: uppercase;\n    margin: 0;\n    line-height: 1.3;\n    white-space: nowrap;\n  }\n\n  .sale-banner__subtext {\n    color: rgba(255, 255, 255, 0.9);\n    font-size: 12px;\n    font-weight: 400;\n    letter-spacing: 0.5px;\n    margin: 0;\n    line-height: 1.3;\n  }\n\n  .sale-banner__timer {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    color: #ffffff;\n    flex-shrink: 0;\n  }\n\n  .sale-banner__time-block {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-width: 32px;\n  }\n\n  .sale-banner__digits {\n    font-size: 20px;\n    font-weight: 700;\n    letter-spacing: 1px;\n    line-height: 1.2;\n    font-variant-numeric: tabular-nums;\n  }\n\n  .sale-banner__label {\n    font-size: 9px;\n    font-weight: 400;\n    text-transform: capitalize;\n    letter-spacing: 0.5px;\n    opacity: 0.85;\n    line-height: 1.2;\n  }\n\n  .sale-banner__colon {\n    font-size: 20px;\n    font-weight: 700;\n    line-height: 1;\n    padding-bottom: 12px;\n    opacity: 0.9;\n  }\n\n  @media screen and (max-width: 749px) {\n    .sale-banner {\n      padding: 8px 12px;\n    }\n\n    .sale-banner__inner {\n      gap: 14px;\n    }\n\n    .sale-banner__heading {\n      font-size: 12px;\n      letter-spacing: 1.5px;\n    }\n\n    .sale-banner__subtext {\n      font-size: 9px;\n    }\n\n    .sale-banner__digits {\n      font-size: 15px;\n    }\n\n    .sale-banner__label {\n      font-size: 7px;\n    }\n\n    .sale-banner__colon {\n      font-size: 15px;\n      padding-bottom: 10px;\n    }\n\n    .sale-banner__time-block {\n      min-width: 24px;\n    }\n  }\n</style>\n\n<div class=\"sale-banner\" id=\"sale-banner\" style=\"display:none;\">\n  <div class=\"sale-banner__inner\">\n    <div class=\"sale-banner__text\">\n      <p class=\"sale-banner__heading\">ST PATRICK'S DAY SALE</p>\n      <p class=\"sale-banner__subtext\">Shop Now and Get Up To 70% Off</p>\n    </div>\n    <div class=\"sale-banner__timer\">\n      <div class=\"sale-banner__time-block\">\n        <span class=\"sale-banner__digits\" id=\"timer-hours\">02</span>\n        <span class=\"sale-banner__label\">Hrs</span>\n      </div>\n      <span class=\"sale-banner__colon\">:</span>\n      <div class=\"sale-banner__time-block\">\n        <span class=\"sale-banner__digits\" id=\"timer-mins\">00</span>\n        <span class=\"sale-banner__label\">Mins</span>\n      </div>\n      <span class=\"sale-banner__colon\">:</span>\n      <div class=\"sale-banner__time-block\">\n        <span class=\"sale-banner__digits\" id=\"timer-secs\">00</span>\n        <span class=\"sale-banner__label\">Secs</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n<script>\n(function() {\n  var DURATION = 2 * 60 * 60 * 1000;\n  var KEY = 'sale_timer_end';\n\n  function getCookie(n) {\n    var m = document.cookie.match(new RegExp('(^| )' + n + '=([^;]+)'));\n    return m ? Number(m[2]) : null;\n  }\n\n  function setCookie(n, v) {\n    var exp = new Date(Date.now() + DURATION + 60000).toUTCString();\n    document.cookie = n + '=' + v + ';path=/;expires=' + exp + ';SameSite=Lax';\n  }\n\n  var endTime = getCookie(KEY);\n\n  if (!endTime || isNaN(endTime)) {\n    endTime = Date.now() + DURATION;\n    setCookie(KEY, endTime);\n  }\n\n  var banner = document.getElementById('sale-banner');\n  var elH = document.getElementById('timer-hours');\n  var elM = document.getElementById('timer-mins');\n  var elS = document.getElementById('timer-secs');\n\n  function tick() {\n    var left = endTime - Date.now();\n    if (left <= 0) {\n      banner.style.display = 'none';\n      return;\n    }\n    elH.textContent = String(Math.floor(left / 3600000)).padStart(2, '0');\n    elM.textContent = String(Math.floor((left % 3600000) / 60000)).padStart(2, '0');\n    elS.textContent = String(Math.floor((left % 60000) / 1000)).padStart(2, '0');\n  }\n\n  if (endTime - Date.now() > 0) {\n    banner.style.display = 'block';\n    tick();\n    setInterval(tick, 1000);\n  }\n})();\n</script>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "heading": "ST PATRICK'S DAY SALE",
+        "heading_color": "#ffffff",
+        "heading_font_size": 16,
+        "heading_font_weight": "700",
+        "heading_letter_spacing": 2.5,
+        "heading_transform": "uppercase",
+        "subtext": "Shop Now and Get Up To 70% Off",
+        "subtext_color": "#ffffffe6",
+        "subtext_font_size": 12,
+        "subtext_font_weight": "400",
+        "show_timer": true,
+        "timer_hours": 2,
+        "timer_color": "#ffffff",
+        "background_color": "#2E5BFF",
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     }
   },
@@ -132,6 +143,6 @@
     "ticker_bar",
     "announcement-bar",
     "header",
-    "custom_liquid_PMex7k"
+    "sale_banner"
   ]
 }
