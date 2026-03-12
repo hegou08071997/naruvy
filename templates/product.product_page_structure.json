@@ -26,6 +26,34 @@
           "type": "title",
           "settings": {}
         },
+        "benefit_1": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Promotes cardiovascular wellness and vitality",
+            "icon_color": "#9f3f3f"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "24-month aged - completely odorless",
+            "icon_color": "#9f3f3f"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Supports Heart Health and Arterial Function",
+            "icon_color": "#9f3f3f"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Supports Immune System Naturally",
+            "icon_color": "#9f3f3f"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -52,6 +80,10 @@
       "block_order": [
         "star_rating",
         "title",
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
         "price",
         "variant_picker",
         "quantity_selector",
