@@ -124,6 +124,66 @@
       .trust-microcopy--count-2 { font-size: calc(var(--trust-size-2) * 0.85); }
     }
 
+    /* Social proof banner */
+    .social-proof-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .social-proof-banner__avatars {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .social-proof-banner__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .social-proof-banner__avatar + .social-proof-banner__avatar {
+      margin-left: -10px;
+    }
+    .social-proof-banner__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .social-proof-banner__avatar--last {
+      position: relative;
+    }
+    .social-proof-banner__badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 18px;
+      height: 18px;
+      z-index: 1;
+    }
+    .social-proof-banner__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: 0;
+    }
+    .social-proof-banner__title {
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+    .social-proof-banner__subtitle {
+      font-size: 1.2rem;
+      line-height: 1.3;
+      opacity: 0.85;
+    }
+
     /* Sticky ATC */
     .sticky-atc {
       position: fixed;
@@ -1080,6 +1140,50 @@
                     {%- endfor -%}
                   </div>
                 {%- endif -%}
+              {%- when 'social_proof_banner' -%}
+                <div
+                  class="social-proof-banner"
+                  style="background-color: {{ block.settings.bg_color }};"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- liquid
+                    assign avatar_images = 'image_1,image_2,image_3' | split: ','
+                    assign avatar_count = 0
+                    for aid in avatar_images
+                      if block.settings[aid] != blank
+                        assign avatar_count = avatar_count | plus: 1
+                      endif
+                    endfor
+                  -%}
+                  {%- if avatar_count > 0 -%}
+                    <div class="social-proof-banner__avatars">
+                      {%- assign rendered = 0 -%}
+                      {%- for aid in avatar_images -%}
+                        {%- assign aimg = block.settings[aid] -%}
+                        {%- if aimg != blank -%}
+                          {%- assign rendered = rendered | plus: 1 -%}
+                          <div class="social-proof-banner__avatar{% if rendered == avatar_count %} social-proof-banner__avatar--last{% endif %}">
+                            <img src="{{ aimg | image_url: width: 100 }}" alt="" loading="lazy" width="40" height="40">
+                            {%- if rendered == avatar_count -%}
+                              <svg xmlns="http://www.w3.org/2000/svg" class="social-proof-banner__badge" viewBox="0 0 122.88 116.87" aria-hidden="true">
+                                <polygon fill="#51af6f" fill-rule="evenodd" points="61.37 8.24 80.43 0 90.88 17.79 111.15 22.32 109.15 42.85 122.88 58.43 109.2 73.87 111.15 94.55 91 99 80.43 116.87 61.51 108.62 42.45 116.87 32 99.08 11.73 94.55 13.73 74.01 0 58.43 13.68 42.99 11.73 22.32 31.88 17.87 42.45 0 61.37 8.24 61.37 8.24"/>
+                                <path fill="#ffffff" d="M37.92,65c-6.07-6.53,3.25-16.26,10-10.1,2.38,2.17,5.84,5.34,8.24,7.49L74.66,39.66C81.1,33,91.27,42.78,84.91,49.48L61.67,77.2a7.13,7.13,0,0,1-9.9.44C47.83,73.89,42.05,68.5,37.92,65Z"/>
+                              </svg>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                  <div class="social-proof-banner__text">
+                    {%- if block.settings.title != blank -%}
+                      <div class="social-proof-banner__title">{{ block.settings.title }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.subtitle != blank -%}
+                      <div class="social-proof-banner__subtitle">{{ block.settings.subtitle }}</div>
+                    {%- endif -%}
+                  </div>
+                </div>
               {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
                   {% style %}
@@ -3138,6 +3242,50 @@
           "type": "image_picker",
           "id": "icon_image_2",
           "label": "Custom icon"
+        }
+      ]
+    },
+    {
+      "type": "social_proof_banner",
+      "name": "Social proof banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#F5F5F5"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "<strong>Trusted by thousands</strong>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "who choose us for consistent support."
+        },
+        {
+          "type": "header",
+          "content": "Avatars"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
         }
       ]
     },

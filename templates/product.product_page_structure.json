@@ -85,6 +85,14 @@
             "icon_name_2": "local_shipping"
           }
         },
+        "social_proof_banner": {
+          "type": "social_proof_banner",
+          "settings": {
+            "bg_color": "#F5F5F5",
+            "title": "<strong>Trusted by thousands</strong>",
+            "subtitle": "who choose us for consistent support."
+          }
+        },
         "sticky_cart": {
           "type": "sticky_cart",
           "settings": {
@@ -129,6 +137,7 @@
         "quantity_selector",
         "buy_buttons",
         "trust_microcopy",
+        "social_proof_banner",
         "sticky_cart"
       ],
       "settings": {
