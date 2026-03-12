@@ -29,11 +29,13 @@
         "benefits_list": {
           "type": "benefits_list",
           "settings": {
-            "icon_color": "#2E5BFF",
+            "icon_color": "#2e5bff",
             "benefit_1": "Promotes cardiovascular wellness and vitality",
             "benefit_2": "24-month aged - completely odorless",
             "benefit_3": "Supports Heart Health and Arterial Function",
-            "benefit_4": "Supports Immune System Naturally"
+            "benefit_4": "Supports Immune System Naturally",
+            "benefit_5": "",
+            "benefit_6": ""
           }
         },
         "price": {
@@ -71,7 +73,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",
