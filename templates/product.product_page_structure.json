@@ -77,6 +77,7 @@
           "type": "trust_microcopy",
           "settings": {
             "font_size": 1.6,
+            "font_size_2_items": 1.4,
             "bg_color": "",
             "text_color": "",
             "text_1": "30-day money-back guarantee",
