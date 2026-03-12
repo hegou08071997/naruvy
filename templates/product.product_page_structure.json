@@ -313,15 +313,60 @@
     "testimonial_slider": {
       "type": "testimonial-slider",
       "blocks": {
-        "ticker_1": { "type": "ticker_image", "settings": {} },
-        "ticker_2": { "type": "ticker_image", "settings": {} },
-        "ticker_3": { "type": "ticker_image", "settings": {} },
-        "ticker_4": { "type": "ticker_image", "settings": {} },
-        "ticker_5": { "type": "ticker_image", "settings": {} },
-        "ticker_6": { "type": "ticker_image", "settings": {} },
-        "ticker_7": { "type": "ticker_image", "settings": {} },
-        "ticker_8": { "type": "ticker_image", "settings": {} },
-        "ticker_9": { "type": "ticker_image", "settings": {} },
+        "ticker_1": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_H9Y4a7": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_JK8Qhh": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_XK3GPq": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_MgAHQF": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_q7zrKC": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_3Aje4U": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_CbaWPY": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
+        "ticker_image_pGm3ig": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png"
+          }
+        },
         "review_1": {
           "type": "review",
           "settings": {
@@ -357,9 +402,18 @@
         }
       },
       "block_order": [
-        "ticker_1", "ticker_2", "ticker_3", "ticker_4", "ticker_5",
-        "ticker_6", "ticker_7", "ticker_8", "ticker_9",
-        "review_1", "review_2", "review_3"
+        "ticker_1",
+        "ticker_image_H9Y4a7",
+        "ticker_image_JK8Qhh",
+        "ticker_image_XK3GPq",
+        "ticker_image_MgAHQF",
+        "ticker_image_q7zrKC",
+        "ticker_image_3Aje4U",
+        "ticker_image_CbaWPY",
+        "ticker_image_pGm3ig",
+        "review_1",
+        "review_2",
+        "review_3"
       ],
       "settings": {
         "heading": "Real Stories, <strong>Real Results</strong>",
@@ -369,6 +423,7 @@
         "verified_color": "#009370",
         "tag_color": "#009370",
         "ticker_speed": 30,
+        "section_bg_color": "#f1f5ff",
         "padding_top": 36,
         "padding_bottom": 36
       }
