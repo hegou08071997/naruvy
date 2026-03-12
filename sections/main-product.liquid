@@ -20,23 +20,21 @@
     .product__star-rating {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
       flex-wrap: nowrap;
       white-space: nowrap;
     }
     .star-rating__stars {
       display: flex;
       align-items: center;
-      gap: 2px;
       flex-shrink: 0;
     }
     .star-rating__star {
-      width: var(--star-size, 16px);
-      height: var(--star-size, 16px);
+      width: 1.3rem;
+      height: 1.3rem;
       flex-shrink: 0;
     }
     .star-rating__text {
-      font-size: calc(var(--star-size, 16px) * 0.85);
+      font-size: 1.3rem;
       line-height: 1;
       color: inherit;
       overflow: hidden;
@@ -128,7 +126,7 @@
               {%- when 'star_rating' -%}
                 <div
                   class="product__star-rating"
-                  style="--star-rating: {{ block.settings.rating }}; --star-color: {{ block.settings.star_color }}; --star-bg-color: {{ block.settings.star_bg_color }}; --star-size: {{ block.settings.star_size }}px; justify-content: {{ block.settings.alignment }};"
+                  style="justify-content: {{ block.settings.alignment }};"
                   {{ block.shopify_attributes }}
                 >
                   {%- assign rating_floor = block.settings.rating | floor -%}
@@ -876,17 +874,6 @@
           "id": "star_bg_color",
           "label": "Empty star color",
           "default": "#ececec"
-        },
-        {
-          "type": "range",
-          "id": "star_size",
-          "label": "Size",
-          "info": "Applies to both stars and text",
-          "min": 12,
-          "max": 32,
-          "step": 1,
-          "unit": "px",
-          "default": 16
         },
         {
           "type": "select",
