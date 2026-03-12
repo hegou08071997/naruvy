@@ -135,7 +135,24 @@
       opacity: 0.85;
     }
 
+    .sticky-cart--hide-desktop {
+      display: none;
+    }
+    .sticky-cart--hide-desktop.sticky-cart--visible {
+      display: none;
+    }
+
     @media screen and (max-width: 749px) {
+      .sticky-cart--hide-desktop {
+        display: block;
+      }
+      .sticky-cart--hide-desktop.sticky-cart--visible {
+        display: block;
+      }
+      .sticky-cart--hide-mobile,
+      .sticky-cart--hide-mobile.sticky-cart--visible {
+        display: none;
+      }
       .sticky-cart__info .sticky-cart__stars {
         display: none;
       }
@@ -144,6 +161,12 @@
       }
       .sticky-cart__atc {
         padding: 0.8rem 1.5rem;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .sticky-cart--hide-mobile {
+        display: block;
       }
     }
   </style>
@@ -897,7 +920,7 @@
               {%- when 'sticky_cart' -%}
                 <sticky-cart
                   id="StickyCart-{{ section.id }}"
-                  class="sticky-cart"
+                  class="sticky-cart{% unless block.settings.show_on_desktop %} sticky-cart--hide-desktop{% endunless %}{% unless block.settings.show_on_mobile %} sticky-cart--hide-mobile{% endunless %}"
                   data-section="{{ section.id }}"
                   style="
                     --sticky-cart-bg: {{ block.settings.bg_color }};
@@ -985,11 +1008,15 @@
                   if (!customElements.get('sticky-cart')) {
                     customElements.define('sticky-cart', class StickyCart extends HTMLElement {
                       connectedCallback() {
+                        /* Move to body so no parent transform/overflow breaks position:fixed */
+                        if (this.parentElement !== document.body) {
+                          document.body.appendChild(this);
+                        }
+
                         this.mainBtn = document.getElementById('ProductSubmitButton-{{ section.id }}');
                         if (!this.mainBtn) return;
 
                         this.atcBtn = this.querySelector('.sticky-cart__atc');
-                        this.hidden = true;
 
                         this.observer = new IntersectionObserver((entries) => {
                           entries.forEach(entry => {
@@ -2693,6 +2720,22 @@
       "name": "Sticky cart",
       "limit": 1,
       "settings": [
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_desktop",
+          "label": "Show on desktop",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_mobile",
+          "label": "Show on mobile",
+          "default": true
+        },
         {
           "type": "header",
           "content": "Display"
