@@ -402,6 +402,28 @@
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health"
           }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "rating": "5.0",
+            "quote": "\"My go-to during flu season.\"",
+            "details": "Every time I feel something coming on, I take [BRAND] and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
+            "author_name": "NELSON A.",
+            "tag_1": "Cold Prevention",
+            "tag_2": "Daily Defense"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "rating": "4.8",
+            "quote": "\"Finally, a supplement I can actually feel working.\"",
+            "details": "I've tried so many supplements that promise results but never deliver. [BRAND] is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
+            "author_name": "JESSICA R.",
+            "tag_1": "Energy",
+            "tag_2": "Digestive Health"
+          }
         }
       },
       "block_order": [
@@ -416,7 +438,9 @@
         "ticker_image_pGm3ig",
         "review_1",
         "review_2",
-        "review_3"
+        "review_3",
+        "review_4",
+        "review_5"
       ],
       "settings": {
         "heading": "Real Stories, <strong>Real Results</strong>",
