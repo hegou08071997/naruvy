@@ -89,7 +89,7 @@
       transition: none !important;
       overflow: visible !important;
     }
-    .feature-cards__track .feature-card {
+    .feature-cards__slide {
       min-width: 0 !important;
       padding: 0 !important;
     }
@@ -121,11 +121,14 @@
       display: flex;
       transition: transform 0.35s ease;
     }
-    .feature-cards--mobile-slider .feature-cards__track .feature-card {
-      min-width: calc(100% - 2rem);
+    .feature-cards--mobile-slider .feature-cards__slide {
+      min-width: 100%;
       flex-shrink: 0;
-      margin: 0 1rem;
       box-sizing: border-box;
+      padding: 0 1rem;
+    }
+    .feature-cards--mobile-slider .feature-card {
+      overflow: visible;
     }
   }
 
@@ -225,29 +228,31 @@
     <feature-cards-slider class="feature-cards__viewport" data-mobile-layout="{{ section.settings.mobile_layout }}">
       <div class="feature-cards__track">
         {%- for block in section.blocks -%}
-          <div
-            class="feature-card"
-            {{ block.shopify_attributes }}
-            style="--fc-card-bg: {% if block.settings.card_bg_color != blank %}{{ block.settings.card_bg_color }}{% else %}transparent{% endif %};"
-          >
-            <div class="feature-card__image-wrapper">
-              {%- if block.settings.image != blank -%}
-                {{
-                  block.settings.image
-                  | image_url: width: 1200
-                  | image_tag: loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(min-width: 750px) 25vw, 100vw'
-                }}
-              {%- else -%}
-                {{ 'product-apparel-2' | placeholder_svg_tag: 'feature-card__placeholder' }}
-              {%- endif -%}
-            </div>
-            <div class="feature-card__content">
-              {%- if block.settings.title != blank -%}
-                <h3 class="feature-card__title">{{ block.settings.title }}</h3>
-              {%- endif -%}
-              {%- if block.settings.text != blank -%}
-                <p class="feature-card__text">{{ block.settings.text }}</p>
-              {%- endif -%}
+          <div class="feature-cards__slide">
+            <div
+              class="feature-card"
+              {{ block.shopify_attributes }}
+              style="--fc-card-bg: {% if block.settings.card_bg_color != blank %}{{ block.settings.card_bg_color }}{% else %}transparent{% endif %};"
+            >
+              <div class="feature-card__image-wrapper">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1200
+                    | image_tag: loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(min-width: 750px) 25vw, 100vw'
+                  }}
+                {%- else -%}
+                  {{ 'product-apparel-2' | placeholder_svg_tag: 'feature-card__placeholder' }}
+                {%- endif -%}
+              </div>
+              <div class="feature-card__content">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="feature-card__title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="feature-card__text">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </div>
             </div>
           </div>
         {%- endfor -%}
@@ -284,7 +289,7 @@
         if (this.dataset.mobileLayout !== 'slider') return;
 
         this.track = this.querySelector('.feature-cards__track');
-        this.cards = this.track ? [...this.track.children] : [];
+        this.cards = this.track ? [...this.track.querySelectorAll('.feature-cards__slide')] : [];
         this.total = this.cards.length;
         if (this.total <= 1) return;
 
