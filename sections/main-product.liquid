@@ -225,9 +225,13 @@
                   <style>
                     #price-{{ section.id }} .price-item--sale {
                       {%- if block.settings.price_color != blank -%}color: {{ block.settings.price_color }};{%- endif -%}
+                      font-size: {{ block.settings.price_font_size }}rem;
+                      font-weight: {{ block.settings.price_font_weight }};
                     }
                     #price-{{ section.id }} .price-item--regular {
                       {%- if block.settings.compare_price_color != blank -%}color: {{ block.settings.compare_price_color }};{%- endif -%}
+                      font-size: {{ block.settings.price_font_size }}rem;
+                      font-weight: {{ block.settings.price_font_weight }};
                     }
                     #price-{{ section.id }} .price__badge-sale {
                       font-weight: {{ block.settings.sale_badge_weight }};
@@ -612,6 +616,12 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
+                <style>
+                  #ProductSubmitButton-{{ section.id }} {
+                    font-size: {{ block.settings.button_font_size }}rem;
+                    font-weight: {{ block.settings.button_font_weight }};
+                  }
+                </style>
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
@@ -1111,6 +1121,31 @@
             { "value": "700", "label": "Bold" }
           ],
           "default": "700"
+        },
+        {
+          "type": "header",
+          "content": "Price typography"
+        },
+        {
+          "type": "range",
+          "id": "price_font_size",
+          "label": "Price font size",
+          "min": 1.2,
+          "max": 3.0,
+          "step": 0.1,
+          "default": 1.8,
+          "unit": "rem"
+        },
+        {
+          "type": "select",
+          "id": "price_font_weight",
+          "label": "Price font weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "600", "label": "Semi-bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "400"
         }
       ]
     },
@@ -1250,6 +1285,31 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "header",
+          "content": "Button typography"
+        },
+        {
+          "type": "range",
+          "id": "button_font_size",
+          "label": "Button font size",
+          "min": 1.2,
+          "max": 2.4,
+          "step": 0.1,
+          "default": 1.5,
+          "unit": "rem"
+        },
+        {
+          "type": "select",
+          "id": "button_font_weight",
+          "label": "Button font weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "600", "label": "Semi-bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
         }
       ]
     },
