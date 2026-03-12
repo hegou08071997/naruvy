@@ -28,12 +28,6 @@
     color: var(--fc-highlight-color, #2e5bff);
   }
 
-  .feature-cards__grid {
-    display: grid;
-    grid-template-columns: repeat(var(--fc-columns, 4), 1fr);
-    gap: 1.5rem;
-  }
-
   .feature-card {
     background: var(--fc-card-bg, #f5f5f5);
     border-radius: var(--fc-card-radius, 12px);
@@ -62,6 +56,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    text-align: var(--fc-text-align, center);
   }
 
   .feature-card__title {
@@ -92,6 +87,11 @@
       gap: 1.5rem !important;
       transform: none !important;
       transition: none !important;
+      overflow: visible !important;
+    }
+    .feature-cards__track .feature-card {
+      min-width: 0 !important;
+      padding: 0 !important;
     }
   }
 
@@ -121,9 +121,9 @@
       transition: transform 0.35s ease;
     }
     .feature-cards--mobile-slider .feature-cards__track .feature-card {
-      min-width: 100%;
+      min-width: calc(100% - 2rem);
       flex-shrink: 0;
-      padding: 0 0.25rem;
+      margin: 0 1rem;
       box-sizing: border-box;
     }
   }
@@ -169,13 +169,19 @@
     justify-content: center;
     cursor: pointer;
     padding: 0;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s, background 0.2s, opacity 0.2s;
     flex-shrink: 0;
   }
 
   .feature-cards__arrow:hover {
     border-color: #999;
     background: #f5f5f5;
+  }
+
+  .feature-cards__arrow.disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
   }
 
   .feature-cards__arrow svg {
@@ -201,10 +207,10 @@
   class="section-{{ section.id }}-padding feature-cards feature-cards--mobile-{{ section.settings.mobile_layout }}"
   style="
     --fc-highlight-color: {{ section.settings.highlight_color }};
-    --fc-card-bg: {{ section.settings.card_bg_color }};
     --fc-card-radius: {{ section.settings.card_border_radius }}px;
     --fc-img-radius: {{ section.settings.image_border_radius }}rem;
     --fc-columns: {{ section.blocks.size | at_most: 4 }};
+    --fc-text-align: {{ section.settings.text_alignment }};
     {% if section.settings.section_bg_color != blank %}background: {{ section.settings.section_bg_color }};{% endif %}
   "
 >
@@ -221,16 +227,14 @@
           <div
             class="feature-card"
             {{ block.shopify_attributes }}
-            {% if block.settings.card_bg_color != blank %}
-              style="--fc-card-bg: {{ block.settings.card_bg_color }};"
-            {% endif %}
+            style="--fc-card-bg: {{ block.settings.card_bg_color | default: '#f5f5f5' }};"
           >
             <div class="feature-card__image-wrapper">
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
-                  | image_url: width: 600
-                  | image_tag: loading: 'lazy', widths: '300,400,600', sizes: '(min-width: 750px) 25vw, 100vw'
+                  | image_url: width: 1200
+                  | image_tag: loading: 'lazy', widths: '400,600,800,1000,1200', sizes: '(min-width: 750px) 25vw, 100vw'
                 }}
               {%- else -%}
                 {{ 'product-apparel-2' | placeholder_svg_tag: 'feature-card__placeholder' }}
@@ -251,7 +255,7 @@
 
     {%- if section.settings.mobile_layout == 'slider' and section.blocks.size > 1 -%}
       <div class="feature-cards__slider-controls" data-pagination="{{ section.settings.pagination_type }}">
-        <button class="feature-cards__arrow feature-cards__arrow--prev" aria-label="Previous">
+        <button class="feature-cards__arrow feature-cards__arrow--prev disabled" aria-label="Previous">
           <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
         <div class="feature-cards__dots">
@@ -304,6 +308,8 @@
           }
           diff = 0;
         });
+
+        this.updateArrows();
       }
 
       goTo(index) {
@@ -312,6 +318,16 @@
         this.currentIndex = index;
         this.track.style.transform = `translateX(-${index * 100}%)`;
         this.dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        this.updateArrows();
+      }
+
+      updateArrows() {
+        if (this.prevBtn) {
+          this.prevBtn.classList.toggle('disabled', this.currentIndex === 0);
+        }
+        if (this.nextBtn) {
+          this.nextBtn.classList.toggle('disabled', this.currentIndex === this.total - 1);
+        }
       }
     }
 
@@ -343,10 +359,15 @@
       "label": "Section background color"
     },
     {
-      "type": "color",
-      "id": "card_bg_color",
-      "label": "Default card background color",
-      "default": "#f5f5f5"
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Card text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
     },
     {
       "type": "range",
@@ -436,7 +457,8 @@
         {
           "type": "color",
           "id": "card_bg_color",
-          "label": "Card background color"
+          "label": "Card background color",
+          "default": "#f5f5f5"
         }
       ]
     }

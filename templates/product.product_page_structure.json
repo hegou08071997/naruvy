@@ -301,7 +301,7 @@
         "heading": "4 Clinically Studied Benefits of <strong>Aged Garlic</strong>",
         "highlight_color": "#2e5bff",
         "section_bg_color": "",
-        "card_bg_color": "#f5f5f5",
+        "text_alignment": "center",
         "card_border_radius": 12,
         "image_border_radius": 0.8,
         "mobile_layout": "slider",
