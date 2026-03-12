@@ -16,6 +16,11 @@
     width: 100%;
   }
 
+  feature-cards-slider {
+    display: block;
+    width: 100%;
+  }
+
   .feature-cards__heading {
     text-align: center;
     font-size: 2.8rem;
@@ -113,19 +118,19 @@
     }
 
     /* Slider mode */
-    .feature-cards--mobile-slider .feature-cards__viewport {
-      display: block;
+    .feature-cards--mobile-slider feature-cards-slider {
       overflow: hidden;
     }
     .feature-cards--mobile-slider .feature-cards__track {
       display: flex;
+      flex-wrap: nowrap;
       transition: transform 0.35s ease;
     }
     .feature-cards--mobile-slider .feature-cards__slide {
-      min-width: 100%;
-      flex-shrink: 0;
+      flex: 0 0 100%;
+      width: 100%;
       box-sizing: border-box;
-      padding: 0 1rem;
+      padding: 0 0.8rem;
     }
     .feature-cards--mobile-slider .feature-card {
       overflow: visible;
