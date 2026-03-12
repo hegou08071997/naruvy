@@ -22,6 +22,7 @@
       align-items: center;
       flex-wrap: nowrap;
       white-space: nowrap;
+      gap: var(--star-gap, 0.4rem);
     }
     .star-rating__stars {
       display: flex;
@@ -29,12 +30,12 @@
       flex-shrink: 0;
     }
     .star-rating__star {
-      width: 1.3rem;
-      height: 1.3rem;
+      width: var(--star-size, 1.3rem);
+      height: var(--star-size, 1.3rem);
       flex-shrink: 0;
     }
     .star-rating__text {
-      font-size: 1.3rem;
+      font-size: var(--star-size, 1.3rem);
       line-height: 1;
       color: inherit;
       overflow: hidden;
@@ -155,7 +156,7 @@
               {%- when 'star_rating' -%}
                 <div
                   class="product__star-rating"
-                  style="justify-content: {{ block.settings.alignment }};"
+                  style="--star-size: {{ block.settings.star_size }}rem; --star-gap: {{ block.settings.star_gap }}rem; justify-content: {{ block.settings.alignment }};"
                   {{ block.shopify_attributes }}
                 >
                   {%- assign rating_floor = block.settings.rating | floor -%}
@@ -221,12 +222,31 @@
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  <style>
+                    #price-{{ section.id }} .price-item--sale {
+                      {%- if block.settings.price_color != blank -%}color: {{ block.settings.price_color }};{%- endif -%}
+                    }
+                    #price-{{ section.id }} .price-item--regular {
+                      {%- if block.settings.compare_price_color != blank -%}color: {{ block.settings.compare_price_color }};{%- endif -%}
+                    }
+                    #price-{{ section.id }} .price__badge-sale {
+                      font-weight: {{ block.settings.sale_badge_weight }};
+                    }
+                  </style>
                   {%- render 'price',
                     product: product,
                     use_variant: true,
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
+                  {%- if block.settings.sale_badge_text != blank -%}
+                    <script>
+                      (function() {
+                        var badge = document.querySelector('#price-{{ section.id }} .price__badge-sale');
+                        if (badge) badge.textContent = {{ block.settings.sale_badge_text | json }};
+                      })();
+                    </script>
+                  {%- endif -%}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
@@ -926,6 +946,26 @@
           "default": "#ececec"
         },
         {
+          "type": "range",
+          "id": "star_size",
+          "label": "Size",
+          "min": 0.8,
+          "max": 2.0,
+          "step": 0.1,
+          "unit": "rem",
+          "default": 1.3
+        },
+        {
+          "type": "range",
+          "id": "star_gap",
+          "label": "Gap between stars and text",
+          "min": 0.1,
+          "max": 1.5,
+          "step": 0.1,
+          "unit": "rem",
+          "default": 0.4
+        },
+        {
           "type": "select",
           "id": "alignment",
           "label": "Alignment",
@@ -1044,7 +1084,35 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "price_color",
+          "label": "Price color"
+        },
+        {
+          "type": "color",
+          "id": "compare_price_color",
+          "label": "Compare-at price color"
+        },
+        {
+          "type": "text",
+          "id": "sale_badge_text",
+          "label": "Sale badge text"
+        },
+        {
+          "type": "select",
+          "id": "sale_badge_weight",
+          "label": "Sale badge font weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "600", "label": "Semi-bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        }
+      ]
     },
     {
       "type": "sku",
