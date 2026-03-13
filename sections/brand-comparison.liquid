@@ -18,7 +18,9 @@
   }
 
   .bc-heading {
-    font-weight: 500;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
     font-size: var(--bc-heading-size, 36px);
     line-height: 1.05;
     margin: 0 0 50px;
@@ -26,7 +28,7 @@
   }
 
   .bc-heading strong {
-    font-weight: 500;
+    font-weight: inherit;
     color: var(--bc-highlight, #FFF7D4);
   }
 
@@ -86,8 +88,8 @@
   .bc-col__name {
     font-size: 20px;
     line-height: 24px;
-    font-weight: 400;
     margin: 0 0 1px;
+    color: var(--bc-brand-name-color, #ffffff);
   }
 
   /* Competitor label — positioned above comp column */
@@ -99,7 +101,6 @@
     color: var(--bc-text, #ffffff);
     font-size: 20px;
     line-height: 20px;
-    font-weight: 400;
     margin: 0;
     text-align: center;
   }
@@ -162,11 +163,11 @@
   }
 
   .bc-col--brand .bc-feature__icon svg {
-    stroke: var(--bc-brand-icon, #ffffff);
+    color: var(--bc-brand-icon, #ffffff);
   }
 
   .bc-col--comp .bc-feature__icon svg {
-    stroke: var(--bc-comp-icon, #999999);
+    color: var(--bc-comp-icon, #999999);
   }
 
   .bc-feature__text {
@@ -209,8 +210,8 @@
     width: 19px;
     height: 19px;
     background: var(--bc-text, #ffffff);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask: var(--bc-check-mask) no-repeat center;
+    mask: var(--bc-check-mask) no-repeat center;
     -webkit-mask-size: contain;
     mask-size: contain;
   }
@@ -230,7 +231,7 @@
     color: var(--bc-cta-text, #004c3c);
     border-radius: 6px;
     font-size: 19px;
-    font-weight: 500;
+    font-weight: var(--bc-cta-weight, 700);
     text-decoration: none;
     border: 2px solid transparent;
     transition: background 0.3s, color 0.3s, border-color 0.3s;
@@ -244,8 +245,9 @@
 
   /* Note */
   .bc-note {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 7px;
     font-size: 16px;
     line-height: 21px;
@@ -409,6 +411,13 @@
     --bc-cta-height: {{ section.settings.cta_height }}px;
     --bc-cta-bg: {{ section.settings.cta_bg_color }};
     --bc-cta-text: {{ section.settings.cta_text_color }};
+    --bc-cta-weight: {{ section.settings.cta_font_weight }};
+    {% if section.settings.brand_name_color != blank %}--bc-brand-name-color: {{ section.settings.brand_name_color }};{% endif %}
+    {%- if section.settings.icons_filled -%}
+      --bc-check-mask: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z%27/%3E%3C/svg%3E');
+    {%- else -%}
+      --bc-check-mask: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z%27/%3E%3C/svg%3E');
+    {%- endif -%}
   "
 >
   <div class="page-width">
@@ -437,7 +446,11 @@
                     {%- if block.settings.brand_icon != blank -%}
                       {{ block.settings.brand_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
                     {%- else -%}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+                      {%- if section.settings.icons_filled -%}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      {%- else -%}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+                      {%- endif -%}
                     {%- endif -%}
                   </span>
                   <span class="bc-feature__text">{{ block.settings.brand_text }}</span>
@@ -465,7 +478,11 @@
                     {%- if block.settings.competitor_icon != blank -%}
                       {{ block.settings.competitor_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
                     {%- else -%}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                      {%- if section.settings.icons_filled -%}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+                      {%- else -%}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                      {%- endif -%}
                     {%- endif -%}
                   </span>
                   <span class="bc-feature__text">{{ block.settings.competitor_text }}</span>
@@ -482,8 +499,23 @@
           <h2 class="bc-heading bc-heading--desktop">{{ section.settings.heading }}</h2>
         {%- endif -%}
 
-        {%- if section.settings.checklist != blank -%}
-          <div class="bc-checklist">{{ section.settings.checklist }}</div>
+        {%- if section.settings.checklist_1 != blank or section.settings.checklist_2 != blank or section.settings.checklist_3 != blank or section.settings.checklist_4 != blank -%}
+          <div class="bc-checklist">
+            <ul>
+              {%- if section.settings.checklist_1 != blank -%}
+                <li>{{ section.settings.checklist_1 }}</li>
+              {%- endif -%}
+              {%- if section.settings.checklist_2 != blank -%}
+                <li>{{ section.settings.checklist_2 }}</li>
+              {%- endif -%}
+              {%- if section.settings.checklist_3 != blank -%}
+                <li>{{ section.settings.checklist_3 }}</li>
+              {%- endif -%}
+              {%- if section.settings.checklist_4 != blank -%}
+                <li>{{ section.settings.checklist_4 }}</li>
+              {%- endif -%}
+            </ul>
+          </div>
         {%- endif -%}
 
         {%- if section.settings.cta_text != blank -%}
@@ -569,10 +601,16 @@
       "content": "Brand column"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "brand_name",
       "label": "Brand name",
-      "default": "[BRAND]"
+      "default": "<strong>[BRAND]</strong>"
+    },
+    {
+      "type": "color",
+      "id": "brand_name_color",
+      "label": "Brand name color",
+      "default": "#ffffff"
     },
     {
       "type": "image_picker",
@@ -596,10 +634,10 @@
       "content": "Competitor column"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "competitor_label",
       "label": "Label",
-      "default": "Other Brands"
+      "default": "<strong>Other Brands</strong>"
     },
     {
       "type": "image_picker",
@@ -626,13 +664,42 @@
     },
     {
       "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "icons_filled",
+      "label": "Filled icons",
+      "default": false,
+      "info": "Applies to default SVG icons in columns and checklist"
+    },
+    {
+      "type": "header",
       "content": "Checklist (desktop)"
     },
     {
-      "type": "richtext",
-      "id": "checklist",
-      "label": "Checklist items",
-      "default": "<ul><li><strong>Clinically Backed Ingredients</strong> - Ingredients proven to work</li><li><strong>Visible Results in Weeks</strong> - Feel a difference in weeks</li><li><strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief</li><li><strong>Clean &amp; Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives</li></ul>"
+      "type": "inline_richtext",
+      "id": "checklist_1",
+      "label": "Item 1",
+      "default": "<strong>Clinically Backed Ingredients</strong> - Ingredients proven to work"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "checklist_2",
+      "label": "Item 2",
+      "default": "<strong>Visible Results in Weeks</strong> - Feel a difference in weeks"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "checklist_3",
+      "label": "Item 3",
+      "default": "<strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "checklist_4",
+      "label": "Item 4",
+      "default": "<strong>Clean &amp; Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives"
     },
     {
       "type": "header",
@@ -670,6 +737,18 @@
       "id": "cta_text_color",
       "label": "Button text color",
       "default": "#004c3c"
+    },
+    {
+      "type": "select",
+      "id": "cta_font_weight",
+      "label": "Button font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
     },
     {
       "type": "text",
