@@ -318,6 +318,9 @@
     .sticky-atc--visible {
       transform: translateY(0);
     }
+    .sticky-atc .button.loading {
+      color: rgb(var(--color-button-text));
+    }
     .sticky-atc-container {
       display: flex;
       align-items: center;
@@ -1418,12 +1421,11 @@
                     {%- if block.settings.mobile_show_title or block.settings.mobile_show_price %} sticky-atc--small-mobile-select{% endif -%}
                   "
                   data-section="{{ section.id }}"
+                  data-function="{{ block.settings.function }}"
+                  data-link="{{ block.settings.button_link }}"
+                  data-default-scroll="#ProductInfo-{{ section.id }}"
                   {%- if block.settings.display_when == 'after_scroll' %}
                     data-after-scroll="true"
-                  {%- endif %}
-                  {%- if block.settings.function != 'add_to_cart' %}
-                    data-scroll-btn="true"
-                    data-scroll-destination="#ProductInfo-{{ section.id }}"
                   {%- endif %}
                   {{ block.shopify_attributes }}
                 >
@@ -1527,48 +1529,26 @@
                     </div>
 
                     <div class="sticky-atc__button">
-                      {%- if block.settings.function == 'add_to_cart' -%}
-                        {%- liquid
-                          assign check_against_inventory = true
-                          if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
-                            assign check_against_inventory = false
-                          endif
-                          if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                            assign quantity_rule_soldout = true
-                          endif
-                        -%}
-                        <button
-                          id="StickyAtcBtn-{{ section.id }}"
-                          type="button"
-                          class="button button--has-spinner"
-                          style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};"
-                          {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}disabled{% endif %}
-                        >
-                          <span class="sticky-atc__error" style="display:none;"></span>
-                          <span class="sticky-atc__label">
-                            {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                              {{ 'products.product.sold_out' | t }}
-                            {%- else -%}
-                              {% if block.settings.mobile_show_price_in_button or block.settings.desktop_show_price_in_button %}
-                                <span id="sticky-atc-price-{{ section.id }}" class="
-                                  {%- unless block.settings.mobile_show_price_in_button %} mobile-hidden{% endunless -%}
-                                  {%- unless block.settings.desktop_show_price_in_button %} desktop-hidden{% endunless -%}
-                                ">
-                                  {{ product.selected_or_first_available_variant.price | money }} &bull;
-                                </span>
-                              {% endif %}
-                              <span class="sticky-atc__label__text">{{ block.settings.button_label }}</span>
-                            {%- endif -%}
-                          </span>
-                          <div class="loading__spinner hidden">
-                            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
-                        </button>
-                      {%- else -%}
-                        <button class="button sticky-atc__scroll-btn" style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};">
-                          <span>
+                      {%- liquid
+                        assign check_against_inventory = true
+                        if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                          assign check_against_inventory = false
+                        endif
+                        if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                          assign quantity_rule_soldout = true
+                        endif
+                      -%}
+                      <button
+                        id="StickyAtcBtn-{{ section.id }}"
+                        type="button"
+                        class="button"
+                        style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};"
+                        {% if block.settings.function == 'add_to_cart' and product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}disabled{% endif %}
+                      >
+                        <span class="sticky-atc__label">
+                          {%- if block.settings.function == 'add_to_cart' and product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                            {{ 'products.product.sold_out' | t }}
+                          {%- else -%}
                             {% if block.settings.mobile_show_price_in_button or block.settings.desktop_show_price_in_button %}
                               <span id="sticky-atc-price-{{ section.id }}" class="
                                 {%- unless block.settings.mobile_show_price_in_button %} mobile-hidden{% endunless -%}
@@ -1578,9 +1558,16 @@
                               </span>
                             {% endif %}
                             <span class="sticky-atc__label__text">{{ block.settings.button_label }}</span>
-                          </span>
-                        </button>
-                      {%- endif -%}
+                          {%- endif -%}
+                        </span>
+                        {%- if block.settings.function == 'add_to_cart' -%}
+                          <div class="loading__spinner hidden">
+                            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </div>
+                        {%- endif -%}
+                      </button>
                     </div>
                   </div>
                 </sticky-atc>
@@ -1595,8 +1582,9 @@
 
                         this.sectionId = this.dataset.section;
                         this.afterScroll = this.hasAttribute('data-after-scroll');
-                        this.isScrollBtn = this.hasAttribute('data-scroll-btn');
-                        this.scrollDest = this.dataset.scrollDestination;
+                        this.btnFunction = this.dataset.function || 'link';
+                        this.btnLink = this.dataset.link;
+                        this.defaultScroll = this.dataset.defaultScroll;
 
                         const mainBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
 
@@ -1618,16 +1606,23 @@
                         const btn = this.querySelector('.sticky-atc__button .button');
                         if (btn && !btn._stickyBound) {
                           btn._stickyBound = true;
-                          if (this.isScrollBtn) {
+
+                          if (this.btnFunction === 'link') {
                             btn.addEventListener('click', () => {
-                              const dest = document.querySelector(this.scrollDest);
-                              if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+                              var target = this.btnLink || this.defaultScroll;
+                              if (target && target.charAt(0) === '#') {
+                                var dest = document.querySelector(target);
+                                if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+                              } else if (target) {
+                                window.location.href = target;
+                              }
                             });
                           } else {
+                            /* Add to cart mode */
                             btn.addEventListener('click', () => {
                               if (btn.getAttribute('aria-disabled') === 'true') return;
 
-                              /* Show loading spinner */
+                              /* Show loading spinner (keeps text visible) */
                               btn.setAttribute('aria-disabled', 'true');
                               btn.classList.add('loading');
                               var spinner = btn.querySelector('.loading__spinner');
@@ -1651,7 +1646,6 @@
                                   }
                                 });
                                 obs.observe(currentBtn, { attributes: true, attributeFilter: ['class'] });
-                                /* Fallback in case observer never fires */
                                 setTimeout(function () {
                                   btn.classList.remove('loading');
                                   btn.removeAttribute('aria-disabled');
@@ -3801,10 +3795,17 @@
           "id": "function",
           "label": "Button function",
           "options": [
-            { "value": "add_to_cart", "label": "Add to cart" },
-            { "value": "scroll_to_info", "label": "Scroll to product info" }
+            { "value": "link", "label": "Link / scroll to section" },
+            { "value": "add_to_cart", "label": "Add to cart" }
           ],
-          "default": "add_to_cart"
+          "default": "link"
+        },
+        {
+          "type": "text",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "Use #SectionId to scroll to a section, or a full URL. Leave empty to scroll to product info.",
+          "default": ""
         },
         {
           "type": "select",
