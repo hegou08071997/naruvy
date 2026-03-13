@@ -11,6 +11,10 @@
   }
 {%- endstyle -%}
 
+{%- if section.settings.cta_note_icon == blank and section.settings.cta_note_icon_name != blank -%}
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+{%- endif -%}
+
 <style>
   .proven-benefits {
     width: 100%;
@@ -181,6 +185,11 @@
     display: inline-flex;
     background: #fff;
     transform: rotateY(180deg);
+    cursor: pointer;
+  }
+
+  .pb-card.active .pb-card__front {
+    cursor: pointer;
   }
 
   .pb-card.closing .pb-card__front-inner {
@@ -234,6 +243,11 @@
     .pb-cta__note img {
       width: 16px;
       height: 16px;
+    }
+
+    .pb-cta__icon {
+      font-size: 18px;
+      line-height: 1;
     }
   }
 
@@ -370,6 +384,8 @@
         <p class="pb-cta__note">
           {%- if section.settings.cta_note_icon != blank -%}
             {{ section.settings.cta_note_icon | image_url: width: 32 | image_tag: widths: '16,32', loading: 'lazy' }}
+          {%- elsif section.settings.cta_note_icon_name != blank -%}
+            <span class="material-symbols-outlined pb-cta__icon">{{ section.settings.cta_note_icon_name }}</span>
           {%- endif -%}
           {{ section.settings.cta_note }}
         </p>
@@ -460,9 +476,17 @@
       "default": "30-day money back guarantee"
     },
     {
+      "type": "text",
+      "id": "cta_note_icon_name",
+      "label": "Note icon name",
+      "default": "verified_user",
+      "info": "Google icon name (fonts.google.com/icons)"
+    },
+    {
       "type": "image_picker",
       "id": "cta_note_icon",
-      "label": "Note icon"
+      "label": "Note icon image",
+      "info": "Overrides Google icon if set"
     },
     {
       "type": "range",
