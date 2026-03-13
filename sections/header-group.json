@@ -42,7 +42,7 @@
         "ticker_item_3"
       ],
       "settings": {
-        "background_color": "#2e5bff",
+        "background_color": "#9f3f3f",
         "text_color": "#ffffff",
         "border_position": "none",
         "border_thickness": 1,
@@ -133,7 +133,7 @@
         "show_timer": true,
         "timer_hours": 2,
         "timer_color": "#ffffff",
-        "background_color": "#2e5bff",
+        "background_color": "#9f3f3f",
         "padding_top": 10,
         "padding_bottom": 10
       }
