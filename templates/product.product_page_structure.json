@@ -463,6 +463,49 @@
         "padding_bottom": 36
       }
     },
+    "benefits_showcase": {
+      "type": "benefits-showcase",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "health_and_safety",
+            "title": "Daily Immune Defense"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "science",
+            "title": "Gut Health & Digestion Support"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "bolt",
+            "title": "Boosts Energy & Clarity"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "spa",
+            "title": "Soothes Inflammation"
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+      "settings": {
+        "heading": "Feel Better. <strong>Every Day.</strong>",
+        "subheading": "From fewer sick days to smoother digestion, here's what makes [BRAND] different.",
+        "bg_color": "#9F3F3F",
+        "text_color": "#ffffff",
+        "highlight_color": "#ffffff",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -487,6 +530,7 @@
     "main",
     "feature_cards",
     "testimonial_slider",
+    "benefits_showcase",
     "related-products"
   ]
 }
