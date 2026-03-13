@@ -98,7 +98,7 @@
             "desktop_transparent_bg": false,
             "mobile_show_image": true,
             "mobile_show_title": true,
-            "mobile_rating_stars": false,
+            "mobile_rating_stars": true,
             "mobile_show_price": false,
             "mobile_show_sale_badge": false,
             "mobile_variant_picker": true,
