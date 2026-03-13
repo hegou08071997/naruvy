@@ -2,14 +2,26 @@
 
 <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 
-{% render 'quick-order-list', product: product, show_image: true, show_sku: true, is_modal: true %}
+<div class="{{ section.settings.className }}">
+  {% render 'quick-order-list', product: product, show_image: true, show_sku: true, is_modal: true %}
+</div>
 
 {% schema %}
 {
   "name": "t:sections.quick-order-list.name",
   "limit": 1,
   "enabled_on": {
-    "templates": ["product"]
-  }
+    "templates": [
+      "product"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
+    }
+  ]
 }
 {% endschema %}

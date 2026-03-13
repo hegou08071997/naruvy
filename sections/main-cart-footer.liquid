@@ -3,22 +3,10 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{% render 'gap', section: section %}
 
 <div
-  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  class="{{ section.settings.className }} gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
   id="main-cart-footer"
   data-id="{{ section.id }}"
 >
@@ -147,7 +135,7 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
-    },    
+    },
     {
       "type": "range",
       "id": "padding_top",
@@ -167,6 +155,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 40
+    },
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ],
   "blocks": [

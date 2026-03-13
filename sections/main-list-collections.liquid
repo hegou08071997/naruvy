@@ -1,7 +1,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
+<div class="{{ section.settings.className }} page-width">
   <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ section.settings.title }}
   </h1>
@@ -134,6 +134,12 @@
       ],
       "default": "2",
       "label": "t:sections.main-list-collections.settings.columns_mobile.label"
+    },
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ]
 }

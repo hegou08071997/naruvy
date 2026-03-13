@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template">
+<article class="{{ section.settings.className }} article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -368,6 +368,14 @@
           "default": "t:sections.main-article.blocks.share.settings.text.default"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ]
 }

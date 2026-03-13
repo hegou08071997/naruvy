@@ -1,19 +1,7 @@
 {{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{% render 'gap', section: section %}
 
 {%- liquid
   assign video_id = section.settings.video.id | default: section.settings.video_url.id
@@ -38,7 +26,7 @@
   {%- endif %}
 {%- endcapture -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="{{ section.settings.className }} color-{{ section.settings.color_scheme }} gradient">
   <div class="video-section isolate{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
     <div
       {% if section.settings.full_width %}
@@ -126,7 +114,10 @@
   "tag": "section",
   "class": "section",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": [
+      "header",
+      "footer"
+    ]
   },
   "settings": [
     {
@@ -189,7 +180,10 @@
     {
       "type": "video_url",
       "id": "video_url",
-      "accept": ["youtube", "vimeo"],
+      "accept": [
+        "youtube",
+        "vimeo"
+      ],
       "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
       "label": "t:sections.video.settings.video_url.label",
       "info": "t:sections.video.settings.video_url.info"
@@ -244,6 +238,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ],
   "presets": [

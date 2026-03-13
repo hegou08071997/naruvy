@@ -1,18 +1,6 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{% render 'gap', section: section %}
 
 {%- liquid
   if section.settings.image_layout contains 'right'
@@ -42,7 +30,7 @@
   endunless
 -%}
 
-<div class="multirow section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+<div class="{{ section.settings.className }} multirow section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
   <div class="multirow__inner page-width">
     {%- for block in section.blocks -%}
       <div
@@ -112,7 +100,10 @@
   "name": "t:sections.multirow.name",
   "class": "section",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": [
+      "header",
+      "footer"
+    ]
   },
   "settings": [
     {
@@ -350,6 +341,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ],
   "blocks": [
@@ -384,7 +381,7 @@
           "type": "text",
           "id": "button_label",
           "default": "t:sections.multirow.blocks.row.settings.button_label.default",
-          "label": "t:sections.multirow.blocks.row.settings.button_label.label", 
+          "label": "t:sections.multirow.blocks.row.settings.button_label.label",
           "info": "t:sections.multirow.blocks.row.settings.button_label.info"
         },
         {
