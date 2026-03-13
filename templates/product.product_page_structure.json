@@ -725,25 +725,6 @@
         "padding_bottom": 40
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "disabled": true,
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
     "brand_comparison": {
       "type": "brand-comparison",
       "blocks": {
@@ -771,8 +752,8 @@
         "bc_4": {
           "type": "feature",
           "settings": {
-            "brand_text": "Global Certified Facilities",
-            "competitor_text": "Low-Quality Manufacturing"
+            "brand_text": "High-Quality Formula",
+            "competitor_text": "Inconsistent Quality"
           }
         },
         "bc_5": {
@@ -791,26 +772,48 @@
         "bc_5"
       ],
       "settings": {
-        "heading": "<strong>[BRAND]\u00ae</strong> vs. Other Brands",
+        "heading": "<strong>[BRAND]®</strong> vs. Other Brands",
         "heading_size": 36,
-        "bg_gradient_start": "#07493A",
-        "bg_gradient_end": "#002A21",
+        "bg_gradient_start": "#8a2b2b",
+        "bg_gradient_end": "#690e0e",
         "text_color": "#ffffff",
-        "highlight_color": "#FFF7D4",
+        "highlight_color": "#ffffff",
         "brand_name": "[BRAND]",
-        "brand_col_color": "#009370",
+        "brand_image": "shopify://shop_images/generated-1772392286962.png",
+        "brand_col_color": "#9f3f3f",
         "brand_icon_color": "#ffffff",
         "competitor_label": "Other Brands",
         "comp_col_color": "#ffffff",
         "comp_text_color": "#000000",
         "comp_icon_color": "#999999",
+        "checklist": "<ul><li><strong>Clinically Backed Ingredients</strong> - Ingredients proven to work</li><li><strong>Visible Results in Weeks</strong> - Feel a difference in weeks</li><li><strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief</li><li><strong>Clean & Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives</li></ul>",
         "cta_text": "Try Risk-Free Today",
+        "cta_link": "",
         "cta_height": 54,
-        "cta_bg_color": "#E3FFDE",
+        "cta_bg_color": "#e3ffde",
         "cta_text_color": "#004c3c",
         "note_text": "30-day money back guarantee",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     }
   },
