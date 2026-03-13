@@ -1560,7 +1560,7 @@
                               <span class="sticky-atc__label__text">{{ block.settings.button_label }}</span>
                             {%- endif -%}
                           </span>
-                          <div class="loading-overlay__spinner">
+                          <div class="loading__spinner hidden">
                             <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                             </svg>
@@ -1625,8 +1625,40 @@
                             });
                           } else {
                             btn.addEventListener('click', () => {
-                              const currentBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
-                              if (currentBtn) currentBtn.click();
+                              if (btn.getAttribute('aria-disabled') === 'true') return;
+
+                              /* Show loading spinner */
+                              btn.setAttribute('aria-disabled', 'true');
+                              btn.classList.add('loading');
+                              var spinner = btn.querySelector('.loading__spinner');
+                              if (spinner) spinner.classList.remove('hidden');
+
+                              /* Submit the product form directly */
+                              var productForm = document.querySelector('product-form');
+                              if (productForm && productForm.form) {
+                                productForm.form.requestSubmit();
+                              }
+
+                              /* Clear loading when main button finishes */
+                              var currentBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
+                              if (currentBtn) {
+                                var obs = new MutationObserver(function () {
+                                  if (!currentBtn.classList.contains('loading')) {
+                                    btn.classList.remove('loading');
+                                    btn.removeAttribute('aria-disabled');
+                                    if (spinner) spinner.classList.add('hidden');
+                                    obs.disconnect();
+                                  }
+                                });
+                                obs.observe(currentBtn, { attributes: true, attributeFilter: ['class'] });
+                                /* Fallback in case observer never fires */
+                                setTimeout(function () {
+                                  btn.classList.remove('loading');
+                                  btn.removeAttribute('aria-disabled');
+                                  if (spinner) spinner.classList.add('hidden');
+                                  obs.disconnect();
+                                }, 8000);
+                              }
                             });
                           }
                         }
