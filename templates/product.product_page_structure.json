@@ -502,14 +502,14 @@
         "benefit_4"
       ],
       "settings": {
-        "heading": "<strong>Feel Better.</strong> Every Day.",
+        "heading": "Feel Better. Every Day.",
         "subheading": "From fewer sick days to smoother digestion, here's what makes [BRAND] different.",
-        "product_image": "shopify://shop_images/generated-1772392286962.png",
+        "product_image": "shopify://shop_images/product.png",
         "bg_color": "#9f3f3f",
         "text_color": "#ffffff",
         "highlight_color": "#ffafaf",
         "subheading_color": "",
-        "heading_size": 2.8,
+        "heading_size": 3,
         "subheading_size": 1.5,
         "benefit_size": 1.8,
         "padding_top": 48,
