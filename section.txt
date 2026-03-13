@@ -1,606 +1,1024 @@
-<div id="shopify-section-template--26971077771448__proven_benefits_XmN4rpn" class="shopify-section"><section class="proven-benefits-section">
-  <div class="container-1184">
-    <h2 class="benefits-heading">
-      <span class="highlight-text">Proven Benefits.</span> Backed by Science.
-    </h2>
-    <p class="benefits-subheading">
-      Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research.
-    </p>
-
-    <div class="faq_center_flex section3_lp">
+Mobile code:
+<div id="shopify-section-template--26971077771448__wellness_journey_jPjBCY" class="shopify-section"><section class="wellness-journey-section">
+  <div class="container-1095">
+  <div class="journey-container">
+    <!-- Left column -->
+    <div class="content-column">
+      
+        <img src="//resilia.shop/cdn/shop/files/Group_8_400x.webp?v=1748361645" alt="Journey with Resilia®" class="brand-image">
+ 
       
 
-<div class="faq_slider_item_new">
-       <div class="faq_slider_item_innernew">
-          <div class="faq_question">
-          <div class="faq_question_inner">
-            
-           
-          
-            <img src="//resilia.shop/cdn/shop/files/image_3.webp?v=1748275568" alt="Push-up White Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+      <h2 class="main-heading">
+        <span class="highlight-text">Your Wellness</span><br>
+        Journey with Resilia®
+      </h2>
 
-            
-        <div>
-           <h3 class="card-title">Immunity</h3>
-              <p class="card-description">Strengthen your body</p>
-        </div>
-             
-          </div>
-            <div class="expand-buttons">
-              <span class="plus-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.72069 11.033V5.96898H0.656637V5.38515H5.72069V0.321103H6.30451V5.38515H11.3686V5.96898H6.30451V11.033H5.72069Z" fill="black"></path>
-                </svg>
-              </span>
-              <span class="minus-icon">
-                <svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.97719 0.0678547V0.65168H0.920525V0.0678547H7.97719Z" fill="black"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <div class="faq_answer" style="display:none;">
-            <p>Oregano oil is packed with carvacrol, a powerful compound shown to fight off bacteria and viruses—supporting your immune system every single day.</p>
-          </div>
-       </div>
-           </div>
+      <p class="description-text">Resilia® is designed to deliver real, lasting results—not just quick fixes. Here’s how your body begins to shift once you start taking it daily:</p>
+
       
-        
+        <a href="#scroll-pro" class="journey-button hide-mob">
+          Start My Journey →
+        </a>
       
 
-<div class="faq_slider_item_new">
-       <div class="faq_slider_item_innernew">
-          <div class="faq_question">
-          <div class="faq_question_inner">
-            
-           
-          
-            <img src="//resilia.shop/cdn/shop/files/image_4.webp?v=1748275593" alt="Couple Jogging Photos" width="auto" height="auto" loading="eager" fetchpriority="high">
-
-            
-        <div>
-           <h3 class="card-title">Inflammation</h3>
-              <p class="card-description">Soothe it at the source</p>
-        </div>
-             
-          </div>
-            <div class="expand-buttons">
-              <span class="plus-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.72069 11.033V5.96898H0.656637V5.38515H5.72069V0.321103H6.30451V5.38515H11.3686V5.96898H6.30451V11.033H5.72069Z" fill="black"></path>
-                </svg>
-              </span>
-              <span class="minus-icon">
-                <svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.97719 0.0678547V0.65168H0.920525V0.0678547H7.97719Z" fill="black"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <div class="faq_answer" style="display:none;">
-            <p>Black seed oil helps calm inflammation, restore gut balance, and reduce bloating—so you feel lighter, more regular, and at ease.</p>
-          </div>
-       </div>
-           </div>
       
-        
-      
-
-<div class="faq_slider_item_new">
-       <div class="faq_slider_item_innernew">
-          <div class="faq_question">
-          <div class="faq_question_inner">
-            
-           
-          
-            <img src="//resilia.shop/cdn/shop/files/image_5.webp?v=1748275614" alt="Female doing Yoga Photo" width="auto" height="auto" loading="eager" fetchpriority="high">
-
-            
-        <div>
-           <h3 class="card-title">Digestion</h3>
-              <p class="card-description">Gut health without bloat</p>
-        </div>
-             
-          </div>
-            <div class="expand-buttons">
-              <span class="plus-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.72069 11.033V5.96898H0.656637V5.38515H5.72069V0.321103H6.30451V5.38515H11.3686V5.96898H6.30451V11.033H5.72069Z" fill="black"></path>
-                </svg>
-              </span>
-              <span class="minus-icon">
-                <svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.97719 0.0678547V0.65168H0.920525V0.0678547H7.97719Z" fill="black"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <div class="faq_answer" style="display:none;">
-            <p>Both oregano and black seed oils contain antioxidants that help reduce chronic inflammation, promoting long-term joint, gut, and immune health.</p>
-          </div>
-       </div>
-           </div>
-      
-        
-      
-
-<div class="faq_slider_item_new">
-       <div class="faq_slider_item_innernew">
-          <div class="faq_question">
-          <div class="faq_question_inner">
-            
-           
-          
-            <img src="//resilia.shop/cdn/shop/files/image_6.webp?v=1748275634" alt="Man working on Laptop" width="auto" height="auto" loading="eager" fetchpriority="high">
-
-            
-        <div>
-           <h3 class="card-title">Clarity</h3>
-              <p class="card-description">Feel focused, not foggy</p>
-        </div>
-             
-          </div>
-            <div class="expand-buttons">
-              <span class="plus-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.72069 11.033V5.96898H0.656637V5.38515H5.72069V0.321103H6.30451V5.38515H11.3686V5.96898H6.30451V11.033H5.72069Z" fill="black"></path>
-                </svg>
-              </span>
-              <span class="minus-icon">
-                <svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.97719 0.0678547V0.65168H0.920525V0.0678547H7.97719Z" fill="black"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <div class="faq_answer" style="display:none;">
-            <p>By supporting gut and immune balance, Resilia® helps you feel sharper and more energized—without relying on caffeine or stimulants.</p>
-          </div>
-       </div>
-           </div>
-      
-        
+        <p class="prdoff-cta-note hide-mob">
+                    <img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="guarantee icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+                   30-day money-back guarantee
+                </p>
       
     </div>
-    <div class="action-callout hide-desk">
-      <a href="#scroll-pro" class="cta-button">Try Risk-Free Today</a>
-      <p class="cta-note"><img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="icon" width="auto" height="auto" loading="eager" fetchpriority="high"> 30-day money back guarantee</p>
+
+    <!-- Right column (timeline) -->
+    <div class="timeline-column">
+      <div class="milestones-container">
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 1: Relief Begins
+            </div>
+            <div class="bullet-list">
+              <ul><li>Digestion starts to feel lighter</li><li>Bloating begins to calm</li><li>Breathing feels clearer, especially in the mornings</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 2: Energy Returns
+            </div>
+            <div class="bullet-list">
+              <ul><li>More stable daily energy</li><li>Less brain fog and fatigue</li><li>Immune system feels stronger and more responsive</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 3: Gut + Immune Sync
+            </div>
+            <div class="bullet-list">
+              <ul><li>Improved regularity and gut comfort</li><li>Fewer signs of inflammation (skin, joints, sinuses)</li><li>You feel more "in control" of your health</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 4+: Long-Term Balance
+            </div>
+            <div class="bullet-list">
+              <ul><li>Resilience through seasonal changes</li><li>Clearer mind, steady energy, fewer sick days</li><li>Your body feels lighter, calmer, and stronger from the inside out</li></ul>
+            </div>
+          </div>
+        
+      </div>
+      <div class="action-callout hide-desk">
+      
+        <a href="#scroll-pro" class="cta-button">
+          Start My Journey →
+        </a>
+      
+
+      
+        <p class="cta-note ">
+                    <img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="guarantee icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+                   30-day money-back guarantee
+                </p>
+      
     </div>
+      </div>
+  </div>
   </div>
 </section>
 
 <style>
-.proven-benefits-section {
-  padding-top: 39px;
+.wellness-journey-section {
+  padding-top: 40px;
   padding-bottom: 40px;
-  background-color: rgba(241, 243, 234, 1);
+}
+.journey-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.content-column {
+      text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
 }
 
-.benefits-heading {
+.brand-image {
+  margin-bottom: 47px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.brand-placeholder {
+  font-size: 24px;
+  font-weight: 700;
+  color: #047857;
+  margin-bottom: 24px;
+}
+
+.main-heading {
     font-weight: 500;
-    font-size: 31px;
-    line-height: 38px;
+    font-size: 36.08px;
+    line-height: 44px;
     letter-spacing: 0;
-    margin-bottom: 19px;
     text-align: center;
+    width: 100%;
 }
 
 .highlight-text {
-  color: rgba(0, 147, 112, 1); 
+  color: rgba(0, 147, 112, 1);
 }
-.benefits-subheading {
-    max-width: 804px;
-    margin-left: auto;
-    margin-right: auto;
+p.prdoff-cta-note {
+    margin-top: 14px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 3.88px;
     font-weight: 400;
-    font-size: 17px;
-    line-height: 19px;
+    font-size: 16.96px;
+    line-height: 21.33px;
     letter-spacing: 0;
     text-align: center;
-    margin-bottom: 41px;
+    margin-bottom: 0;
 }
-.benefits-subheading strong {
-    font-weight: 500;
+ p.prdoff-cta-note img {
+    max-width: 17px;
+    height: auto;
 }
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px 16px;
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.benefit-card {
-  position: relative;
-  overflow: hidden;
-}
-.card-content {
-    background-color: white;
-    padding: 12.5px 45px 12.5px 11.5px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 27px;
-}
-.card-content > div {
-  transition: all .5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-   display: flex;
-  
-    gap: 27px;
-    align-items: center;
-}
-.benefit-card.active .card-content > div{
-    transform: rotateY(180deg);
-}
-.card-content img {
-    width: 125px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 7.35px;
-}
-.benefit-card.active .expanded-content {
-    background: #fff;
-    transform: rotateY(180deg);
-}
-.benefit-card.active .expanded-content > div {
-   -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-}
-.text-content {
-  text-align: left;
-  flex: 1;
-}
-
-.card-title {
-  font-family:'Clash Grotesk';
-font-weight: 500;
-font-size: 25.59px;
-line-height: 28.72px;
-letter-spacing: 0;
-margin-bottom:8px;
-}
-
-.card-description {
-  font-family: Satoshi;
-font-weight: 400;
-font-size: 19.91px;
-line-height: 24.17px;
-letter-spacing: 0;
-margin-bottom:0;
-}
-
-.expand-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  position: relative;
-  z-index: 2;
-     
-}
-
-.expand-button svg {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  padding: 4px;
-}
-
-.expanded-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #fff;
-    height: 100% !important;
-    width: 100%;
-    margin: 0;
+.description-text {
     font-weight: 400;
-    font-size: 17px;
-    line-height: 23px;
-    text-align: left;
-    padding: 12.5px 31.5px 12.5px 95px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-display: none;
-      transition: all .5s ease;
-    transform-style: preserve-3d;
+    font-size: 19.43px;
+    line-height: 26.37px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 35px;
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
 }
-  .expanded-content >div {
-    display: inline-flex;
+.journey-button {
+    background-color: rgba(9, 89, 70, 1);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 6.94px;
+    transition: background-color 0.3s ease;
+    height: 62.4px;
+    display: flex;
     align-items: center;
-     height: 100% !important;
+    justify-content: center;
+    max-width: 385px;
     width: 100%;
-  }
-.expanded-content p:last-child {
-    margin-bottom: 0;
+  font-family: Clash Grotesk;
+font-weight: 500;
+font-size: 22.21px;
+letter-spacing: 0;
+text-align: center;
+
 }
 
-
-  .faq_center_flex.section3_lp {
-    display: inline-flex;
-    align-items: flex-start;
-    grid-gap: 14px 16px;
-    flex-wrap: wrap;
-}
-.section3_lp .faq_subtext {
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 18px;
-    width: 830px;
-    margin: 0px auto;
-    padding-bottom: 40px;
-}
-.section3_lp .faq_center_flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 14px;
-    row-gap: 9px;
-}
-.section3_lp .faq_slider_item_new {
-    border-radius: 8.02px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background: #FFF;
-    width: calc(50% - 8px);
-}
-.section3_lp .faq_question_inner {
-    display: flex;
-    align-items: center;
-    grid-gap: 27px;
-}
-.section3_lp .faq_question_inner img {
-    height: 119px;
-}
-.section3_lp .faq_question_inner span {
-    padding-left: 23px;
-}
-.section3_lp .faq_question .expand-buttons {
-    font-size: 34px;
-    font-style: normal;
-    font-weight: 100;
-    line-height: normal;
-    width: 36.41px;
-    height: 36.41px;
-    flex-shrink: 0;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-}
-  .section3_lp .faq_question .expand-buttons .plus-icon {
-    height: 34px;
-    display: flex;
-    align-items: center;
-    width: 30px;
-    justify-content: center;
-}
-.section3_lp .faq_question .expand-buttons .minus-icon {
-    display: none;
-}
-.section3_lp .faq_question {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 10px 20px 10px 9px;
-    justify-content: space-between;
-}
-.section3_lp .faq_question_inner span {
-    padding-right: 11px;
-}
-.section3_lp .faq_center_flex .faq_slider_item_new:nth-child(3) .faq_question_inner span {
-    width: 200px;
-}
-.section3_lp .faq_question_inner span {
-    padding-top: 7px;
-}
-.section3_lp .faq_center_flex {
-    align-items: flex-start;
-}
-.section3_lp .faq_slider_item_new {
-    position: relative;
-}
-.section3_lp .faq_answer {
-    
-    background: #fff;
-    width: 85%;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    display: flex;
-    align-items: center;
-}
-.section3_lp .faq_question.active .expand-buttons .plus-icon {
-    display: none;
-}
-.section3_lp .faq_question.active .expand-buttons .minus-icon {
-    height: 34px;
-    display: flex;
-    align-items: center;
-}
-.section3_lp .faq_slider_item_new {
-    overflow: hidden;
-}
-  .section3_lp .faq_answer p {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-}
-.section3_lp .faq_answer {
-   font-size: 17px !important;
-    line-height: 23px !important;
-    text-align: left !important;
-    padding: 12.5px 31.5px 12.5px !important;
-    border-radius: 8px;
-    display: inline-flex  !important;
-    height: auto !important;
-    transition: all .5s ease;
-    transform-style: preserve-3d;
+.journey-button:hover {
+  box-shadow: 0 0 0 2px rgba(9, 89, 70, 1) inset;
     background: transparent;
-    overflow: visible !important;
-}
-  .section3_lp .faq_answer > p:last-child {
-    margin-bottom: 0;
-}
-.section3_lp .faq_question_inner {
-    transition: all .5s ease;
-}
-.section3_lp .faq_question.active .faq_question_inner {
-    transform: rotateY(180deg);
-}
-.section3_lp .faq_question_inner {
-    transition: all .5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-.section3_lp .faq_question.active+.faq_answer {
-    background: #fff;
-    transform: rotateY(180deg);
-}
-/* section 4 end */
-
-
-  
-@media (min-width: 640px) {
-  .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    color: rgba(9, 89, 70, 1);
 }
 
-@media (max-width: 991px) {
-  .section3_lp .faq_question {
-    padding: 8px 16px 8px 8px;
+.guarantee-note {
+  color: #6b7280;
+  margin-top: 16px;
+  font-size: 14px;
 }
-.faq_center_flex.section3_lp {
-    grid-gap: 10px;
-    flex-wrap: wrap;
-}
-.section3_lp .faq_slider_item_new {
-    border-radius: 5.64px;
+
+.timeline-column {
+    position: relative;
+    max-width: calc(50% - 116px);
     width: 100%;
 }
-.section3_lp .faq_question_inner img {
-    height: 84px;
-}
-.section3_lp .faq_question_inner {
-    grid-gap: 19px;
-}
-.section3_lp .faq_question:after {
-    font-size: 24px;
-    width: 25.6px;
-    height: 25.6px;
-}
-.section3_lp .faq_answer {
-    font-size: 14px !important;
-    line-height: 17px !important;
-    text-align: left !important;
-    padding: 19px 19px 19px 0!important;
-    border-radius: 8px;
-}
-.section3_lp .faq_question .expand-buttons {
-    font-size: 25px;
-    width: 25px;
-    height: 25px;
+
+.milestones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
 }
 
+.milestone-item {
+  position: relative;
+  padding-left: 32px;
+}
 
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16.65px;
+    height: 16.65px;
+    border-radius: 50%;
+    border: 0px solid white;
+    background: rgba(0, 0, 0, 1);
+   z-index: 1;
+  transition: 2s;
+}
+  .milestone-item.active span.timeline-dot {
+    background: rgba(0, 147, 112, 1);
+   
+}
+.timeline-line-segment {
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    pointer-events: none;
+    height: 100%;
+    width: 1.39px;
+    background: rgba(0, 0, 0, 1);
+}
+.milestones-container > .milestone-item:last-child span.timeline-line-segment,
+.milestones-container > .milestone-item:last-child span.timeline-line-progress  {
+    display: none;
+}
+.timeline-line-progress {
+    position: absolute;
+    left: 6px;
+    top: 22px;
+    width: 4px;
+    pointer-events: none;
+    height: 0;
+    background: rgba(0, 147, 112, 1);
+    z-index: 1;
+  transition: all 1.5s ease;
+}
+.milestone-item.active .timeline-line-progress {
+     height: 103%;
+}
+.week-label {
+    padding: 4px 37px;
+    border-radius: 6.94px;
+    color: white;
+    margin-bottom: 20px;
+    transition: all 1.5s ease;
+    background: rgba(0, 0, 0, 1);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-family: Clash Grotesk;
+    font-weight: 500;
+    font-size: 19.43px;
+    line-height: 24.98px;
+    letter-spacing: 0;
+}
+.milestone-item.active .week-label {
+    background: rgba(0, 147, 112, 1);
+}
 
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #374151;
+}
 
+.bullet-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+.bullet-list li {
+    font-weight: 400;
+    font-size: 19.43px;
+    line-height: 24.98px;
+    letter-spacing: 0;
+    margin-bottom: 19px;
+    position: relative;
+    padding-left: 25px;
+}
+.bullet-list li:before {
+    content: "";
+    color: #047857;
+    margin-right: 5px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0779/0673/9384/files/Group_1000006545.svg?v=1748362844);
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 992px) {
+  .content-column {
+    position: sticky;
+    top: 70px;
+}
+}
   
-.benefits-heading {
+@media (max-width: 991px) {
+.journey-container {
+    flex-wrap: wrap;
+}
+.content-column {
+    width: 100%;
+}
+.content-column > img {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    display: inline-block;
+    max-width: none;
+    margin-bottom: 34px;
+}
+.timeline-column {
+    max-width: 100%;
+}
+.wellness-journey-section {
+    padding-top: 0;
+}
+.main-heading {
     font-size: 26px;
     line-height: 32px;
     margin-bottom: 10px;
-    max-width: 220px;
+}
+.description-text {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 28px;
+}
+.week-label {
+    padding: 9px 27px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 18px;
+}
+.bullet-list li {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 14px;
+    padding-left: 19px;
+}
+.bullet-list li:before {
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 1px;
+    background-size: contain;
+}
+.milestones-container {
+    gap: 6px;
+}
+.journey-container .action-callout.hide-desk {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+
+
+  
+}
+</style>
+
+
+
+
+<script>
+function isScrolledIntoView2(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    // ➕ ADD 200px after the element comes into view
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return (docViewBottom >= elemBottom + 200); // trigger 200px after bottom of element hits viewport
+}
+
+$(window).scroll(function () {
+    $('.milestone-item').each(function () {
+        if (isScrolledIntoView2(this)) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+});
+</script>
+
+
+</div>
+    --colorAnnouncement: #085946;
+    --colorAnnouncementText: #ffffff;
+    --colorBody: #ffffff;
+    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
+    --colorBodyDim: #f2f2f2;
+    --colorBodyLightDim: #fafafa;
+    --colorBodyMediumDim: #f5f5f5;
+    --colorBorder: #085946;
+    --colorBtnPrimary: #085946;
+    --colorBtnPrimaryLight: #0c886b;
+    --colorBtnPrimaryDim: #064234;
+    --colorBtnPrimaryText: #ffffff;
+    --colorCartDot: #085946;
+    --colorDrawers: #ffffff;
+    --colorDrawersDim: #f2f2f2;
+    --colorDrawerBorder: #085946;
+    --colorDrawerText: #085946;
+    --colorDrawerTextDark: #02130f;
+    --colorDrawerButton: #085946;
+    --colorDrawerButtonText: #ffffff;
+    --colorFooter: #085946;
+    --colorFooterText: #ffffff;
+    --colorFooterTextAlpha01: #ffffff;
+    --colorGridOverlay: #000000;
+    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
+    --colorHeroText: #ffffff;
+    --colorSmallImageBg: #ffffff;
+    --colorLargeImageBg: #085946;
+    --colorImageOverlay: #085946;
+    --colorImageOverlayOpacity: 0;
+    --colorImageOverlayTextShadow: 0;
+    --colorLink: #085946;
+    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
+    --colorNav: #ffffff;
+    --colorNavText: #085946;
+    --colorPrice: #085946;
+    --colorSaleTag: #085946;
+    --colorSaleTagText: #ffffff;
+    --colorTextBody: #085946;
+    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextSavings: #085946;
+    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
+    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
+    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
+    --grid-gutter: 17px;
+    --drawer-gutter: 20px;
+    --sizeChartMargin: 25px 0;
+    --sizeChartIconMargin: 5px;
+    --newsletterReminderPadding: 40px;
+    --color-body-text: #085946;
+    --color-body: #ffffff;
+    --color-bg: #ffffff;
+    --typeHeaderPrimary: "Tenor Sans";
+    --typeHeaderFallback: sans-serif;
+    --typeHeaderSize: 36px;
+    --typeHeaderWeight: 400;
+    --typeHeaderLineHeight: 1;
+    --typeHeaderSpacing: 0.0em;
+    --typeBasePrimary: Outfit;
+    --typeBaseFallback: sans-serif;
+    --typeBaseSize: 18px;
+    --typeBaseWeight: 300;
+    --typeBaseSpacing: 0.025em;
+    --typeBaseLineHeight: 1.4;
+    --typeBaselineHeightMinus01: 1.3;
+    --typeCollectionTitle: 20px;
+    --iconWeight: 2px;
+    --iconLinecaps: miter;
+    --buttonRadius: 0;
+    --colorGridOverlayOpacity: 0.1;
+    --accent-color: #29a31b;
+    --accent-color-light: #effbff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    font-size: calc(var(--typeBaseSize)*0.92);
+    letter-spacing: var(--typeBaseSpacing);
+    line-height: var(--typeBaseLineHeight);
+    text-rendering: optimizeSpeed;
+    font-family: Satoshi;
+    font-weight: 400;
+    color: #000;
+    scrollbar-width: none !important;
+    box-sizing: border-box;
+    cursor: url(chrome-extension://ckejmhbmlajgoklhgbapkiccekfoccmk/assets/pictos/cursor.png) 17 17, pointer !important;
+
+---
+PC code:
+<div id="shopify-section-template--26971077771448__wellness_journey_jPjBCY" class="shopify-section"><section class="wellness-journey-section">
+  <div class="container-1095">
+  <div class="journey-container">
+    <!-- Left column -->
+    <div class="content-column">
+      
+        <img src="//resilia.shop/cdn/shop/files/Group_8_400x.webp?v=1748361645" alt="Journey with Resilia®" class="brand-image">
+ 
+      
+
+      <h2 class="main-heading">
+        <span class="highlight-text">Your Wellness</span><br>
+        Journey with Resilia®
+      </h2>
+
+      <p class="description-text">Resilia® is designed to deliver real, lasting results—not just quick fixes. Here’s how your body begins to shift once you start taking it daily:</p>
+
+      
+        <a href="#scroll-pro" class="journey-button hide-mob">
+          Start My Journey →
+        </a>
+      
+
+      
+        <p class="prdoff-cta-note hide-mob">
+                    <img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="guarantee icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+                   30-day money-back guarantee
+                </p>
+      
+    </div>
+
+    <!-- Right column (timeline) -->
+    <div class="timeline-column">
+      <div class="milestones-container">
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 1: Relief Begins
+            </div>
+            <div class="bullet-list">
+              <ul><li>Digestion starts to feel lighter</li><li>Bloating begins to calm</li><li>Breathing feels clearer, especially in the mornings</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 2: Energy Returns
+            </div>
+            <div class="bullet-list">
+              <ul><li>More stable daily energy</li><li>Less brain fog and fatigue</li><li>Immune system feels stronger and more responsive</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 3: Gut + Immune Sync
+            </div>
+            <div class="bullet-list">
+              <ul><li>Improved regularity and gut comfort</li><li>Fewer signs of inflammation (skin, joints, sinuses)</li><li>You feel more "in control" of your health</li></ul>
+            </div>
+          </div>
+        
+          <div class="milestone-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-line-segment"></span>
+            <span class="timeline-line-progress"></span>
+            <div class="week-label">
+              Week 4+: Long-Term Balance
+            </div>
+            <div class="bullet-list">
+              <ul><li>Resilience through seasonal changes</li><li>Clearer mind, steady energy, fewer sick days</li><li>Your body feels lighter, calmer, and stronger from the inside out</li></ul>
+            </div>
+          </div>
+        
+      </div>
+      <div class="action-callout hide-desk">
+      
+        <a href="#scroll-pro" class="cta-button">
+          Start My Journey →
+        </a>
+      
+
+      
+        <p class="cta-note ">
+                    <img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="guarantee icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+                   30-day money-back guarantee
+                </p>
+      
+    </div>
+      </div>
+  </div>
+  </div>
+</section>
+
+<style>
+.wellness-journey-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.journey-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.content-column {
+      text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.brand-image {
+  margin-bottom: 47px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.brand-placeholder {
+  font-size: 24px;
+  font-weight: 700;
+  color: #047857;
+  margin-bottom: 24px;
+}
+
+.main-heading {
+    font-weight: 500;
+    font-size: 36.08px;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.highlight-text {
+  color: rgba(0, 147, 112, 1);
+}
+p.prdoff-cta-note {
+    margin-top: 14px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 3.88px;
+    font-weight: 400;
+    font-size: 16.96px;
+    line-height: 21.33px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 0;
+}
+ p.prdoff-cta-note img {
+    max-width: 17px;
+    height: auto;
+}
+.description-text {
+    font-weight: 400;
+    font-size: 19.43px;
+    line-height: 26.37px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 35px;
+    max-width: 410px;
     margin-left: auto;
     margin-right: auto;
 }
-.benefits-subheading {
+.journey-button {
+    background-color: rgba(9, 89, 70, 1);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 6.94px;
+    transition: background-color 0.3s ease;
+    height: 62.4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 385px;
+    width: 100%;
+  font-family: Clash Grotesk;
+font-weight: 500;
+font-size: 22.21px;
+letter-spacing: 0;
+text-align: center;
+
+}
+
+.journey-button:hover {
+  box-shadow: 0 0 0 2px rgba(9, 89, 70, 1) inset;
+    background: transparent;
+    color: rgba(9, 89, 70, 1);
+}
+
+.guarantee-note {
+  color: #6b7280;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.timeline-column {
+    position: relative;
+    max-width: calc(50% - 116px);
+    width: 100%;
+}
+
+.milestones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.milestone-item {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16.65px;
+    height: 16.65px;
+    border-radius: 50%;
+    border: 0px solid white;
+    background: rgba(0, 0, 0, 1);
+   z-index: 1;
+  transition: 2s;
+}
+  .milestone-item.active span.timeline-dot {
+    background: rgba(0, 147, 112, 1);
+   
+}
+.timeline-line-segment {
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    pointer-events: none;
+    height: 100%;
+    width: 1.39px;
+    background: rgba(0, 0, 0, 1);
+}
+.milestones-container > .milestone-item:last-child span.timeline-line-segment,
+.milestones-container > .milestone-item:last-child span.timeline-line-progress  {
+    display: none;
+}
+.timeline-line-progress {
+    position: absolute;
+    left: 6px;
+    top: 22px;
+    width: 4px;
+    pointer-events: none;
+    height: 0;
+    background: rgba(0, 147, 112, 1);
+    z-index: 1;
+  transition: all 1.5s ease;
+}
+.milestone-item.active .timeline-line-progress {
+     height: 103%;
+}
+.week-label {
+    padding: 4px 37px;
+    border-radius: 6.94px;
+    color: white;
+    margin-bottom: 20px;
+    transition: all 1.5s ease;
+    background: rgba(0, 0, 0, 1);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-family: Clash Grotesk;
+    font-weight: 500;
+    font-size: 19.43px;
+    line-height: 24.98px;
+    letter-spacing: 0;
+}
+.milestone-item.active .week-label {
+    background: rgba(0, 147, 112, 1);
+}
+
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #374151;
+}
+
+.bullet-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullet-list li {
+    font-weight: 400;
+    font-size: 19.43px;
+    line-height: 24.98px;
+    letter-spacing: 0;
+    margin-bottom: 19px;
+    position: relative;
+    padding-left: 25px;
+}
+.bullet-list li:before {
+    content: "";
+    color: #047857;
+    margin-right: 5px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0779/0673/9384/files/Group_1000006545.svg?v=1748362844);
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+@media (min-width: 992px) {
+  .content-column {
+    position: sticky;
+    top: 70px;
+}
+}
+  
+@media (max-width: 991px) {
+.journey-container {
+    flex-wrap: wrap;
+}
+.content-column {
+    width: 100%;
+}
+.content-column > img {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    display: inline-block;
+    max-width: none;
+    margin-bottom: 34px;
+}
+.timeline-column {
+    max-width: 100%;
+}
+.wellness-journey-section {
+    padding-top: 0;
+}
+.main-heading {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 10px;
+}
+.description-text {
     font-size: 14px;
-    margin-bottom: 40px;
+    line-height: 19px;
+    margin-bottom: 28px;
 }
-.card-content {
-    padding: 8px 16px 8px 8px;
-    border-radius: 5.64px;
-    gap: 19px;
-}
-.card-content img {
-    width: 88px;
-    height: 84px;
-    border-radius: 5.17px;
-}
-.card-title {
-    font-size: 18px;
-    line-height: 20.2px;
-    margin-bottom: 5px;
-}
-.card-description {
+.week-label {
+    padding: 9px 27px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 35px;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 18px;
 }
-.expand-button {
-    margin: 0;
-    width: 25px;
-}
-.expanded-content {
+.bullet-list li {
     font-size: 14px;
-    line-height: 17px;
-    padding: 17px 55px 17px 19px;
-    border-radius: 5.64px;
+    line-height: 18px;
+    margin-bottom: 14px;
+    padding-left: 19px;
 }
-section.proven-benefits-section .action-callout.hide-desk {
-    text-align: center;
-    margin-top: 40px;
+.bullet-list li:before {
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 1px;
+    background-size: contain;
 }
-
-
-
-
-
+.milestones-container {
+    gap: 6px;
+}
+.journey-container .action-callout.hide-desk {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
 
 
 
   
 }
-
-  
 </style>
 
-<script>
-$(document).on("click", ".question_product,.faq_question", function(e) {
-    jQuery(this).hasClass("active") ? (jQuery(this).toggleClass("active"),
-    jQuery(this).next().slideToggle()) : (jQuery(".question_product,.faq_question").removeClass("active"),
-    jQuery(".question_product,.faq_question").next().slideUp(),
-    jQuery(this).toggleClass("active"),
-    jQuery(this).next().slideToggle())
-});
 
+
+
+<script>
+function isScrolledIntoView2(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    // ➕ ADD 200px after the element comes into view
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return (docViewBottom >= elemBottom + 200); // trigger 200px after bottom of element hits viewport
+}
+
+$(window).scroll(function () {
+    $('.milestone-item').each(function () {
+        if (isScrolledIntoView2(this)) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+});
 </script>
 
+
 </div>
+    --colorAnnouncement: #085946;
+    --colorAnnouncementText: #ffffff;
+    --colorBody: #ffffff;
+    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
+    --colorBodyDim: #f2f2f2;
+    --colorBodyLightDim: #fafafa;
+    --colorBodyMediumDim: #f5f5f5;
+    --colorBorder: #085946;
+    --colorBtnPrimary: #085946;
+    --colorBtnPrimaryLight: #0c886b;
+    --colorBtnPrimaryDim: #064234;
+    --colorBtnPrimaryText: #ffffff;
+    --colorCartDot: #085946;
+    --colorDrawers: #ffffff;
+    --colorDrawersDim: #f2f2f2;
+    --colorDrawerBorder: #085946;
+    --colorDrawerText: #085946;
+    --colorDrawerTextDark: #02130f;
+    --colorDrawerButton: #085946;
+    --colorDrawerButtonText: #ffffff;
+    --colorFooter: #085946;
+    --colorFooterText: #ffffff;
+    --colorFooterTextAlpha01: #ffffff;
+    --colorGridOverlay: #000000;
+    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
+    --colorHeroText: #ffffff;
+    --colorSmallImageBg: #ffffff;
+    --colorLargeImageBg: #085946;
+    --colorImageOverlay: #085946;
+    --colorImageOverlayOpacity: 0;
+    --colorImageOverlayTextShadow: 0;
+    --colorLink: #085946;
+    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
+    --colorNav: #ffffff;
+    --colorNavText: #085946;
+    --colorPrice: #085946;
+    --colorSaleTag: #085946;
+    --colorSaleTagText: #ffffff;
+    --colorTextBody: #085946;
+    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextSavings: #085946;
+    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
+    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
+    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
+    --sizeChartMargin: 25px 0;
+    --sizeChartIconMargin: 5px;
+    --newsletterReminderPadding: 40px;
+    --color-body-text: #085946;
+    --color-body: #ffffff;
+    --color-bg: #ffffff;
+    --grid-gutter: 22px;
+    --drawer-gutter: 30px;
+    --typeHeaderPrimary: "Tenor Sans";
+    --typeHeaderFallback: sans-serif;
+    --typeHeaderSize: 36px;
+    --typeHeaderWeight: 400;
+    --typeHeaderLineHeight: 1;
+    --typeHeaderSpacing: 0.0em;
+    --typeBasePrimary: Outfit;
+    --typeBaseFallback: sans-serif;
+    --typeBaseSize: 18px;
+    --typeBaseWeight: 300;
+    --typeBaseSpacing: 0.025em;
+    --typeBaseLineHeight: 1.4;
+    --typeBaselineHeightMinus01: 1.3;
+    --typeCollectionTitle: 20px;
+    --iconWeight: 2px;
+    --iconLinecaps: miter;
+    --buttonRadius: 0;
+    --colorGridOverlayOpacity: 0.1;
+    --accent-color: #29a31b;
+    --accent-color-light: #effbff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    letter-spacing: var(--typeBaseSpacing);
+    line-height: var(--typeBaseLineHeight);
+    text-rendering: optimizeSpeed;
+    font-size: var(--typeBaseSize);
+    font-family: Satoshi;
+    font-weight: 400;
+    color: #000;
+    box-sizing: border-box;

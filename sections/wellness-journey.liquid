@@ -1,0 +1,610 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.cta_note_icon == blank and section.settings.cta_note_icon_name != blank -%}
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+{%- endif -%}
+
+<style>
+  .wj-section {
+    width: 100%;
+    background: var(--wj-bg, #ffffff);
+  }
+
+  .wj-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  /* Left column */
+  .wj-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: sticky;
+    top: 70px;
+  }
+
+  .wj-brand-img {
+    margin-bottom: 47px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .wj-brand-placeholder {
+    width: 100%;
+    margin-bottom: 47px;
+  }
+
+  .wj-brand-placeholder svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .wj-heading {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
+    margin: 0 0 16px;
+  }
+
+  .wj-heading strong {
+    color: var(--wj-highlight, #009370);
+  }
+
+  .wj-description {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0 0 35px;
+    max-width: 410px;
+  }
+
+  .wj-cta-button {
+    background: var(--wj-btn-color, #095946);
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 7px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 385px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .wj-cta-button:hover {
+    background: transparent;
+    color: var(--wj-btn-color, #095946);
+    border-color: var(--wj-btn-color, #095946);
+  }
+
+  .wj-cta-note {
+    margin: 14px 0 0;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .wj-cta-note img {
+    max-width: 17px;
+    height: auto;
+  }
+
+  .wj-cta-note .material-symbols-outlined {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Right column (timeline) */
+  .wj-timeline {
+    position: relative;
+    max-width: calc(50% - 116px);
+    width: 100%;
+  }
+
+  .wj-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .wj-milestone {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .wj-milestone__dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #000;
+    z-index: 1;
+    transition: background 2s;
+  }
+
+  .wj-milestone.active .wj-milestone__dot {
+    background: var(--wj-highlight, #009370);
+  }
+
+  .wj-milestone__line {
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    pointer-events: none;
+    height: 100%;
+    width: 1.4px;
+    background: #000;
+  }
+
+  .wj-milestone__progress {
+    position: absolute;
+    left: 6px;
+    top: 22px;
+    width: 4px;
+    pointer-events: none;
+    height: 0;
+    background: var(--wj-highlight, #009370);
+    z-index: 1;
+    transition: height 1.5s ease;
+  }
+
+  .wj-milestone.active .wj-milestone__progress {
+    height: 103%;
+  }
+
+  .wj-milestone:last-child .wj-milestone__line,
+  .wj-milestone:last-child .wj-milestone__progress {
+    display: none;
+  }
+
+  .wj-milestone__label {
+    padding: 4px 37px;
+    border-radius: 7px;
+    color: #fff;
+    margin-bottom: 20px;
+    background: #000;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 25px;
+    letter-spacing: 0;
+    transition: background 1.5s ease;
+  }
+
+  .wj-milestone.active .wj-milestone__label {
+    background: var(--wj-highlight, #009370);
+  }
+
+  .wj-milestone__bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #374151;
+  }
+
+  .wj-milestone__bullets ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wj-milestone__bullets li {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 25px;
+    letter-spacing: 0;
+    margin-bottom: 19px;
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .wj-milestone__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: var(--wj-highlight, #009370);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  /* Desktop CTA hidden on mobile, mobile CTA hidden on desktop */
+  .wj-cta--desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .wj-cta--mobile {
+    display: none;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .wj-container {
+      flex-wrap: wrap;
+    }
+
+    .wj-content {
+      width: 100%;
+      position: static;
+    }
+
+    .wj-brand-img {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-right: -20px;
+      max-width: none;
+      margin-bottom: 34px;
+    }
+
+    .wj-brand-placeholder {
+      margin-bottom: 34px;
+    }
+
+    .wj-heading {
+      font-size: 26px;
+      line-height: 32px;
+      margin-bottom: 10px;
+    }
+
+    .wj-description {
+      font-size: 14px;
+      line-height: 19px;
+      margin-bottom: 28px;
+    }
+
+    .wj-cta--desktop {
+      display: none;
+    }
+
+    .wj-cta--mobile {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      max-width: 100%;
+    }
+
+    .wj-cta--mobile .wj-cta-button {
+      max-width: 100%;
+    }
+
+    .wj-timeline {
+      max-width: 100%;
+    }
+
+    .wj-milestones {
+      gap: 6px;
+    }
+
+    .wj-milestone__label {
+      padding: 9px 27px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      height: 35px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .wj-milestone__bullets li {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 14px;
+      padding-left: 19px;
+    }
+
+    .wj-milestone__bullets li::before {
+      width: 14px;
+      height: 14px;
+      top: 1px;
+    }
+  }
+</style>
+
+<div
+  class="section-{{ section.id }}-padding wj-section"
+  style="
+    {% if section.settings.bg_color != blank %}--wj-bg: {{ section.settings.bg_color }};{% endif %}
+    --wj-highlight: {{ section.settings.highlight_color }};
+    --wj-btn-color: {{ section.settings.button_color }};
+  "
+>
+  <div class="page-width">
+    <div class="wj-container">
+      <!-- Left column -->
+      <div class="wj-content">
+        {%- if section.settings.brand_image != blank -%}
+          {{ section.settings.brand_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'wj-brand-img', widths: '400,600,800', sizes: '(min-width: 750px) 50vw, 100vw' }}
+        {%- else -%}
+          <div class="wj-brand-placeholder">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wj-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="wj-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+
+        <div class="wj-cta--desktop">
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_link }}" class="wj-cta-button">{{ section.settings.cta_text }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta_note != blank -%}
+            <p class="wj-cta-note">
+              {%- if section.settings.cta_note_icon != blank -%}
+                {{ section.settings.cta_note_icon | image_url: width: 34 | image_tag: widths: '17,34', loading: 'lazy' }}
+              {%- elsif section.settings.cta_note_icon_name != blank -%}
+                <span class="material-symbols-outlined">{{ section.settings.cta_note_icon_name }}</span>
+              {%- endif -%}
+              {{ section.settings.cta_note }}
+            </p>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Right column (timeline) -->
+      <div class="wj-timeline">
+        <div class="wj-milestones">
+          {%- for block in section.blocks -%}
+            <div class="wj-milestone" {{ block.shopify_attributes }}>
+              <span class="wj-milestone__dot"></span>
+              <span class="wj-milestone__line"></span>
+              <span class="wj-milestone__progress"></span>
+              {%- if block.settings.week_label != blank -%}
+                <div class="wj-milestone__label">{{ block.settings.week_label }}</div>
+              {%- endif -%}
+              {%- if block.settings.bullets != blank -%}
+                <div class="wj-milestone__bullets">{{ block.settings.bullets }}</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="wj-cta--mobile">
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_link }}" class="wj-cta-button">{{ section.settings.cta_text }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta_note != blank -%}
+            <p class="wj-cta-note">
+              {%- if section.settings.cta_note_icon != blank -%}
+                {{ section.settings.cta_note_icon | image_url: width: 34 | image_tag: widths: '17,34', loading: 'lazy' }}
+              {%- elsif section.settings.cta_note_icon_name != blank -%}
+                <span class="material-symbols-outlined">{{ section.settings.cta_note_icon_name }}</span>
+              {%- endif -%}
+              {{ section.settings.cta_note }}
+            </p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.querySelector('.section-{{ section.id }}-padding');
+    if (!section) return;
+    var milestones = section.querySelectorAll('.wj-milestone');
+    if (!milestones.length) return;
+
+    function checkScroll() {
+      var viewBottom = window.scrollY + window.innerHeight;
+      milestones.forEach(function(m) {
+        var rect = m.getBoundingClientRect();
+        var elemBottom = rect.bottom + window.scrollY;
+        if (viewBottom >= elemBottom + 200) {
+          m.classList.add('active');
+        } else {
+          m.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Wellness journey",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "brand_image",
+      "label": "Brand image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<strong>Your Wellness</strong><br>Journey with [BRAND]®"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "[BRAND]® is designed to deliver real, lasting results—not just quick fixes. Here's how your body begins to shift once you start taking it daily:"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight color",
+      "default": "#009370",
+      "info": "Used for heading bold text, timeline dots, checkmarks, and active labels"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#095946"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Start My Journey →"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "label": "Note text",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "text",
+      "id": "cta_note_icon_name",
+      "label": "Note icon name",
+      "default": "verified_user",
+      "info": "Google icon name (fonts.google.com/icons)"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_note_icon",
+      "label": "Note icon image",
+      "info": "Overrides Google icon if set"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "week_label",
+          "label": "Week label",
+          "default": "Week 1: Relief Begins"
+        },
+        {
+          "type": "richtext",
+          "id": "bullets",
+          "label": "Bullet points",
+          "default": "<ul><li>Digestion starts to feel lighter</li><li>Bloating begins to calm</li><li>Breathing feels clearer, especially in the mornings</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wellness journey",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 1: Relief Begins",
+            "bullets": "<ul><li>Digestion starts to feel lighter</li><li>Bloating begins to calm</li><li>Breathing feels clearer, especially in the mornings</li></ul>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 2: Energy Returns",
+            "bullets": "<ul><li>More stable daily energy</li><li>Less brain fog and fatigue</li><li>Immune system feels stronger and more responsive</li></ul>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 3: Gut + Immune Sync",
+            "bullets": "<ul><li>Improved regularity and gut comfort</li><li>Fewer signs of inflammation (skin, joints, sinuses)</li><li>You feel more \"in control\" of your health</li></ul>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 4+: Long-Term Balance",
+            "bullets": "<ul><li>Resilience through seasonal changes</li><li>Clearer mind, steady energy, fewer sick days</li><li>Your body feels lighter, calmer, and stronger from the inside out</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

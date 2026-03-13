@@ -618,6 +618,56 @@
         "aria_label": "Scrolling announcements"
       }
     },
+    "wellness_journey": {
+      "type": "wellness-journey",
+      "blocks": {
+        "wj_1": {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 1: Relief Begins",
+            "bullets": "<ul><li>Digestion starts to feel lighter</li><li>Bloating begins to calm</li><li>Breathing feels clearer, especially in the mornings</li></ul>"
+          }
+        },
+        "wj_2": {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 2: Energy Returns",
+            "bullets": "<ul><li>More stable daily energy</li><li>Less brain fog and fatigue</li><li>Immune system feels stronger and more responsive</li></ul>"
+          }
+        },
+        "wj_3": {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 3: Gut + Immune Sync",
+            "bullets": "<ul><li>Improved regularity and gut comfort</li><li>Fewer signs of inflammation (skin, joints, sinuses)</li><li>You feel more \"in control\" of your health</li></ul>"
+          }
+        },
+        "wj_4": {
+          "type": "milestone",
+          "settings": {
+            "week_label": "Week 4+: Long-Term Balance",
+            "bullets": "<ul><li>Resilience through seasonal changes</li><li>Clearer mind, steady energy, fewer sick days</li><li>Your body feels lighter, calmer, and stronger from the inside out</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "wj_1",
+        "wj_2",
+        "wj_3",
+        "wj_4"
+      ],
+      "settings": {
+        "heading": "<strong>Your Wellness</strong><br>Journey with [BRAND]®",
+        "description": "[BRAND]® is designed to deliver real, lasting results—not just quick fixes. Here's how your body begins to shift once you start taking it daily:",
+        "highlight_color": "#009370",
+        "button_color": "#095946",
+        "cta_text": "Start My Journey →",
+        "cta_note": "30-day money-back guarantee",
+        "cta_note_icon_name": "verified_user",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -645,6 +695,7 @@
     "benefits_showcase",
     "proven_benefits",
     "ticker_bar_E76PpF",
+    "wellness_journey",
     "related-products"
   ]
 }
