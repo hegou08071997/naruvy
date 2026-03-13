@@ -65,9 +65,8 @@
     padding: 10px 20px 10px 9px;
     cursor: pointer;
     justify-content: space-between;
-    transition: all 0.5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   .pb-card__front-inner {
@@ -182,6 +181,60 @@
     display: inline-flex;
     background: #fff;
     transform: rotateY(180deg);
+  }
+
+  .pb-card.closing .pb-card__front-inner {
+    transform: rotateY(0deg);
+  }
+
+  .pb-card.closing .pb-card__answer {
+    display: inline-flex;
+    background: #fff;
+    transform: rotateY(0deg);
+  }
+
+  /* Mobile CTA */
+  .pb-cta {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .pb-cta {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .pb-cta__button {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--pb-highlight, #009370);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      font-style: italic;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .pb-cta__note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 14px;
+      margin-top: 12px;
+      color: inherit;
+    }
+
+    .pb-cta__note img {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   /* Mobile */
@@ -308,6 +361,20 @@
         </div>
       {%- endfor -%}
     </div>
+
+    <div class="pb-cta">
+      {%- if section.settings.cta_text != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="pb-cta__button">{{ section.settings.cta_text }}</a>
+      {%- endif -%}
+      {%- if section.settings.cta_note != blank -%}
+        <p class="pb-cta__note">
+          {%- if section.settings.cta_note_icon != blank -%}
+            {{ section.settings.cta_note_icon | image_url: width: 32 | image_tag: widths: '16,32', loading: 'lazy' }}
+          {%- endif -%}
+          {{ section.settings.cta_note }}
+        </p>
+      {%- endif -%}
+    </div>
   </div>
 </div>
 
@@ -315,16 +382,25 @@
   (function() {
     var section = document.querySelector('.section-{{ section.id }}-padding');
     if (!section) return;
+
+    function closeCard(card) {
+      card.classList.add('closing');
+      card.classList.remove('active');
+      setTimeout(function() {
+        card.classList.remove('closing');
+      }, 500);
+    }
+
     section.addEventListener('click', function(e) {
-      var toggle = e.target.closest('[data-pb-toggle]');
-      if (!toggle) return;
-      var card = toggle.closest('.pb-card');
+      var card = e.target.closest('.pb-card');
       if (!card) return;
       var wasActive = card.classList.contains('active');
       section.querySelectorAll('.pb-card.active').forEach(function(c) {
-        c.classList.remove('active');
+        if (c !== card) closeCard(c);
       });
-      if (!wasActive) {
+      if (wasActive) {
+        closeCard(card);
+      } else {
         card.classList.add('active');
       }
     });
@@ -361,6 +437,32 @@
       "id": "bg_color",
       "label": "Background color",
       "default": "#f1f3ea"
+    },
+    {
+      "type": "header",
+      "content": "Mobile CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Try Risk-Free Today"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "label": "Note text",
+      "default": "30-day money back guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_note_icon",
+      "label": "Note icon"
     },
     {
       "type": "range",
