@@ -1,0 +1,376 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: 0px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: 0px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .rft-section {
+    background: var(--rft-bg, #f1f3ea);
+  }
+
+  .rft-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* Left content */
+  .rft-left {
+    flex: 1;
+    max-width: 494px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 36px;
+  }
+
+  .rft-badge {
+    color: #ffffff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 108px;
+    height: 108px;
+    font-size: 15px;
+    line-height: 25px;
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+
+  .rft-badge span {
+    font-weight: 500;
+    font-size: 38px;
+    letter-spacing: 0;
+    margin-top: 9px;
+  }
+
+  .rft-badge--placeholder {
+    background: var(--rft-accent, #095946);
+  }
+
+  .rft-subtitle {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    color: var(--rft-accent, #095946);
+  }
+
+  .rft-heading {
+    font-size: var(--rft-heading-size, 23px);
+    margin: 0 0 17px;
+    text-align: center;
+    color: var(--rft-text, inherit);
+  }
+
+  .rft-heading strong {
+    color: var(--rft-accent, #095946);
+  }
+
+  .rft-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+    margin: 0 0 20px;
+    color: var(--rft-text, inherit);
+  }
+
+  .rft-cta {
+    display: none;
+  }
+
+  /* Right image */
+  .rft-right {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    align-self: flex-end;
+  }
+
+  .rft-right img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .rft-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3 / 4;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rft-placeholder svg {
+    width: 50%;
+    height: auto;
+    opacity: 0.3;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .rft-grid {
+      gap: 0;
+    }
+
+    .rft-left {
+      margin-bottom: 22px;
+    }
+
+    .rft-right img {
+      max-width: 280px;
+    }
+
+    .rft-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      height: var(--rft-cta-height, 50px);
+      background: var(--rft-cta-bg, #095946);
+      color: var(--rft-cta-text, #ffffff);
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .rft-cta:hover {
+      background: transparent;
+      color: var(--rft-cta-bg, #095946);
+      border-color: var(--rft-cta-bg, #095946);
+    }
+
+    .rft-heading {
+      font-size: calc(var(--rft-heading-size, 23px) * 0.85);
+    }
+  }
+</style>
+
+<div
+  class="section-{{ section.id }}-padding rft-section"
+  style="
+    {% if section.settings.bg_color != blank %}--rft-bg: {{ section.settings.bg_color }};{% endif %}
+    {% if section.settings.accent_color != blank %}--rft-accent: {{ section.settings.accent_color }};{% endif %}
+    {% if section.settings.text_color != blank %}--rft-text: {{ section.settings.text_color }};{% endif %}
+    --rft-heading-size: {{ section.settings.heading_size }}px;
+    --rft-cta-height: {{ section.settings.cta_height }}px;
+    {% if section.settings.cta_bg_color != blank %}--rft-cta-bg: {{ section.settings.cta_bg_color }};{% endif %}
+    {% if section.settings.cta_text_color != blank %}--rft-cta-text: {{ section.settings.cta_text_color }};{% endif %}
+  "
+>
+  <div class="page-width">
+    <div class="rft-grid">
+      <!-- Left Content -->
+      <div class="rft-left">
+        {%- if section.settings.badge_image != blank -%}
+          <div class="rft-badge" style="background-image: url('{{ section.settings.badge_image | image_url: width: 216 }}');">
+            <span>{{ section.settings.badge_number }}</span>
+            {{ section.settings.badge_label }}
+          </div>
+        {%- elsif section.settings.badge_number != blank -%}
+          <div class="rft-badge rft-badge--placeholder">
+            <span>{{ section.settings.badge_number }}</span>
+            {{ section.settings.badge_label }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.subtitle != blank -%}
+          <div class="rft-subtitle">{{ section.settings.subtitle }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="rft-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="rft-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="rft-cta">{{ section.settings.cta_text }}</a>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Image -->
+      <div class="rft-right">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300,400,600,800', sizes: '(min-width: 750px) 400px, 280px' }}
+        {%- else -%}
+          <div class="rft-placeholder">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Risk-free trial",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_image",
+      "label": "Badge background image"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge number",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Badge label",
+      "default": "DAYS"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "FEEL THE DIFFERENCE"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "30-Day Risk-Free Trial"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 23
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund—no questions asked."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f1f3ea"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#095946"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "header",
+      "content": "CTA (mobile only)"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Try Risk-Free Today"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "cta_height",
+      "min": 36,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Button height",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Button text color"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    }
+  ],
+  "presets": [
+    {
+      "name": "Risk-free trial"
+    }
+  ]
+}
+{% endschema %}
