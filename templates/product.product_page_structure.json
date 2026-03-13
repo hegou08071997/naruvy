@@ -788,7 +788,7 @@
         "comp_col_color": "#ffffff",
         "comp_text_color": "#000000",
         "comp_icon_color": "#999999",
-        "icons_filled": false,
+        "icons_filled": true,
         "checklist_1": "<strong>Clinically Backed Ingredients</strong> - Ingredients proven to work",
         "checklist_2": "<strong>Visible Results in Weeks</strong> - Feel a difference in weeks",
         "checklist_3": "<strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief",
