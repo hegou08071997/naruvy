@@ -51,7 +51,7 @@
     font-size: var(--bs-sub-size, 1.5rem);
     margin: 0;
     opacity: 0.8;
-    color: var(--bs-text, #ffffff);
+    color: var(--bs-sub-color, var(--bs-text, #ffffff));
   }
 
   .bs-layout {
@@ -172,6 +172,7 @@
     --bs-bg: {{ section.settings.bg_color }};
     --bs-text: {{ section.settings.text_color }};
     --bs-highlight: {{ section.settings.highlight_color }};
+    {% if section.settings.subheading_color != blank %}--bs-sub-color: {{ section.settings.subheading_color }};{% endif %}
     --bs-heading-size: {{ section.settings.heading_size }}rem;
     --bs-sub-size: {{ section.settings.subheading_size }}rem;
     --bs-benefit-size: {{ section.settings.benefit_size }}rem;
@@ -264,6 +265,12 @@
       "label": "Heading highlight color",
       "default": "#ffffff",
       "info": "Color for bold text in heading"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading text color",
+      "info": "Defaults to main text color if not set"
     },
     {
       "type": "range",
