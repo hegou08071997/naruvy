@@ -28,7 +28,7 @@
 
 <div
   id="Banner-{{ section.id }}"
-  class="email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt-image' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
+  class="{{ section.settings.className }} email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt-image' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
 >
   {%- if section.settings.show_background_image -%}
     <div class="banner__media{% if section.settings.image != blank %} media{% endif %}">
@@ -148,7 +148,9 @@
   "tag": "section",
   "class": "section",
   "enabled_on": {
-    "templates": ["password"]
+    "templates": [
+      "password"
+    ]
   },
   "settings": [
     {
@@ -160,7 +162,7 @@
       "id": "show_background_image",
       "label": "t:sections.email-signup-banner.settings.show_background_image.label",
       "default": true
-    },    
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -203,7 +205,7 @@
     {
       "type": "header",
       "content": "t:sections.email-signup-banner.settings.content_header.content"
-    },    
+    },
     {
       "type": "select",
       "id": "desktop_content_position",
@@ -267,7 +269,7 @@
       ],
       "default": "center",
       "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.label"
-    },    
+    },
     {
       "type": "checkbox",
       "id": "show_text_box",
@@ -310,6 +312,12 @@
       "id": "show_text_below",
       "default": true,
       "label": "t:sections.email-signup-banner.settings.show_text_below.label"
+    },
+    {
+      "type": "text",
+      "id": "className",
+      "label": "Custom class",
+      "info": "Add custom CSS classes for this section"
     }
   ],
   "blocks": [
