@@ -1,374 +1,471 @@
-<div id="shopify-section-template--26256362799397__section_group_CwkCLV" class="shopify-section"><style data-shopify="">
-  .section-template--26256362799397__section_group_CwkCLV-padding {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+<div id="shopify-section-template--26971077771448__comparison_resilia_63aXWf" class="shopify-section"><!-- sections/comparison-resilia.liquid -->
 
-  @media screen and (min-width: 750px) {
-    .section-template--26256362799397__section_group_CwkCLV-padding {
-      padding-top: 16px;
-      padding-bottom: 16px;
-    }
-  }
-
-  .section-group-grid-template--26256362799397__section_group_CwkCLV {
-    column-gap: 8.0rem;
-    row-gap: 5.0rem;
-  }
-  .bg-color-template--26256362799397__section_group_CwkCLV.color-custom {
-    --color-background: 159, 63, 63;
-  }
-</style>
-<section-group class="section-template--26256362799397__section_group_CwkCLV-padding color-custom bg-color-template--26256362799397__section_group_CwkCLV animate-section animate--hidden always-display animate--shown" data-section-one-id="#shopify-section-template--26256362799397__product_features_pUkYn4" data-section-two-id="#shopify-section-template--26256362799397__results_ecCcH6">
-    <div class="page-width">
-      <div class="section-group-grid section-group-grid-template--26256362799397__section_group_CwkCLV">
-        <section class="section-group__section-one-container section-group__container"><div class="section-color-scheme-template--26256362799397__product_features_pUkYn4 color-custom gradient content-for-grouping animate-section animate--hidden always-display animate--shown">
-  
-  <div class="section-template--26256362799397__product_features_pUkYn4-padding page-width">
-    <div class="
-        hotspots-image-container
-        hotspots-image-container-template--26256362799397__product_features_pUkYn4
-        hotspots-image-container--content-top
-        hotspots-image-container--mobile-content-top
-        hotspots-image--different-bg
-        hotspots-image-container--unlimited
-        animate-item
-         hotspots-image-container--content-empty
-      " style="--max-width:40.0rem">
-      <div class="hotspots-image__content content--border-radius gradient color-background-1 color-scheme-template--26256362799397__product_features_pUkYn4">
-        <div class="content-rte hotspots-image__content-container center">
+<section class="comparison-section">
+  <div class="container-1168">
+     <h2 class="hide-desk mob-heading"> <strong>Resilia® </strong>vs. Other Brands </h2>
+    <div class="comparison-grid">
+      <div class="left-table">
+         <div class="l-inner">
+        <div class="product-box">
           
+          <img src="//resilia.shop/cdn/shop/files/concept_100x.webp?v=1747932769" alt="Resilia Oil of Oregano" width="auto" height="auto" loading="eager" fetchpriority="high">
+         
+           <h3>RESILIA</h3>
+        </div>
+        <ul class="features">
           
-</div>
-      </div>
-      <div class="hotspots-image" style="--max-width:40.0rem">
-        
-          <div class="hotspots-image__image">
-            <div class="media media--transparent ratio" style="--ratio-percent: 80.0%"><img src="//www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=1500" alt="" srcset="//www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=165 165w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=360 360w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=535 535w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=750 750w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=1070 1070w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=1250 1250w, //www.elare.store/cdn/shop/files/Aged_Garlic_Extract_-_7500mg_Odorless_5442036b-60f0-47cd-8078-c7b6bd6ebabb.png?v=1768162176&amp;width=1500 1500w" width="1500" height="1200" loading="lazy" sizes="(min-width: 1400px) 1300px,
-                (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px))">
-            </div>
-          </div>
-          
-        
-
-        
-          
-              <hotspot-button class="hotspot" data-type="feature" data-open-event="hover" data-open="false" data-section="template--26256362799397__product_features_pUkYn4" style="--offset-x:66%;--offset-y:57%;--mobile-offset-x:30%;--mobile-offset-y:30%;">
-                <button class="hotspot-btn hotspot-btn--minimal color-background-1">
-                  <span class="material-icon material-symbols-outlined">
-  add
-</span>
-
-                </button>
-                <div class="hotspot__content color-background-1 center">
-                  <div class="hotspot__content__image-and-text">
-                    
-                    <div class="hotspot__content__title-and_text">
-                      
-                        <h3 class="hotspot__content__title">
-                          Clinically Verified
-                        </h3>
-                      
-                      
-                        <div class="hotspot__content__text rte">
-                          <p>Every batch of <strong>Elaré® Aged Garlic Extract</strong> is produced using a controlled aging process and <strong>third-party lab tested</strong> to verify purity and potency. Our formula is built around aged garlic compounds that have been widely studied in clinical research, delivering a consistent, high-quality supplement designed for daily, long-term use.</p>
-                        </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </hotspot-button>
             
-        
+              <li>
+                <div class="left-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/fi_4245134.svg?v=1748152917" alt="White Machine Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Clinically Backed</span>
+                </div>
+              </li>
+            
+          
+            
+              <li>
+                <div class="left-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/Group_1000006457_1.svg?v=1748152941" alt="White Shield Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>3rd-Party Tested</span>
+                </div>
+              </li>
+            
+          
+            
+              <li>
+                <div class="left-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/Group_1484582142.svg?v=1748152958" alt="Chemical White Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Allergen-Free &amp; Clean</span>
+                </div>
+              </li>
+            
+          
+            
+              <li>
+                <div class="left-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/Group_1484582141.svg?v=1748152969" alt="Globe White Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Global Certified Facilities</span>
+                </div>
+              </li>
+            
+          
+            
+              <li>
+                <div class="left-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/Group_1484582143.svg?v=1748152981" alt="Vegan White Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Vegan &amp; Gluten-Free</span>
+                </div>
+              </li>
+            
+          
+        </ul>
+         </div>
+
+        <div class="l-inner l-r-inner">
+           
+          <div class="hide-desk r-img">
+          <img src="//resilia.shop/cdn/shop/files/Group_1484582186.png?v=1748417306" alt="Product Packaging" width="auto" height="auto" loading="eager" fetchpriority="high">
+          </div>
+            
+          <h3> Other Brands </h3>
+ <ul class="features">
+          
+            
+                <li>
+                <div class="right-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/close_ring_fill.svg?v=1748152928" alt="Grey Cross Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Trend-Based Blends</span>
+                  
+                </div>
+              </li>
+            
+          
+            
+                <li>
+                <div class="right-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/close_ring_fill.svg?v=1748152928" alt="Grey Cross Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>No Test Proof</span>
+                  
+                </div>
+              </li>
+            
+          
+            
+                <li>
+                <div class="right-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/close_ring_fill.svg?v=1748152928" alt="Grey Cross Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Fillers &amp; Additives</span>
+                  
+                </div>
+              </li>
+            
+          
+            
+                <li>
+                <div class="right-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/close_ring_fill.svg?v=1748152928" alt="Grey Cross Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Low-Quality Manufacturing</span>
+                  
+                </div>
+              </li>
+            
+          
+            
+                <li>
+                <div class="right-feature">
+                  
+                    <img src="//resilia.shop/cdn/shop/files/close_ring_fill.svg?v=1748152928" alt="Grey Cross Icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+
+                  
+                  <span>Sugar, Flavors, Binders</span>
+                  
+                </div>
+              </li>
+            
+          
+        </ul>
+        </div>
+      </div>
+      <div class="right-content">
+        <h2 class="hide-mob"><strong>Resilia® </strong>vs. Other Brands</h2>
+        <div class="checklist hide-mob">
+         <ul><li><strong>Clinically Backed Ingredients</strong> - Ingredients proven to work</li><li><strong>Visible Results in Weeks </strong>- Feel a difference in weeks</li><li><strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief</li><li><strong>Clean &amp; Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives</li></ul>
+        </div>
+        <a href="#scroll-pro" class="cta-btn">Try Risk-Free Today</a>
+        <p class="subtext"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.7179 3.96923V7.40687C2.71738 11.0519 5.00315 14.3807 8.4064 15.6896C8.68102 15.7954 8.97001 15.8477 9.25901 15.8477C9.548 15.8477 9.83699 15.7949 10.1121 15.6896L10.6224 15.493C13.7679 14.2832 15.8006 11.2403 15.8001 7.74155V3.96923C15.8001 3.68691 15.5768 3.4549 15.295 3.44412C13.4055 3.37071 11.4791 2.6259 9.56905 1.23124C9.38425 1.09675 9.13376 1.09675 8.94897 1.23124C7.03843 2.6259 5.11197 3.37071 3.22299 3.44412C2.94119 3.4549 2.7179 3.68691 2.7179 3.96923ZM3.76915 4.46098C5.60065 4.288 7.44343 3.5632 9.25901 2.30097C11.0741 3.5632 12.9174 4.288 14.7489 4.46098V7.74155C14.7494 10.8019 12.9815 13.4593 10.2446 14.5116L9.73484 14.7082C9.42789 14.8263 9.08961 14.8263 8.78368 14.7082C5.7839 13.5543 3.76864 10.6202 3.76915 7.40687V4.46098Z" fill="white"></path>
+<path d="M8.1826 10.6602C8.28116 10.7587 8.41462 10.8142 8.55424 10.8142C8.69386 10.8142 8.82732 10.7587 8.92587 10.6602L12.1951 7.39092C12.4005 7.18559 12.4005 6.85297 12.1951 6.64765C11.9898 6.44232 11.6572 6.44232 11.4519 6.64765L8.55424 9.54528L7.06615 8.05668C6.86082 7.85136 6.5282 7.85136 6.32288 8.05668C6.11755 8.26201 6.11755 8.59463 6.32288 8.79995L8.1826 10.6602Z" fill="white"></path>
+</svg>
+ 30-day money back guarantee</p>
       </div>
     </div>
   </div>
-</div></section>
-        <section class="section-group__section-two-container section-group__container"><div class="color-scheme-template--26256362799397__results_ecCcH6 color-accent-1 gradient content-for-grouping animate-section animate--hidden always-display animate--shown">
+</section>
+
+
+
+<style>
+.comparison-section {
+  background: linear-gradient(180deg, #07493A 0%, #002A21 100%);
+  color: #fff;
+  padding: 34px 0 35px;
+}
+.comparison-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 107px;
+    justify-content: space-between;
+    margin-top: 83px;
+}
+.left-table {
+    padding: 0;
+    flex: 1;
+    max-width: 440px;
+    display: flex;
+    align-items: flex-end;
+    grid-gap: 8px;
+}
+.product-box h3 {
+    font-family: 'Tenor Sans';
+    font-weight: 400;
+    font-size: 20.44px;
+    line-height: 24px ;
+    letter-spacing: 0;
+   margin-bottom: 1px;
+}
   
-  <div class="page-width section-template--26256362799397__results_ecCcH6-padding">
-    <div class="content-and-results section-group__container__child-grid content-and-results--no-content">
-      
-      <div class="content-container content-rte center animate-item animate-item--child index-0"></div>
-      <div class="results-container" id="Results-template--26256362799397__results_ecCcH6">
-        <div class="results animate-item animate-item--child index-0"><h3 class="title h2 left title-with-highlight" style="--hightlight-color:#6d388b">
-              What Customers Report After Using Elaré®
-            </h3>
-          <results-container class="results__rows-container display-block" data-style="number" data-duration="650" data-delay="650"><div class="results__row results__row--number">
-                <div class="results__percentage flex-center center results__percentage--width-fix" style="--percentage: 0%" data-percentage="88">
-                  
+.left-table .product-box {
+  text-align: center;
+  margin-bottom: 0px;
+}
+.left-table .product-box img {
+    max-height: 105px;
+    margin: -83px auto 9px;
+}
+.left-table  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    background: transparent;
+}
+.left-feature img {
+    margin: 0 auto;
+}
 
-                  <p>88%</p>
-                  
-                    <p>
-                      88%
-                    </p>
-                  
-                </div>
-                <div class="results__content">
-                  
-                  
-                    <div class="results__text">
-                      <p>Said they would continue using <strong>Elaré® Aged Garlic</strong> as part of their wellness routine</p>
-                    </div>
-                  
-                </div>
-              </div><div class="results__row results__row--number">
-                <div class="results__percentage flex-center center results__percentage--width-fix" style="--percentage: 0%" data-percentage="70">
-                  
+.right-content {
+  flex: 1;
+  max-width: 504px;
+}
+.right-content h2 {
+  font-weight: 500;
+  font-size: 36.51px;
+  line-height: 36.74px;
+  letter-spacing: 0;
+  text-align: left;
+  margin-bottom: 61px;
+}
+.right-content h2 strong {
+    font-weight: 500;
+    color: rgba(255, 247, 212, 1);
+}
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 61px;
+}
+  .checklist ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.checklist li {
+    text-align: left;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: 0;
+    margin-bottom: 38px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0779/0673/9384/files/fi_1008958_1.svg?v=1748425767);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    background-position: 0px 1px;
+}
+.cta-btn {
+    color: #004c3c;
+    padding: 12px 24px;
+    border-radius: 6.01px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 19.22px;
+    letter-spacing: 0;
+    text-align: center;
+    font-family: 'Clash Grotesk';
+    height: 54px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(227, 255, 222, 1);
+}
+.cta-btn:hover {
+    background: transparent;
+    box-shadow: 0 0 0 2px rgba(227, 255, 222, 1) inset;
+    color: rgba(227, 255, 222, 1);
+}
+.subtext {
+    font-weight: 400;
+    font-size: 16.82px;
+    line-height: 21.15px;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 9.61px 0 0;
+    display: inline-flex;
+    grid-gap: 6.85px;
+    align-items: center;
+}
+.l-inner {
+    background: rgba(0, 147, 112, 1);
+    text-align: center;
+    padding: 0 0 21.86px;
+    width: 234px;
+    border-radius: 4.33px;
+  position: relative;
+}
+.l-inner.l-r-inner {
+    width: 198px;
+}
+.l-inner.l-r-inner {
+    width: 198px;
+    background: rgba(255, 255, 255, 1);
+    color: #000;
+    border: .87px solid rgba(0, 0, 0, 0.06);
+}
+.l-inner  span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: center;
+    display: inline-block;
+}
+.left-table .features li {
+    min-height: 86.51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: .87px solid #fff;
+    margin: 0;
+    padding: 0 10px;
+}
+.left-table .features li:last-child {
+    border-bottom-width: 0px;
+}
+.left-table .l-r-inner .features li {
+    border-color: rgba(0, 0, 0, 0.06);
+}
+.l-inner.l-r-inner > h3 {
+    position: absolute;
+    top: -33.5px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
 
-                  <p>70%</p>
-                  
-                    <p>
-                      70%
-                    </p>
-                  
-                </div>
-                <div class="results__content">
-                  
-                  
-                    <div class="results__text">
-                      <p>Felt the product supported their heart health and overall wellness goals*</p>
-                    </div>
-                  
-                </div>
-              </div><div class="results__row results__row--number">
-                <div class="results__percentage flex-center center results__percentage--width-fix" style="--percentage: 0%" data-percentage="91">
-                  
+}
+  .right-feature img {
+    margin: 0 auto;
+}
+h2.hide-desk.mob-heading strong {
+  font-weight: 500;
+  color: rgba(255, 247, 212, 1);
+}
+  
+@media (max-width: 991px) {
+  .comparison-section {
+    padding: 40px 0;
+}
+  .comparison-grid {
+    flex-direction: column;
+            align-items: center;
 
-                  <p>91%</p>
-                  
-                    <p>
-                      91%
-                    </p>
-                  
-                </div>
-                <div class="results__content">
-                  
-                  
-                    <div class="results__text">
-                      <p>Noticed better tolerance compared to other garlic supplements, with no garlic breath or digestive discomfort*</p>
-                    </div>
-                  
-                </div>
-              </div><div class="results__row results__row--number">
-                <div class="results__percentage flex-center center results__percentage--width-fix" style="--percentage: 0%" data-percentage="79">
-                  
-
-                  <p>79%</p>
-                  
-                    <p>
-                      79%
-                    </p>
-                  
-                </div>
-                <div class="results__content">
-                  
-                  
-                    <div class="results__text">
-                      <p>Said they were satisfied with the <strong>overall product quality</strong> and would recommend it to others*</p>
-                    </div>
-                  
-                </div>
-              </div></results-container><div class="results__caption">
-              <p>*Based on customer feedback and post-purchase surveys. Individual results may vary. </p>
-            </div></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-      </div>
-    </div>
-  </section-group>
-</div>
-    --font-body-family: "Plus Jakarta Sans", sans-serif;
-    --font-body-style: normal;
-    --font-body-weight: 400;
-    --font-body-weight-bold: 700;
-    --font-heading-family: Poppins, sans-serif;
-    --font-heading-style: normal;
-    --font-heading-weight: 600;
-    --font-body-scale: 0.95;
-    --font-heading-scale: 1.368421052631579;
-    --font-heading-line-height: 0.3;
-    --font-heading-letter-spacing: 0.02rem;
-    --color-base-text: 43, 43, 43;
-    --color-shadow: 43, 43, 43;
-    --color-base-background-1: 255, 255, 255;
-    --color-base-background-2: 251, 249, 247;
-    --color-base-solid-button-labels: 255, 255, 255;
-    --color-base-outline-button-labels: 159, 63, 63;
-    --color-base-accent-1: 159, 63, 63;
-    --color-base-accent-2: 0, 0, 0;
-    --payment-terms-background-color: #ffffff;
-    --gradient-base-background-1: #ffffff;
-    --gradient-base-background-2: #fbf9f7;
-    --gradient-base-accent-1: #9f3f3f;
-    --gradient-base-accent-2: linear-gradient(165deg, rgba(159, 63, 63, 1) 14%, rgba(105, 14, 14, 1) 85%);
-    --media-padding: px;
-    --media-border-opacity: 0.1;
-    --media-border-width: 0px;
-    --media-radius: 12px;
-    --media-shadow-opacity: 0.0;
-    --media-shadow-horizontal-offset: 0px;
-    --media-shadow-vertical-offset: 0px;
-    --media-shadow-blur-radius: 20px;
-    --media-shadow-visible: 0;
-    --page-width: 140rem;
-    --page-width-margin: 0rem;
-    --product-card-image-padding: 0.0rem;
-    --product-card-corner-radius: 1.2rem;
-    --product-card-text-alignment: center;
-    --product-card-border-width: 0.0rem;
-    --product-card-border-opacity: 0.1;
-    --product-card-shadow-opacity: 0.1;
-    --product-card-shadow-visible: 1;
-    --product-card-shadow-horizontal-offset: 0.2rem;
-    --product-card-shadow-vertical-offset: 0.6rem;
-    --product-card-shadow-blur-radius: 1.5rem;
-    --collection-card-image-padding: 0.0rem;
-    --collection-card-corner-radius: 1.2rem;
-    --collection-card-text-alignment: center;
-    --collection-card-border-width: 0.0rem;
-    --collection-card-border-opacity: 0.1;
-    --collection-card-shadow-opacity: 0.05;
-    --collection-card-shadow-visible: 1;
-    --collection-card-shadow-horizontal-offset: 0.2rem;
-    --collection-card-shadow-vertical-offset: 0.6rem;
-    --collection-card-shadow-blur-radius: 1.5rem;
-    --blog-card-image-padding: 0.0rem;
-    --blog-card-corner-radius: 1.2rem;
-    --blog-card-text-alignment: center;
-    --blog-card-border-width: 0.0rem;
-    --blog-card-border-opacity: 0.1;
-    --blog-card-shadow-opacity: 0.05;
-    --blog-card-shadow-visible: 1;
-    --blog-card-shadow-horizontal-offset: 1.0rem;
-    --blog-card-shadow-vertical-offset: 1.0rem;
-    --blog-card-shadow-blur-radius: 3.5rem;
-    --badge-corner-radius: 0.6rem;
-    --slider-arrow-size: 3.0rem;
-    --slider-arrow-border-radius: 50.0%;
-    --slider-arrow-icon-size: 0.6em;
-    --pagination-dot-width: 6px;
-    --pagination-dot-height: 6px;
-    --pagination-dot-active-scale: 1.5;
-    --pagination-dot-spacing: 12px;
-    --pagination-dot-radius: 5px;
-    --popup-border-width: 1px;
-    --popup-border-opacity: 0.1;
-    --popup-corner-radius: 10px;
-    --popup-shadow-opacity: 0.1;
-    --popup-shadow-horizontal-offset: 10px;
-    --popup-shadow-vertical-offset: 12px;
-    --popup-shadow-blur-radius: 20px;
-    --drawer-border-width: 1px;
-    --drawer-border-opacity: 0.1;
-    --drawer-shadow-opacity: 0.0;
-    --drawer-shadow-horizontal-offset: 0px;
-    --drawer-shadow-vertical-offset: 4px;
-    --drawer-shadow-blur-radius: 5px;
-    --spacing-sections-desktop: 0px;
-    --spacing-sections-mobile: 0px;
-    --grid-desktop-vertical-spacing: 40px;
-    --grid-desktop-horizontal-spacing: 40px;
-    --grid-mobile-vertical-spacing: 20px;
-    --grid-mobile-horizontal-spacing: 20px;
-    --text-boxes-border-opacity: 0.1;
-    --text-boxes-border-width: 0px;
-    --text-boxes-radius: 24px;
-    --text-boxes-shadow-opacity: 0.0;
-    --text-boxes-shadow-visible: 0;
-    --text-boxes-shadow-horizontal-offset: 10px;
-    --text-boxes-shadow-vertical-offset: 12px;
-    --text-boxes-shadow-blur-radius: 20px;
-    --buttons-radius: 6px;
-    --buttons-radius-outset: 8px;
-    --buttons-border-width: 2px;
-    --buttons-border-opacity: 1.0;
-    --buttons-shadow-opacity: 0.0;
-    --buttons-shadow-visible: 0;
-    --buttons-shadow-horizontal-offset: 0px;
-    --buttons-shadow-vertical-offset: 4px;
-    --buttons-shadow-blur-radius: 5px;
-    --buttons-border-offset: 0.3px;
-    --swatches-radius: 50.0%;
-    --swatches-border-opacity: 0.0;
-    --swatches-selected-border-opacity: 0.5;
-    --pickers-overlay-opacity: 0.08;
-    --pickers-radius: 8px;
-    --pickers-small-radius: 3.2px;
-    --pickers-border-width: 1px;
-    --pickers-border-color: var(--color-base-accent-1);
-    --pickers-border-opacity: 0.2;
-    --pickers-shadow-opacity: 0.0;
-    --pickers-shadow-horizontal-offset: 0px;
-    --pickers-margin-offset: 0px;
-    --pickers-shadow-vertical-offset: 0px;
-    --pickers-shadow-blur-radius: 0px;
-    --pickers-radius-outset: 9px;
-    --pickers-hover-overlay-opacity: 0.1;
-    --pickers-hover-border-opacity: 0.55;
-    --quantity-overlay-opacity: 0.06;
-    --quantity-radius: 8px;
-    --quantity-small-radius: 3.2px;
-    --quantity-border-width: 1px;
-    --quantity-border-color: var(--color-base-accent-1);
-    --quantity-border-opacity: 0.2;
-    --quantity-shadow-opacity: 0.0;
-    --quantity-shadow-horizontal-offset: 0px;
-    --quantity-margin-offset: 0px;
-    --quantity-shadow-vertical-offset: 0px;
-    --quantity-shadow-blur-radius: 0px;
-    --quantity-radius-outset: 9px;
-    --quantity-hover-overlay-opacity: 0.06;
-    --quantity-hover-border-opacity: 0.15;
-    --inputs-radius: 6px;
-    --inputs-border-width: 1px;
-    --inputs-border-opacity: 0.6;
-    --inputs-shadow-opacity: 0.0;
-    --inputs-shadow-horizontal-offset: 0px;
-    --inputs-margin-offset: 0px;
-    --inputs-shadow-vertical-offset: 4px;
-    --inputs-shadow-blur-radius: 5px;
-    --inputs-radius-outset: 7px;
-    --inputs-hover-border-opacity: 1;
-    --variant-pills-inactive-overlay-opacity: 0.0;
-    --variant-pills-text-size: 1.4rem;
-    --variant-pills-padding-y: 1.0rem;
-    --variant-pills-padding-x: 2.0rem;
-    --variant-pills-radius: 40px;
-    --variant-pills-border-width: 1px;
-    --variant-pills-border-opacity: 0.55;
-    --variant-pills-shadow-opacity: 0.0;
-    --variant-pills-shadow-horizontal-offset: 0px;
-    --variant-pills-shadow-vertical-offset: 4px;
-    --variant-pills-shadow-blur-radius: 5px;
-    --color-foreground: var(--color-base-text);
-    --color-background: var(--color-base-background-1);
-    --gradient-background: var(--gradient-base-background-1);
-    --color-link: var(--color-base-outline-button-labels);
-    --alpha-link: 0.85;
-    --color-button: var(--color-base-accent-1);
-    --color-button-text: var(--color-base-solid-button-labels);
-    --alpha-button-background: 1;
-    --alpha-button-border: 1;
-    --color-badge-background: var(--color-background);
-    --color-badge-border: var(--color-foreground);
-    --alpha-badge-border: 0.1;
-    --accent-color: var(--color-base-accent-1);
-    --border-color: var(--color-foreground);
-    --color-card-hover: var(--color-base-text);
-    --color-icon: rgb(var(--color-base-text));
-    --duration-short: 100ms;
-    --duration-default: 200ms;
-    --duration-long: 500ms;
-    --header-height: 83px;
-    letter-spacing: 0.0em;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-    font-family: var(--font-body-family);
-    font-style: var(--font-body-style);
-    font-weight: var(--font-body-weight);
-    font-size: 1.6rem;
-    color: rgba(var(--color-foreground), 0.9);
-    box-sizing: inherit;
+  }
+  .left-table,
+  .right-content {
+    max-width: 100%;
+  }
+h2.hide-desk.mob-heading {
+    font-size: 26px;
+    line-height: 28.7px;
+    text-align: center;
+    max-width: 179px;
+    margin: 0 auto;
+}
+.comparison-grid {
+    margin-top: 220px;
+    grid-gap: 32px;
+}
+/* section.comparison-section .container-1168 {
+    padding-left: 21px;
+    padding-right: 21px;
+} */
+.right-content {
+    max-width: 100%;
+  min-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-btn {
+    border-radius: 5px;
+    font-size: 16px;
+    height: 45px;
+}
+  .comparison-grid .cta-btn {
+    background: rgba(255, 247, 212, 1);
+}
+  .comparison-grid .cta-btn:hover {
+    background: transparent;
+    box-shadow: 0 0 0 2px rgba(255, 247, 212, 1) inset;
+    color:rgba(255, 247, 212, 1);
+}
+.subtext {
+    font-size: 14px;
+    line-height: 17.6px;
+    margin: 8px 0 0;
+    grid-gap: 5.7px;
+}
+p.subtext svg {
+    width: 14px;
+    height: auto;
+}
+.left-table .product-box img {
+    max-height: 127px;
+    margin: 0 auto;
+}
+.product-box h3 {
+    font-size: 25.11px;
+    line-height: 29px;
+    margin-bottom: 0;
+}
+.left-table .features li {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom-width: 1px;
+    margin: 0;
+    padding: 0 10px;
+}
+.l-inner.l-r-inner > h3 {
+    font-size: 17px;
+    line-height: 23px;
+    top: -40px;
+}
+.l-inner  span {
+    font-size: 14px;
+    line-height: 17px;
+    max-width: 101px;
+  margin-top: 6px;
+}
+.left-feature img {
+    margin: 0 auto;
+    height: 31px;
+    width: auto;
+}
+.right-feature img {
+    width: 24px;
+}
+  .hide-desk.r-img img {
+    margin: 0 auto;
+}
+.hide-desk.r-img, .left-table .product-box {
+    position: absolute;
+    bottom: calc(100% + 40px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.left-table .product-box {
+    bottom: calc(100% + 20px);
+}
+}
+</style>
+<style> #shopify-section-template--26971077771448__comparison_resilia_63aXWf .comparison-section {background: linear-gradient(180deg, #3a441e 0%, #171b0b 100%);} #shopify-section-template--26971077771448__comparison_resilia_63aXWf .cta-btn {background: rgba(255, 247, 212, 1); color: rgba(0, 0, 0, 1);} #shopify-section-template--26971077771448__comparison_resilia_63aXWf .cta-btn:hover {background: transparent; box-shadow: 0 0 0 2px rgba(255, 247, 212, 1) inset; color: rgba(255, 247, 212, 1);} #shopify-section-template--26971077771448__comparison_resilia_63aXWf .l-inner:not(.l-r-inner) {background: rgba(88, 104, 42, 1);} </style></div>

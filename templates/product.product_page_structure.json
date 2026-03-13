@@ -743,6 +743,75 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "brand_comparison": {
+      "type": "brand-comparison",
+      "blocks": {
+        "bc_1": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Clinically Backed",
+            "competitor_text": "Trend-Based Blends"
+          }
+        },
+        "bc_2": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "3rd-Party Tested",
+            "competitor_text": "No Test Proof"
+          }
+        },
+        "bc_3": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Allergen-Free & Clean",
+            "competitor_text": "Fillers & Additives"
+          }
+        },
+        "bc_4": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Global Certified Facilities",
+            "competitor_text": "Low-Quality Manufacturing"
+          }
+        },
+        "bc_5": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Vegan & Gluten-Free",
+            "competitor_text": "Sugar, Flavors, Binders"
+          }
+        }
+      },
+      "block_order": [
+        "bc_1",
+        "bc_2",
+        "bc_3",
+        "bc_4",
+        "bc_5"
+      ],
+      "settings": {
+        "heading": "<strong>[BRAND]\u00ae</strong> vs. Other Brands",
+        "heading_size": 36,
+        "bg_gradient_start": "#07493A",
+        "bg_gradient_end": "#002A21",
+        "text_color": "#ffffff",
+        "highlight_color": "#FFF7D4",
+        "brand_name": "[BRAND]",
+        "brand_col_color": "#009370",
+        "brand_icon_color": "#ffffff",
+        "competitor_label": "Other Brands",
+        "comp_col_color": "#ffffff",
+        "comp_text_color": "#000000",
+        "comp_icon_color": "#999999",
+        "cta_text": "Try Risk-Free Today",
+        "cta_height": 54,
+        "cta_bg_color": "#E3FFDE",
+        "cta_text_color": "#004c3c",
+        "note_text": "30-day money back guarantee",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -754,6 +823,7 @@
     "ticker_bar_E76PpF",
     "wellness_journey",
     "customer_results",
+    "brand_comparison",
     "related-products"
   ]
 }

@@ -1,0 +1,755 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .bc-section {
+    background: linear-gradient(180deg, var(--bc-grad-start, #07493A) 0%, var(--bc-grad-end, #002A21) 100%);
+    color: var(--bc-text, #ffffff);
+  }
+
+  .bc-heading {
+    font-weight: 500;
+    font-size: var(--bc-heading-size, 36px);
+    line-height: 1.05;
+    margin: 0 0 50px;
+    text-align: left;
+  }
+
+  .bc-heading strong {
+    font-weight: 500;
+    color: var(--bc-highlight, #FFF7D4);
+  }
+
+  .bc-heading--mobile {
+    display: none;
+  }
+
+  .bc-grid {
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+    margin-top: 83px;
+  }
+
+  /* Table columns container */
+  .bc-tables {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Column shared */
+  .bc-col {
+    border-radius: 5px;
+    text-align: center;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .bc-col--brand {
+    width: 234px;
+    background: var(--bc-brand-bg, #009370);
+  }
+
+  .bc-col--comp {
+    width: 198px;
+    background: var(--bc-comp-bg, #ffffff);
+    color: var(--bc-comp-text, #000000);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Brand header (image + name) — floats above via negative margin */
+  .bc-col__header {
+    text-align: center;
+    margin-top: -83px;
+    margin-bottom: 0;
+  }
+
+  .bc-col__header-img {
+    max-height: 105px;
+    width: auto;
+    margin: 0 auto 9px;
+    display: block;
+  }
+
+  .bc-col__name {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0 0 1px;
+  }
+
+  /* Competitor label — positioned above comp column */
+  .bc-col__comp-label {
+    position: absolute;
+    top: -34px;
+    width: 100%;
+    left: 0;
+    color: var(--bc-text, #ffffff);
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Competitor image — mobile only */
+  .bc-col__comp-img {
+    display: none;
+  }
+
+  /* Feature rows */
+  .bc-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .bc-feature {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0;
+    padding: 0 10px;
+  }
+
+  .bc-col--comp .bc-feature {
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .bc-feature:last-child {
+    border-bottom: none;
+  }
+
+  .bc-feature__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bc-feature__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bc-feature__icon img {
+    margin: 0 auto;
+    height: 24px;
+    width: auto;
+    display: block;
+  }
+
+  .bc-feature__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .bc-col--brand .bc-feature__icon svg {
+    stroke: var(--bc-brand-icon, #ffffff);
+  }
+
+  .bc-col--comp .bc-feature__icon svg {
+    stroke: var(--bc-comp-icon, #999999);
+  }
+
+  .bc-feature__text {
+    font-size: 16px;
+    line-height: 22px;
+    display: inline-block;
+  }
+
+  /* Right content */
+  .bc-content {
+    flex: 1;
+    max-width: 504px;
+  }
+
+  /* Checklist */
+  .bc-checklist {
+    margin: 0 0 50px;
+  }
+
+  .bc-checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bc-checklist li {
+    font-size: 17px;
+    line-height: 23px;
+    margin-bottom: 38px;
+    padding-left: 30px;
+    position: relative;
+    text-align: left;
+  }
+
+  .bc-checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 19px;
+    height: 19px;
+    background: var(--bc-text, #ffffff);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  .bc-checklist li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .bc-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--bc-cta-height, 54px);
+    background: var(--bc-cta-bg, #E3FFDE);
+    color: var(--bc-cta-text, #004c3c);
+    border-radius: 6px;
+    font-size: 19px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .bc-cta:hover {
+    background: transparent;
+    color: var(--bc-cta-bg, #E3FFDE);
+    border-color: var(--bc-cta-bg, #E3FFDE);
+  }
+
+  /* Note */
+  .bc-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 16px;
+    line-height: 21px;
+    margin: 10px 0 0;
+  }
+
+  .bc-note__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .bc-note__icon img {
+    width: 18px;
+    height: auto;
+  }
+
+  .bc-note__icon svg {
+    width: 18px;
+    height: 17px;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .bc-heading--desktop {
+      display: none;
+    }
+
+    .bc-heading--mobile {
+      display: block;
+      text-align: center;
+      font-size: calc(var(--bc-heading-size, 36px) * 0.72);
+      line-height: 1.1;
+      margin: 0 auto;
+      max-width: 250px;
+    }
+
+    .bc-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      margin-top: 0;
+    }
+
+    .bc-tables {
+      margin-top: 170px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .bc-col--brand {
+      width: calc(55% - 4px);
+    }
+
+    .bc-col--comp {
+      width: calc(45% - 4px);
+    }
+
+    /* Brand header floats above on mobile */
+    .bc-col__header {
+      position: absolute;
+      bottom: calc(100% + 20px);
+      left: 0;
+      right: 0;
+      margin: 0;
+    }
+
+    .bc-col__header-img {
+      max-height: 127px;
+      margin: 0 auto;
+    }
+
+    .bc-col__name {
+      font-size: 25px;
+      line-height: 29px;
+      margin: 0;
+    }
+
+    /* Competitor image shows on mobile */
+    .bc-col__comp-img {
+      display: block;
+      position: absolute;
+      bottom: calc(100% + 40px);
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .bc-col__comp-img img {
+      margin: 0 auto;
+      max-height: 127px;
+      width: auto;
+      display: block;
+    }
+
+    .bc-col__comp-label {
+      font-size: 17px;
+      line-height: 23px;
+      top: -40px;
+    }
+
+    .bc-feature {
+      min-height: 100px;
+    }
+
+    .bc-feature__text {
+      font-size: 14px;
+      line-height: 17px;
+      max-width: 101px;
+      margin-top: 6px;
+    }
+
+    .bc-feature__icon img {
+      height: 31px;
+    }
+
+    .bc-col--comp .bc-feature__icon img {
+      width: 24px;
+      height: auto;
+    }
+
+    .bc-checklist {
+      display: none;
+    }
+
+    .bc-content {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .bc-cta {
+      font-size: 16px;
+    }
+
+    .bc-note {
+      font-size: 14px;
+      line-height: 17px;
+      gap: 6px;
+    }
+
+    .bc-note__icon svg {
+      width: 14px;
+      height: auto;
+    }
+  }
+</style>
+
+<div
+  class="section-{{ section.id }}-padding bc-section"
+  style="
+    --bc-grad-start: {{ section.settings.bg_gradient_start }};
+    --bc-grad-end: {{ section.settings.bg_gradient_end }};
+    --bc-text: {{ section.settings.text_color }};
+    --bc-highlight: {{ section.settings.highlight_color }};
+    --bc-brand-bg: {{ section.settings.brand_col_color }};
+    --bc-brand-icon: {{ section.settings.brand_icon_color }};
+    --bc-comp-bg: {{ section.settings.comp_col_color }};
+    --bc-comp-text: {{ section.settings.comp_text_color }};
+    --bc-comp-icon: {{ section.settings.comp_icon_color }};
+    --bc-heading-size: {{ section.settings.heading_size }}px;
+    --bc-cta-height: {{ section.settings.cta_height }}px;
+    --bc-cta-bg: {{ section.settings.cta_bg_color }};
+    --bc-cta-text: {{ section.settings.cta_text_color }};
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bc-heading bc-heading--mobile">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="bc-grid">
+      <!-- Table columns -->
+      <div class="bc-tables">
+        <!-- Brand column -->
+        <div class="bc-col bc-col--brand">
+          <div class="bc-col__header">
+            {%- if section.settings.brand_image != blank -%}
+              {{ section.settings.brand_image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'bc-col__header-img', widths: '150,300' }}
+            {%- endif -%}
+            {%- if section.settings.brand_name != blank -%}
+              <h3 class="bc-col__name">{{ section.settings.brand_name }}</h3>
+            {%- endif -%}
+          </div>
+          <ul class="bc-features">
+            {%- for block in section.blocks -%}
+              <li class="bc-feature" {{ block.shopify_attributes }}>
+                <div class="bc-feature__inner">
+                  <span class="bc-feature__icon">
+                    {%- if block.settings.brand_icon != blank -%}
+                      {{ block.settings.brand_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
+                    {%- else -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+                    {%- endif -%}
+                  </span>
+                  <span class="bc-feature__text">{{ block.settings.brand_text }}</span>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <!-- Competitor column -->
+        <div class="bc-col bc-col--comp">
+          {%- if section.settings.competitor_image != blank -%}
+            <div class="bc-col__comp-img">
+              {{ section.settings.competitor_image | image_url: width: 300 | image_tag: loading: 'lazy', widths: '150,300' }}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.competitor_label != blank -%}
+            <h3 class="bc-col__comp-label">{{ section.settings.competitor_label }}</h3>
+          {%- endif -%}
+          <ul class="bc-features">
+            {%- for block in section.blocks -%}
+              <li class="bc-feature" {{ block.shopify_attributes }}>
+                <div class="bc-feature__inner">
+                  <span class="bc-feature__icon">
+                    {%- if block.settings.competitor_icon != blank -%}
+                      {{ block.settings.competitor_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
+                    {%- else -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    {%- endif -%}
+                  </span>
+                  <span class="bc-feature__text">{{ block.settings.competitor_text }}</span>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right content -->
+      <div class="bc-content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bc-heading bc-heading--desktop">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.checklist != blank -%}
+          <div class="bc-checklist">{{ section.settings.checklist }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="bc-cta">{{ section.settings.cta_text }}</a>
+        {%- endif -%}
+
+        {%- if section.settings.note_text != blank -%}
+          <p class="bc-note">
+            <span class="bc-note__icon">
+              {%- if section.settings.note_icon != blank -%}
+                {{ section.settings.note_icon | image_url: width: 36 | image_tag: widths: '18,36', loading: 'lazy' }}
+              {%- else -%}
+                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.7179 3.96923V7.40687C2.71738 11.0519 5.00315 14.3807 8.4064 15.6896C8.68102 15.7954 8.97001 15.8477 9.25901 15.8477C9.548 15.8477 9.83699 15.7949 10.1121 15.6896L10.6224 15.493C13.7679 14.2832 15.8006 11.2403 15.8001 7.74155V3.96923C15.8001 3.68691 15.5768 3.4549 15.295 3.44412C13.4055 3.37071 11.4791 2.6259 9.56905 1.23124C9.38425 1.09675 9.13376 1.09675 8.94897 1.23124C7.03843 2.6259 5.11197 3.37071 3.22299 3.44412C2.94119 3.4549 2.7179 3.68691 2.7179 3.96923ZM3.76915 4.46098C5.60065 4.288 7.44343 3.5632 9.25901 2.30097C11.0741 3.5632 12.9174 4.288 14.7489 4.46098V7.74155C14.7494 10.8019 12.9815 13.4593 10.2446 14.5116L9.73484 14.7082C9.42789 14.8263 9.08961 14.8263 8.78368 14.7082C5.7839 13.5543 3.76864 10.6202 3.76915 7.40687V4.46098Z" fill="currentColor"/>
+                  <path d="M8.1826 10.6602C8.28116 10.7587 8.41462 10.8142 8.55424 10.8142C8.69386 10.8142 8.82732 10.7587 8.92587 10.6602L12.1951 7.39092C12.4005 7.18559 12.4005 6.85297 12.1951 6.64765C11.9898 6.44232 11.6572 6.44232 11.4519 6.64765L8.55424 9.54528L7.06615 8.05668C6.86082 7.85136 6.5282 7.85136 6.32288 8.05668C6.11755 8.26201 6.11755 8.59463 6.32288 8.79995L8.1826 10.6602Z" fill="currentColor"/>
+                </svg>
+              {%- endif -%}
+            </span>
+            {{ section.settings.note_text }}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand comparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<strong>[BRAND]®</strong> vs. Other Brands"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_start",
+      "label": "Background gradient start",
+      "default": "#07493A"
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_end",
+      "label": "Background gradient end",
+      "default": "#002A21"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight color",
+      "default": "#FFF7D4"
+    },
+    {
+      "type": "header",
+      "content": "Brand column"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "[BRAND]"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_image",
+      "label": "Brand product image"
+    },
+    {
+      "type": "color",
+      "id": "brand_col_color",
+      "label": "Column background",
+      "default": "#009370"
+    },
+    {
+      "type": "color",
+      "id": "brand_icon_color",
+      "label": "Default icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Competitor column"
+    },
+    {
+      "type": "text",
+      "id": "competitor_label",
+      "label": "Label",
+      "default": "Other Brands"
+    },
+    {
+      "type": "image_picker",
+      "id": "competitor_image",
+      "label": "Competitor image (mobile)"
+    },
+    {
+      "type": "color",
+      "id": "comp_col_color",
+      "label": "Column background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "comp_text_color",
+      "label": "Column text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "comp_icon_color",
+      "label": "Default icon color",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Checklist (desktop)"
+    },
+    {
+      "type": "richtext",
+      "id": "checklist",
+      "label": "Checklist items",
+      "default": "<ul><li><strong>Clinically Backed Ingredients</strong> - Ingredients proven to work</li><li><strong>Visible Results in Weeks</strong> - Feel a difference in weeks</li><li><strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief</li><li><strong>Clean &amp; Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Try Risk-Free Today"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "cta_height",
+      "min": 36,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Button height",
+      "default": 54
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Button background",
+      "default": "#E3FFDE"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Button text color",
+      "default": "#004c3c"
+    },
+    {
+      "type": "text",
+      "id": "note_text",
+      "label": "Note text",
+      "default": "30-day money back guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "note_icon",
+      "label": "Note icon",
+      "info": "Default: shield icon"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature row",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_icon",
+          "label": "Brand icon"
+        },
+        {
+          "type": "text",
+          "id": "brand_text",
+          "label": "Brand feature",
+          "default": "Feature"
+        },
+        {
+          "type": "image_picker",
+          "id": "competitor_icon",
+          "label": "Competitor icon"
+        },
+        {
+          "type": "text",
+          "id": "competitor_text",
+          "label": "Competitor drawback",
+          "default": "Drawback"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand comparison",
+      "blocks": [
+        { "type": "feature", "settings": { "brand_text": "Clinically Backed", "competitor_text": "Trend-Based Blends" } },
+        { "type": "feature", "settings": { "brand_text": "3rd-Party Tested", "competitor_text": "No Test Proof" } },
+        { "type": "feature", "settings": { "brand_text": "Allergen-Free & Clean", "competitor_text": "Fillers & Additives" } },
+        { "type": "feature", "settings": { "brand_text": "Global Certified Facilities", "competitor_text": "Low-Quality Manufacturing" } },
+        { "type": "feature", "settings": { "brand_text": "Vegan & Gluten-Free", "competitor_text": "Sugar, Flavors, Binders" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
