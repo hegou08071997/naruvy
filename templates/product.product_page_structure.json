@@ -667,7 +667,7 @@
         "cta_link": "",
         "cta_note": "30-day money-back guarantee",
         "cta_note_icon_name": "verified_user",
-        "padding_top": 0,
+        "padding_top": 40,
         "padding_bottom": 40
       }
     },
