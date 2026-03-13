@@ -1600,18 +1600,26 @@
 
                         const mainBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
 
+                        this._scrolledPast = false;
+                        this.footerVisible = false;
+
                         if (this.afterScroll && mainBtn) {
                           this.observer = new IntersectionObserver((entries) => {
                             entries.forEach(entry => {
                               if (entry.isIntersecting) {
+                                this._scrolledPast = false;
                                 this.classList.remove('sticky-atc--visible');
                               } else if (entry.boundingClientRect.top < 0) {
-                                this.classList.add('sticky-atc--visible');
+                                this._scrolledPast = true;
+                                if (!this.footerVisible) {
+                                  this.classList.add('sticky-atc--visible');
+                                }
                               }
                             });
                           }, { threshold: 0 });
                           this.observer.observe(mainBtn);
                         } else if (!this.afterScroll) {
+                          this._scrolledPast = true;
                           this.classList.add('sticky-atc--visible');
                         }
 
@@ -1628,10 +1636,27 @@
                             });
                           }
                         }
+
+                        /* Hide when footer is in view so it doesn't cover it */
+                        const footer = document.querySelector('footer');
+                        if (footer) {
+                          this.footerObserver = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                              this.footerVisible = entry.isIntersecting;
+                              if (this.footerVisible) {
+                                this.classList.remove('sticky-atc--visible');
+                              } else if (!this.afterScroll || (this.observer && this._scrolledPast)) {
+                                this.classList.add('sticky-atc--visible');
+                              }
+                            });
+                          }, { threshold: 0 });
+                          this.footerObserver.observe(footer);
+                        }
                       }
 
                       disconnectedCallback() {
                         if (this.observer) this.observer.disconnect();
+                        if (this.footerObserver) this.footerObserver.disconnect();
                       }
                     });
                   }
