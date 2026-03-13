@@ -1,0 +1,458 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .proven-benefits {
+    width: 100%;
+    background: var(--pb-bg, #f1f3ea);
+  }
+
+  .pb-heading {
+    font-weight: 500;
+    font-size: 31px;
+    line-height: 38px;
+    letter-spacing: 0;
+    margin: 0 0 19px;
+    text-align: center;
+  }
+
+  .pb-heading strong {
+    color: var(--pb-highlight, #009370);
+  }
+
+  .pb-subheading {
+    max-width: 804px;
+    margin: 0 auto 41px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .pb-subheading strong {
+    font-weight: 500;
+  }
+
+  .pb-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 16px;
+  }
+
+  .pb-card {
+    width: calc(50% - 8px);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pb-card__front {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 9px;
+    cursor: pointer;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .pb-card__front-inner {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  .pb-card__img {
+    width: 125px;
+    height: 119px;
+    object-fit: cover;
+    border-radius: 7px;
+    flex-shrink: 0;
+  }
+
+  .pb-card__img-placeholder {
+    width: 125px;
+    height: 119px;
+    border-radius: 7px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .pb-card__img-placeholder svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .pb-card__title {
+    font-weight: 500;
+    font-size: 25.59px;
+    line-height: 28.72px;
+    letter-spacing: 0;
+    margin: 0 0 8px;
+  }
+
+  .pb-card__desc {
+    font-weight: 400;
+    font-size: 19.91px;
+    line-height: 24.17px;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .pb-card__toggle {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .pb-card__toggle .pb-icon-minus {
+    display: none;
+  }
+
+  .pb-card.active .pb-card__toggle .pb-icon-plus {
+    display: none;
+  }
+
+  .pb-card.active .pb-card__toggle .pb-icon-minus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pb-card__answer {
+    background: #fff;
+    width: 85%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: left;
+    padding: 12.5px 31.5px 12.5px;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .pb-card__answer p {
+    margin: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+
+  .pb-card__front-inner {
+    transition: all 0.5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .pb-card.active .pb-card__front-inner {
+    transform: rotateY(180deg);
+  }
+
+  .pb-card.active .pb-card__answer {
+    display: inline-flex;
+    background: #fff;
+    transform: rotateY(180deg);
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .pb-heading {
+      font-size: 26px;
+      line-height: 32px;
+      margin-bottom: 10px;
+      max-width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pb-subheading {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .pb-grid {
+      gap: 10px;
+    }
+
+    .pb-card {
+      width: 100%;
+      border-radius: 5.64px;
+    }
+
+    .pb-card__front {
+      padding: 8px 16px 8px 8px;
+    }
+
+    .pb-card__front-inner {
+      gap: 19px;
+    }
+
+    .pb-card__img {
+      width: 88px;
+      height: 84px;
+      border-radius: 5px;
+    }
+
+    .pb-card__img-placeholder {
+      width: 88px;
+      height: 84px;
+      border-radius: 5px;
+    }
+
+    .pb-card__title {
+      font-size: 18px;
+      line-height: 20.2px;
+      margin-bottom: 5px;
+    }
+
+    .pb-card__desc {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    .pb-card__toggle {
+      width: 25px;
+      height: 25px;
+    }
+
+    .pb-card__answer {
+      font-size: 14px;
+      line-height: 17px;
+      padding: 19px 19px 19px 0;
+    }
+  }
+</style>
+
+<div
+  class="section-{{ section.id }}-padding proven-benefits"
+  style="
+    --pb-bg: {{ section.settings.bg_color }};
+    --pb-highlight: {{ section.settings.highlight_color }};
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="pb-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="pb-subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="pb-grid">
+      {%- for block in section.blocks -%}
+        <div class="pb-card" {{ block.shopify_attributes }}>
+          <div class="pb-card__front" data-pb-toggle>
+            <div class="pb-card__front-inner">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'pb-card__img', widths: '125,250,300' }}
+              {%- else -%}
+                <div class="pb-card__img-placeholder">
+                  {{ 'product-apparel-2' | placeholder_svg_tag }}
+                </div>
+              {%- endif -%}
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <h3 class="pb-card__title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="pb-card__desc">{{ block.settings.description }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+            <button class="pb-card__toggle" type="button" aria-label="Expand">
+              <span class="pb-icon-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.72069 11.033V5.96898H0.656637V5.38515H5.72069V0.321103H6.30451V5.38515H11.3686V5.96898H6.30451V11.033H5.72069Z" fill="black"/>
+                </svg>
+              </span>
+              <span class="pb-icon-minus">
+                <svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.97719 0.0678547V0.65168H0.920525V0.0678547H7.97719Z" fill="black"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="pb-card__answer">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.querySelector('.section-{{ section.id }}-padding');
+    if (!section) return;
+    section.addEventListener('click', function(e) {
+      var toggle = e.target.closest('[data-pb-toggle]');
+      if (!toggle) return;
+      var card = toggle.closest('.pb-card');
+      if (!card) return;
+      var wasActive = card.classList.contains('active');
+      section.querySelectorAll('.pb-card.active').forEach(function(c) {
+        c.classList.remove('active');
+      });
+      if (!wasActive) {
+        card.classList.add('active');
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Proven benefits",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<strong>Proven Benefits.</strong> Backed by Science."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research."
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Heading highlight color",
+      "default": "#009370",
+      "info": "Color for bold text in heading"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f1f3ea"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Short description"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Expanded answer",
+          "default": "Detailed explanation of this benefit that appears when the card is expanded."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Proven benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Immunity",
+            "description": "Strengthen your body",
+            "answer": "Oregano oil is packed with carvacrol, a powerful compound shown to fight off bacteria and viruses—supporting your immune system every single day."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Inflammation",
+            "description": "Soothe it at the source",
+            "answer": "Black seed oil helps calm inflammation, restore gut balance, and reduce bloating—so you feel lighter, more regular, and at ease."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Digestion",
+            "description": "Gut health without bloat",
+            "answer": "Both oregano and black seed oils contain antioxidants that help reduce chronic inflammation, promoting long-term joint, gut, and immune health."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Clarity",
+            "description": "Feel focused, not foggy",
+            "answer": "By supporting gut and immune balance, Resilia® helps you feel sharper and more energized—without relying on caffeine or stimulants."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
