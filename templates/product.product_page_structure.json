@@ -77,7 +77,6 @@
           "type": "sticky_cart",
           "settings": {
             "function": "link",
-            "button_link": "",
             "display_when": "after_scroll",
             "button_label": "ADD TO CART",
             "enable_custom_btn_color": false,
