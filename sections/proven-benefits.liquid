@@ -215,9 +215,12 @@
     }
 
     .pb-cta__button {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      padding: 16px 24px;
+      padding: 0 24px;
+      height: var(--pb-cta-height, 50px);
       background: var(--pb-highlight, #009370);
       color: #ffffff;
       font-size: 18px;
@@ -325,6 +328,7 @@
   style="
     --pb-bg: {{ section.settings.bg_color }};
     --pb-highlight: {{ section.settings.highlight_color }};
+    --pb-cta-height: {{ section.settings.cta_height }}px;
   "
 >
   <div class="page-width">
@@ -487,6 +491,16 @@
       "id": "cta_note_icon",
       "label": "Note icon image",
       "info": "Overrides Google icon if set"
+    },
+    {
+      "type": "range",
+      "id": "cta_height",
+      "min": 36,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Button height",
+      "default": 50
     },
     {
       "type": "range",

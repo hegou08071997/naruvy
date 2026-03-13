@@ -83,9 +83,9 @@
   .wj-cta-button {
     background: var(--wj-btn-color, #095946);
     color: #ffffff;
-    padding: 12px 32px;
+    padding: 0 32px;
     border-radius: 7px;
-    height: 62px;
+    height: var(--wj-cta-height, 50px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,8 +276,12 @@
     }
 
     .wj-brand-img {
-      max-width: 100%;
+      width: calc(100% + 3rem);
+      max-width: none;
       height: auto;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      margin-top: calc(-1 * {{ section.settings.padding_top | times: 0.75 | round: 0 }}px);
       margin-bottom: 34px;
     }
 
@@ -350,6 +354,7 @@
     {% if section.settings.bg_color != blank %}--wj-bg: {{ section.settings.bg_color }};{% endif %}
     --wj-highlight: {{ section.settings.highlight_color }};
     --wj-btn-color: {{ section.settings.button_color }};
+    --wj-cta-height: {{ section.settings.cta_height }}px;
   "
 >
   <div class="page-width">
@@ -526,6 +531,16 @@
       "id": "cta_note_icon",
       "label": "Note icon image",
       "info": "Overrides Google icon if set"
+    },
+    {
+      "type": "range",
+      "id": "cta_height",
+      "min": 36,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Button height",
+      "default": 50
     },
     {
       "type": "range",
