@@ -19,8 +19,8 @@
 
   .cr-container {
     display: flex;
-    align-items: flex-start;
-    gap: 80px;
+    align-items: center;
+    gap: 60px;
   }
 
   /* Left column — image */
@@ -60,10 +60,11 @@
 
   .cr-heading {
     font-weight: 600;
-    font-size: 28px;
-    line-height: 36px;
-    margin: 0 0 32px;
+    font-size: var(--cr-heading-size, 26px);
+    line-height: 1.3;
+    margin: 0 0 20px;
     text-align: left;
+    color: var(--cr-text-color, inherit);
   }
 
   .cr-heading strong {
@@ -80,8 +81,8 @@
   .cr-row {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 16px;
+    padding: 14px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
@@ -91,17 +92,18 @@
 
   .cr-percentage {
     font-weight: 700;
-    font-size: 42px;
+    font-size: 38px;
     line-height: 1;
-    color: var(--cr-highlight, #6d388b);
+    color: var(--cr-pct-color, var(--cr-highlight, #6d388b));
     flex-shrink: 0;
-    min-width: 90px;
+    min-width: 80px;
   }
 
   .cr-text {
-    font-size: 16px;
-    line-height: 24px;
-    padding-top: 8px;
+    font-size: 15px;
+    line-height: 22px;
+    padding-top: 6px;
+    color: var(--cr-text-color, inherit);
   }
 
   .cr-text p {
@@ -113,10 +115,11 @@
   }
 
   .cr-caption {
-    margin-top: 20px;
+    margin-top: 14px;
     font-size: 13px;
     line-height: 18px;
     opacity: 0.6;
+    color: var(--cr-text-color, inherit);
   }
 
   .cr-caption p {
@@ -127,7 +130,7 @@
   @media screen and (max-width: 749px) {
     .cr-container {
       flex-direction: column;
-      gap: 30px;
+      gap: 24px;
     }
 
     .cr-image-col {
@@ -140,25 +143,25 @@
     }
 
     .cr-heading {
-      font-size: 22px;
-      line-height: 28px;
-      margin-bottom: 24px;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 16px;
     }
 
     .cr-percentage {
-      font-size: 34px;
-      min-width: 72px;
+      font-size: 30px;
+      min-width: 64px;
     }
 
     .cr-text {
       font-size: 14px;
-      line-height: 21px;
-      padding-top: 4px;
+      line-height: 20px;
+      padding-top: 2px;
     }
 
     .cr-row {
-      padding: 16px 0;
-      gap: 16px;
+      padding: 12px 0;
+      gap: 12px;
     }
 
     .cr-caption {
@@ -173,6 +176,9 @@
     {% if section.settings.bg_color != blank %}--cr-bg: {{ section.settings.bg_color }};{% endif %}
     --cr-highlight: {{ section.settings.highlight_color }};
     --cr-img-radius: {{ section.settings.image_radius }}px;
+    --cr-heading-size: {{ section.settings.heading_size }}px;
+    {% if section.settings.text_color != blank %}--cr-text-color: {{ section.settings.text_color }};{% endif %}
+    {% if section.settings.percentage_color != blank %}--cr-pct-color: {{ section.settings.percentage_color }};{% endif %}
   "
 >
   <div class="page-width">
@@ -277,10 +283,31 @@
       "default": "What Customers Report After Using <strong>[BRAND]®</strong>"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 26
+    },
+    {
       "type": "color",
       "id": "highlight_color",
       "label": "Highlight color",
       "default": "#6d388b"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "percentage_color",
+      "label": "Percentage color",
+      "info": "Defaults to highlight color if not set"
     },
     {
       "type": "color",
