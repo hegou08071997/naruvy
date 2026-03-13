@@ -712,12 +712,13 @@
         "cr_4"
       ],
       "settings": {
+        "image": "shopify://shop_images/results.png",
         "image_radius": 12,
         "heading": "What Customers Report After Using <strong>[BRAND]®</strong>",
         "heading_size": 26,
         "highlight_color": "#9f3f3f",
         "text_color": "#ffffff",
-        "percentage_color": "",
+        "percentage_color": "#ffffff",
         "bg_color": "#9f3f3f",
         "caption": "<p>*Based on customer feedback and post-purchase surveys. Individual results may vary.</p>",
         "padding_top": 40,
