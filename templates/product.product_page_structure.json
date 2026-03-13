@@ -561,8 +561,8 @@
       "settings": {
         "heading": "<strong>Proven Benefits.</strong> Backed by Science.",
         "subheading": "Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research.",
-        "highlight_color": "#009370",
-        "bg_color": "#f1f3ea",
+        "highlight_color": "#9f3f3f",
+        "bg_color": "#fbf9f7",
         "padding_top": 40,
         "padding_bottom": 40
       }
