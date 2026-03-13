@@ -840,6 +840,7 @@
       "block_order": [
         "kaching_bundles_app_block_C9PxPR"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
