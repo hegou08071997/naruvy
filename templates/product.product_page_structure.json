@@ -691,6 +691,52 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "customer_results": {
+      "type": "customer-results",
+      "blocks": {
+        "cr_1": {
+          "type": "result",
+          "settings": {
+            "percentage": 88,
+            "text": "<p>Said they would continue using <strong>[BRAND]®</strong> as part of their wellness routine</p>"
+          }
+        },
+        "cr_2": {
+          "type": "result",
+          "settings": {
+            "percentage": 70,
+            "text": "<p>Felt the product supported their heart health and overall wellness goals*</p>"
+          }
+        },
+        "cr_3": {
+          "type": "result",
+          "settings": {
+            "percentage": 91,
+            "text": "<p>Noticed better tolerance compared to other supplements, with no discomfort*</p>"
+          }
+        },
+        "cr_4": {
+          "type": "result",
+          "settings": {
+            "percentage": 79,
+            "text": "<p>Said they were satisfied with the <strong>overall product quality</strong> and would recommend it to others*</p>"
+          }
+        }
+      },
+      "block_order": [
+        "cr_1",
+        "cr_2",
+        "cr_3",
+        "cr_4"
+      ],
+      "settings": {
+        "heading": "What Customers Report After Using <strong>[BRAND]®</strong>",
+        "highlight_color": "#6d388b",
+        "image_radius": 12,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -701,6 +747,7 @@
     "proven_benefits",
     "ticker_bar_E76PpF",
     "wellness_journey",
+    "customer_results",
     "related-products"
   ]
 }
