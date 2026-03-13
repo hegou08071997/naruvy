@@ -563,8 +563,59 @@
         "subheading": "Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research.",
         "highlight_color": "#9f3f3f",
         "bg_color": "#fbf9f7",
+        "cta_text": "Try Risk-Free Today",
+        "cta_link": "",
+        "cta_note": "30-day money back guarantee",
+        "cta_note_icon_name": "verified_user",
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "ticker_bar_E76PpF": {
+      "type": "ticker-bar",
+      "blocks": {
+        "ticker_item_wmgTKE": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Gluten-Free",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_YCN9GG": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "No additives",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_HqnLzq": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Non-GMO",
+            "icon_name": "verified"
+          }
+        }
+      },
+      "block_order": [
+        "ticker_item_wmgTKE",
+        "ticker_item_YCN9GG",
+        "ticker_item_HqnLzq"
+      ],
+      "name": "Ticker bar",
+      "settings": {
+        "background_color": "#9f3f3f",
+        "text_color": "#ffffff",
+        "border_position": "none",
+        "border_thickness": 1,
+        "border_color": "#ffffff",
+        "font_size": 14,
+        "font_weight": "500",
+        "spacing": 60,
+        "icon_size": 20,
+        "speed": 20,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "aria_label": "Scrolling announcements"
       }
     },
     "related-products": {
@@ -593,6 +644,7 @@
     "testimonial_slider",
     "benefits_showcase",
     "proven_benefits",
+    "ticker_bar_E76PpF",
     "related-products"
   ]
 }
