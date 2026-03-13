@@ -1616,15 +1616,17 @@
                         }
 
                         const btn = this.querySelector('.sticky-atc__button .button');
-                        if (btn) {
+                        if (btn && !btn._stickyBound) {
+                          btn._stickyBound = true;
                           if (this.isScrollBtn) {
                             btn.addEventListener('click', () => {
                               const dest = document.querySelector(this.scrollDest);
                               if (dest) dest.scrollIntoView({ behavior: 'smooth' });
                             });
-                          } else if (mainBtn) {
+                          } else {
                             btn.addEventListener('click', () => {
-                              mainBtn.click();
+                              const currentBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
+                              if (currentBtn) currentBtn.click();
                             });
                           }
                         }
