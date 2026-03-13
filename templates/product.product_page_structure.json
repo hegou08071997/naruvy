@@ -495,13 +495,19 @@
           }
         }
       },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ],
       "settings": {
-        "heading": "Feel Better. <strong>Every Day.</strong>",
+        "heading": "<strong>Feel Better.</strong> Every Day.",
         "subheading": "From fewer sick days to smoother digestion, here's what makes [BRAND] different.",
-        "bg_color": "#9F3F3F",
+        "product_image": "shopify://shop_images/generated-1772392286962.png",
+        "bg_color": "#9f3f3f",
         "text_color": "#ffffff",
-        "highlight_color": "#ffffff",
+        "highlight_color": "#ffafaf",
         "padding_top": 48,
         "padding_bottom": 48
       }
