@@ -804,6 +804,28 @@
         "padding_bottom": 36
       }
     },
+    "risk_free_trial": {
+      "type": "risk-free-trial",
+      "settings": {
+        "badge_image": "shopify://shop_images/guarantee_badge.png",
+        "badge_number": "30",
+        "badge_label": "DAYS",
+        "subtitle": "FEEL THE DIFFERENCE",
+        "heading": "30-Day Risk-Free Trial",
+        "heading_size": 23,
+        "description": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund—no questions asked.",
+        "image": "shopify://shop_images/guarantee.png",
+        "bg_color": "#f1f3ea",
+        "accent_color": "#095946",
+        "text_color": "",
+        "cta_text": "Try Risk-Free Today",
+        "cta_link": "",
+        "cta_height": 50,
+        "cta_bg_color": "",
+        "cta_text_color": "",
+        "padding_top": 28
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -821,22 +843,6 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
-      }
-    },
-    "risk_free_trial": {
-      "type": "risk-free-trial",
-      "settings": {
-        "badge_number": "30",
-        "badge_label": "DAYS",
-        "subtitle": "FEEL THE DIFFERENCE",
-        "heading": "30-Day Risk-Free Trial",
-        "heading_size": 23,
-        "description": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund\u2014no questions asked.",
-        "bg_color": "#f1f3ea",
-        "accent_color": "#095946",
-        "cta_text": "Try Risk-Free Today",
-        "cta_height": 50,
-        "padding_top": 28
       }
     }
   },
