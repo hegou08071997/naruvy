@@ -657,14 +657,17 @@
         "wj_4"
       ],
       "settings": {
+        "brand_image": "shopify://shop_images/weekly.png",
         "heading": "<strong>Your Wellness</strong> Journey with [BRAND]®",
         "description": "[BRAND]® is designed to deliver real, lasting results—not just quick fixes. Here's how your body begins to shift once you start taking it daily:",
-        "highlight_color": "#009370",
-        "button_color": "#095946",
+        "highlight_color": "#9f3f3f",
+        "button_color": "#9f3f3f",
+        "bg_color": "",
         "cta_text": "Start My Journey →",
+        "cta_link": "",
         "cta_note": "30-day money-back guarantee",
         "cta_note_icon_name": "verified_user",
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 40
       }
     },
