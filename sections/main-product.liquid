@@ -351,6 +351,22 @@
       }
     }
 
+    /* Statement block */
+    .statement-block__subtitle {
+      margin: 0;
+      font-size: var(--stmt-subtitle-size, 1.7rem);
+      font-weight: 400;
+      line-height: 3rem;
+      color: #000;
+    }
+    .statement-block__title {
+      margin: 0 0 1.5rem;
+      font-size: var(--stmt-title-size, 2.8rem);
+      font-weight: 500;
+      line-height: 3rem;
+      color: #000;
+    }
+
     /* Social proof banner */
     .social-proof-banner {
       display: flex;
@@ -1577,6 +1593,19 @@
                       {%- endfor -%}
                     </div>
                   </div>
+                </div>
+              {%- when 'statement' -%}
+                <div
+                  class="statement-block"
+                  style="--stmt-title-size: {{ block.settings.title_size | divided_by: 10.0 }}rem;"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.subtitle != blank -%}
+                    <p class="statement-block__subtitle">{{ block.settings.subtitle }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.title != blank -%}
+                    <h1 class="statement-block__title">{{ block.settings.title }}</h1>
+                  {%- endif -%}
                 </div>
               {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
@@ -4154,6 +4183,35 @@
           "max": 24,
           "step": 1,
           "default": 16,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "name": "Statement",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "93% of customers report:"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Better sleep & recovery within two weeks"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title font size",
+          "min": 18,
+          "max": 44,
+          "step": 1,
+          "default": 28,
           "unit": "px"
         }
       ]
