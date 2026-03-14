@@ -270,6 +270,7 @@
       font-weight: 700;
       line-height: 1.25;
       margin: 0 0 2.4rem;
+      color: var(--tcv2-title-color, #fff);
     }
     .trust-card-v2__heading strong {
       color: var(--tcv2-highlight-color, #ffe57a);
@@ -1516,6 +1517,7 @@
                   style="
                     --tcv2-bg-color: {{ block.settings.bg_color }};
                     --tcv2-text-color: {{ block.settings.text_color }};
+                    --tcv2-title-color: {{ block.settings.title_color }};
                     --tcv2-highlight-color: {{ block.settings.highlight_color }};
                     --tcv2-radius: {{ block.settings.border_radius }}px;
                     --tcv2-img-opacity: {{ block.settings.image_opacity | divided_by: 100.0 }};
@@ -4067,6 +4069,12 @@
         },
         {
           "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
           "id": "highlight_color",
           "label": "Heading highlight color",
           "info": "Color for bold text in the heading",
@@ -4090,7 +4098,7 @@
           "min": 0,
           "max": 100,
           "step": 5,
-          "default": 30,
+          "default": 100,
           "unit": "%"
         },
         {
