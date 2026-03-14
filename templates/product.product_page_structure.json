@@ -198,6 +198,7 @@
         },
         "trust_card": {
           "type": "trust_card",
+          "disabled": true,
           "settings": {
             "heading": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?",
             "item_1": "Odorless Formula",
