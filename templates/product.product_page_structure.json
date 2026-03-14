@@ -26,8 +26,17 @@
             "highlight_color": "#000000"
           }
         },
+        "statement_tcR3Ug": {
+          "type": "statement",
+          "settings": {
+            "subtitle": "93% of customers report:",
+            "title": "<strong>Better sleep & recovery within two weeks</strong>",
+            "title_size": 28
+          }
+        },
         "title": {
           "type": "title",
+          "disabled": true,
           "settings": {}
         },
         "benefits_list": {
@@ -252,6 +261,7 @@
       },
       "block_order": [
         "star_rating",
+        "statement_tcR3Ug",
         "title",
         "benefits_list",
         "price",
