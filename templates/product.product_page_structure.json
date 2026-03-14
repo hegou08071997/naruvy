@@ -77,6 +77,7 @@
           "type": "sticky_cart",
           "settings": {
             "function": "link",
+            "button_link": "",
             "display_when": "after_scroll",
             "button_label": "ADD TO CART",
             "enable_custom_btn_color": false,
@@ -214,6 +215,35 @@
             "image_opacity": 15,
             "border_radius": 12
           }
+        },
+        "trust_card_v2_BX8HtK": {
+          "type": "trust_card_v2",
+          "settings": {
+            "heading": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?",
+            "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
+            "feature_text_1": "Clinically Backed Formulas",
+            "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
+            "feature_text_2": "Third Party Tested",
+            "feature_icon_3": "shopify://shop_images/trust_card_v2_3.svg",
+            "feature_text_3": "Clean Formulas",
+            "feature_icon_4": "shopify://shop_images/trust_card_v2_4.svg",
+            "feature_text_4": "Globally Trusted Facilities",
+            "item_1": "Vegan-Friendly",
+            "item_2": "No Artificial Additives",
+            "item_3": "Allergen-Free",
+            "item_4": "No Added Sugar",
+            "item_5": "No Artificial Flavors",
+            "item_6": "Gluten-Free",
+            "text_color": "#ffffff",
+            "highlight_color": "#f3f3f3",
+            "bg_color": "#9f3f3f",
+            "bg_image": "shopify://shop_images/Rectangle_3.jpg",
+            "image_opacity": 100,
+            "border_radius": 10,
+            "heading_size": 28,
+            "feature_text_size": 11,
+            "item_text_size": 16
+          }
         }
       },
       "block_order": [
@@ -233,7 +263,8 @@
         "collapsible_tab_akEwJj",
         "collapsible_tab_MTCgw9",
         "collapsible_tab_FPPE7p",
-        "trust_card"
+        "trust_card",
+        "trust_card_v2_BX8HtK"
       ],
       "settings": {
         "enable_sticky_info": true,
