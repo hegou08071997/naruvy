@@ -241,6 +241,113 @@
       }
     }
 
+    /* Trust card V2 */
+    .trust-card-v2 {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--tcv2-radius, 10px);
+      padding: 54px 60px;
+      width: 100%;
+      text-align: center;
+      background-color: var(--tcv2-bg-color, #0f5a47);
+      color: var(--tcv2-text-color, #fff);
+    }
+    .trust-card-v2__bg-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: var(--tcv2-img-opacity, 0.3);
+      pointer-events: none;
+    }
+    .trust-card-v2__content {
+      position: relative;
+    }
+    .trust-card-v2__heading {
+      font-size: var(--tcv2-heading-size, 2.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 2.4rem;
+    }
+    .trust-card-v2__heading strong {
+      color: var(--tcv2-highlight-color, #ffe57a);
+    }
+    .trust-card-v2__features {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+    .trust-card-v2__feature-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 8px;
+      padding: 1.4rem 1rem;
+      flex: 1;
+      max-width: 13rem;
+    }
+    .trust-card-v2__feature-box img {
+      width: 3.6rem;
+      height: 3.6rem;
+      object-fit: contain;
+    }
+    .trust-card-v2__feature-box p {
+      margin: 0;
+      font-size: var(--tcv2-feature-text-size, 1.1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .trust-card-v2__items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3rem;
+      row-gap: 1.2rem;
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .trust-card-v2__item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: var(--tcv2-item-text-size, 1.6rem);
+    }
+    .trust-card-v2__item svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      flex-shrink: 0;
+    }
+    @media screen and (max-width: 749px) {
+      .trust-card-v2 {
+        padding: 3rem 2rem;
+      }
+      .trust-card-v2__heading {
+        font-size: calc(var(--tcv2-heading-size, 2.8rem) * 0.78);
+      }
+      .trust-card-v2__features {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .trust-card-v2__feature-box {
+        flex: 1 1 calc(50% - 0.8rem);
+        max-width: none;
+      }
+      .trust-card-v2__items {
+        column-gap: 1.5rem;
+        row-gap: 1rem;
+      }
+      .trust-card-v2__item {
+        font-size: calc(var(--tcv2-item-text-size, 1.6rem) * 0.85);
+      }
+    }
+
     /* Social proof banner */
     .social-proof-banner {
       display: flex;
@@ -1401,6 +1508,70 @@
                     {%- if block.settings.tagline != blank -%}
                       <div class="trust-card__tagline">{{ block.settings.tagline }}</div>
                     {%- endif -%}
+                  </div>
+                </div>
+              {%- when 'trust_card_v2' -%}
+                <div
+                  class="trust-card-v2"
+                  style="
+                    --tcv2-bg-color: {{ block.settings.bg_color }};
+                    --tcv2-text-color: {{ block.settings.text_color }};
+                    --tcv2-highlight-color: {{ block.settings.highlight_color }};
+                    --tcv2-radius: {{ block.settings.border_radius }}px;
+                    --tcv2-img-opacity: {{ block.settings.image_opacity | divided_by: 100.0 }};
+                    --tcv2-heading-size: {{ block.settings.heading_size | divided_by: 10.0 }}rem;
+                    --tcv2-feature-text-size: {{ block.settings.feature_text_size | divided_by: 10.0 }}rem;
+                    --tcv2-item-text-size: {{ block.settings.item_text_size | divided_by: 10.0 }}rem;
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.bg_image != blank -%}
+                    <img class="trust-card-v2__bg-image" src="{{ block.settings.bg_image | image_url: width: 1200 }}" alt="" loading="lazy">
+                  {%- endif -%}
+                  <div class="trust-card-v2__content">
+                    {%- if block.settings.heading != blank -%}
+                      <h2 class="trust-card-v2__heading">{{ block.settings.heading }}</h2>
+                    {%- endif -%}
+                    <div class="trust-card-v2__features">
+                      {%- for i in (1..4) -%}
+                        {%- liquid
+                          case i
+                            when 1
+                              assign f_icon = block.settings.feature_icon_1
+                              assign f_text = block.settings.feature_text_1
+                            when 2
+                              assign f_icon = block.settings.feature_icon_2
+                              assign f_text = block.settings.feature_text_2
+                            when 3
+                              assign f_icon = block.settings.feature_icon_3
+                              assign f_text = block.settings.feature_text_3
+                            when 4
+                              assign f_icon = block.settings.feature_icon_4
+                              assign f_text = block.settings.feature_text_4
+                          endcase
+                        -%}
+                        {%- if f_text != blank -%}
+                          <div class="trust-card-v2__feature-box">
+                            {%- if f_icon != blank -%}
+                              <img src="{{ f_icon | image_url: width: 200 }}" alt="" loading="lazy" width="36" height="36">
+                            {%- endif -%}
+                            <p>{{ f_text }}</p>
+                          </div>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                    <div class="trust-card-v2__items">
+                      {%- assign tcv2_items = 'item_1,item_2,item_3,item_4,item_5,item_6' | split: ',' -%}
+                      {%- for tid in tcv2_items -%}
+                        {%- assign tval = block.settings[tid] -%}
+                        {%- if tval != blank -%}
+                          <div class="trust-card-v2__item">
+                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.903 7.626c-.319-.277-.735-.567-.716-1.033.02-.496.204-.975.268-1.467.059-.453.022-.939-.308-1.286-.294-.308-.727-.42-1.135-.477-.457-.065-.957-.035-1.394-.197-.407-.15-.558-.716-.712-1.076-.163-.38-.338-.779-.637-1.074-.343-.339-.808-.43-1.267-.297-.522.153-.962.496-1.44.743a1.53 1.53 0 01-.588.178c-.238-.02-.47-.154-.673-.27-.461-.26-.917-.599-1.45-.693-.46-.082-.888.092-1.187.445-.275.324-.436.729-.601 1.116-.173.406-.326.856-.796.97-.801.195-1.923-.015-2.479.748-.283.388-.263.89-.185 1.341.08.467.285.966.239 1.445-.04.418-.546.736-.833.989-.328.288-.672.604-.837 1.019-.38.955.519 1.643 1.143 2.201.162.145.337.298.45.486.112.182.088.408.058.61-.073.493-.24.97-.267 1.47-.025.454.099.906.476 1.189.34.256.782.328 1.194.373.23.025.462.04.692.069.213.026.47.051.65.182.162.118.258.33.342.505.106.223.197.452.297.677.167.373.366.764.701 1.014.407.303.907.274 1.357.087.497-.207.921-.558 1.42-.76.469-.19.875.089 1.273.326.443.263.926.582 1.461.582.452 0 .817-.264 1.066-.624.253-.365.4-.788.582-1.189.088-.196.182-.41.334-.566.149-.151.387-.188.587-.218.798-.12 1.959-.019 2.366-.897.2-.43.122-.931.029-1.378-.05-.241-.112-.48-.155-.723-.037-.204-.087-.457-.001-.658.158-.369.585-.639.875-.898.3-.269.605-.567.757-.948.342-.86-.369-1.528-.958-2.04zm.145 1.655c-.084.34-.477.614-.728.831l.16-.136c-.358.312-.761.644-.933 1.103-.19.51-.047 1.08.069 1.59.066.29.313.975-.004 1.195-.157.11-.371.139-.557.165-.255.036-.512.052-.768.079-.462.05-.956.134-1.309.463-.35.327-.53.798-.714 1.229-.117.274-.324.963-.718.927-.219-.02-.429-.146-.616-.251-.25-.14-.49-.295-.743-.43-.47-.249-.961-.389-1.485-.226-.52.162-.957.502-1.436.748-.154.078-.388.21-.568.15-.18-.057-.292-.276-.373-.43-.23-.433-.37-.91-.63-1.327-.257-.416-.621-.662-1.096-.77-.48-.107-.955-.094-1.457-.187-.154-.03-.364-.071-.464-.208-.113-.155-.067-.41-.04-.584.082-.53.27-1.045.269-1.586-.001-.525-.255-.927-.62-1.284-.347-.338-.809-.623-1.065-1.042-.247-.403.247-.774.517-1.013.365-.322.78-.637 1.01-1.077.25-.478.153-1.037.043-1.543-.054-.245-.116-.489-.154-.737-.027-.174-.073-.429.04-.585.099-.136.31-.177.464-.207.25-.048.505-.065.757-.089.465-.043.972-.094 1.361-.377.386-.28.588-.745.77-1.17.093-.218.182-.439.294-.649.081-.154.193-.373.373-.43.181-.058.412.07.567.149.254.13.494.286.742.427.452.258.947.477 1.477.366.53-.11.983-.442 1.446-.703.186-.105.397-.23.615-.25.197-.018.321.149.415.3.497.8.605 1.887 1.64 2.194.357.106.733.129 1.101.163.286.027.75.023.965.25.197.208.056.67.005.908-.09.424-.213.85-.213 1.286.002.857.687 1.336 1.262 1.86.19.172.566.471.493.77z" fill="#E3FFDE"/><path d="M11.734 6.868c-1.144 1.247-2.288 2.494-3.433 3.741-.042.047-.043.077-.097.045-.16-.095-.322-.19-.483-.284-.454-.268-.909-.536-1.364-.804-.162-.095-.317-.196-.517-.133-.368.115-.415.621-.088.814.344.203.689.406 1.034.609.414.244.828.488 1.242.732.264.156.497.1.697-.118.62-.675 1.239-1.351 1.858-2.026.496-.54.993-1.081 1.489-1.622.104-.114.209-.228.313-.342.394-.429-.256-1.041-.65-.612z" fill="#E3FFDE"/></svg>
+                            <span>{{ tval }}</span>
+                          </div>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
                   </div>
                 </div>
               {%- when 'sticky_cart' -%}
@@ -3781,6 +3952,185 @@
           "max": 24,
           "step": 1,
           "default": 12,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "trust_card_v2",
+      "name": "Trust card V2",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?"
+        },
+        {
+          "type": "header",
+          "content": "Feature boxes"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_icon_1",
+          "label": "Feature 1 icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_1",
+          "label": "Feature 1 text",
+          "default": "Clinically Backed Formulas"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_icon_2",
+          "label": "Feature 2 icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_2",
+          "label": "Feature 2 text",
+          "default": "Third Party Tested"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_icon_3",
+          "label": "Feature 3 icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_3",
+          "label": "Feature 3 text",
+          "default": "Clean Formulas"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_icon_4",
+          "label": "Feature 4 icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_4",
+          "label": "Feature 4 text",
+          "default": "Globally Trusted Facilities"
+        },
+        {
+          "type": "header",
+          "content": "Checkmark items"
+        },
+        {
+          "type": "text",
+          "id": "item_1",
+          "label": "Item 1",
+          "default": "Vegan-Friendly"
+        },
+        {
+          "type": "text",
+          "id": "item_2",
+          "label": "Item 2",
+          "default": "No Artificial Additives"
+        },
+        {
+          "type": "text",
+          "id": "item_3",
+          "label": "Item 3",
+          "default": "Allergen-Free"
+        },
+        {
+          "type": "text",
+          "id": "item_4",
+          "label": "Item 4",
+          "default": "No Added Sugar"
+        },
+        {
+          "type": "text",
+          "id": "item_5",
+          "label": "Item 5",
+          "default": "No Artificial Flavors"
+        },
+        {
+          "type": "text",
+          "id": "item_6",
+          "label": "Item 6",
+          "default": "Gluten-Free"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "highlight_color",
+          "label": "Heading highlight color",
+          "info": "Color for bold text in the heading",
+          "default": "#ffe57a"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#0f5a47"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background image"
+        },
+        {
+          "type": "range",
+          "id": "image_opacity",
+          "label": "Image opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 30,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "default": 10,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "label": "Heading font size",
+          "min": 18,
+          "max": 44,
+          "step": 1,
+          "default": 28,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "feature_text_size",
+          "label": "Feature box text size",
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "default": 11,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "item_text_size",
+          "label": "Checkmark item text size",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "default": 16,
           "unit": "px"
         }
       ]
