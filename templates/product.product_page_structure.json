@@ -21,7 +21,9 @@
             "star_bg_color": "#ececec",
             "star_size": 1.3,
             "star_gap": 0.4,
-            "alignment": "flex-start"
+            "alignment": "flex-start",
+            "text_color": "#000000",
+            "highlight_color": "#000000"
           }
         },
         "title": {
@@ -236,7 +238,8 @@
             "item_5": "No Artificial Flavors",
             "item_6": "Gluten-Free",
             "text_color": "#ffffff",
-            "highlight_color": "#f3f3f3",
+            "title_color": "#ffffff",
+            "highlight_color": "#ffcfcf",
             "bg_color": "#9f3f3f",
             "bg_image": "shopify://shop_images/Rectangle_3.jpg",
             "image_opacity": 100,
