@@ -222,7 +222,7 @@
         "trust_card_v2_BX8HtK": {
           "type": "trust_card_v2",
           "settings": {
-            "heading": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?",
+            "heading": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?",
             "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
             "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
@@ -595,7 +595,7 @@
       ],
       "settings": {
         "heading": "<strong>Proven Benefits.</strong> Backed by Science.",
-        "subheading": "Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research.",
+        "subheading": "Your body deserves more than empty claims. [BRAND]<strong>® delivers real, measurable results</strong> using ingredients with decades of clinical research.",
         "highlight_color": "#9f3f3f",
         "bg_color": "#fbf9f7",
         "cta_text": "Try Risk-Free Today",
@@ -888,7 +888,7 @@
           "settings": {
             "heading": "Is this really odorless? I've tried other 'odorless' garlic supplements that still made me burp garlic all day.",
             "icon": "none",
-            "row_content": "<p>Yes, Elaré is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
+            "row_content": "<p>Yes, [BRAND] is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
             "page": ""
           }
         },
@@ -906,7 +906,7 @@
           "settings": {
             "heading": "Why is aged garlic better than fresh garlic or regular garlic pills?",
             "icon": "none",
-            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One Elaré capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
+            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One [BRAND] capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
             "page": ""
           }
         },
@@ -915,7 +915,7 @@
           "settings": {
             "heading": "Can I take this with my current blood pressure medications?",
             "icon": "none",
-            "row_content": "<p>Many customers take Elaré alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
+            "row_content": "<p>Many customers take [BRAND] alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
             "page": ""
           }
         },
