@@ -42,6 +42,9 @@
       text-overflow: ellipsis;
       min-width: 0;
     }
+    .star-rating__text strong {
+      color: var(--star-highlight, inherit);
+    }
     .product__benefits-list {
       display: flex;
       flex-direction: column;
@@ -648,7 +651,7 @@
               {%- when 'star_rating' -%}
                 <div
                   class="product__star-rating"
-                  style="--star-size: {{ block.settings.star_size }}rem; --star-gap: {{ block.settings.star_gap }}rem; justify-content: {{ block.settings.alignment }};"
+                  style="--star-size: {{ block.settings.star_size }}rem; --star-gap: {{ block.settings.star_gap }}rem; justify-content: {{ block.settings.alignment }}; color: {{ block.settings.text_color }}; --star-highlight: {{ block.settings.highlight_color }};"
                   {{ block.shopify_attributes }}
                 >
                   {%- assign rating_floor = block.settings.rating | floor -%}
@@ -2084,6 +2087,19 @@
             { "value": "flex-end", "label": "Right" }
           ],
           "default": "flex-start"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "highlight_color",
+          "label": "Highlight color",
+          "info": "Color for bold text",
+          "default": "#000000"
         }
       ]
     },
