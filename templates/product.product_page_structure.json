@@ -295,6 +295,9 @@
         "trust_card_v2_BX8HtK",
         "testimonial_videos_block"
       ],
+      "custom_css": [
+        ".urgency-notice {margin-bottom: 15px;}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
