@@ -357,7 +357,7 @@
         "stat_BTktYW"
       ],
       "custom_css": [
-        ".cp-cta__heading, strong {font-weight: bold;}"
+        ".cp-cta__heading,strong, .cp-stat__pct {font-weight: bold;}"
       ],
       "name": "Clinical proven",
       "settings": {
