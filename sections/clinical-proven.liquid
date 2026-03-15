@@ -150,7 +150,6 @@
     padding: 0 24px;
     border: none;
     cursor: pointer;
-    font-family: inherit;
   }
 
   .cp-cta__guarantee {
@@ -273,9 +272,7 @@
 
         {%- if section.settings.cta_text != blank -%}
           <div class="cp-cta--mobile">
-            <button type="button" class="cp-cta__btn" data-cp-btn>
-              {{ section.settings.cta_text }}
-            </button>
+            <a href="#" class="cp-cta__btn" data-cp-btn>{{ section.settings.cta_text }}</a>
             {%- if section.settings.guarantee_text != blank -%}
               <div class="cp-cta__guarantee">
                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -297,9 +294,7 @@
           <p class="cp-cta__subtitle">{{ section.settings.subtitle }}</p>
         {%- endif -%}
         {%- if section.settings.cta_text != blank -%}
-          <button type="button" class="cp-cta__btn" data-cp-btn>
-            {{ section.settings.cta_text }}
-          </button>
+          <a href="#" class="cp-cta__btn" data-cp-btn>{{ section.settings.cta_text }}</a>
         {%- endif -%}
         {%- if section.settings.guarantee_text != blank -%}
           <div class="cp-cta__guarantee">
