@@ -1,21 +1,974 @@
-<div class="tile-sub">93% of customers report:</div>
-    text-rendering: optimizeSpeed;
-    font-family: Satoshi;
-    color: #000;
-    box-sizing: border-box;
-    font-weight: 400;
-    font-size: 16.94px;
-    line-height: 30px;
-    letter-spacing: 0;
+<div class="product-image">
+    <div class="pos-rel">
+    <div class="badgess"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.596 9.15815L17.0312 16.0724C17.0002 16.2171 16.9197 16.3464 16.8036 16.4381C16.6875 16.5298 16.543 16.5782 16.3951 16.5749H4.20772C4.0598 16.5782 3.91536 16.5298 3.79926 16.4381C3.68316 16.3464 3.60267 16.2171 3.57163 16.0724L2.05775 9.15815C2.03227 9.04132 2.04024 8.91968 2.08074 8.80717C2.12124 8.69466 2.19264 8.59585 2.28674 8.52207C2.38109 8.44802 2.49446 8.40216 2.61377 8.38978C2.73307 8.3774 2.85344 8.39901 2.96099 8.4521L6.67573 10.2522L9.75439 4.80733C9.80987 4.70943 9.89032 4.62801 9.98754 4.57136C10.0848 4.51471 10.1953 4.48486 10.3078 4.48486C10.4203 4.48486 10.5308 4.51471 10.628 4.57136C10.7252 4.62801 10.8057 4.70943 10.8612 4.80733L13.9398 10.2586L17.68 8.44574C17.7883 8.38832 17.9109 8.36343 18.0331 8.37405C18.1552 8.38468 18.2717 8.43038 18.3685 8.50565C18.4652 8.58092 18.5382 8.68255 18.5786 8.79831C18.6189 8.91407 18.625 9.03903 18.596 9.15815Z" fill="#E3FFDE"></path>
+</svg> Bestseller</div>
 
-----
-<h1>Better sleep &amp; recovery within two weeks</h1>
-    font-weight: 500;
-    font-size: 28.24px;
-    line-height: 30px;
-    letter-spacing: 0;
-    text-transform: none;
-    margin: 0 0 15px;
-    display: block;
-    box-sizing: border-box;
+ <div class="badgess-sold">🇺🇸 SHIPS FROM USA</div>
+  
+
+  <div class="product-slider-main slick-initialized slick-slider">
+    
+      
+      
+        <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 13167px; transform: translate3d(-693px, 0px, 0px);"><div class="m-product slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=388 400w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=528 540w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=756 768w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 693px;">
+          
+
+<img loading="eager" style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="1525" height="1428" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1525/1428" srcset="//resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="958" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="958/927" srcset="//resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=788 800w">
+        </div><div class="m-product slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=388 400w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=528 540w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=756 768w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img loading="eager" style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="1525" height="1428" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1525/1428" srcset="//resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="12" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="958" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="958/927" srcset="//resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="13" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="14" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="15" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="16" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=388 400w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=528 540w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=756 768w, //resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=788 800w">
+        </div><div class="m-product slick-slide slick-cloned" data-slick-index="17" id="" aria-hidden="true" tabindex="-1" style="width: 693px;">
+          
+
+<img style="width: 100%;" alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=388 400w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=528 540w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=756 768w, //resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=788 800w">
+        </div></div></div>
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </div>
+</div>
+  
+<div class="product-slider-nav slick-initialized slick-slider"><button type="button" class="slick-prev custom-arrow slick-arrow" style="">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <circle cx="12" cy="12" r="12" fill="black" fill-opacity="0.1"></circle>
+            <path d="M9 18L15 12L9 6" stroke="black"></path>
+          </svg>
+        </button>
+  
+    
+    
+    
+      <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 3220px; transform: translate3d(-700px, 0px, 0px);"><div class="slick-slide slick-cloned" data-slick-index="-5" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="-4" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=188 200w">
+      </div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="1525" height="1428" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1525/1428" srcset="//resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=188 200w">
+      </div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=188 200w">
+      </div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="0" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=188 200w">
+      </div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" tabindex="0" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="958" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="958/927" srcset="//resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=188 200w">
+      </div><div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="0" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=188 200w">
+      </div><div class="slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=188 200w">
+      </div><div class="slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="1525" height="1428" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1525/1428" srcset="//resilia.shop/cdn/shop/files/Group_836c4a32-7b58-4304-963b-b638488e9a70.webp?v=1760719548&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-1484582312.webp?v=1748405186&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12.webp?v=1748405203&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="12" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="958" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="958/927" srcset="//resilia.shop/cdn/shop/files/Group_13.webp?v=1748405230&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="13" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_11.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="14" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="927" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="927/927" srcset="//resilia.shop/cdn/shop/files/Group_10.webp?v=1773451719&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="15" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="990" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="990/927" srcset="//resilia.shop/cdn/shop/files/Group_12_bdc1bb32-d058-4e32-80df-2cd50a0457c4.webp?v=1748405443&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="16" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="945" height="927" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="945/927" srcset="//resilia.shop/cdn/shop/files/Group-14845823121.webp?v=1748405455&amp;width=188 200w">
+      </div><div class="slick-slide slick-cloned" data-slick-index="17" id="" aria-hidden="true" tabindex="-1" style="width: 140px;">
+        
+
+<img alt="Resilia® Oil Of Oregano Softgels" width="1040" height="1024" data-alt="Resilia® Oil Of Oregano Softgels" sizes="auto" aspectratio="1040/1024" srcset="//resilia.shop/cdn/shop/files/Generated_Image_December_29_2025_-_4_10PM.jpg?v=1767024684&amp;width=188 200w">
+      </div></div></div>
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+<button type="button" class="slick-next custom-arrow slick-arrow" style="">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="black" fill-opacity="0.1"></circle>
+            <path d="M9 18L15 12L9 6" stroke="black"></path>
+          </svg>
+        </button></div>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      $('.product-slider-main').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: false,
+        asNavFor: '.product-slider-nav',
+        variableWidth: false
+      });
+
+      $('.product-slider-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.product-slider-main',
+        focusOnSelect: true,
+        arrows: true,
+         prevArrow: `
+        <button type="button" class="slick-prev custom-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <circle cx="12" cy="12" r="12" fill="black" fill-opacity="0.1"/>
+            <path d="M9 18L15 12L9 6" stroke="black"/>
+          </svg>
+        </button>
+      `,
+      nextArrow: `
+        <button type="button" class="slick-next custom-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="black" fill-opacity="0.1"/>
+            <path d="M9 18L15 12L9 6" stroke="black"/>
+          </svg>
+        </button>
+      `
+      });
+    });
+  </script>
+ 
+        
+    
+        
+    
+        
+    
+        <div class="faq-items hide-mob">
+        <button class="faq-questions">Description <span class="toggle-icons">+</span></button>
+        <div class="faq-answers">
+          <p>Resilia® is a powerful, clean supplement designed to support your immune system, gut health, and overall well-being.</p><p>Each softgel combines high-potency oregano oil (6,000 mg) with black seed oil (200 mg)—two clinically studied ingredients known for their natural antibacterial, antiviral, and anti-inflammatory properties.</p><p>No fillers. No aftertaste. Just results you can feel.</p>
+        </div>
+      </div>
+          
+    
+        <div class="faq-items hide-mob">
+        <button class="faq-questions">Why you need Resilia® Oregano Oil? <span class="toggle-icons">+</span></button>
+        <div class="faq-answers">
+          <p>If you’re tired of getting sick every season, struggling with bloating or digestive issues, or relying on harsh synthetic supplements—Resilia® was made for you.</p><p>This daily formula helps your body stay strong, balanced, and resilient—all from two powerful plants used for centuries and now backed by modern science.</p>
+        </div>
+      </div>
+          
+    
+        <div class="faq-items hide-mob">
+        <button class="faq-questions">Benefits <span class="toggle-icons">+</span></button>
+        <div class="faq-answers">
+          <ul><li>Strengthens immune response </li><li>Calms bloating and digestive discomfort </li><li>Fights harmful bacteria and inflammation </li><li>Supports daily energy and mental clarity</li><li>Tasteless, easy-to-swallow softgels </li><li>Free from gluten, dairy, sugar, soy, &amp; additives</li></ul>
+        </div>
+      </div>
+          
+    
+        <div class="faq-items hide-mob">
+        <button class="faq-questions">Recommended Use <span class="toggle-icons">+</span></button>
+        <div class="faq-answers">
+          <p><strong>Take 2 softgels daily</strong> with water, preferably with food.  Consistent daily use leads to the best results. </p><p>Most customers report noticeable improvements in 7–14 days.</p>
+        </div>
+      </div>
+          
+    
+        <div class="faq-items hide-mob">
+        <button class="faq-questions">Do you offer a guarantee? <span class="toggle-icons">+</span></button>
+        <div class="faq-answers">
+          <p>Yes! All Resilia® orders are backed by our 30-day money-back guarantee. </p><p>If you're not completely satisfied, simply contact us—we’ll make it right, no questions asked.</p>
+        </div>
+      </div>
+          
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+<h2 class="videol-heading hide-mob">What our customers are saying:</h2>
+ <div class="testimonial-slider-wrapper line-arrow hide-mob">
+   <script>
+ 
+
+  document.addEventListener('DOMContentLoaded', function () {
+    $('.testimonial-slider-template--26971077771448__offer_section_LiVXmz, .testimonial-sliderm-template--26971077771448__offer_section_LiVXmz').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 2,
+      arrows: true,
+      dots: true,
+      prevArrow: $('.slick-prevs'),
+  nextArrow: $('.slick-nexts'),
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+          }
+        }
+      ]
+    });
+  });
+</script>
+      <div class="testimonial-slider sml-video testimonial-slider-template--26971077771448__offer_section_LiVXmz slick-initialized slick-slider slick-dotted">
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           
+        
+           <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4977px; transform: translate3d(-711px, 0px, 0px);"><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide20" aria-describedby="slick-slide-control20" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"><source src="//resilia.shop/cdn/shop/videos/c/vp/399de3f837fa4c72a5e296b947b30f85/399de3f837fa4c72a5e296b947b30f85.HD-1080p-7.2Mbps-48054561.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide21" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"><source src="//resilia.shop/cdn/shop/videos/c/vp/7735183a7fcd4aa78aa4a3e9517c148b/7735183a7fcd4aa78aa4a3e9517c148b.HD-1080p-7.2Mbps-48054562.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide22" aria-describedby="slick-slide-control21" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"><source src="//resilia.shop/cdn/shop/videos/c/vp/e829fff9ca8d4ecf90707b8c43cf7f9b/e829fff9ca8d4ecf90707b8c43cf7f9b.HD-1080p-7.2Mbps-48054563.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide23" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"><source src="//resilia.shop/cdn/shop/videos/c/vp/24683d9645f5443daffdbea28af02dc1/24683d9645f5443daffdbea28af02dc1.HD-1080p-7.2Mbps-48054564.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide24" aria-describedby="slick-slide-control22" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"><source src="//resilia.shop/cdn/shop/videos/c/vp/8cee26197e054fdab6f85a90a47f7d57/8cee26197e054fdab6f85a90a47f7d57.HD-1080p-7.2Mbps-48054565.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide25" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"><source src="//resilia.shop/cdn/shop/videos/c/vp/2f2f760f88d04c5cb1b3a609b39b1f9b/2f2f760f88d04c5cb1b3a609b39b1f9b.HD-1080p-7.2Mbps-48054566.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide26" aria-describedby="slick-slide-control23" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide27" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide28" aria-describedby="slick-slide-control24" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"><source src="//resilia.shop/cdn/shop/videos/c/vp/399de3f837fa4c72a5e296b947b30f85/399de3f837fa4c72a5e296b947b30f85.HD-1080p-7.2Mbps-48054561.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"><source src="//resilia.shop/cdn/shop/videos/c/vp/7735183a7fcd4aa78aa4a3e9517c148b/7735183a7fcd4aa78aa4a3e9517c148b.HD-1080p-7.2Mbps-48054562.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"><source src="//resilia.shop/cdn/shop/videos/c/vp/e829fff9ca8d4ecf90707b8c43cf7f9b/e829fff9ca8d4ecf90707b8c43cf7f9b.HD-1080p-7.2Mbps-48054563.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="12" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"><source src="//resilia.shop/cdn/shop/videos/c/vp/24683d9645f5443daffdbea28af02dc1/24683d9645f5443daffdbea28af02dc1.HD-1080p-7.2Mbps-48054564.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="13" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"><source src="//resilia.shop/cdn/shop/videos/c/vp/8cee26197e054fdab6f85a90a47f7d57/8cee26197e054fdab6f85a90a47f7d57.HD-1080p-7.2Mbps-48054565.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="14" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"><source src="//resilia.shop/cdn/shop/videos/c/vp/2f2f760f88d04c5cb1b3a609b39b1f9b/2f2f760f88d04c5cb1b3a609b39b1f9b.HD-1080p-7.2Mbps-48054566.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="15" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="16" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="17" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div></div></div>
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+           
+  
+        
+      <ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control20" aria-controls="slick-slide20" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control21" aria-controls="slick-slide22" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control22" aria-controls="slick-slide24" aria-label="3 of 3" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control23" aria-controls="slick-slide26" aria-label="4 of 3" tabindex="-1">4</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control24" aria-controls="slick-slide28" aria-label="5 of 3" tabindex="-1">5</button></li></ul></div>
+
+     <button class="slick-prevs slick-arrow" aria-label="Previous" type="button" style="display: inline-block;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="12" fill="#009370" fill-opacity="0.1"></circle>
+<path d="M15 6L9 12L15 18" stroke="black"></path>
+</svg>
+</button>
+<button class="slick-nexts slick-arrow" aria-label="Next" type="button" style="display: inline-block;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="12" transform="rotate(180 12 12)" fill="#009370" fill-opacity="0.1"></circle>
+<path d="M9 18L15 12L9 6" stroke="black"></path>
+</svg>
+</button>
+    </div>
+
+
+  
+  </div>
+
+
+      --colorAnnouncement: #085946;
+    --colorAnnouncementText: #ffffff;
+    --colorBody: #ffffff;
+    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
+    --colorBodyDim: #f2f2f2;
+    --colorBodyLightDim: #fafafa;
+    --colorBodyMediumDim: #f5f5f5;
+    --colorBorder: #085946;
+    --colorBtnPrimary: #085946;
+    --colorBtnPrimaryLight: #0c886b;
+    --colorBtnPrimaryDim: #064234;
+    --colorBtnPrimaryText: #ffffff;
+    --colorCartDot: #085946;
+    --colorDrawers: #ffffff;
+    --colorDrawersDim: #f2f2f2;
+    --colorDrawerBorder: #085946;
+    --colorDrawerText: #085946;
+    --colorDrawerTextDark: #02130f;
+    --colorDrawerButton: #085946;
+    --colorDrawerButtonText: #ffffff;
+    --colorFooter: #085946;
+    --colorFooterText: #ffffff;
+    --colorFooterTextAlpha01: #ffffff;
+    --colorGridOverlay: #000000;
+    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
+    --colorHeroText: #ffffff;
+    --colorSmallImageBg: #ffffff;
+    --colorLargeImageBg: #085946;
+    --colorImageOverlay: #085946;
+    --colorImageOverlayOpacity: 0;
+    --colorImageOverlayTextShadow: 0;
+    --colorLink: #085946;
+    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
+    --colorNav: #ffffff;
+    --colorNavText: #085946;
+    --colorPrice: #085946;
+    --colorSaleTag: #085946;
+    --colorSaleTagText: #ffffff;
+    --colorTextBody: #085946;
+    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextSavings: #085946;
+    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
+    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
+    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
+    --sizeChartMargin: 25px 0;
+    --sizeChartIconMargin: 5px;
+    --newsletterReminderPadding: 40px;
+    --color-body-text: #085946;
+    --color-body: #ffffff;
+    --color-bg: #ffffff;
+    --grid-gutter: 22px;
+    --drawer-gutter: 30px;
+    --typeHeaderPrimary: "Tenor Sans";
+    --typeHeaderFallback: sans-serif;
+    --typeHeaderSize: 36px;
+    --typeHeaderWeight: 400;
+    --typeHeaderLineHeight: 1;
+    --typeHeaderSpacing: 0.0em;
+    --typeBasePrimary: Outfit;
+    --typeBaseFallback: sans-serif;
+    --typeBaseSize: 18px;
+    --typeBaseWeight: 300;
+    --typeBaseSpacing: 0.025em;
+    --typeBaseLineHeight: 1.4;
+    --typeBaselineHeightMinus01: 1.3;
+    --typeCollectionTitle: 20px;
+    --iconWeight: 2px;
+    --iconLinecaps: miter;
+    --buttonRadius: 0;
+    --colorGridOverlayOpacity: 0.1;
+    --accent-color: #29a31b;
+    --accent-color-light: #effbff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    letter-spacing: var(--typeBaseSpacing);
+    line-height: var(--typeBaseLineHeight);
+    text-rendering: optimizeSpeed;
+    font-size: var(--typeBaseSize);
+    font-family: Satoshi;
+    font-weight: 400;
     color: #000;
+    box-sizing: border-box;
+    position: sticky;
+    top: 40px;
