@@ -314,6 +314,71 @@
         "padding_bottom": 12
       }
     },
+    "clinical_proven_XJiV6J": {
+      "type": "clinical-proven",
+      "blocks": {
+        "stat_JT8ghy": {
+          "type": "stat",
+          "settings": {
+            "percentage": 94,
+            "heading": "Said they felt fewer sick days",
+            "caption": "after taking Resilia® consistently for 2+ weeks"
+          }
+        },
+        "stat_W9mrjV": {
+          "type": "stat",
+          "settings": {
+            "percentage": 96,
+            "heading": "Would recommend Resilia® to a friend",
+            "caption": "for natural immune and gut support"
+          }
+        },
+        "stat_7gdyWK": {
+          "type": "stat",
+          "settings": {
+            "percentage": 92,
+            "heading": "Noticed improved digestion & less bloating",
+            "caption": "especially after meals"
+          }
+        },
+        "stat_BTktYW": {
+          "type": "stat",
+          "settings": {
+            "percentage": 89,
+            "heading": "Said they prefer Resilia®'s formula",
+            "caption": "over other oregano supplements they've tried"
+          }
+        }
+      },
+      "block_order": [
+        "stat_JT8ghy",
+        "stat_W9mrjV",
+        "stat_7gdyWK",
+        "stat_BTktYW"
+      ],
+      "custom_css": [
+        ".cp-cta__heading, strong {font-weight: bold;}"
+      ],
+      "name": "Clinical proven",
+      "settings": {
+        "bg_color": "#014c3e",
+        "bg_image": "shopify://shop_images/clinically_proven.jpg",
+        "image_opacity": 100,
+        "text_color": "#ffffff",
+        "percentage_color": "#E3FFDE",
+        "highlight_color": "#E3FFDE",
+        "heading": "<strong>Clinically Proven.</strong> More Energy. A Healthier Gut.",
+        "heading_size": 31,
+        "subtitle": "When clean, plant-based ingredients meet clinical potency, the results speak for themselves.",
+        "cta_text": "Try Risk-Free Today",
+        "cta_url": "",
+        "cta_bg_color": "#E3FFDE",
+        "cta_text_color": "#014c3e",
+        "guarantee_text": "30-day money back guarantee",
+        "padding_top": 84,
+        "padding_bottom": 80
+      }
+    },
     "feature_cards": {
       "type": "feature-cards",
       "blocks": {
@@ -1008,6 +1073,7 @@
   },
   "order": [
     "main",
+    "clinical_proven_XJiV6J",
     "feature_cards",
     "testimonial_slider",
     "benefits_showcase",
