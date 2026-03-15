@@ -256,7 +256,10 @@
     >
   {%- endif -%}
 
-  <div class="cp-content page-width">
+  <div class="cp-content page-width"
+    data-cp-function="{{ section.settings.cta_function }}"
+    data-cp-link="{{ section.settings.cta_url }}"
+  >
     <div class="cp-layout">
       <div class="cp-stats" id="cp-stats-{{ section.id }}">
         {%- for block in section.blocks -%}
@@ -269,22 +272,9 @@
 
         {%- if section.settings.cta_text != blank -%}
           <div class="cp-cta--mobile">
-            {%- if section.settings.cta_function == 'add_to_cart' -%}
-              <button type="button" class="cp-cta__btn" data-cp-atc>
-                {{ section.settings.cta_text }}
-              </button>
-            {%- else -%}
-              <a
-                {% if section.settings.cta_url != blank %}
-                  href="{{ section.settings.cta_url }}"
-                {% else %}
-                  href="#" data-cp-scroll
-                {% endif %}
-                class="cp-cta__btn"
-              >
-                {{ section.settings.cta_text }}
-              </a>
-            {%- endif -%}
+            <button type="button" class="cp-cta__btn" data-cp-btn>
+              {{ section.settings.cta_text }}
+            </button>
             {%- if section.settings.guarantee_text != blank -%}
               <div class="cp-cta__guarantee">
                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -306,22 +296,9 @@
           <p class="cp-cta__subtitle">{{ section.settings.subtitle }}</p>
         {%- endif -%}
         {%- if section.settings.cta_text != blank -%}
-          {%- if section.settings.cta_function == 'add_to_cart' -%}
-            <button type="button" class="cp-cta__btn" data-cp-atc>
-              {{ section.settings.cta_text }}
-            </button>
-          {%- else -%}
-            <a
-              {% if section.settings.cta_url != blank %}
-                href="{{ section.settings.cta_url }}"
-              {% else %}
-                href="#ProductInfo-{{ product.id }}"
-              {% endif %}
-              class="cp-cta__btn"
-            >
-              {{ section.settings.cta_text }}
-            </a>
-          {%- endif -%}
+          <button type="button" class="cp-cta__btn" data-cp-btn>
+            {{ section.settings.cta_text }}
+          </button>
         {%- endif -%}
         {%- if section.settings.guarantee_text != blank -%}
           <div class="cp-cta__guarantee">
@@ -371,34 +348,37 @@
 
     observer.observe(statsContainer);
 
-    /* Add-to-cart button handling */
-    var atcBtns = document.querySelectorAll('[data-cp-atc]');
-    atcBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var productForm = document.querySelector('product-form form, form[action*="/cart/add"]');
-        if (productForm) {
-          var submitBtn = productForm.querySelector('[type="submit"], button[name="add"]');
-          if (submitBtn) {
-            submitBtn.click();
-          } else {
-            productForm.requestSubmit();
-          }
-        }
-      });
-    });
+    /* CTA button handling — same pattern as sticky cart */
+    var cpContent = document.querySelector('.cp-content[data-cp-function]');
+    if (cpContent) {
+      var cpFunction = cpContent.getAttribute('data-cp-function') || 'link';
+      var cpLink = cpContent.getAttribute('data-cp-link');
+      var cpBtns = cpContent.querySelectorAll('[data-cp-btn]');
 
-    /* Default scroll-to-product-form handling */
-    var scrollBtns = document.querySelectorAll('[data-cp-scroll]');
-    scrollBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var target = document.querySelector('product-form, [id^="ProductInfo-"]');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+      cpBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (cpFunction === 'add_to_cart') {
+            var productForm = document.querySelector('product-form');
+            if (productForm && productForm.form) {
+              productForm.form.requestSubmit();
+            }
+          } else {
+            var target = cpLink || '';
+            if (target && target.charAt(0) === '#') {
+              var dest = document.querySelector(target);
+              if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+            } else if (target) {
+              window.location.href = target;
+            } else {
+              /* Default: scroll to product info section */
+              var dest = document.querySelector('[id^="ProductInfo-"]');
+              if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
       });
-    });
+    }
   })();
 </script>
 
