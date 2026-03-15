@@ -260,28 +260,14 @@
             "item_text_size": 16
           }
         },
-        "testimonial_heading_XCMUUe": {
-          "type": "testimonial_heading",
+        "testimonial_videos_block": {
+          "type": "testimonial_videos",
           "settings": {
-            "heading": "What our customers are saying:"
-          }
-        },
-        "testimonial_video_Ap936D": {
-          "type": "testimonial_video",
-          "settings": {
-            "video": "shopify://files/videos/avena_d4.mp4"
-          }
-        },
-        "testimonial_video_dAyt7D": {
-          "type": "testimonial_video",
-          "settings": {
-            "video": "shopify://files/videos/avena_d4.mp4"
-          }
-        },
-        "testimonial_video_DiN6kH": {
-          "type": "testimonial_video",
-          "settings": {
-            "video": "shopify://files/videos/avena_d4.mp4"
+            "heading": "What our customers are saying:",
+            "heading_size": 23,
+            "video_1": "shopify://files/videos/avena_d4.mp4",
+            "video_2": "shopify://files/videos/avena_d4.mp4",
+            "video_3": "shopify://files/videos/avena_d4.mp4"
           }
         }
       },
@@ -305,10 +291,7 @@
         "collapsible_tab_FPPE7p",
         "trust_card",
         "trust_card_v2_BX8HtK",
-        "testimonial_heading_XCMUUe",
-        "testimonial_video_Ap936D",
-        "testimonial_video_dAyt7D",
-        "testimonial_video_DiN6kH"
+        "testimonial_videos_block"
       ],
       "settings": {
         "enable_sticky_info": true,
