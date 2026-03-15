@@ -374,15 +374,18 @@
     }
     .product__collapsible-tabs .accordion {
       margin-top: 0;
-      border-top: 1px solid rgba(var(--color-foreground), 0.12);
-      border-bottom: none;
-      border-radius: 0;
+      margin-bottom: 11px;
+      border: 1px solid rgba(228, 228, 228, 1);
+      border-radius: 5px;
+      overflow: hidden;
+      background: white;
+      color: black;
     }
-    .product__collapsible-tabs .accordion:last-child {
-      border-bottom: 1px solid rgba(var(--color-foreground), 0.12);
+    .product__collapsible-tabs .accordion + .accordion {
+      border-top: 1px solid rgba(228, 228, 228, 1);
     }
     .product__collapsible-tabs .accordion summary {
-      padding: 1.4rem 0;
+      padding: 1.4rem 1.5rem;
       cursor: pointer;
     }
     .product__collapsible-tabs .accordion .icon-caret {
@@ -390,6 +393,9 @@
     }
     .product__collapsible-tabs .accordion .summary__title {
       align-items: center;
+    }
+    .product__collapsible-tabs .accordion__content {
+      padding: 0 1.5rem;
     }
     .product__collapsible-tabs .toggle-icon {
       margin-left: auto;
