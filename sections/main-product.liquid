@@ -355,7 +355,7 @@
     .product.grid {
       row-gap: 35px;
     }
-    .product__accordion--mobile {
+    .product__accordion--mobile.accordion {
       margin-top: 0;
       margin-bottom: 11px;
       border: 1px solid rgba(228, 228, 228, 1);
@@ -364,7 +364,11 @@
       background: white;
       color: black;
     }
-    .product__accordion--mobile summary {
+    .product__accordion--mobile.accordion + .product__accordion--mobile.accordion {
+      margin-top: 0;
+      border-top: 1px solid rgba(228, 228, 228, 1);
+    }
+    .product__accordion--mobile.accordion summary {
       padding: 1.4rem 1.5rem;
       cursor: pointer;
     }
@@ -374,7 +378,7 @@
     .product__accordion--mobile .summary__title {
       align-items: center;
     }
-    .product__accordion--mobile .accordion__content {
+    .product__accordion--mobile.accordion .accordion__content {
       padding: 0 1.5rem 1.5rem;
     }
     .product__accordion--mobile .toggle-icon {
@@ -526,8 +530,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px;
+      padding: 10px;
       z-index: 2;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-videos__controls-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .testimonial-videos__control-btn {
       background: none;
@@ -537,9 +547,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
     }
     .testimonial-videos__control-btn svg {
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+      width: 18px;
+      height: 18px;
     }
     @media screen and (max-width: 749px) {
       .testimonial-videos__card {
@@ -2200,26 +2212,30 @@
                     {{ current_video | video_tag: playsinline: true, loop: true, preload: 'auto', muted: true }}
                     <div class="testimonial-videos__controls">
                       <button class="testimonial-videos__control-btn testimonial-videos__play-btn" aria-label="Play video" type="button">
-                        <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z" fill="white"/>
+                        <svg class="icon-play" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path>
                         </svg>
-                        <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
-                          <rect x="6" y="4" width="4" height="16" rx="1" fill="white"/>
-                          <rect x="14" y="4" width="4" height="16" rx="1" fill="white"/>
-                        </svg>
-                      </button>
-                      <button class="testimonial-videos__control-btn testimonial-videos__mute-btn" aria-label="Unmute video" type="button">
-                        <svg class="icon-muted" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/>
-                          <line x1="23" y1="9" x2="17" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                          <line x1="17" y1="9" x2="23" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <svg class="icon-unmuted" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
-                          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/>
-                          <path d="M15.54 8.46a5 5 0 010 7.07" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                          <path d="M19.07 4.93a10 10 0 010 14.14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <svg class="icon-pause" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                          <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"></path>
                         </svg>
                       </button>
+                      <div class="testimonial-videos__controls-right">
+                        <button class="testimonial-videos__control-btn testimonial-videos__mute-btn" aria-label="Unmute video" type="button">
+                          <svg class="icon-muted" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"></path>
+                          </svg>
+                          <svg class="icon-unmuted" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                            <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"></path>
+                            <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"></path>
+                            <path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"></path>
+                          </svg>
+                        </button>
+                        <button class="testimonial-videos__control-btn testimonial-videos__fullscreen-btn" aria-label="Full screen" type="button">
+                          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"></path>
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 {%- endif -%}
@@ -2230,10 +2246,18 @@
                 var slider = document.getElementById('testimonial-slider-{{ section.id }}');
                 if (!slider) return;
 
-                /* Play / Pause / Mute controls */
+                /* Force first frame render to avoid blurry thumbnails */
+                slider.querySelectorAll('.testimonial-videos__card video').forEach(function(video) {
+                  video.addEventListener('loadeddata', function() {
+                    video.currentTime = 0.001;
+                  }, { once: true });
+                });
+
+                /* Play / Pause / Mute / Fullscreen controls */
                 slider.querySelectorAll('.testimonial-videos__card').forEach(function(card) {
                   var playBtn = card.querySelector('.testimonial-videos__play-btn');
                   var muteBtn = card.querySelector('.testimonial-videos__mute-btn');
+                  var fullscreenBtn = card.querySelector('.testimonial-videos__fullscreen-btn');
                   var video = card.querySelector('video');
                   if (!video) return;
 
@@ -2242,8 +2266,7 @@
                   var iconMuted = muteBtn.querySelector('.icon-muted');
                   var iconUnmuted = muteBtn.querySelector('.icon-unmuted');
 
-                  playBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                  function togglePlay() {
                     if (video.paused) {
                       video.play(); card.classList.add('is-playing');
                       iconPlay.style.display = 'none'; iconPause.style.display = 'block';
@@ -2251,7 +2274,10 @@
                       video.pause(); card.classList.remove('is-playing');
                       iconPlay.style.display = 'block'; iconPause.style.display = 'none';
                     }
-                  });
+                  }
+
+                  playBtn.addEventListener('click', function(e) { e.stopPropagation(); togglePlay(); });
+                  video.addEventListener('click', togglePlay);
 
                   muteBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2260,14 +2286,10 @@
                     iconUnmuted.style.display = video.muted ? 'none' : 'block';
                   });
 
-                  video.addEventListener('click', function() {
-                    if (video.paused) {
-                      video.play(); card.classList.add('is-playing');
-                      iconPlay.style.display = 'none'; iconPause.style.display = 'block';
-                    } else {
-                      video.pause(); card.classList.remove('is-playing');
-                      iconPlay.style.display = 'block'; iconPause.style.display = 'none';
-                    }
+                  fullscreenBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (video.requestFullscreen) video.requestFullscreen();
+                    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
                   });
                 });
 
