@@ -1,540 +1,48 @@
-<h2 class="videol-heading hide-mob">What our customers are saying:</h2>
-<div class="testimonial-slider-wrapper line-arrow hide-mob">
-   <script>
- 
-
-  document.addEventListener('DOMContentLoaded', function () {
-    $('.testimonial-slider-template--26971077771448__offer_section_LiVXmz, .testimonial-sliderm-template--26971077771448__offer_section_LiVXmz').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 2,
-      arrows: true,
-      dots: true,
-      prevArrow: $('.slick-prevs'),
-  nextArrow: $('.slick-nexts'),
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 3,
-          }
-        }
-      ]
-    });
-  });
-</script>
-      <div class="testimonial-slider sml-video testimonial-slider-template--26971077771448__offer_section_LiVXmz slick-initialized slick-slider slick-dotted">
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           
-        
-           <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4977px; transform: translate3d(-711px, 0px, 0px);"><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide20" aria-describedby="slick-slide-control20" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"><source src="//resilia.shop/cdn/shop/videos/c/vp/399de3f837fa4c72a5e296b947b30f85/399de3f837fa4c72a5e296b947b30f85.HD-1080p-7.2Mbps-48054561.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide21" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"><source src="//resilia.shop/cdn/shop/videos/c/vp/7735183a7fcd4aa78aa4a3e9517c148b/7735183a7fcd4aa78aa4a3e9517c148b.HD-1080p-7.2Mbps-48054562.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide22" aria-describedby="slick-slide-control21" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"><source src="//resilia.shop/cdn/shop/videos/c/vp/e829fff9ca8d4ecf90707b8c43cf7f9b/e829fff9ca8d4ecf90707b8c43cf7f9b.HD-1080p-7.2Mbps-48054563.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide23" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"><source src="//resilia.shop/cdn/shop/videos/c/vp/24683d9645f5443daffdbea28af02dc1/24683d9645f5443daffdbea28af02dc1.HD-1080p-7.2Mbps-48054564.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide24" aria-describedby="slick-slide-control22" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"><source src="//resilia.shop/cdn/shop/videos/c/vp/8cee26197e054fdab6f85a90a47f7d57/8cee26197e054fdab6f85a90a47f7d57.HD-1080p-7.2Mbps-48054565.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide25" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"><source src="//resilia.shop/cdn/shop/videos/c/vp/2f2f760f88d04c5cb1b3a609b39b1f9b/2f2f760f88d04c5cb1b3a609b39b1f9b.HD-1080p-7.2Mbps-48054566.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide26" aria-describedby="slick-slide-control23" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide27" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide28" aria-describedby="slick-slide-control24" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"><source src="//resilia.shop/cdn/shop/videos/c/vp/399de3f837fa4c72a5e296b947b30f85/399de3f837fa4c72a5e296b947b30f85.HD-1080p-7.2Mbps-48054561.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/399de3f837fa4c72a5e296b947b30f85.thumbnail.0000000000_300x.jpg?v=1747931187"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"><source src="//resilia.shop/cdn/shop/videos/c/vp/7735183a7fcd4aa78aa4a3e9517c148b/7735183a7fcd4aa78aa4a3e9517c148b.HD-1080p-7.2Mbps-48054562.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/7735183a7fcd4aa78aa4a3e9517c148b.thumbnail.0000000000_300x.jpg?v=1747931149"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"><source src="//resilia.shop/cdn/shop/videos/c/vp/e829fff9ca8d4ecf90707b8c43cf7f9b/e829fff9ca8d4ecf90707b8c43cf7f9b.HD-1080p-7.2Mbps-48054563.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="12" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"><source src="//resilia.shop/cdn/shop/videos/c/vp/24683d9645f5443daffdbea28af02dc1/24683d9645f5443daffdbea28af02dc1.HD-1080p-7.2Mbps-48054564.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/24683d9645f5443daffdbea28af02dc1.thumbnail.0000000000_300x.jpg?v=1747931132"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="13" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"><source src="//resilia.shop/cdn/shop/videos/c/vp/8cee26197e054fdab6f85a90a47f7d57/8cee26197e054fdab6f85a90a47f7d57.HD-1080p-7.2Mbps-48054565.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/8cee26197e054fdab6f85a90a47f7d57.thumbnail.0000000000_300x.jpg?v=1747931217"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="14" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"><source src="//resilia.shop/cdn/shop/videos/c/vp/2f2f760f88d04c5cb1b3a609b39b1f9b/2f2f760f88d04c5cb1b3a609b39b1f9b.HD-1080p-7.2Mbps-48054566.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2f2f760f88d04c5cb1b3a609b39b1f9b.thumbnail.0000000000_300x.jpg?v=1747931203"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="15" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"><source src="//resilia.shop/cdn/shop/videos/c/vp/2d4628d8e81148dc889138d40c85dccc/2d4628d8e81148dc889138d40c85dccc.HD-1080p-7.2Mbps-48054567.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/2d4628d8e81148dc889138d40c85dccc.thumbnail.0000000000_300x.jpg?v=1747931244"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="16" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"><source src="//resilia.shop/cdn/shop/videos/c/vp/f644d7ce50fc4bc8912758813f88e991/f644d7ce50fc4bc8912758813f88e991.HD-1080p-7.2Mbps-48054568.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/f644d7ce50fc4bc8912758813f88e991.thumbnail.0000000000_300x.jpg?v=1747931259"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div><div class="testimonial-card slick-slide slick-cloned" data-slick-index="17" id="" aria-hidden="true" tabindex="-1" style="width: 237px;">
-                       <div class="video-wrapper">
-            
-            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"><source src="//resilia.shop/cdn/shop/videos/c/vp/95b6b1486095469cb048b2aa7849dfc8/95b6b1486095469cb048b2aa7849dfc8.HD-1080p-7.2Mbps-48054569.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/95b6b1486095469cb048b2aa7849dfc8.thumbnail.0000000000_300x.jpg?v=1747931289"></video>
-            
-
-    <button class="custom-play-button" aria-label="Play video" tabindex="-1"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
-<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
-<defs>
-<clipPath id="" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
-</clipPath></defs>
-</svg>
-</button>
-  </div>
-
-          </div></div></div>
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-           
-  
-        
-      <ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control20" aria-controls="slick-slide20" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control21" aria-controls="slick-slide22" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control22" aria-controls="slick-slide24" aria-label="3 of 3" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control23" aria-controls="slick-slide26" aria-label="4 of 3" tabindex="-1">4</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control24" aria-controls="slick-slide28" aria-label="5 of 3" tabindex="-1">5</button></li></ul></div>
-
-     <button class="slick-prevs slick-arrow" aria-label="Previous" type="button" style="display: inline-block;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="12" fill="#009370" fill-opacity="0.1"></circle>
-<path d="M15 6L9 12L15 18" stroke="black"></path>
-</svg>
-</button>
-<button class="slick-nexts slick-arrow" aria-label="Next" type="button" style="display: inline-block;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="12" transform="rotate(180 12 12)" fill="#009370" fill-opacity="0.1"></circle>
-<path d="M9 18L15 12L9 6" stroke="black"></path>
-</svg>
-</button>
-    </div>
-
-
-    --colorAnnouncement: #085946;
-    --colorAnnouncementText: #ffffff;
-    --colorBody: #ffffff;
-    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
-    --colorBodyDim: #f2f2f2;
-    --colorBodyLightDim: #fafafa;
-    --colorBodyMediumDim: #f5f5f5;
-    --colorBorder: #085946;
-    --colorBtnPrimary: #085946;
-    --colorBtnPrimaryLight: #0c886b;
-    --colorBtnPrimaryDim: #064234;
-    --colorBtnPrimaryText: #ffffff;
-    --colorCartDot: #085946;
-    --colorDrawers: #ffffff;
-    --colorDrawersDim: #f2f2f2;
-    --colorDrawerBorder: #085946;
-    --colorDrawerText: #085946;
-    --colorDrawerTextDark: #02130f;
-    --colorDrawerButton: #085946;
-    --colorDrawerButtonText: #ffffff;
-    --colorFooter: #085946;
-    --colorFooterText: #ffffff;
-    --colorFooterTextAlpha01: #ffffff;
-    --colorGridOverlay: #000000;
-    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
-    --colorHeroText: #ffffff;
-    --colorSmallImageBg: #ffffff;
-    --colorLargeImageBg: #085946;
-    --colorImageOverlay: #085946;
-    --colorImageOverlayOpacity: 0;
-    --colorImageOverlayTextShadow: 0;
-    --colorLink: #085946;
-    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
-    --colorNav: #ffffff;
-    --colorNavText: #085946;
-    --colorPrice: #085946;
-    --colorSaleTag: #085946;
-    --colorSaleTagText: #ffffff;
-    --colorTextBody: #085946;
-    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextSavings: #085946;
-    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
-    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
-    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
-    --sizeChartMargin: 25px 0;
-    --sizeChartIconMargin: 5px;
-    --newsletterReminderPadding: 40px;
-    --color-body-text: #085946;
-    --color-body: #ffffff;
-    --color-bg: #ffffff;
-    --grid-gutter: 22px;
-    --drawer-gutter: 30px;
-    --typeHeaderPrimary: "Tenor Sans";
-    --typeHeaderFallback: sans-serif;
-    --typeHeaderSize: 36px;
-    --typeHeaderWeight: 400;
-    --typeHeaderLineHeight: 1;
-    --typeHeaderSpacing: 0.0em;
-    --typeBasePrimary: Outfit;
-    --typeBaseFallback: sans-serif;
-    --typeBaseSize: 18px;
-    --typeBaseWeight: 300;
-    --typeBaseSpacing: 0.025em;
-    --typeBaseLineHeight: 1.4;
-    --typeBaselineHeightMinus01: 1.3;
-    --typeCollectionTitle: 20px;
-    --iconWeight: 2px;
-    --iconLinecaps: miter;
-    --buttonRadius: 0;
-    --colorGridOverlayOpacity: 0.1;
-    --accent-color: #29a31b;
-    --accent-color-light: #effbff;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeSpeed;
+Slider code:
+<ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control20" aria-controls="slick-slide20" aria-label="1 of 3" tabindex="-1">1</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control21" aria-controls="slick-slide22" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control22" aria-controls="slick-slide24" aria-label="3 of 3" tabindex="0" aria-selected="true">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control23" aria-controls="slick-slide26" aria-label="4 of 3" tabindex="-1">4</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control24" aria-controls="slick-slide28" aria-label="5 of 3" tabindex="-1">5</button></li></ul>
+    letter-spacing: var(--typeBaseSpacing);
+    line-height: var(--typeBaseLineHeight);
+    font-size: var(--typeBaseSize);
+    font-family: Satoshi;
+    font-weight: 400;
     color: #000;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    flex-wrap: nowrap;
+    align-items: center;
+    bottom: -25px;
     display: block;
-    margin: 0 0 15px;
-    letter-spacing: var(--typeHeaderSpacing);
-    font-family: Clash Grotesk;
-    text-transform: none;
-    font-size: 23px;
-    line-height: 28px;
-    margin-top: 36px;
-    font-weight: 500;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
     text-align: center;
-    margin-bottom: 22px;
+    position: static;
+    margin-top: 15px;
+    gap: 6px;
+
+
+---
+Video block code:
+<div class="testimonial-card slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide22" aria-describedby="slick-slide-control21" style="width: 237px;">
+                       <div class="video-wrapper">
+            
+            <video playsinline="playsinline" loop="loop" preload="metadata" poster="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"><source src="//resilia.shop/cdn/shop/videos/c/vp/e829fff9ca8d4ecf90707b8c43cf7f9b/e829fff9ca8d4ecf90707b8c43cf7f9b.HD-1080p-7.2Mbps-48054563.mp4?v=0" type="video/mp4"><img src="//resilia.shop/cdn/shop/files/preview_images/e829fff9ca8d4ecf90707b8c43cf7f9b.thumbnail.0000000000_300x.jpg?v=1747931176"></video>
+            
+
+    <button class="custom-play-button" aria-label="Play video" tabindex="0"> <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.62703" y="-7.61355" width="59.9436" height="59.9436"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_0_184_1311_clip_path);height:100%;width:100%"></div></foreignObject><circle data-figma-bg-blur-radius="8.46486" cx="22.3448" cy="22.3583" r="21.5069" fill="white" fill-opacity="0.2"></circle>
+<path d="M30.407 20.8061C31.6018 21.4959 31.6018 23.2205 30.407 23.9103L19.6535 30.1189C18.4587 30.8087 16.9652 29.9464 16.9652 28.5667L16.9652 16.1497C16.9652 14.77 18.4587 13.9077 19.6535 14.5976L30.407 20.8061Z" fill="white"></path>
+<defs>
+<clipPath id="bgblur_0_184_1311_clip_path" transform="translate(7.62703 7.61355)"><circle cx="22.3448" cy="22.3583" r="21.5069"></circle>
+</clipPath></defs>
+</svg>
+</button>
+  </div>
+
+          </div>
 
     --colorAnnouncement: #085946;
     --colorAnnouncementText: #ffffff;
@@ -619,6 +127,15 @@
     font-family: Satoshi;
     font-weight: 400;
     color: #000;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    scroll-snap-align: center;
+    background: white;
+    border-radius: 0;
+    display: block;
+    padding: 0 4.5px;
+    width: 237px;

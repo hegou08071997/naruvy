@@ -482,28 +482,34 @@
       }
     }
     .testimonial-videos__heading {
-      font-size: 2.3rem;
+      font-size: var(--testimonial-heading-size, 2.3rem);
       font-weight: 500;
-      line-height: 2.8rem;
+      line-height: 1.3;
       text-align: center;
       margin: 0 0 2.2rem;
     }
     .testimonial-videos__slider {
       display: flex;
-      gap: 1rem;
+      gap: 9px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       padding-bottom: 0.5rem;
+      cursor: grab;
+    }
+    .testimonial-videos__slider.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      user-select: none;
     }
     .testimonial-videos__slider::-webkit-scrollbar {
       display: none;
     }
     .testimonial-videos__card {
-      flex: 0 0 calc(33.333% - 0.67rem);
+      flex: 0 0 calc(33.333% - 6px);
       scroll-snap-align: start;
-      border-radius: 8px;
+      border-radius: 0;
       overflow: hidden;
       position: relative;
       aspect-ratio: 9/16;
@@ -532,7 +538,7 @@
     }
     @media screen and (max-width: 749px) {
       .testimonial-videos__card {
-        flex: 0 0 calc(33.333% - 0.67rem);
+        flex: 0 0 calc(33.333% - 6px);
       }
     }
 
@@ -1042,8 +1048,7 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
-              {%- when 'testimonial_heading' -%}
-              {%- when 'testimonial_video' -%}
+              {%- when 'testimonial_videos' -%}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion product__accordion--mobile accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-mobile-{{ block.id }}-{{ section.id }}">
@@ -2167,43 +2172,82 @@
           {%- endfor -%}
         </div>
       {%- endif -%}
-      {%- assign testimonial_videos = section.blocks | where: 'type', 'testimonial_video' -%}
-      {%- if testimonial_videos.size > 0 -%}
-        {%- assign tv_heading_block = section.blocks | where: 'type', 'testimonial_heading' | first -%}
-        <div class="product__testimonial-videos grid__item">
-          {%- if tv_heading_block and tv_heading_block.settings.heading != blank -%}
-            <h2 class="testimonial-videos__heading">{{ tv_heading_block.settings.heading }}</h2>
-          {%- endif -%}
-          <div class="testimonial-videos__slider">
-            {%- for block in testimonial_videos -%}
-              <div class="testimonial-videos__card" {{ block.shopify_attributes }}>
-                {%- if block.settings.video != blank -%}
-                  {{ block.settings.video | video_tag: playsinline: true, loop: true, preload: 'metadata', muted: true }}
+      {%- assign tv_block = section.blocks | where: 'type', 'testimonial_videos' | first -%}
+      {%- if tv_block -%}
+        {%- assign tv_videos = '' -%}
+        {%- assign tv_count = 0 -%}
+        {%- if tv_block.settings.video_1 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
+        {%- if tv_block.settings.video_2 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
+        {%- if tv_block.settings.video_3 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
+        {%- if tv_block.settings.video_4 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
+        {%- if tv_block.settings.video_5 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
+        {%- if tv_count > 0 -%}
+          <div class="product__testimonial-videos grid__item" style="--testimonial-heading-size: {{ tv_block.settings.heading_size | divided_by: 10.0 }}rem;" {{ tv_block.shopify_attributes }}>
+            {%- if tv_block.settings.heading != blank -%}
+              <h2 class="testimonial-videos__heading">{{ tv_block.settings.heading }}</h2>
+            {%- endif -%}
+            <div class="testimonial-videos__slider" id="testimonial-slider-{{ section.id }}">
+              {%- assign video_ids = 'video_1,video_2,video_3,video_4,video_5' | split: ',' -%}
+              {%- for vid_id in video_ids -%}
+                {%- assign current_video = tv_block.settings[vid_id] -%}
+                {%- if current_video != blank -%}
+                  <div class="testimonial-videos__card">
+                    {{ current_video | video_tag: playsinline: true, loop: true, preload: 'metadata', muted: true }}
+                    <button class="testimonial-videos__play-btn" aria-label="Play video" type="button">
+                      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <foreignObject x="-7.627" y="-7.614" width="59.944" height="59.944">
+                          <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.23px);clip-path:url(#bgblur_{{ forloop.index }}_{{ section.id }});height:100%;width:100%"></div>
+                        </foreignObject>
+                        <circle cx="22.345" cy="22.358" r="21.507" fill="white" fill-opacity="0.2"></circle>
+                        <path d="M30.407 20.806C31.602 21.496 31.602 23.22 30.407 23.91L19.654 30.119C18.459 30.809 16.965 29.946 16.965 28.567V16.15c0-1.38 1.494-2.242 2.689-1.552L30.407 20.806Z" fill="white"></path>
+                        <defs>
+                          <clipPath id="bgblur_{{ forloop.index }}_{{ section.id }}" transform="translate(7.627 7.614)">
+                            <circle cx="22.345" cy="22.358" r="21.507"></circle>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
                 {%- endif -%}
-                <button class="testimonial-videos__play-btn" aria-label="Play video" type="button">
-                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="22" cy="22" r="21.5" fill="white" fill-opacity="0.2"/>
-                    <path d="M30.407 20.806C31.602 21.496 31.602 23.22 30.407 23.91L19.654 30.119C18.459 30.809 16.965 29.946 16.965 28.567V16.15c0-1.38 1.494-2.242 2.689-1.552L30.407 20.806Z" fill="white"/>
-                  </svg>
-                </button>
-              </div>
-            {%- endfor -%}
+              {%- endfor -%}
+            </div>
+            <script>
+              (function() {
+                var slider = document.getElementById('testimonial-slider-{{ section.id }}');
+                if (!slider) return;
+
+                /* Play / Pause */
+                slider.querySelectorAll('.testimonial-videos__card').forEach(function(card) {
+                  var btn = card.querySelector('.testimonial-videos__play-btn');
+                  var video = card.querySelector('video');
+                  if (!btn || !video) return;
+                  btn.addEventListener('click', function() {
+                    if (video.paused) { video.muted = false; video.play(); card.classList.add('is-playing'); }
+                    else { video.pause(); video.muted = true; card.classList.remove('is-playing'); }
+                  });
+                  video.addEventListener('click', function() {
+                    video.pause(); video.muted = true; card.classList.remove('is-playing');
+                  });
+                });
+
+                /* Drag to scroll */
+                var isDown = false, startX, scrollLeft;
+                slider.addEventListener('mousedown', function(e) {
+                  if (e.target.closest('.testimonial-videos__play-btn') || e.target.closest('video')) return;
+                  isDown = true; slider.classList.add('is-dragging');
+                  startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft;
+                });
+                slider.addEventListener('mouseleave', function() { isDown = false; slider.classList.remove('is-dragging'); });
+                slider.addEventListener('mouseup', function() { isDown = false; slider.classList.remove('is-dragging'); });
+                slider.addEventListener('mousemove', function(e) {
+                  if (!isDown) return; e.preventDefault();
+                  var x = e.pageX - slider.offsetLeft;
+                  slider.scrollLeft = scrollLeft - (x - startX);
+                });
+              })();
+            </script>
           </div>
-          <script>
-            document.querySelectorAll('.testimonial-videos__card').forEach(function(card) {
-              var btn = card.querySelector('.testimonial-videos__play-btn');
-              var video = card.querySelector('video');
-              if (!btn || !video) return;
-              btn.addEventListener('click', function() {
-                if (video.paused) { video.muted = false; video.play(); card.classList.add('is-playing'); }
-                else { video.pause(); video.muted = true; card.classList.remove('is-playing'); }
-              });
-              video.addEventListener('click', function() {
-                video.pause(); video.muted = true; card.classList.remove('is-playing');
-              });
-            });
-          </script>
-        </div>
+        {%- endif -%}
       {%- endif -%}
     </div>
 
@@ -2756,26 +2800,54 @@
       ]
     },
     {
-      "type": "testimonial_heading",
-      "name": "Testimonial heading",
+      "type": "testimonial_videos",
+      "name": "Testimonial videos",
       "limit": 1,
       "settings": [
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "heading",
           "label": "Heading",
           "default": "What our customers are saying:"
-        }
-      ]
-    },
-    {
-      "type": "testimonial_video",
-      "name": "Testimonial video",
-      "settings": [
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 18,
+          "max": 44,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading size",
+          "default": 23
+        },
+        {
+          "type": "header",
+          "content": "Videos"
+        },
         {
           "type": "video",
-          "id": "video",
-          "label": "Video"
+          "id": "video_1",
+          "label": "Video 1"
+        },
+        {
+          "type": "video",
+          "id": "video_2",
+          "label": "Video 2"
+        },
+        {
+          "type": "video",
+          "id": "video_3",
+          "label": "Video 3"
+        },
+        {
+          "type": "video",
+          "id": "video_4",
+          "label": "Video 4"
+        },
+        {
+          "type": "video",
+          "id": "video_5",
+          "label": "Video 5"
         }
       ]
     },
