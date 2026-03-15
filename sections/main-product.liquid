@@ -936,7 +936,7 @@
                   </a>
                 </div>
               {%- when 'benefits_list' -%}
-                <div class="product__benefits-list" {{ block.shopify_attributes }}>
+                <div class="product__benefits-list" style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}" {{ block.shopify_attributes }}>
                   {%- assign benefit_texts = 'benefit_1,benefit_2,benefit_3,benefit_4,benefit_5,benefit_6' | split: ',' -%}
                   {%- assign benefit_icons = 'icon_1,icon_2,icon_3,icon_4,icon_5,icon_6' | split: ',' -%}
                   {%- for benefit_id in benefit_texts -%}
@@ -1616,7 +1616,7 @@
               {%- when 'social_proof_banner' -%}
                 <div
                   class="social-proof-banner"
-                  style="background-color: {{ block.settings.bg_color }}; --spb-radius: {{ block.settings.border_radius }}px;"
+                  style="background-color: {{ block.settings.bg_color }}; --spb-radius: {{ block.settings.border_radius }}px;{% if block.settings.text_color != blank %} color: {{ block.settings.text_color }};{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {%- liquid
@@ -2608,6 +2608,11 @@
       "name": "Benefits list",
       "limit": 1,
       "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
+        },
         {
           "type": "color",
           "id": "icon_color",
@@ -4236,6 +4241,11 @@
       "name": "Social proof banner",
       "limit": 1,
       "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
+        },
         {
           "type": "color",
           "id": "bg_color",
