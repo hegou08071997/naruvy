@@ -165,7 +165,7 @@
         "collapsible_tab_mjEF8T": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Clinically proven benefits",
+            "heading": "Description",
             "icon": "none",
             "content": "",
             "page": ""
@@ -174,7 +174,7 @@
         "collapsible_tab_gBgAbF": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Key ingredients",
+            "heading": "Why you need [BRAND]® [PRODUCT]?",
             "icon": "none",
             "content": "",
             "page": ""
@@ -183,7 +183,7 @@
         "collapsible_tab_akEwJj": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How it works",
+            "heading": "Benefits",
             "icon": "none",
             "content": "",
             "page": ""
@@ -192,7 +192,7 @@
         "collapsible_tab_MTCgw9": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How long before I see results?",
+            "heading": "Recommended Use",
             "icon": "none",
             "content": "",
             "page": ""
@@ -201,7 +201,7 @@
         "collapsible_tab_FPPE7p": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Money Back Guarantee",
+            "heading": "Do you offer a guarantee?",
             "icon": "none",
             "content": "",
             "page": ""
