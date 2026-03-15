@@ -278,7 +278,7 @@
                 {% if section.settings.cta_url != blank %}
                   href="{{ section.settings.cta_url }}"
                 {% else %}
-                  href="#ProductInfo-{{ product.id }}"
+                  href="#" data-cp-scroll
                 {% endif %}
                 class="cp-cta__btn"
               >
@@ -384,6 +384,18 @@
           } else {
             productForm.requestSubmit();
           }
+        }
+      });
+    });
+
+    /* Default scroll-to-product-form handling */
+    var scrollBtns = document.querySelectorAll('[data-cp-scroll]');
+    scrollBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector('product-form, [id^="ProductInfo-"]');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });
     });
