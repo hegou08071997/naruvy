@@ -296,11 +296,97 @@
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "image_zoom": "none",
         "hide_variants": false,
         "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "reasons_why_nEVwaJ": {
+      "type": "reasons-why",
+      "blocks": {
+        "reason_card_TWzfBB": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 1",
+            "heading": "Thoughtfully Dosed for Daily Wellness",
+            "details": "<p>Most supplements underdose their key ingredients. Resilia® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
+          }
+        },
+        "reason_card_xigFGj": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 2",
+            "heading": "Two Powerful Plants. One Clean Formula.",
+            "details": "<p>Oregano oil and black seed oil have been studied for centuries and researched in modern science for their roles in supporting immune health, gut comfort, and antioxidant activity.† Together in one softgel — no synthetic fillers, no aftertaste.</p>"
+          }
+        },
+        "reason_card_dGnQ3c": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 3",
+            "heading": "No Taste. No Burn. No Nonsense.",
+            "details": "<p>Forget the bitter drops, burps, or reflux. Our <strong>plant-based softgels</strong> are easy to swallow, completely tasteless, and gentle on your stomach.</p>"
+          }
+        },
+        "reason_card_hQNrG3": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 4",
+            "heading": "Results You Can Feel",
+            "details": "<p>Most customers report noticing a difference within 1–2 weeks of consistent daily use — better digestive comfort, more steady energy, and a greater sense of daily wellness.† *Individual results may vary.</p>"
+          }
+        },
+        "reason_card_PDW4fy": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 5",
+            "heading": "Radical Transparency",
+            "details": "<p>We 3rd-party test every batch. No fillers. No fluff. <strong>Just two clinically studied ingredients</strong>—exactly what's on the label, nothing you can't pronounce.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "reason_card_TWzfBB",
+        "reason_card_xigFGj",
+        "reason_card_dGnQ3c",
+        "reason_card_hQNrG3",
+        "reason_card_PDW4fy"
+      ],
+      "name": "Reasons why",
+      "settings": {
+        "badge_text": "5 Reasons Why",
+        "subheading": "Resilia® is Different From Everything You've Tried",
+        "bg_color": "#f1f3ea",
+        "text_color": "#000000",
+        "badge_bg_color": "#009370",
+        "badge_text_color": "#ffffff",
+        "label_bg_color": "#009370",
+        "label_text_color": "#ffffff",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "rgba(0,0,0,0.3)",
+        "card_text_color": "#000000",
+        "badge_font_size": 18,
+        "subheading_font_size": 28,
+        "label_font_size": 14,
+        "card_heading_font_size": 16,
+        "card_width": 200,
+        "card_height": 250,
+        "card_radius": 12,
+        "card_gap": 13,
+        "max_width": 1500,
+        "cta_text": "Try Risk-Free Today",
+        "cta_url": "",
+        "cta_bg_color": "#095946",
+        "cta_text_color": "#ffffff",
+        "cta_font_size": 19,
+        "cta_margin_top": 40,
+        "guarantee_text": "30-day money back guarantee",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     }
   },
@@ -308,6 +394,7 @@
     "hero_banner",
     "usp_bar",
     "testimonial_slider_gkd3L9",
-    "featured_product_BVDqHK"
+    "featured_product_BVDqHK",
+    "reasons_why_nEVwaJ"
   ]
 }
