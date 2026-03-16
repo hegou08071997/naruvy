@@ -390,6 +390,167 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "brand_comparison_Ff9mdq": {
+      "type": "brand-comparison",
+      "blocks": {
+        "feature_JaiB38": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Clinically Backed",
+            "competitor_text": "Trend-Based Blends"
+          }
+        },
+        "feature_Ja7Npt": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "3rd-Party Tested",
+            "competitor_text": "No Test Proof"
+          }
+        },
+        "feature_DLbDaf": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Allergen-Free & Clean",
+            "competitor_text": "Fillers & Additives"
+          }
+        },
+        "feature_rHzmNF": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Global Certified Facilities",
+            "competitor_text": "Low-Quality Manufacturing"
+          }
+        },
+        "feature_iMrF6k": {
+          "type": "feature",
+          "settings": {
+            "brand_text": "Vegan & Gluten-Free",
+            "competitor_text": "Sugar, Flavors, Binders"
+          }
+        }
+      },
+      "block_order": [
+        "feature_JaiB38",
+        "feature_Ja7Npt",
+        "feature_DLbDaf",
+        "feature_rHzmNF",
+        "feature_iMrF6k"
+      ],
+      "name": "Brand comparison",
+      "settings": {
+        "heading": "<strong>[BRAND]®</strong> vs. Other Brands",
+        "heading_size": 36,
+        "bg_gradient_start": "#07493A",
+        "bg_gradient_end": "#002A21",
+        "text_color": "#ffffff",
+        "highlight_color": "#FFF7D4",
+        "brand_name": "<strong>[BRAND]</strong>",
+        "brand_name_color": "#ffffff",
+        "brand_col_color": "#009370",
+        "brand_icon_color": "#ffffff",
+        "competitor_label": "<strong>Other Brands</strong>",
+        "comp_col_color": "#ffffff",
+        "comp_text_color": "#000000",
+        "comp_icon_color": "#999999",
+        "icons_filled": false,
+        "checklist_1": "<strong>Clinically Backed Ingredients</strong> - Ingredients proven to work",
+        "checklist_2": "<strong>Visible Results in Weeks</strong> - Feel a difference in weeks",
+        "checklist_3": "<strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief",
+        "checklist_4": "<strong>Clean & Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives",
+        "cta_text": "Try Risk-Free Today",
+        "cta_link": "",
+        "cta_height": 54,
+        "cta_bg_color": "#E3FFDE",
+        "cta_text_color": "#004c3c",
+        "cta_font_weight": "700",
+        "note_text": "30-day money back guarantee",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "risk_free_trial_CbDxm6": {
+      "type": "risk-free-trial",
+      "name": "Risk-free trial",
+      "settings": {
+        "badge_number": "30",
+        "badge_label": "DAYS",
+        "subtitle": "FEEL THE DIFFERENCE",
+        "heading": "30-Day Risk-Free Trial",
+        "heading_size": 23,
+        "description": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund—no questions asked.",
+        "bg_color": "#f1f3ea",
+        "accent_color": "#095946",
+        "text_color": "",
+        "cta_text": "Try Risk-Free Today",
+        "cta_link": "",
+        "cta_height": 50,
+        "cta_bg_color": "",
+        "cta_text_color": "",
+        "padding_top": 28
+      }
+    },
+    "collapsible_content_zfPpHg": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_acKPw3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Rangée réductible",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_zPaKRD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Rangée réductible",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_EHhBx8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Rangée réductible",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_96RWTD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Rangée réductible",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_acKPw3",
+        "collapsible_row_zPaKRD",
+        "collapsible_row_EHhBx8",
+        "collapsible_row_96RWTD"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Contenu réductible",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -397,6 +558,9 @@
     "usp_bar",
     "testimonial_slider_gkd3L9",
     "featured_product_BVDqHK",
-    "reasons_why_nEVwaJ"
+    "reasons_why_nEVwaJ",
+    "brand_comparison_Ff9mdq",
+    "risk_free_trial_CbDxm6",
+    "collapsible_content_zfPpHg"
   ]
 }
