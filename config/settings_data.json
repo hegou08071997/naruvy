@@ -158,8 +158,8 @@
           "background": "#ffffff",
           "background_gradient": "",
           "text": "#000000",
-          "button": "#9f3f3f",
-          "button_label": "#ffffff",
+          "button": "#ffd600",
+          "button_label": "#000000",
           "secondary_button_label": "#000000",
           "shadow": "#242833"
         }
@@ -188,9 +188,9 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#9f3f3f",
+          "background": "#ffd600",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#18001a",
           "button": "#ffffff",
           "button_label": "#121212",
           "secondary_button_label": "#ffffff",
