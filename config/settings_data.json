@@ -15,7 +15,6 @@
     "type_body_font": "poppins_n4",
     "body_scale": 100,
     "custom_font_enabled": true,
-    "custom_font_heading_weight": 600,
     "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
@@ -124,6 +123,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "custom_font_heading_weight": 600,
     "custom_font_apply": "headings",
     "sections": {
       "main-password-header": {
@@ -157,11 +157,11 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#121212",
+          "text": "#000000",
           "button": "#9f3f3f",
           "button_label": "#ffffff",
-          "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "secondary_button_label": "#000000",
+          "shadow": "#242833"
         }
       },
       "scheme-2": {
