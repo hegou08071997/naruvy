@@ -1,0 +1,300 @@
+<section id="shopify-section-template--26971081015480__hero_banner_KA3RhM" class="shopify-section hero-banner-section">
+
+<style>
+  .hero-banner-wrapper {
+      background: rgba(229, 246, 203, 1);
+  }
+    .hero-banner-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+  }
+    .hero-banner-left {
+      flex: 1 1 45%;
+      text-align: center;
+    }
+
+  .hero-banner-left img {
+      height: auto;
+      max-width: 476px;
+      margin: 0 auto;
+      width: 100%;
+  }
+  .hero-banner-right {
+      flex: 1 1 36%;
+      padding: 0;
+      text-align: center;
+  }
+  .hero-banner-badge {
+    --banner-badge-bg-color: #095946;
+    --banner-badge-text-color: #e4f678;
+    width: fit-content;
+    background-color: var(--banner-badge-bg-color);
+    color: var(--banner-badge-text-color);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 16px 24px;
+    margin: 0 auto 12px;
+  }
+  .hero-stars {
+      color: #000;
+      font-size: 15.81px;
+      margin-bottom: 21.32px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height: 23.71px;
+      grid-gap: 10.54px;
+      justify-content: center;
+  }
+  .hero-stars img {
+      max-width: 90px;
+      height: auto;
+  }
+  .hero-stars strong {
+      font-weight: 500;
+  }
+    .hero-headline {
+      font-weight: 400;
+      font-size: 39.99px;
+      line-height: 43.62px;
+      letter-spacing: 0%;
+      text-align: center;
+  margin-bottom: 18.18px;
+      color: rgba(0, 0, 0, 1);
+    }
+  .hero-headline strong {
+      font-weight: 500;
+  }
+  .hero-subheadline {
+      font-weight: 400;
+      font-size: 16.96px;
+      line-height: 19.39px;
+      letter-spacing: 0;
+      text-align: center;
+      max-width: 334px;
+      margin: 0 auto 18.18px;
+      color: rgba(0, 0, 0, 1);
+  }
+  .hero-button {
+      max-width: 336px;
+      border-radius: 6.06px;
+      padding: 16.46px;
+      background: #095946;
+      font-family: Clash Grotesk;
+      font-weight: 500;
+      font-size: 19.39px;
+      line-height: 19.39px;
+      letter-spacing: 0;
+      text-align: center;
+      color: #fff;
+      display: inline-flex;
+      height: 54.5px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    margin-bottom: 10px;
+    
+    transition: .5s;
+  }
+  .hero-button:hover {
+      box-shadow: 0 0 0px 2px #095946 inset;
+      background: transparent;
+      color: #095946;
+  }
+  .hero-guarantee {
+      font-weight: 400;
+      font-size: 16.96px;
+      line-height: 21.33px;
+      letter-spacing: 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      grid-gap: 4px;
+      justify-content: center;
+  }
+    .hero-guarantee img {
+      max-width: 17px;
+      height: auto;
+  }
+  @media (max-width: 991px) {
+
+  .hero-banner-inner {
+      flex-direction: column-reverse;
+  }
+  .hero-stars img {
+      max-width: 74px;
+      height: auto;
+  }
+  .hero-stars {
+      font-size: 13.04px;
+      margin-bottom: 17.05px;
+      line-height: 19.57px;
+      grid-gap: 8.7px;
+  }
+  .hero-banner-right {
+      padding-top: 23.5px;
+  }
+  .hero-headline {
+      font-size: 33px;
+      line-height: 36px;
+      margin-bottom: 15px;
+        max-width: 330px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .hero-subheadline {
+      font-size: 14px;
+      line-height: 16px;
+      max-width: 277px;
+      margin: 0 auto 15px;
+      color: #000;
+  }
+  .hero-button {
+      max-width: 277px;
+      border-radius: 5px;
+      font-size: 16px;
+      height: 45px;
+      margin-bottom: 8px;
+  }
+  .hero-guarantee {
+      font-size: 14px;
+      line-height: 17.6px;
+      grid-gap: 3.2px;
+  }
+  .hero-guarantee img {
+      max-width: 14px;
+  }
+
+  @media (max-width: 767px) {
+    
+      .hero-banner-wrapper {
+        background-image: url(//resilia.shop/cdn/shop/files/Group_1484582293_f4042921-cd71-4938-81b0-8c3d94cb7f8e.jpg?v=1773442225);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+      }
+      .hero-banner-wrapper .hero-banner-left {
+        opacity: 0;
+      }
+    
+  }
+</style>
+
+
+<div class="hero-banner-wrapper">
+  <div class="container-1233">
+    <div class="hero-banner-inner">
+      <div class="hero-banner-left">
+        
+        <img src="//resilia.shop/cdn/shop/files/Group_1484582293.jpg?v=1773442135" alt="" width="auto" height="auto" loading="eager" fetchpriority="high">
+        
+      </div>
+
+      <div class="hero-banner-right">
+        
+        
+        <h2 class="hero-headline"><strong>Support Your Immune System &amp; Gut Health, Naturally.</strong></h2>
+        <div class="hero-subheadline">High-potency Oil of Oregano + Black Seed Oil in one clean, easy-to-swallow daily softgel.†</div>
+        
+          <a href="#scroll-pro" class="hero-button">Shop Resilia® Now</a>
+        
+        <div class="hero-guarantee">
+          <img src="https://cdn.shopify.com/s/files/1/0779/0673/9384/files/image_1.webp?v=1747894043" alt="icon" width="auto" height="auto" loading="eager" fetchpriority="high">
+          30-day money-back guarantee
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style> #shopify-section-template--26971081015480__hero_banner_KA3RhM .hero-banner-badge {font-size: 24px; text-transform: uppercase; font-weight: 900;} </style></section>
+
+    --colorAnnouncement: #085946;
+    --colorAnnouncementText: #ffffff;
+    --colorBody: #ffffff;
+    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
+    --colorBodyDim: #f2f2f2;
+    --colorBodyLightDim: #fafafa;
+    --colorBodyMediumDim: #f5f5f5;
+    --colorBorder: #085946;
+    --colorBtnPrimary: #085946;
+    --colorBtnPrimaryLight: #0c886b;
+    --colorBtnPrimaryDim: #064234;
+    --colorBtnPrimaryText: #ffffff;
+    --colorCartDot: #085946;
+    --colorDrawers: #ffffff;
+    --colorDrawersDim: #f2f2f2;
+    --colorDrawerBorder: #085946;
+    --colorDrawerText: #085946;
+    --colorDrawerTextDark: #02130f;
+    --colorDrawerButton: #085946;
+    --colorDrawerButtonText: #ffffff;
+    --colorFooter: #085946;
+    --colorFooterText: #ffffff;
+    --colorFooterTextAlpha01: #ffffff;
+    --colorGridOverlay: #000000;
+    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
+    --colorHeroText: #ffffff;
+    --colorSmallImageBg: #ffffff;
+    --colorLargeImageBg: #085946;
+    --colorImageOverlay: #085946;
+    --colorImageOverlayOpacity: 0;
+    --colorImageOverlayTextShadow: 0;
+    --colorLink: #085946;
+    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
+    --colorNav: #ffffff;
+    --colorNavText: #085946;
+    --colorPrice: #085946;
+    --colorSaleTag: #085946;
+    --colorSaleTagText: #ffffff;
+    --colorTextBody: #085946;
+    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
+    --colorTextSavings: #085946;
+    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
+    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
+    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
+    --sizeChartMargin: 25px 0;
+    --sizeChartIconMargin: 5px;
+    --newsletterReminderPadding: 40px;
+    --color-body-text: #085946;
+    --color-body: #ffffff;
+    --color-bg: #ffffff;
+    --grid-gutter: 22px;
+    --drawer-gutter: 30px;
+    --typeHeaderPrimary: "Tenor Sans";
+    --typeHeaderFallback: sans-serif;
+    --typeHeaderSize: 36px;
+    --typeHeaderWeight: 400;
+    --typeHeaderLineHeight: 1;
+    --typeHeaderSpacing: 0.0em;
+    --typeBasePrimary: Outfit;
+    --typeBaseFallback: sans-serif;
+    --typeBaseSize: 18px;
+    --typeBaseWeight: 300;
+    --typeBaseSpacing: 0.025em;
+    --typeBaseLineHeight: 1.4;
+    --typeBaselineHeightMinus01: 1.3;
+    --typeCollectionTitle: 20px;
+    --iconWeight: 2px;
+    --iconLinecaps: miter;
+    --buttonRadius: 0;
+    --colorGridOverlayOpacity: 0.1;
+    --accent-color: #29a31b;
+    --accent-color-light: #effbff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    letter-spacing: var(--typeBaseSpacing);
+    line-height: var(--typeBaseLineHeight);
+    text-rendering: optimizeSpeed;
+    font-size: var(--typeBaseSize);
+    font-family: Satoshi;
+    font-weight: 400;
+    color: #000;
+    box-sizing: border-box;
+    display: block;

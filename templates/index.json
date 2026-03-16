@@ -1,5 +1,9 @@
 {
   "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {}
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -200,6 +204,7 @@
     }
   },
   "order": [
+    "hero_banner",
     "image_banner",
     "rich_text",
     "featured_collection",

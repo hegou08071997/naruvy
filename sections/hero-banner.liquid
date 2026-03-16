@@ -1,0 +1,516 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .hero-banner-wrapper--{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+  }
+
+  .hero-banner-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-banner-left {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .hero-banner-left img {
+    height: auto;
+    max-width: 476px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-banner-right {
+    flex: 1 1 36%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .hero-banner-badge--{{ section.id }} {
+    width: fit-content;
+    background-color: {{ section.settings.badge_bg_color }};
+    color: {{ section.settings.badge_text_color }};
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: {{ section.settings.badge_font_size }}px;
+    padding: 16px 24px;
+    margin: 0 auto 12px;
+    text-transform: uppercase;
+  }
+
+  .hero-stars--{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    font-size: 15.81px;
+    margin-bottom: 21.32px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 23.71px;
+    gap: 10.54px;
+    justify-content: center;
+  }
+
+  .hero-stars--{{ section.id }} img {
+    max-width: 90px;
+    height: auto;
+  }
+
+  .hero-stars--{{ section.id }} strong {
+    font-weight: 500;
+  }
+
+  .hero-headline--{{ section.id }} {
+    font-weight: 400;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.09;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 18.18px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-headline--{{ section.id }} strong {
+    font-weight: 500;
+  }
+
+  .hero-subheadline--{{ section.id }} {
+    font-weight: 400;
+    font-size: 16.96px;
+    line-height: 19.39px;
+    letter-spacing: 0;
+    text-align: center;
+    max-width: 334px;
+    margin: 0 auto 18.18px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-button--{{ section.id }} {
+    max-width: 336px;
+    border-radius: 6.06px;
+    padding: 16.46px;
+    background: {{ section.settings.cta_bg_color }};
+    font-weight: 500;
+    font-size: 19.39px;
+    line-height: 19.39px;
+    letter-spacing: 0;
+    text-align: center;
+    color: {{ section.settings.cta_text_color }};
+    display: inline-flex;
+    height: 54.5px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .hero-button--{{ section.id }}:hover {
+    box-shadow: 0 0 0px 2px {{ section.settings.cta_bg_color }} inset;
+    background: transparent;
+    color: {{ section.settings.cta_bg_color }};
+  }
+
+  .hero-guarantee--{{ section.id }} {
+    font-weight: 400;
+    font-size: 16.96px;
+    line-height: 21.33px;
+    letter-spacing: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-guarantee--{{ section.id }} img {
+    max-width: 17px;
+    height: auto;
+  }
+
+  @media (max-width: 749px) {
+    .hero-banner-inner {
+      flex-direction: column-reverse;
+    }
+
+    .hero-banner-right {
+      padding-top: 23.5px;
+    }
+
+    .hero-stars--{{ section.id }} img {
+      max-width: 74px;
+    }
+
+    .hero-stars--{{ section.id }} {
+      font-size: 13.04px;
+      margin-bottom: 17.05px;
+      line-height: 19.57px;
+      gap: 8.7px;
+    }
+
+    .hero-headline--{{ section.id }} {
+      font-size: {{ section.settings.heading_size | times: 0.825 | round: 0 }}px;
+      line-height: 1.09;
+      margin-bottom: 15px;
+      max-width: 330px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subheadline--{{ section.id }} {
+      font-size: 14px;
+      line-height: 16px;
+      max-width: 277px;
+      margin: 0 auto 15px;
+    }
+
+    .hero-button--{{ section.id }} {
+      max-width: 277px;
+      border-radius: 5px;
+      font-size: 16px;
+      height: 45px;
+      margin-bottom: 8px;
+    }
+
+    .hero-guarantee--{{ section.id }} {
+      font-size: 14px;
+      line-height: 17.6px;
+      gap: 3.2px;
+    }
+
+    .hero-guarantee--{{ section.id }} img {
+      max-width: 14px;
+    }
+
+    {%- if section.settings.mobile_bg_image != blank -%}
+      .hero-banner-wrapper--{{ section.id }} {
+        background-image: url({{ section.settings.mobile_bg_image | image_url: width: 1200 }});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+      }
+      .hero-banner-wrapper--{{ section.id }} .hero-banner-left {
+        opacity: 0;
+      }
+    {%- endif -%}
+  }
+</style>
+
+<div class="hero-banner-wrapper--{{ section.id }} section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="hero-banner-inner">
+      <div class="hero-banner-left">
+        {%- if section.settings.desktop_image != blank -%}
+          <img
+            src="{{ section.settings.desktop_image | image_url: width: 952 }}"
+            alt="{{ section.settings.desktop_image.alt | escape }}"
+            width="{{ section.settings.desktop_image.width }}"
+            height="{{ section.settings.desktop_image.height }}"
+            loading="eager"
+            fetchpriority="high"
+          >
+        {%- endif -%}
+      </div>
+
+      <div class="hero-banner-right">
+        {%- if section.settings.badge_text != blank -%}
+          <div class="hero-banner-badge--{{ section.id }}">
+            {{ section.settings.badge_text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_stars and section.settings.stars_image != blank -%}
+          <div class="hero-stars--{{ section.id }}">
+            <img
+              src="{{ section.settings.stars_image | image_url: width: 180 }}"
+              alt="Stars"
+              width="90"
+              height="auto"
+              loading="eager"
+            >
+            {%- if section.settings.stars_text != blank -%}
+              <span>{{ section.settings.stars_text }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hero-headline--{{ section.id }}">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.subheadline != blank -%}
+          <div class="hero-subheadline--{{ section.id }}">{{ section.settings.subheadline }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank -%}
+          <a href="#" class="hero-button--{{ section.id }}" data-hero-btn>{{ section.settings.cta_text }}</a>
+        {%- endif -%}
+
+        {%- if section.settings.guarantee_text != blank -%}
+          <div class="hero-guarantee--{{ section.id }}">
+            {%- if section.settings.guarantee_icon != blank -%}
+              <img
+                src="{{ section.settings.guarantee_icon | image_url: width: 34 }}"
+                alt=""
+                width="17"
+                height="auto"
+                loading="eager"
+              >
+            {%- endif -%}
+            {{ section.settings.guarantee_text }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.querySelector('.hero-banner-wrapper--{{ section.id }}');
+    if (!section) return;
+
+    var ctaFunction = {{ section.settings.cta_function | json }};
+    var ctaLink = {{ section.settings.cta_url | json }};
+    var btns = section.querySelectorAll('[data-hero-btn]');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (ctaFunction === 'add_to_cart') {
+          var productForm = document.querySelector('product-form');
+          if (productForm && productForm.form) {
+            productForm.form.requestSubmit();
+          }
+        } else {
+          var target = ctaLink || '';
+          if (target && target.charAt(0) === '#') {
+            var dest = document.querySelector(target);
+            if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+          } else if (target) {
+            window.location.href = target;
+          } else {
+            var dest = document.querySelector('[id^="ProductInfo-"]');
+            if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#E5F6CB"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Product image (left side)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg_image",
+      "label": "Mobile background image",
+      "info": "Replaces the product image on mobile with a full background."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background color",
+      "default": "#095946"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#e4f678"
+    },
+    {
+      "type": "range",
+      "id": "badge_font_size",
+      "label": "Badge font size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Star rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show star rating",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "stars_image",
+      "label": "Stars image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "stars_text",
+      "label": "Stars text",
+      "default": "<strong>4.9/5</strong> Based on 1,200+ Reviews"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<strong>Support Your Immune System & Gut Health, Naturally.</strong>"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 56,
+      "step": 1,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "High-potency Oil of Oregano + Black Seed Oil in one clean, easy-to-swallow daily softgel.†"
+    },
+    {
+      "type": "header",
+      "content": "CTA button"
+    },
+    {
+      "type": "select",
+      "id": "cta_function",
+      "label": "Button function",
+      "options": [
+        { "value": "link", "label": "Link / scroll to section" },
+        { "value": "add_to_cart", "label": "Add to cart" }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Shop Resilia® Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button link",
+      "info": "Leave empty to scroll to product form."
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Button background color",
+      "default": "#095946"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_icon",
+      "label": "Guarantee icon"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner"
+    }
+  ]
+}
+{% endschema %}
