@@ -107,8 +107,7 @@
       justify-content: center;
       gap: 8px;
       margin-top: -10px;
-      overflow: hidden;
-      max-width: 100%;
+      flex-wrap: wrap;
     }
     .trust-microcopy__item {
       display: inline-flex;
@@ -414,6 +413,78 @@
     }
     .product__accordion--mobile details:not([open]) .toggle-minus {
       display: none;
+    }
+    @media screen and (min-width: 750px) {
+      .product__accordion--mobile {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 749px) {
+      .product__collapsible-tabs {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 750px) {
+      .product__collapsible-tabs {
+        flex-grow: 0;
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+      }
+    }
+    @media screen and (min-width: 990px) {
+      .product--large:not(.product--no-media) .product__collapsible-tabs {
+        width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: 65%;
+      }
+      .product--medium:not(.product--no-media) .product__collapsible-tabs {
+        width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: 55%;
+      }
+      .product--small:not(.product--no-media) .product__collapsible-tabs {
+        width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: 45%;
+      }
+    }
+    .product__collapsible-tabs .accordion {
+      margin-top: 0;
+      margin-bottom: 11px;
+      border: 1px solid rgba(228, 228, 228, 1);
+      border-radius: 5px;
+      overflow: hidden;
+      background: white;
+      color: black;
+    }
+    .product__collapsible-tabs .accordion + .accordion {
+      border-top: 1px solid rgba(228, 228, 228, 1);
+    }
+    .product__collapsible-tabs .accordion summary {
+      padding: 1.4rem 1.5rem;
+      cursor: pointer;
+    }
+    .product__collapsible-tabs .accordion .icon-caret {
+      display: none;
+    }
+    .product__collapsible-tabs .accordion .summary__title {
+      align-items: center;
+    }
+    .product__collapsible-tabs .accordion__content {
+      padding: 0 1.5rem;
+    }
+    .product__collapsible-tabs .toggle-icon {
+      margin-left: auto;
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .product__collapsible-tabs details[open] .toggle-plus {
+      display: none;
+    }
+    .product__collapsible-tabs details:not([open]) .toggle-minus {
+      display: none;
+    }
+
+    /* Full-width trust card v2 */
+    .featured-product__trust-card-v2-wrapper {
+      margin-top: 2rem;
     }
 
     /* Statement block */
@@ -1374,70 +1445,7 @@
                   </div>
                 </div>
                 {%- when 'trust_card_v2' -%}
-                <div
-                  class="trust-card-v2"
-                  style="
-                    --tcv2-bg-color: {{ block.settings.bg_color }};
-                    --tcv2-text-color: {{ block.settings.text_color }};
-                    --tcv2-title-color: {{ block.settings.title_color }};
-                    --tcv2-highlight-color: {{ block.settings.highlight_color }};
-                    --tcv2-radius: {{ block.settings.border_radius }}px;
-                    --tcv2-img-opacity: {{ block.settings.image_opacity | divided_by: 100.0 }};
-                    --tcv2-heading-size: {{ block.settings.heading_size | divided_by: 10.0 }}rem;
-                    --tcv2-feature-text-size: {{ block.settings.feature_text_size | divided_by: 10.0 }}rem;
-                    --tcv2-item-text-size: {{ block.settings.item_text_size | divided_by: 10.0 }}rem;
-                  "
-                  {{ block.shopify_attributes }}
-                >
-                  {%- if block.settings.bg_image != blank -%}
-                    <img class="trust-card-v2__bg-image" src="{{ block.settings.bg_image | image_url: width: 1200 }}" alt="" loading="lazy">
-                  {%- endif -%}
-                  <div class="trust-card-v2__content">
-                    {%- if block.settings.heading != blank -%}
-                      <h2 class="trust-card-v2__heading">{{ block.settings.heading }}</h2>
-                    {%- endif -%}
-                    <div class="trust-card-v2__features">
-                      {%- for i in (1..4) -%}
-                        {%- liquid
-                          case i
-                            when 1
-                              assign f_icon = block.settings.feature_icon_1
-                              assign f_text = block.settings.feature_text_1
-                            when 2
-                              assign f_icon = block.settings.feature_icon_2
-                              assign f_text = block.settings.feature_text_2
-                            when 3
-                              assign f_icon = block.settings.feature_icon_3
-                              assign f_text = block.settings.feature_text_3
-                            when 4
-                              assign f_icon = block.settings.feature_icon_4
-                              assign f_text = block.settings.feature_text_4
-                          endcase
-                        -%}
-                        {%- if f_text != blank -%}
-                          <div class="trust-card-v2__feature-box">
-                            {%- if f_icon != blank -%}
-                              <img src="{{ f_icon | image_url: width: 200 }}" alt="" loading="lazy" width="36" height="36">
-                            {%- endif -%}
-                            <p>{{ f_text }}</p>
-                          </div>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
-                    <div class="trust-card-v2__items">
-                      {%- assign tcv2_items = 'item_1,item_2,item_3,item_4,item_5,item_6' | split: ',' -%}
-                      {%- for tid in tcv2_items -%}
-                        {%- assign tval = block.settings[tid] -%}
-                        {%- if tval != blank -%}
-                          <div class="trust-card-v2__item">
-                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.903 7.626c-.319-.277-.735-.567-.716-1.033.02-.496.204-.975.268-1.467.059-.453.022-.939-.308-1.286-.294-.308-.727-.42-1.135-.477-.457-.065-.957-.035-1.394-.197-.407-.15-.558-.716-.712-1.076-.163-.38-.338-.779-.637-1.074-.343-.339-.808-.43-1.267-.297-.522.153-.962.496-1.44.743a1.53 1.53 0 01-.588.178c-.238-.02-.47-.154-.673-.27-.461-.26-.917-.599-1.45-.693-.46-.082-.888.092-1.187.445-.275.324-.436.729-.601 1.116-.173.406-.326.856-.796.97-.801.195-1.923-.015-2.479.748-.283.388-.263.89-.185 1.341.08.467.285.966.239 1.445-.04.418-.546.736-.833.989-.328.288-.672.604-.837 1.019-.38.955.519 1.643 1.143 2.201.162.145.337.298.45.486.112.182.088.408.058.61-.073.493-.24.97-.267 1.47-.025.454.099.906.476 1.189.34.256.782.328 1.194.373.23.025.462.04.692.069.213.026.47.051.65.182.162.118.258.33.342.505.106.223.197.452.297.677.167.373.366.764.701 1.014.407.303.907.274 1.357.087.497-.207.921-.558 1.42-.76.469-.19.875.089 1.273.326.443.263.926.582 1.461.582.452 0 .817-.264 1.066-.624.253-.365.4-.788.582-1.189.088-.196.182-.41.334-.566.149-.151.387-.188.587-.218.798-.12 1.959-.019 2.366-.897.2-.43.122-.931.029-1.378-.05-.241-.112-.48-.155-.723-.037-.204-.087-.457-.001-.658.158-.369.585-.639.875-.898.3-.269.605-.567.757-.948.342-.86-.369-1.528-.958-2.04zm.145 1.655c-.084.34-.477.614-.728.831l.16-.136c-.358.312-.761.644-.933 1.103-.19.51-.047 1.08.069 1.59.066.29.313.975-.004 1.195-.157.11-.371.139-.557.165-.255.036-.512.052-.768.079-.462.05-.956.134-1.309.463-.35.327-.53.798-.714 1.229-.117.274-.324.963-.718.927-.219-.02-.429-.146-.616-.251-.25-.14-.49-.295-.743-.43-.47-.249-.961-.389-1.485-.226-.52.162-.957.502-1.436.748-.154.078-.388.21-.568.15-.18-.057-.292-.276-.373-.43-.23-.433-.37-.91-.63-1.327-.257-.416-.621-.662-1.096-.77-.48-.107-.955-.094-1.457-.187-.154-.03-.364-.071-.464-.208-.113-.155-.067-.41-.04-.584.082-.53.27-1.045.269-1.586-.001-.525-.255-.927-.62-1.284-.347-.338-.809-.623-1.065-1.042-.247-.403.247-.774.517-1.013.365-.322.78-.637 1.01-1.077.25-.478.153-1.037.043-1.543-.054-.245-.116-.489-.154-.737-.027-.174-.073-.429.04-.585.099-.136.31-.177.464-.207.25-.048.505-.065.757-.089.465-.043.972-.094 1.361-.377.386-.28.588-.745.77-1.17.093-.218.182-.439.294-.649.081-.154.193-.373.373-.43.181-.058.412.07.567.149.254.13.494.286.742.427.452.258.947.477 1.477.366.53-.11.983-.442 1.446-.703.186-.105.397-.23.615-.25.197-.018.321.149.415.3.497.8.605 1.887 1.64 2.194.357.106.733.129 1.101.163.286.027.75.023.965.25.197.208.056.67.005.908-.09.424-.213.85-.213 1.286.002.857.687 1.336 1.262 1.86.19.172.566.471.493.77z" fill="currentColor"/><path d="M11.734 6.868c-1.144 1.247-2.288 2.494-3.433 3.741-.042.047-.043.077-.097.045-.16-.095-.322-.19-.483-.284-.454-.268-.909-.536-1.364-.804-.162-.095-.317-.196-.517-.133-.368.115-.415.621-.088.814.344.203.689.406 1.034.609.414.244.828.488 1.242.732.264.156.497.1.697-.118.62-.675 1.239-1.351 1.858-2.026.496-.54.993-1.081 1.489-1.622.104-.114.209-.228.313-.342.394-.429-.256-1.041-.65-.612z" fill="currentColor"/></svg>
-                            <span>{{ tval }}</span>
-                          </div>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                </div>
+                {%- comment -%}Rendered full-width after the grid{%- endcomment -%}
                 {%- when 'sticky_cart' -%}
                 {% if block.settings.enable_custom_btn_color %}
                   {% style %}
@@ -1775,20 +1783,104 @@
                 </script>
               {%- endcase -%}
             {%- endfor -%}
-            <a
-              {% if product == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ product.url }}"
-              {% endif %}
-              class="link product__view-details animate-arrow"
-            >
-              {{ 'products.product.view_full_details' | t }}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </a>
           </section>
         </div>
       </div>
+      {%- assign collapsible_tabs = section.blocks | where: 'type', 'collapsible_tab' -%}
+      {%- if collapsible_tabs.size > 0 -%}
+        <div class="product__collapsible-tabs grid__item">
+          {%- for block in collapsible_tabs -%}
+            <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+              <details id="Details-{{ block.id }}-{{ section.id }}">
+                <summary>
+                  <div class="summary__title">
+                    {% render 'icon-accordion', icon: block.settings.icon %}
+                    <h2 class="h4 accordion__title inline-richtext">
+                      {{ block.settings.heading | default: block.settings.page.title | escape }}
+                    </h2>
+                    <span class="toggle-icon"><span class="toggle-plus">+</span><span class="toggle-minus">&minus;</span></span>
+                  </div>
+                </summary>
+                <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                  {{ block.settings.content }}
+                  {{ block.settings.page.content }}
+                </div>
+              </details>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- assign trust_v2_blocks = section.blocks | where: 'type', 'trust_card_v2' -%}
+      {%- if trust_v2_blocks.size > 0 -%}
+        <div class="featured-product__trust-card-v2-wrapper">
+          {%- for block in trust_v2_blocks -%}
+            <div
+              class="trust-card-v2"
+              style="
+                --tcv2-bg-color: {{ block.settings.bg_color }};
+                --tcv2-text-color: {{ block.settings.text_color }};
+                --tcv2-title-color: {{ block.settings.title_color }};
+                --tcv2-highlight-color: {{ block.settings.highlight_color }};
+                --tcv2-radius: {{ block.settings.border_radius }}px;
+                --tcv2-img-opacity: {{ block.settings.image_opacity | divided_by: 100.0 }};
+                --tcv2-heading-size: {{ block.settings.heading_size | divided_by: 10.0 }}rem;
+                --tcv2-feature-text-size: {{ block.settings.feature_text_size | divided_by: 10.0 }}rem;
+                --tcv2-item-text-size: {{ block.settings.item_text_size | divided_by: 10.0 }}rem;
+              "
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.bg_image != blank -%}
+                <img class="trust-card-v2__bg-image" src="{{ block.settings.bg_image | image_url: width: 1200 }}" alt="" loading="lazy">
+              {%- endif -%}
+              <div class="trust-card-v2__content">
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="trust-card-v2__heading">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                <div class="trust-card-v2__features">
+                  {%- for i in (1..4) -%}
+                    {%- liquid
+                      case i
+                        when 1
+                          assign f_icon = block.settings.feature_icon_1
+                          assign f_text = block.settings.feature_text_1
+                        when 2
+                          assign f_icon = block.settings.feature_icon_2
+                          assign f_text = block.settings.feature_text_2
+                        when 3
+                          assign f_icon = block.settings.feature_icon_3
+                          assign f_text = block.settings.feature_text_3
+                        when 4
+                          assign f_icon = block.settings.feature_icon_4
+                          assign f_text = block.settings.feature_text_4
+                      endcase
+                    -%}
+                    {%- if f_text != blank -%}
+                      <div class="trust-card-v2__feature-box">
+                        {%- if f_icon != blank -%}
+                          <img src="{{ f_icon | image_url: width: 200 }}" alt="" loading="lazy" width="36" height="36">
+                        {%- endif -%}
+                        <p>{{ f_text }}</p>
+                      </div>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+                <div class="trust-card-v2__items">
+                  {%- assign tcv2_items = 'item_1,item_2,item_3,item_4,item_5,item_6' | split: ',' -%}
+                  {%- for tid in tcv2_items -%}
+                    {%- assign tval = block.settings[tid] -%}
+                    {%- if tval != blank -%}
+                      <div class="trust-card-v2__item">
+                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.903 7.626c-.319-.277-.735-.567-.716-1.033.02-.496.204-.975.268-1.467.059-.453.022-.939-.308-1.286-.294-.308-.727-.42-1.135-.477-.457-.065-.957-.035-1.394-.197-.407-.15-.558-.716-.712-1.076-.163-.38-.338-.779-.637-1.074-.343-.339-.808-.43-1.267-.297-.522.153-.962.496-1.44.743a1.53 1.53 0 01-.588.178c-.238-.02-.47-.154-.673-.27-.461-.26-.917-.599-1.45-.693-.46-.082-.888.092-1.187.445-.275.324-.436.729-.601 1.116-.173.406-.326.856-.796.97-.801.195-1.923-.015-2.479.748-.283.388-.263.89-.185 1.341.08.467.285.966.239 1.445-.04.418-.546.736-.833.989-.328.288-.672.604-.837 1.019-.38.955.519 1.643 1.143 2.201.162.145.337.298.45.486.112.182.088.408.058.61-.073.493-.24.97-.267 1.47-.025.454.099.906.476 1.189.34.256.782.328 1.194.373.23.025.462.04.692.069.213.026.47.051.65.182.162.118.258.33.342.505.106.223.197.452.297.677.167.373.366.764.701 1.014.407.303.907.274 1.357.087.497-.207.921-.558 1.42-.76.469-.19.875.089 1.273.326.443.263.926.582 1.461.582.452 0 .817-.264 1.066-.624.253-.365.4-.788.582-1.189.088-.196.182-.41.334-.566.149-.151.387-.188.587-.218.798-.12 1.959-.019 2.366-.897.2-.43.122-.931.029-1.378-.05-.241-.112-.48-.155-.723-.037-.204-.087-.457-.001-.658.158-.369.585-.639.875-.898.3-.269.605-.567.757-.948.342-.86-.369-1.528-.958-2.04zm.145 1.655c-.084.34-.477.614-.728.831l.16-.136c-.358.312-.761.644-.933 1.103-.19.51-.047 1.08.069 1.59.066.29.313.975-.004 1.195-.157.11-.371.139-.557.165-.255.036-.512.052-.768.079-.462.05-.956.134-1.309.463-.35.327-.53.798-.714 1.229-.117.274-.324.963-.718.927-.219-.02-.429-.146-.616-.251-.25-.14-.49-.295-.743-.43-.47-.249-.961-.389-1.485-.226-.52.162-.957.502-1.436.748-.154.078-.388.21-.568.15-.18-.057-.292-.276-.373-.43-.23-.433-.37-.91-.63-1.327-.257-.416-.621-.662-1.096-.77-.48-.107-.955-.094-1.457-.187-.154-.03-.364-.071-.464-.208-.113-.155-.067-.41-.04-.584.082-.53.27-1.045.269-1.586-.001-.525-.255-.927-.62-1.284-.347-.338-.809-.623-1.065-1.042-.247-.403.247-.774.517-1.013.365-.322.78-.637 1.01-1.077.25-.478.153-1.037.043-1.543-.054-.245-.116-.489-.154-.737-.027-.174-.073-.429.04-.585.099-.136.31-.177.464-.207.25-.048.505-.065.757-.089.465-.043.972-.094 1.361-.377.386-.28.588-.745.77-1.17.093-.218.182-.439.294-.649.081-.154.193-.373.373-.43.181-.058.412.07.567.149.254.13.494.286.742.427.452.258.947.477 1.477.366.53-.11.983-.442 1.446-.703.186-.105.397-.23.615-.25.197-.018.321.149.415.3.497.8.605 1.887 1.64 2.194.357.106.733.129 1.101.163.286.027.75.023.965.25.197.208.056.67.005.908-.09.424-.213.85-.213 1.286.002.857.687 1.336 1.262 1.86.19.172.566.471.493.77z" fill="currentColor"/><path d="M11.734 6.868c-1.144 1.247-2.288 2.494-3.433 3.741-.042.047-.043.077-.097.045-.16-.095-.322-.19-.483-.284-.454-.268-.909-.536-1.364-.804-.162-.095-.317-.196-.517-.133-.368.115-.415.621-.088.814.344.203.689.406 1.034.609.414.244.828.488 1.242.732.264.156.497.1.697-.118.62-.675 1.239-1.351 1.858-2.026.496-.54.993-1.081 1.489-1.622.104-.114.209-.228.313-.342.394-.429-.256-1.041-.65-.612z" fill="currentColor"/></svg>
+                        <span>{{ tval }}</span>
+                      </div>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
       {% render 'product-media-modal', product: product, variant_images: variant_images %}
     </div>
   </section>
