@@ -27,5 +27,17 @@
       --font-body-style: normal;
       --font-body-weight: {{ settings.custom_font_body_weight }};
     }
+
+    h1 strong, h1 b,
+    h2 strong, h2 b,
+    h3 strong, h3 b,
+    h4 strong, h4 b,
+    h5 strong, h5 b,
+    h6 strong, h6 b,
+    .h1 strong, .h1 b,
+    .h2 strong, .h2 b,
+    .h0 strong, .h0 b {
+      font-weight: inherit;
+    }
   </style>
 {%- endif -%}
