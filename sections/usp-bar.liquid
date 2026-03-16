@@ -19,32 +19,33 @@
 
   .usp-bar-inner--{{ section.id }} {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     gap: {{ section.settings.item_gap }}px;
   }
 
   .usp-item--{{ section.id }} {
-    border: 1.3px solid {{ section.settings.border_color }};
+    flex: 1;
+    border: 1px solid {{ section.settings.border_color }};
     padding: {{ section.settings.item_padding_vertical }}px {{ section.settings.item_padding_horizontal }}px;
     border-radius: 6.9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     font-size: {{ section.settings.font_size }}px;
     font-weight: 500;
+    line-height: 19.6px;
     background: transparent;
-    flex: 1;
     text-align: center;
     text-transform: uppercase;
-    white-space: nowrap;
   }
 
   .usp-item__icon--{{ section.id }} {
     flex-shrink: 0;
-    width: 22px;
-    height: 22px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-right: 11px;
   }
 
   .usp-item__icon--{{ section.id }} img {
@@ -56,18 +57,19 @@
 
   @media (max-width: 749px) {
     .usp-bar-inner--{{ section.id }} {
-      gap: {{ section.settings.item_gap | times: 0.6 | round: 0 }}px;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .usp-item--{{ section.id }} {
-      font-size: {{ section.settings.font_size | minus: 3 }}px;
-      padding: {{ section.settings.item_padding_vertical | times: 0.7 | round: 0 }}px {{ section.settings.item_padding_horizontal | times: 0.5 | round: 0 }}px;
-      gap: 5px;
+      flex: none;
+      width: 100%;
+      justify-content: center;
     }
 
     .usp-item__icon--{{ section.id }} {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
     }
   }
 </style>
@@ -87,8 +89,8 @@
                 <img
                   src="{{ icon | image_url: width: 48 }}"
                   alt=""
-                  width="22"
-                  height="22"
+                  width="25"
+                  height="25"
                   loading="eager"
                 >
               </span>
@@ -139,11 +141,11 @@
       "type": "range",
       "id": "item_gap",
       "min": 0,
-      "max": 30,
+      "max": 60,
       "step": 1,
       "unit": "px",
       "label": "Gap between items",
-      "default": 10
+      "default": 43
     },
     {
       "type": "range",
@@ -163,7 +165,7 @@
       "step": 1,
       "unit": "px",
       "label": "Item padding (horizontal)",
-      "default": 8
+      "default": 18
     },
     {
       "type": "header",
