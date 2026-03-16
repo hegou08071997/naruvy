@@ -113,7 +113,6 @@ Blocks live in `blocks/`, have `{% schema %}` for settings, and use `{% doc %}` 
   }
   .text--title {
     font-size: 2rem;
-    font-weight: 700;
   }
   .text--subtitle {
     font-size: 1.5rem;
