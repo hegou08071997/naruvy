@@ -19,25 +19,26 @@
 
   .usp-bar-inner--{{ section.id }} {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    gap: 15px;
+    gap: {{ section.settings.item_gap }}px;
   }
 
   .usp-item--{{ section.id }} {
     border: 1.3px solid {{ section.settings.border_color }};
-    padding: 7px 18px;
+    padding: {{ section.settings.item_padding_vertical }}px {{ section.settings.item_padding_horizontal }}px;
     border-radius: 6.9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: {{ section.settings.font_size }}px;
     font-weight: 500;
     background: transparent;
-    width: 100%;
+    flex: 1;
     text-align: center;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .usp-item__icon--{{ section.id }} {
@@ -55,8 +56,18 @@
 
   @media (max-width: 749px) {
     .usp-bar-inner--{{ section.id }} {
-      flex-direction: column;
-      gap: 10px;
+      gap: {{ section.settings.item_gap | times: 0.6 | round: 0 }}px;
+    }
+
+    .usp-item--{{ section.id }} {
+      font-size: {{ section.settings.font_size | minus: 3 }}px;
+      padding: {{ section.settings.item_padding_vertical | times: 0.7 | round: 0 }}px {{ section.settings.item_padding_horizontal | times: 0.5 | round: 0 }}px;
+      gap: 5px;
+    }
+
+    .usp-item__icon--{{ section.id }} {
+      width: 16px;
+      height: 16px;
     }
   }
 </style>
@@ -113,6 +124,46 @@
       "id": "border_color",
       "label": "Border color",
       "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "item_padding_vertical",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Item padding (vertical)",
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "item_padding_horizontal",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Item padding (horizontal)",
+      "default": 8
     },
     {
       "type": "header",
