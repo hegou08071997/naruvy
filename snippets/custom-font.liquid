@@ -1,0 +1,28 @@
+{%- if settings.custom_font_enabled -%}
+  <style>
+    @font-face {
+      font-family: 'ClashGrotesk';
+      src: url('{{ 'ClashGrotesk-Variable.woff2' | asset_url }}') format('woff2'),
+           url('{{ 'ClashGrotesk-Variable.woff' | asset_url }}') format('woff');
+      font-weight: 200 700;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    {%- if settings.custom_font_apply == 'headings' or settings.custom_font_apply == 'both' -%}
+      :root {
+        --font-heading-family: 'ClashGrotesk', sans-serif;
+        --font-heading-style: normal;
+        --font-heading-weight: {{ settings.custom_font_heading_weight }};
+      }
+    {%- endif -%}
+
+    {%- if settings.custom_font_apply == 'body' or settings.custom_font_apply == 'both' -%}
+      :root {
+        --font-body-family: 'ClashGrotesk', sans-serif;
+        --font-body-style: normal;
+        --font-body-weight: {{ settings.custom_font_body_weight }};
+      }
+    {%- endif -%}
+  </style>
+{%- endif -%}
