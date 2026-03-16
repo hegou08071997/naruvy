@@ -25,7 +25,7 @@
 <style>
   .benefits-showcase {
     width: 100%;
-    background: var(--bs-bg, #1a3c2a);
+    background: var(--bs-gradient, var(--bs-bg, #1a3c2a));
     color: var(--bs-text, #ffffff);
     overflow: hidden;
   }
@@ -168,6 +168,7 @@
   class="section-{{ section.id }}-padding benefits-showcase"
   style="
     --bs-bg: {{ section.settings.bg_color }};
+    --bs-gradient: linear-gradient({{ section.settings.bg_color }} 0%, {{ section.settings.bg_color_bottom }} 100%);
     --bs-text: {{ section.settings.text_color }};
     --bs-highlight: {{ section.settings.highlight_color }};
     {% if section.settings.subheading_color != blank %}--bs-sub-color: {{ section.settings.subheading_color }};{% endif %}
@@ -248,8 +249,14 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background color",
-      "default": "#9F3F3F"
+      "label": "Background gradient top",
+      "default": "#07493a"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_bottom",
+      "label": "Background gradient bottom",
+      "default": "#002a21"
     },
     {
       "type": "color",
