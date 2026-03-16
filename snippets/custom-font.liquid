@@ -1,10 +1,10 @@
 {%- if settings.custom_font_enabled -%}
   <style>
     @font-face {
-      font-family: 'Clash Grotesk Medium';
-      src: url('{{ 'ClashGrotesk-Variable.woff2' | asset_url }}') format('woff2'),
-           url('{{ 'ClashGrotesk-Variable.woff' | asset_url }}') format('woff');
-      font-weight: 200 700;
+      font-family: 'ClashGrotesk-Medium';
+      src: url('{{ 'ClashGrotesk-Medium.woff2' | asset_url }}') format('woff2'),
+           url('{{ 'ClashGrotesk-Medium.woff' | asset_url }}') format('woff');
+      font-weight: 500;
       font-display: swap;
       font-style: normal;
     }
@@ -19,7 +19,7 @@
     }
 
     :root {
-      --font-heading-family: 'Clash Grotesk Medium', sans-serif;
+      --font-heading-family: 'ClashGrotesk-Medium', sans-serif;
       --font-heading-style: normal;
       --font-heading-weight: 500;
 
