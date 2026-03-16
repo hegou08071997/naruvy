@@ -404,7 +404,7 @@
       ],
       "settings": {
         "heading": "4 Clinically Studied Benefits of <strong>Aged Garlic</strong>",
-        "highlight_color": "#9f3f3f",
+        "highlight_color": "#ff1493",
         "section_bg_color": "",
         "text_alignment": "center",
         "card_border_radius": 12,
@@ -557,13 +557,13 @@
       "settings": {
         "heading": "Real Stories, <strong>Real Results</strong>",
         "subheading": "See what our customers are saying about [BRAND]",
-        "highlight_color": "#9f3f3f",
-        "star_color": "#9f3f3f",
-        "verified_color": "#9f3f3f",
-        "tag_color": "#9f3f3f",
-        "tag_bg_color": "#ffe6e6",
+        "highlight_color": "#ff1493",
+        "star_color": "#ffd600",
+        "verified_color": "#d90078",
+        "tag_color": "#ff1493",
+        "tag_bg_color": "#fff0f6",
         "ticker_speed": 30,
-        "section_bg_color": "#f1f5ff",
+        "section_bg_color": "#fff6fa",
         "padding_top": 36,
         "padding_bottom": 36
       }
