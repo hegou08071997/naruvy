@@ -385,6 +385,7 @@
         "cta_font_size": 19,
         "cta_margin_top": 40,
         "guarantee_text": "30-day money back guarantee",
+        "guarantee_icon": "shopify://shop_images/5_reasons_why.png",
         "padding_top": 40,
         "padding_bottom": 40
       }
