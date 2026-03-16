@@ -248,9 +248,13 @@
           "type": "trust_card_v2",
           "settings": {
             "heading": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?",
+            "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
+            "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
             "feature_text_2": "Third Party Tested",
+            "feature_icon_3": "shopify://shop_images/trust_card_v2_3.svg",
             "feature_text_3": "Clean Formulas",
+            "feature_icon_4": "shopify://shop_images/trust_card_v2_4.svg",
             "feature_text_4": "Globally Trusted Facilities",
             "item_1": "Vegan-Friendly",
             "item_2": "No Artificial Additives",
@@ -285,7 +289,7 @@
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "kit-gua-sha-avena™",
+        "product": "patchs-micro-infusion",
         "color_scheme": "",
         "secondary_background": false,
         "media_size": "medium",
