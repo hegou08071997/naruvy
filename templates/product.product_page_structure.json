@@ -198,7 +198,7 @@
           "settings": {
             "heading": "Recommended Use",
             "icon": "none",
-            "content": "",
+            "content": "<p>Take <strong>2 gummies daily </strong>with water, preferably with food. Consistent daily use leads to the best results.<br/><br/>Most women report <strong>noticeable improvements within the 1st week.</strong></p>",
             "page": ""
           }
         },
@@ -207,7 +207,7 @@
           "settings": {
             "heading": "Do you offer a guarantee?",
             "icon": "none",
-            "content": "",
+            "content": "<p>Yes! All [BRAND]® orders are backed by our 30-day money-back guarantee. </p><p>If you're not completely satisfied, simply contact us—we’ll make it right, no questions asked.</p>",
             "page": ""
           }
         },
