@@ -171,7 +171,7 @@
           "settings": {
             "heading": "Description",
             "icon": "none",
-            "content": "",
+            "content": "<p>[BRAND]™ [PRODUCT] are <strong>clinically-backed gummies</strong> for complete feminine health.</p><p>Our combined <strong>natural + science powered formula</strong> contains probiotic-rich bacillus coagulans, the natural herb slippery elm, and real pineapple fruit.</p><p>Each gummy helps maintain pH balance, boost moisture, eliminate odor, prevent infections, and keep you fresh all day.</p><p>No artificials. No additives. Just <strong>delicious results you can notice and enjoy!</strong></p>",
             "page": ""
           }
         },
@@ -180,7 +180,7 @@
           "settings": {
             "heading": "Why you need [BRAND]® [PRODUCT]?",
             "icon": "none",
-            "content": "",
+            "content": "<p>If you're tired of feeling dry down there, struggling with odors or pH imbalances, or relying on harsh synthetic supplements and treatments — <strong>[BRAND]™ is for you.</strong></p><p>This easy daily formula helps your body reset and maintain optimal feminine balance — from natural plants and herbs, now <strong>backed by modern science for women.</strong></p>",
             "page": ""
           }
         },
@@ -189,7 +189,7 @@
           "settings": {
             "heading": "Benefits",
             "icon": "none",
-            "content": "",
+            "content": "<p>✓ BV & UTI Protection</p><p>✓ pH Balance</p><p>✓ Boost Moisture</p><p>✓ Eliminate Odor</p><p>✓ Flora Support</p><p>✓ Immune Support</p>",
             "page": ""
           }
         },
