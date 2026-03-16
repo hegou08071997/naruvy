@@ -273,6 +273,7 @@
             "title_color": "#ffffff",
             "highlight_color": "#ffcfcf",
             "bg_color": "#9f3f3f",
+            "bg_image": "shopify://shop_images/Rectangle_3.jpg",
             "image_opacity": 100,
             "border_radius": 10,
             "heading_size": 28,
