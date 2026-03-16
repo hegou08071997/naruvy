@@ -15,7 +15,7 @@
       "type": "sale-banner",
       "settings": {
         "heading": "ST PATRICK'S DAY SALE",
-        "heading_color": "#ffffff",
+        "heading_color": "#ff1493",
         "heading_font_size": 20,
         "heading_font_weight": "700",
         "heading_letter_spacing": 1,
@@ -27,7 +27,7 @@
         "show_timer": true,
         "timer_hours": 2,
         "timer_color": "#ffffff",
-        "background_color": "#9f3f3f",
+        "background_color": "#18001a",
         "padding_top": 10,
         "padding_bottom": 10
       }
@@ -82,8 +82,8 @@
         "ticker_item_3"
       ],
       "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#121212",
+        "background_color": "#ff1493",
+        "text_color": "#ffffff",
         "border_position": "both",
         "border_thickness": 1,
         "border_color": "#121212",
