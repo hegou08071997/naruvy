@@ -14,6 +14,7 @@
 <style>
   .hero-banner-wrapper--{{ section.id }} {
     background: {{ section.settings.bg_color }};
+    overflow: hidden;
   }
 
   .hero-banner-inner {
@@ -33,6 +34,7 @@
     max-width: 476px;
     margin: 0 auto;
     width: 100%;
+    display: block;
   }
 
   .hero-banner-right {
@@ -239,15 +241,17 @@
           </div>
         {%- endif -%}
 
-        {%- if section.settings.show_stars and section.settings.stars_image != blank -%}
+        {%- if section.settings.show_stars -%}
           <div class="hero-stars--{{ section.id }}">
-            <img
-              src="{{ section.settings.stars_image | image_url: width: 180 }}"
-              alt="Stars"
-              width="90"
-              height="auto"
-              loading="eager"
-            >
+            {%- if section.settings.stars_image != blank -%}
+              <img
+                src="{{ section.settings.stars_image | image_url: width: 180 }}"
+                alt="Stars"
+                width="90"
+                height="auto"
+                loading="eager"
+              >
+            {%- endif -%}
             {%- if section.settings.stars_text != blank -%}
               <span>{{ section.settings.stars_text }}</span>
             {%- endif -%}
