@@ -81,7 +81,8 @@
   .rw-card__front {
     backface-visibility: hidden;
     transition: opacity 0.5s;
-    padding-bottom: 46px;
+    max-height: calc({{ section.settings.card_height }}px - 22px - 17px - 38px);
+    overflow: hidden;
   }
   .rw-card.is-flipped .rw-card__front {
     opacity: 0;
@@ -236,7 +237,11 @@
       gap: 10px;
       flex: 1;
       min-width: 0;
-      padding-bottom: 0;
+      max-height: none;
+      overflow: visible;
+    }
+    .rw-card.is-flipped .rw-card__front {
+      display: none;
     }
     .rw-card__image {
       width: 70px;
@@ -268,8 +273,19 @@
       flex-shrink: 0;
     }
     .rw-card__details {
-      padding: 15px 15px 45px;
-      overflow: hidden;
+      position: static;
+      inset: auto;
+      padding: 10px 15px;
+      opacity: 1;
+      pointer-events: auto;
+      display: none;
+      background: transparent;
+      flex: 1;
+      min-width: 0;
+      z-index: auto;
+    }
+    .rw-card.is-flipped .rw-card__details {
+      display: block;
     }
   }
 </style>
