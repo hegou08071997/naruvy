@@ -2,37 +2,36 @@
 Follow these simple Steps.
 
 ## 1.
-Put `clash-grotesk/` Folder into a Folder called `fonts/`.
+Put `satoshi/` Folder into a Folder called `fonts/`.
 
 ## 2.
-Put `clash-grotesk.css` into your `css/` Folder.
+Put `satoshi.css` into your `css/` Folder.
 
 ## 3. (Optional)
-You may adapt the `url('path')` in `clash-grotesk.css` depends on your Website Filesystem.
+You may adapt the `url('path')` in `satoshi.css` depends on your Website Filesystem.
 
 ## 4.
-Import `clash-grotesk.css` at the top of you main Stylesheet.
+Import `satoshi.css` at the top of you main Stylesheet.
 
 ```
-@import url('clash-grotesk.css');
+@import url('satoshi.css');
 ```
 
 ## 5.
-You are now ready to use the following Rules in your CSS to specify each Font Style:
-```
-font-family: ClashGrotesk-Extralight;
-font-family: ClashGrotesk-Light;
-font-family: ClashGrotesk-Regular;
-font-family: ClashGrotesk-Medium;
-font-family: ClashGrotesk-Semibold;
-font-family: ClashGrotesk-Bold;
-font-family: ClashGrotesk-Variable;
+
 
 ```
-## 6. (Optional)
-Use `font-variation-settings` rule to controll axes of variable fonts:
-wght 700.0
-
-Available axes:
-'wght' (range from 200.0 to 700.0
+font-family: 'Satoshi-Variable';
+font-family: 'Satoshi-VariableItalic';
+font-family: 'Satoshi-Light';
+font-family: 'Satoshi-LightItalic';
+font-family: 'Satoshi-Regular';
+font-family: 'Satoshi-Italic';
+font-family: 'Satoshi-Medium';
+font-family: 'Satoshi-MediumItalic';
+font-family: 'Satoshi-Bold';
+font-family: 'Satoshi-BoldItalic';
+font-family: 'Satoshi-Black';
+font-family: 'Satoshi-BlackItalic';
+```
 

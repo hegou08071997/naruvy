@@ -9,20 +9,23 @@
       font-style: normal;
     }
 
-    {%- if settings.custom_font_apply == 'headings' or settings.custom_font_apply == 'both' -%}
-      :root {
-        --font-heading-family: 'ClashGrotesk', sans-serif;
-        --font-heading-style: normal;
-        --font-heading-weight: {{ settings.custom_font_heading_weight }};
-      }
-    {%- endif -%}
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('{{ 'Satoshi-Variable.woff2' | asset_url }}') format('woff2'),
+           url('{{ 'Satoshi-Variable.woff' | asset_url }}') format('woff');
+      font-weight: 300 900;
+      font-display: swap;
+      font-style: normal;
+    }
 
-    {%- if settings.custom_font_apply == 'body' or settings.custom_font_apply == 'both' -%}
-      :root {
-        --font-body-family: 'ClashGrotesk', sans-serif;
-        --font-body-style: normal;
-        --font-body-weight: {{ settings.custom_font_body_weight }};
-      }
-    {%- endif -%}
+    :root {
+      --font-heading-family: 'ClashGrotesk', sans-serif;
+      --font-heading-style: normal;
+      --font-heading-weight: {{ settings.custom_font_heading_weight }};
+
+      --font-body-family: 'Satoshi', sans-serif;
+      --font-body-style: normal;
+      --font-body-weight: {{ settings.custom_font_body_weight }};
+    }
   </style>
 {%- endif -%}

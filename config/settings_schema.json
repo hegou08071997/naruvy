@@ -146,24 +146,17 @@
       },
       {
         "type": "header",
-        "content": "Custom font (Clash Grotesk)"
+        "content": "Custom fonts"
+      },
+      {
+        "type": "paragraph",
+        "content": "Headings: Clash Grotesk · Body: Satoshi"
       },
       {
         "type": "checkbox",
         "id": "custom_font_enabled",
         "default": false,
-        "label": "Enable Clash Grotesk font"
-      },
-      {
-        "type": "select",
-        "id": "custom_font_apply",
-        "label": "Apply to",
-        "default": "both",
-        "options": [
-          { "value": "headings", "label": "Headings only" },
-          { "value": "body", "label": "Body only" },
-          { "value": "both", "label": "Headings and body" }
-        ]
+        "label": "Enable custom fonts"
       },
       {
         "type": "range",
@@ -172,16 +165,16 @@
         "max": 700,
         "step": 100,
         "default": 600,
-        "label": "Heading font weight"
+        "label": "Heading font weight (Clash Grotesk)"
       },
       {
         "type": "range",
         "id": "custom_font_body_weight",
-        "min": 200,
-        "max": 700,
+        "min": 300,
+        "max": 900,
         "step": 100,
         "default": 400,
-        "label": "Body font weight"
+        "label": "Body font weight (Satoshi)"
       }
     ]
   },
