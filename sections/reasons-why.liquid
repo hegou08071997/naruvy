@@ -81,8 +81,6 @@
   .rw-card__front {
     backface-visibility: hidden;
     transition: opacity 0.5s;
-    max-height: calc({{ section.settings.card_height }}px - 22px - 17px - 38px);
-    overflow: hidden;
   }
   .rw-card.is-flipped .rw-card__front {
     opacity: 0;
@@ -237,8 +235,6 @@
       gap: 10px;
       flex: 1;
       min-width: 0;
-      max-height: none;
-      overflow: visible;
     }
     .rw-card.is-flipped .rw-card__front {
       display: none;
