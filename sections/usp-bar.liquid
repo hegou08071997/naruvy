@@ -1,0 +1,220 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .usp-bar-wrapper--{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  .usp-bar-inner--{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .usp-item--{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+    padding: 18px 20px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .usp-item--{{ section.id }} + .usp-item--{{ section.id }} {
+    border-left: 1px solid {{ section.settings.border_color }};
+  }
+
+  .usp-item__icon--{{ section.id }} {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .usp-item__icon--{{ section.id }} img,
+  .usp-item__icon--{{ section.id }} svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  @media (max-width: 749px) {
+    .usp-bar-inner--{{ section.id }} {
+      flex-direction: column;
+    }
+
+    .usp-item--{{ section.id }} {
+      width: 100%;
+      padding: 12px 20px;
+      white-space: normal;
+    }
+
+    .usp-item--{{ section.id }} + .usp-item--{{ section.id }} {
+      border-left: none;
+      border-top: 1px solid {{ section.settings.border_color }};
+    }
+  }
+</style>
+
+<div class="usp-bar-wrapper--{{ section.id }} section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="usp-bar-inner--{{ section.id }}">
+      {%- for block in section.blocks -%}
+        <div class="usp-item--{{ section.id }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <span class="usp-item__icon--{{ section.id }}">
+              <img
+                src="{{ block.settings.icon | image_url: width: 48 }}"
+                alt=""
+                width="24"
+                height="24"
+                loading="eager"
+              >
+            </span>
+          {%- else -%}
+            <span class="usp-item__icon--{{ section.id }}">
+              {%- case block.type -%}
+                {%- when 'usp_item' -%}
+                  {%- assign icon_index = forloop.index0 | modulo: 3 -%}
+                  {%- if icon_index == 0 -%}
+                    {%- comment -%} Microscope / clinically studied {%- endcomment -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.icon_color }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><path d="M12 14v4"/><path d="M8 22h8"/><path d="M12 2v4"/><path d="M4 10h4"/><path d="M16 10h4"/></svg>
+                  {%- elsif icon_index == 1 -%}
+                    {%- comment -%} Shield / third party tested {%- endcomment -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.icon_color }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  {%- else -%}
+                    {%- comment -%} Leaf / clean formula {%- endcomment -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.icon_color }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 20 2 20 2s-1.7 5.5-4 9.5"/><path d="M6.4 15.7A4 4 0 0 1 8 12c2-2.4 4-4.3 6.1-5.5"/><path d="M3 21c0 0 2.5-1 4.5-3"/></svg>
+                  {%- endif -%}
+              {%- endcase -%}
+            </span>
+          {%- endif -%}
+          <span>{{ block.settings.text }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "USP bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#095946"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp_item",
+      "name": "USP item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Upload an SVG or PNG icon. Leave empty for a placeholder."
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Placeholder icon color",
+          "default": "#ffffff",
+          "info": "Only applies to the default placeholder icons."
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "FEATURE TEXT"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP bar",
+      "blocks": [
+        {
+          "type": "usp_item",
+          "settings": {
+            "text": "CLINICALLY STUDIED INGREDIENTS†"
+          }
+        },
+        {
+          "type": "usp_item",
+          "settings": {
+            "text": "THIRD PARTY TESTED"
+          }
+        },
+        {
+          "type": "usp_item",
+          "settings": {
+            "text": "CLEAN FORMULA"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

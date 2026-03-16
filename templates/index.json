@@ -33,9 +33,35 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "usp_bar": {
+      "type": "usp-bar",
+      "blocks": {
+        "usp_1": {
+          "type": "usp_item",
+          "settings": {
+            "text": "CLINICALLY STUDIED INGREDIENTS†"
+          }
+        },
+        "usp_2": {
+          "type": "usp_item",
+          "settings": {
+            "text": "THIRD PARTY TESTED"
+          }
+        },
+        "usp_3": {
+          "type": "usp_item",
+          "settings": {
+            "text": "CLEAN FORMULA"
+          }
+        }
+      },
+      "block_order": ["usp_1", "usp_2", "usp_3"],
+      "settings": {}
     }
   },
   "order": [
-    "hero_banner"
+    "hero_banner",
+    "usp_bar"
   ]
 }
