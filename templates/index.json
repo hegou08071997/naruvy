@@ -56,10 +56,97 @@
         "padding_top": 16,
         "padding_bottom": 16
       }
+    },
+    "testimonial_slider_gkd3L9": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "review_JG3hfd": {
+          "type": "review",
+          "settings": {
+            "rating": "4.9",
+            "quote": "\"Haven't been sick in months!\"",
+            "details": "I started taking [BRAND] daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
+            "author_name": "HAILEY A.",
+            "tag_1": "Immunity Boost",
+            "tag_2": "Prevention",
+            "card_bg_color": ""
+          }
+        },
+        "review_FHCbgc": {
+          "type": "review",
+          "settings": {
+            "rating": "5.0",
+            "quote": "\"Helped my digestion more than probiotics.\"",
+            "details": "I've struggled with bloating and irregular digestion for years. [BRAND] made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
+            "author_name": "DANA H.",
+            "tag_1": "Gut Support",
+            "tag_2": "Bloat Relief",
+            "card_bg_color": ""
+          }
+        },
+        "review_Q39BYD": {
+          "type": "review",
+          "settings": {
+            "rating": "4.9",
+            "quote": "\"A clean product that actually works.\"",
+            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. [BRAND] is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
+            "author_name": "MIKE M.",
+            "tag_1": "Clean Ingredients",
+            "tag_2": "Whole-Body Health",
+            "card_bg_color": ""
+          }
+        },
+        "review_LBpJ7T": {
+          "type": "review",
+          "settings": {
+            "rating": "5.0",
+            "quote": "\"My go-to during flu season.\"",
+            "details": "Every time I feel something coming on, I take [BRAND] and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
+            "author_name": "NELSON A.",
+            "tag_1": "Cold Prevention",
+            "tag_2": "Daily Defense",
+            "card_bg_color": ""
+          }
+        },
+        "review_PYyR8a": {
+          "type": "review",
+          "settings": {
+            "rating": "4.8",
+            "quote": "\"Finally, a supplement I can actually feel working.\"",
+            "details": "I've tried so many supplements that promise results but never deliver. [BRAND] is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
+            "author_name": "JESSICA R.",
+            "tag_1": "Energy",
+            "tag_2": "Digestive Health",
+            "card_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_JG3hfd",
+        "review_FHCbgc",
+        "review_Q39BYD",
+        "review_LBpJ7T",
+        "review_PYyR8a"
+      ],
+      "name": "Testimonial slider",
+      "settings": {
+        "heading": "Real Stories, <strong>Real Results</strong>",
+        "subheading": "See what our customers are saying about [BRAND]",
+        "highlight_color": "#009370",
+        "star_color": "#009370",
+        "verified_color": "#009370",
+        "tag_color": "#009370",
+        "tag_bg_color": "",
+        "ticker_speed": 30,
+        "section_bg_color": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "hero_banner",
-    "usp_bar"
+    "usp_bar",
+    "testimonial_slider_gkd3L9"
   ]
 }
