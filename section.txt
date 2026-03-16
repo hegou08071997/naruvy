@@ -1,110 +1,19 @@
-<section id="shopify-section-template--26971081015480__usp_bar_h3Y66j" class="shopify-section usp-bar-section">
-
-
-<div class="usp-bar-wrapper">
-<div class="container-1233">
-<div class="usp-bar-inner">
-  
-    <div class="usp-item">
-      <span class="usp-icon"><img src="//resilia.shop/cdn/shop/files/Group_1000006277.svg?v=1747894628" alt="White Icons" width="auto" height="auto" loading="eager" fetchpriority="high"></span>
-      <span>CLINICALLY STUDIED INGREDIENTS†</span>
-    </div>
-  
-    <div class="usp-item">
+<div class="usp-item">
       <span class="usp-icon"><img src="//resilia.shop/cdn/shop/files/Group_1000006457.svg?v=1747894638" alt="White shield Icon" width="auto" height="auto" loading="eager" fetchpriority="high"></span>
       <span>THIRD PARTY TESTED</span>
     </div>
-  
-    <div class="usp-item">
-      <span class="usp-icon"><img src="//resilia.shop/cdn/shop/files/Group_1484582084.svg?v=1747894646" alt="White chemicals Icon" width="auto" height="auto" loading="eager" fetchpriority="high"></span>
-      <span>CLEAN FORMULA</span>
-    </div>
-  
-</div>
-</div>
-</div></section>
-    --colorAnnouncement: #085946;
-    --colorAnnouncementText: #ffffff;
-    --colorBody: #ffffff;
-    --colorBodyAlpha05: Liquid error: Alpha must be a float between 0 and 1;
-    --colorBodyDim: #f2f2f2;
-    --colorBodyLightDim: #fafafa;
-    --colorBodyMediumDim: #f5f5f5;
-    --colorBorder: #085946;
-    --colorBtnPrimary: #085946;
-    --colorBtnPrimaryLight: #0c886b;
-    --colorBtnPrimaryDim: #064234;
-    --colorBtnPrimaryText: #ffffff;
-    --colorCartDot: #085946;
-    --colorDrawers: #ffffff;
-    --colorDrawersDim: #f2f2f2;
-    --colorDrawerBorder: #085946;
-    --colorDrawerText: #085946;
-    --colorDrawerTextDark: #02130f;
-    --colorDrawerButton: #085946;
-    --colorDrawerButtonText: #ffffff;
-    --colorFooter: #085946;
-    --colorFooterText: #ffffff;
-    --colorFooterTextAlpha01: #ffffff;
-    --colorGridOverlay: #000000;
-    --colorHeaderTextAlpha01: Liquid error: Alpha must be a float between 0 and 1;
-    --colorHeroText: #ffffff;
-    --colorSmallImageBg: #ffffff;
-    --colorLargeImageBg: #085946;
-    --colorImageOverlay: #085946;
-    --colorImageOverlayOpacity: 0;
-    --colorImageOverlayTextShadow: 0;
-    --colorLink: #085946;
-    --colorModalBg: Liquid error: Alpha must be a float between 0 and 1;
-    --colorNav: #ffffff;
-    --colorNavText: #085946;
-    --colorPrice: #085946;
-    --colorSaleTag: #085946;
-    --colorSaleTagText: #ffffff;
-    --colorTextBody: #085946;
-    --colorTextBodyAlpha015: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextBodyAlpha005: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextBodyAlpha008: Liquid error: Alpha must be a float between 0 and 1;
-    --colorTextSavings: #085946;
-    --urlIcoSelect: url(//resilia.shop/cdn/shop/t/115/assets/ico-select.svg);
-    --urlIcoSelectFooter: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-footer.svg);
-    --urlIcoSelectWhite: url(//resilia.shop/cdn/shop/t/115/assets/ico-select-white.svg);
-    --sizeChartMargin: 25px 0;
-    --sizeChartIconMargin: 5px;
-    --newsletterReminderPadding: 40px;
-    --color-body-text: #085946;
-    --color-body: #ffffff;
-    --color-bg: #ffffff;
-    --grid-gutter: 22px;
-    --drawer-gutter: 30px;
-    --typeHeaderPrimary: "Tenor Sans";
-    --typeHeaderFallback: sans-serif;
-    --typeHeaderSize: 36px;
-    --typeHeaderWeight: 400;
-    --typeHeaderLineHeight: 1;
-    --typeHeaderSpacing: 0.0em;
-    --typeBasePrimary: Outfit;
-    --typeBaseFallback: sans-serif;
-    --typeBaseSize: 18px;
-    --typeBaseWeight: 300;
-    --typeBaseSpacing: 0.025em;
-    --typeBaseLineHeight: 1.4;
-    --typeBaselineHeightMinus01: 1.3;
-    --typeCollectionTitle: 20px;
-    --iconWeight: 2px;
-    --iconLinecaps: miter;
-    --buttonRadius: 0;
-    --colorGridOverlayOpacity: 0.1;
-    --accent-color: #29a31b;
-    --accent-color-light: #effbff;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    letter-spacing: var(--typeBaseSpacing);
-    line-height: var(--typeBaseLineHeight);
     text-rendering: optimizeSpeed;
-    font-size: var(--typeBaseSize);
     font-family: Satoshi;
-    font-weight: 400;
-    color: #000;
     box-sizing: border-box;
-    display: block;
+    border: 1.3px solid #fff;
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 6.9px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
