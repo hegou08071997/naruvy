@@ -375,7 +375,7 @@
         "card_heading_font_size": 16,
         "details_font_size": 12,
         "card_width": 200,
-        "card_height": 250,
+        "card_height": 500,
         "card_radius": 12,
         "card_gap": 13,
         "max_width": 1500,
