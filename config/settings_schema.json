@@ -150,22 +150,13 @@
       },
       {
         "type": "paragraph",
-        "content": "Headings: Clash Grotesk · Body: Satoshi"
+        "content": "Headings: Clash Grotesk Medium · Body: Satoshi"
       },
       {
         "type": "checkbox",
         "id": "custom_font_enabled",
         "default": false,
         "label": "Enable custom fonts"
-      },
-      {
-        "type": "range",
-        "id": "custom_font_heading_weight",
-        "min": 200,
-        "max": 700,
-        "step": 100,
-        "default": 600,
-        "label": "Heading font weight (Clash Grotesk)"
       },
       {
         "type": "range",
