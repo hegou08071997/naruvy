@@ -20,6 +20,9 @@
         "badge_text_color": "#e4f678",
         "badge_font_size": 16,
         "show_stars": true,
+        "star_rating": 4.9,
+        "star_color": "#ffcc00",
+        "star_empty_color": "#ececec",
         "stars_text": "<strong>4.9/5</strong> Based on 1,200+ Reviews",
         "heading": "<strong>Support Your Immune System & Gut Health, Naturally.</strong>",
         "heading_size": 40,
@@ -36,7 +39,20 @@
     },
     "usp_bar": {
       "type": "usp-bar",
-      "settings": {}
+      "settings": {
+        "bg_color": "#095946",
+        "text_color": "#ffffff",
+        "border_color": "#ffffff",
+        "font_size": 14,
+        "item_gap": 30,
+        "item_padding_vertical": 7,
+        "item_padding_horizontal": 0,
+        "text_1": "CLINICALLY STUDIED INGREDIENTS†",
+        "text_2": "THIRD PARTY TESTED",
+        "text_3": "CLEAN FORMULA",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
     }
   },
   "order": [
