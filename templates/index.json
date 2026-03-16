@@ -47,8 +47,11 @@
         "item_gap": 30,
         "item_padding_vertical": 7,
         "item_padding_horizontal": 0,
-        "text_1": "CLINICALLY STUDIED INGREDIENTS†",
+        "icon_1": "shopify://shop_images/usp1.svg",
+        "text_1": "CLINICALLY STUDIED INGREDIENTS",
+        "icon_2": "shopify://shop_images/usp2.svg",
         "text_2": "THIRD PARTY TESTED",
+        "icon_3": "shopify://shop_images/usp3.svg",
         "text_3": "CLEAN FORMULA",
         "padding_top": 16,
         "padding_bottom": 16
