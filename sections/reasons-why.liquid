@@ -134,6 +134,10 @@
       line-height: 1.3;
     }
     .rw-card__toggle {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      transform: none;
       margin-top: 0;
       flex-shrink: 0;
     }
@@ -195,12 +199,14 @@
 
   /* Toggle button */
   .rw-card__toggle {
-    position: relative;
+    position: absolute;
+    bottom: 17px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 11px;
     background: none;
     border: none;
     cursor: pointer;
