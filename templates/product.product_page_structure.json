@@ -323,7 +323,7 @@
           "type": "stat",
           "settings": {
             "percentage": 94,
-            "heading": "Said they felt fewer sick days",
+            "heading": "<strong>Said they felt fewer sick days</strong>",
             "caption": "after taking [BRAND]® consistently for 2+ weeks"
           }
         },
@@ -331,7 +331,7 @@
           "type": "stat",
           "settings": {
             "percentage": 96,
-            "heading": "Would recommend [BRAND]® to a friend",
+            "heading": "<strong>Would recommend [BRAND]® to a friend</strong>",
             "caption": "for natural immune and gut support"
           }
         },
@@ -339,7 +339,7 @@
           "type": "stat",
           "settings": {
             "percentage": 92,
-            "heading": "Noticed improved digestion & less bloating",
+            "heading": "<strong>Noticed improved digestion & less bloating</strong>",
             "caption": "especially after meals"
           }
         },
@@ -347,7 +347,7 @@
           "type": "stat",
           "settings": {
             "percentage": 89,
-            "heading": "Said they prefer [BRAND]®'s formula",
+            "heading": "<strong>Said they prefer [BRAND]®'s formula</strong>",
             "caption": "over other oregano supplements they've tried"
           }
         }
