@@ -358,9 +358,7 @@
         "stat_7gdyWK",
         "stat_BTktYW"
       ],
-      "custom_css": [
-        ".cp-cta__heading,strong,.cp-stat__pct {font-weight: bold;}"
-      ],
+      "custom_css": [],
       "name": "Clinical proven",
       "settings": {
         "bg_color": "#014c3e",
