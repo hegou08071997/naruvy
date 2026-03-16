@@ -325,10 +325,19 @@
       flex: 1;
       max-width: 13rem;
     }
-    .trust-card-v2__feature-box img {
+    .trust-card-v2__feature-icon {
+      display: inline-block;
       width: 3.6rem;
       height: 3.6rem;
-      object-fit: contain;
+      background-color: currentColor;
+      -webkit-mask-image: var(--icon-url);
+      mask-image: var(--icon-url);
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
     }
     .trust-card-v2__feature-box p {
       margin: 0;
@@ -1882,7 +1891,7 @@
                     {%- if f_text != blank -%}
                       <div class="trust-card-v2__feature-box">
                         {%- if f_icon != blank -%}
-                          <img src="{{ f_icon | image_url: width: 200 }}" alt="" loading="lazy" width="36" height="36">
+                          <span class="trust-card-v2__feature-icon" style="--icon-url: url('{{ f_icon | image_url: width: 200 }}')"></span>
                         {%- endif -%}
                         <p>{{ f_text }}</p>
                       </div>
