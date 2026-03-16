@@ -83,7 +83,6 @@
   .rw-card__front {
     flex: 1;
     min-height: 0;
-    overflow: hidden;
     transition: opacity 0.5s;
   }
   .rw-card.is-flipped .rw-card__front {
@@ -93,6 +92,8 @@
 
   .rw-card__image {
     width: 100%;
+    max-height: calc({{ section.settings.card_height }}px * 0.55);
+    object-fit: contain;
     border-radius: 4px;
     display: block;
   }
