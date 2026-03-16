@@ -211,27 +211,6 @@
             "page": ""
           }
         },
-        "trust_card": {
-          "type": "trust_card",
-          "disabled": true,
-          "settings": {
-            "heading": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?",
-            "item_1": "Odorless Formula",
-            "item_2": "Non-GMO",
-            "item_3": "No Artificial Additives",
-            "item_4": "Gluten-Free",
-            "item_5": "Gentle on the Stomach",
-            "item_6": "Easy-to-Swallow Softgels",
-            "icon_name": "verified",
-            "tagline": "<strong>Clean, High-Quality Formula</strong>",
-            "text_color": "#ffffff",
-            "gradient_start": "#08000c",
-            "gradient_end": "#9f3f3f",
-            "bg_image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "image_opacity": 15,
-            "border_radius": 12
-          }
-        },
         "trust_card_v2_BX8HtK": {
           "type": "trust_card_v2",
           "settings": {
@@ -250,11 +229,10 @@
             "item_4": "No Added Sugar",
             "item_5": "No Artificial Flavors",
             "item_6": "Gluten-Free",
-            "text_color": "#ffffff",
-            "title_color": "#ffffff",
-            "highlight_color": "#ffcfcf",
-            "bg_color": "#9f3f3f",
-            "bg_image": "shopify://shop_images/Rectangle_3.jpg",
+            "text_color": "#000000",
+            "title_color": "#000000",
+            "highlight_color": "#ff1493",
+            "bg_color": "#ff85c8",
             "image_opacity": 100,
             "border_radius": 10,
             "heading_size": 28,
@@ -293,7 +271,6 @@
         "collapsible_tab_akEwJj",
         "collapsible_tab_MTCgw9",
         "collapsible_tab_FPPE7p",
-        "trust_card",
         "trust_card_v2_BX8HtK",
         "testimonial_videos_block"
       ],
