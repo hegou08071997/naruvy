@@ -15,7 +15,6 @@
     "type_body_font": "poppins_n4",
     "body_scale": 100,
     "custom_font_enabled": true,
-    "custom_font_apply": "headings",
     "custom_font_heading_weight": 600,
     "page_width": 1600,
     "spacing_sections": 0,
@@ -125,6 +124,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "custom_font_apply": "headings",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

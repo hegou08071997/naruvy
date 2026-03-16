@@ -30,7 +30,7 @@
           "type": "statement",
           "settings": {
             "subtitle": "93% of customers report:",
-            "title": "<strong>Better sleep & recovery within two weeks</strong>",
+            "title": "Better sleep & recovery within two weeks",
             "title_size": 28
           }
         },
@@ -427,6 +427,9 @@
         "card_bYRYEb",
         "card_GPx6MR",
         "card_xANGWn"
+      ],
+      "custom_css": [
+        ".feature-card__text {color: #121212 !important;}"
       ],
       "settings": {
         "heading": "4 Clinically Studied Benefits of <strong>Aged Garlic</strong>",
