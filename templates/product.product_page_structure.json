@@ -372,7 +372,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Slippery Elm",
+            "title": "<strong>Slippery Elm</strong>",
             "text": "A natural herb that <strong>restores moisture from the inside out</strong> — rehydrating the tissue that keeps you comfortable and wet on your own, not just for a few hours.",
             "card_bg_color": ""
           }
@@ -381,7 +381,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Pineapple Fruit",
+            "title": "<strong>Pineapple Fruit</strong>",
             "text": "Real pineapple fruit powder that <strong>works from the inside to reduce odor naturally</strong> — supporting freshness and taste without sprays, wipes, or cover-ups.",
             "card_bg_color": ""
           }
@@ -390,7 +390,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Three-Part Formula",
+            "title": "<strong>Three-Part Formula</strong>",
             "text": "Slippery Elm, Bacillus Coagulans, and Pineapple Fruit — <strong>three ingredients working together from the inside</strong> so your body gets back to balanced, moist, and fresh on its own.",
             "card_bg_color": ""
           }
@@ -405,6 +405,8 @@
       "settings": {
         "heading": "Science-Backed Ingredients for <strong>Real Results</strong>",
         "highlight_color": "#ff1493",
+        "card_title_size": 22,
+        "card_title_highlight": "#ff1493",
         "section_bg_color": "",
         "text_alignment": "center",
         "card_border_radius": 12,
