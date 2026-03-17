@@ -580,28 +580,28 @@
           "type": "benefit",
           "settings": {
             "icon_name": "health_and_safety",
-            "title": "Daily Immune Defense"
+            "title": "Perfect pH Balance"
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
             "icon_name": "science",
-            "title": "Gut Health & Digestion Support"
+            "title": "Fight BV & UTIs"
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
             "icon_name": "bolt",
-            "title": "Boosts Energy & Clarity"
+            "title": "Eliminate Odors & Discharge"
           }
         },
         "benefit_4": {
           "type": "benefit",
           "settings": {
             "icon_name": "spa",
-            "title": "Soothes Inflammation"
+            "title": "Boost Natural Moisture"
           }
         }
       },
