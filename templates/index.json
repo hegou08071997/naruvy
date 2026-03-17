@@ -463,7 +463,7 @@
         "cta_link": "",
         "cta_height": 46,
         "cta_bg_color": "#ffd600",
-        "cta_text_color": "#121212",
+        "cta_text_color": "#000000",
         "cta_font_weight": "700",
         "note_text": "30-day money back guarantee",
         "padding_top": 36,
