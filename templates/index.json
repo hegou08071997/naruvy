@@ -12,7 +12,7 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "bg_color": "#e5f6cb",
+        "bg_color": "#fff0f6",
         "desktop_image": "shopify://shop_images/hero.jpg",
         "text_color": "#000000",
         "badge_text": "",
@@ -30,7 +30,7 @@
         "cta_function": "link",
         "cta_text": "Shop Resilia® Now",
         "cta_url": "shopify://products/kit-gua-sha-avena™",
-        "cta_bg_color": "#095946",
+        "cta_bg_color": "#ff1493",
         "cta_text_color": "#ffffff",
         "guarantee_text": "30-day money-back guarantee",
         "padding_top": 0,
@@ -40,7 +40,7 @@
     "usp_bar": {
       "type": "usp-bar",
       "settings": {
-        "bg_color": "#095946",
+        "bg_color": "#ff1493",
         "text_color": "#ffffff",
         "border_color": "#ffffff",
         "font_size": 14,
@@ -132,13 +132,13 @@
       "settings": {
         "heading": "Real Women, <strong>Real Results</strong>",
         "subheading": "See what our customers are saying:",
-        "highlight_color": "#009370",
-        "star_color": "#009370",
-        "verified_color": "#009370",
-        "tag_color": "#009370",
-        "tag_bg_color": "#e5f6cb",
+        "highlight_color": "#ff1493",
+        "star_color": "#ffd600",
+        "verified_color": "#d90078",
+        "tag_color": "#ff1493",
+        "tag_bg_color": "#fff0f6",
         "ticker_speed": 30,
-        "section_bg_color": "",
+        "section_bg_color": "#fff0f6",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -172,7 +172,7 @@
           "type": "benefits_list",
           "settings": {
             "text_color": "#121212",
-            "icon_color": "#9f3f3f",
+            "icon_color": "#d90078",
             "benefit_1": "Promotes cardiovascular wellness and vitality",
             "benefit_2": "24-month aged - completely odorless",
             "benefit_3": "Supports Heart Health and Arterial Function",
