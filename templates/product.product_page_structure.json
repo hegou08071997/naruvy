@@ -769,20 +769,20 @@
           "type": "milestone",
           "settings": {
             "week_label": "Week 1: The Shift Starts",
-            "bullets": "<ul><li>The odor starts fading.</li><li>You feel a little less dry.</li><li>Nothing dramatic yet — your body is adjusting. Keep going.</li></ul>"
+            "bullets": "<ul><li>Odor starts fading day by day</li><li>Dryness and discomfort begin to ease up</li><li>Your body is adjusting, keep going</li></ul>"
           }
         },
         "wj_2": {
           "type": "milestone",
           "settings": {
-            "week_label": "Week 2: Energy Returns",
-            "bullets": "<ul><li>More stable daily energy</li><li>Less brain fog and fatigue</li><li>Immune system feels stronger and more responsive</li></ul>"
+            "week_label": "Week 2: You Start Noticing",
+            "bullets": "<ul><li>Moisture is coming back.</li><li>Not fake-wet from a product. Your body doing it on its own.</li><li>The discharge calms down. You stop checking as often.</li></ul>"
           }
         },
         "wj_3": {
           "type": "milestone",
           "settings": {
-            "week_label": "Week 3: Gut + Immune Sync",
+            "week_label": "Week 3: Your Body Remembers",
             "bullets": "<ul><li>Improved regularity and gut comfort</li><li>Fewer signs of inflammation (skin, joints, sinuses)</li><li>You feel more \"in control\" of your health</li></ul>"
           }
         },
