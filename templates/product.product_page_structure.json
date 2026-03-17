@@ -603,13 +603,21 @@
             "icon_name": "spa",
             "title": "Boost Natural Moisture"
           }
+        },
+        "benefit_VBRc7d": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "check_circle",
+            "title": "Benefit title"
+          }
         }
       },
       "block_order": [
         "benefit_1",
         "benefit_2",
         "benefit_3",
-        "benefit_4"
+        "benefit_4",
+        "benefit_VBRc7d"
       ],
       "settings": {
         "heading": "<strong>Feel Better.</strong> Every Day.",
@@ -633,7 +641,7 @@
         "pb_1": {
           "type": "benefit",
           "settings": {
-            "title": "Immunity",
+            "title": "Pineapple Magic",
             "description": "Strengthen your body",
             "answer": "Oregano oil is packed with carvacrol, a powerful compound shown to fight off bacteria and viruses—supporting your immune system every single day."
           }
@@ -670,8 +678,8 @@
         "pb_4"
       ],
       "settings": {
-        "heading": "<strong>Proven Benefits.</strong> Backed by Science.",
-        "subheading": "Your body deserves more than empty claims. Huuha Queen<strong>® delivers real, measurable results</strong> using ingredients with decades of clinical research.",
+        "heading": "<strong>How it Works.</strong> Backed by Science.",
+        "subheading": "You deserve to feel balanced, not feel like nothing works. <strong>Huuha Queen™ delivers real, long-lasting results </strong>using ingredients with decades of backed-research.",
         "highlight_color": "#ff1493",
         "bg_color": "#fff6fa",
         "cta_text": "Try Risk-Free Today",
