@@ -57,29 +57,53 @@
         "ticker_item_1": {
           "type": "ticker_item",
           "settings": {
-            "text": "Subscribe & Save",
-            "icon_name": "loyalty"
+            "text": "End Dryness",
+            "icon_name": "verified"
           }
         },
-        "ticker_item_2": {
+        "ticker_item_zC3Fe3": {
           "type": "ticker_item",
           "settings": {
-            "text": "Buy 2 Get 1 Free",
-            "icon_name": "card_giftcard"
+            "text": "Stop Odor",
+            "icon_name": "verified"
           }
         },
-        "ticker_item_3": {
+        "ticker_item_B7FHL3": {
           "type": "ticker_item",
           "settings": {
-            "text": "Up To 70% Off",
-            "icon_name": "sell"
+            "text": "Balance pH",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_LnWmLW": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Prevent BV & Yeast",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_YAU8MH": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Boost Moisture",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_UqjmUe": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "No More Itch",
+            "icon_name": "verified"
           }
         }
       },
       "block_order": [
         "ticker_item_1",
-        "ticker_item_2",
-        "ticker_item_3"
+        "ticker_item_zC3Fe3",
+        "ticker_item_B7FHL3",
+        "ticker_item_LnWmLW",
+        "ticker_item_YAU8MH",
+        "ticker_item_UqjmUe"
       ],
       "settings": {
         "background_color": "#ff1493",
