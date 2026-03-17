@@ -372,8 +372,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Feature title",
-            "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
+            "title": "Slippery Elm",
+            "text": "A natural herb that <strong>restores moisture from the inside out</strong> — rehydrating the tissue that keeps you comfortable and wet on your own, not just for a few hours.",
             "card_bg_color": ""
           }
         },
@@ -381,7 +381,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Feature title",
+            "title": "Pineapple Fruit",
             "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
             "card_bg_color": ""
           }
@@ -390,7 +390,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Feature title",
+            "title": "Three-Part Formula",
             "text": "Pair text with an image to focus on your chosen product, collection, or blog post.",
             "card_bg_color": ""
           }
