@@ -28,7 +28,7 @@
         "heading_size": 40,
         "subheadline": "Clinically backed Probiotics + Slippery Elm in one clean, effective daily gummy.",
         "cta_function": "link",
-        "cta_text": "Shop Resilia® Now",
+        "cta_text": "Shop [BRAND]® Now",
         "cta_url": "shopify://products/kit-gua-sha-avena™",
         "cta_bg_color": "#ffd600",
         "cta_text_color": "#000000",
@@ -247,7 +247,7 @@
         "trust_card_v2_fp": {
           "type": "trust_card_v2",
           "settings": {
-            "heading": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?",
+            "heading": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?",
             "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
             "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
