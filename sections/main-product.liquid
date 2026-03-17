@@ -120,11 +120,19 @@
       font-weight: 300;
       user-select: none;
     }
-    .trust-microcopy--count-1 { font-size: var(--trust-size); }
-    .trust-microcopy--count-2 { font-size: var(--trust-size-2); }
+    .trust-microcopy--count-1 {
+      font-size: var(--trust-size);
+    }
+    .trust-microcopy--count-2 {
+      font-size: var(--trust-size-2);
+    }
     @media screen and (max-width: 749px) {
-      .trust-microcopy--count-1 { font-size: calc(var(--trust-size) * 0.85); }
-      .trust-microcopy--count-2 { font-size: calc(var(--trust-size-2) * 0.85); }
+      .trust-microcopy--count-1 {
+        font-size: calc(var(--trust-size) * 0.85);
+      }
+      .trust-microcopy--count-2 {
+        font-size: calc(var(--trust-size-2) * 0.85);
+      }
     }
 
     /* Urgency notice */
@@ -182,7 +190,8 @@
     }
     .trust-card__bg-image {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -255,7 +264,8 @@
     }
     .trust-card-v2__bg-image {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -772,46 +782,73 @@
 
     /* Per-device visibility */
     .sticky-atc .mobile-hidden,
-    .sticky-atc .desktop-hidden { }
+    .sticky-atc .desktop-hidden {
+    }
     @media screen and (max-width: 749px) {
-      .sticky-atc .mobile-hidden { display: none !important; }
-      .sticky-atc__title { font-size: 1.2rem; }
-      .sticky-atc__button .button { padding: 0.8rem 1.5rem; }
+      .sticky-atc .mobile-hidden {
+        display: none !important;
+      }
+      .sticky-atc__title {
+        font-size: 1.2rem;
+      }
+      .sticky-atc__button .button {
+        padding: 0.8rem 1.5rem;
+      }
       .sticky-atc--small-mobile-select .sticky-atc__picker--combined select {
         font-size: 1.1rem;
         max-width: 120px;
       }
     }
     @media screen and (min-width: 750px) {
-      .sticky-atc .desktop-hidden { display: none !important; }
+      .sticky-atc .desktop-hidden {
+        display: none !important;
+      }
     }
 
     /* Sale badge visibility */
     @media screen and (max-width: 749px) {
       .sticky-atc--mobile-no-badge .price__badge-sale,
-      .sticky-atc--mobile-no-badge .price__badge-sold-out { display: none !important; }
+      .sticky-atc--mobile-no-badge .price__badge-sold-out {
+        display: none !important;
+      }
     }
     @media screen and (min-width: 750px) {
       .sticky-atc--desktop-no-badge .price__badge-sale,
-      .sticky-atc--desktop-no-badge .price__badge-sold-out { display: none !important; }
+      .sticky-atc--desktop-no-badge .price__badge-sold-out {
+        display: none !important;
+      }
     }
 
     /* Transparent background */
     @media screen and (max-width: 749px) {
-      .sticky-atc--mobile-transparent { background: transparent !important; box-shadow: none; }
+      .sticky-atc--mobile-transparent {
+        background: transparent !important;
+        box-shadow: none;
+      }
     }
     @media screen and (min-width: 750px) {
-      .sticky-atc--desktop-transparent { background: transparent !important; box-shadow: none; }
+      .sticky-atc--desktop-transparent {
+        background: transparent !important;
+        box-shadow: none;
+      }
     }
 
     /* Full button width */
     @media screen and (min-width: 750px) {
-      .sticky-atc--desktop-btn-full .sticky-atc__button { flex: 1; }
-      .sticky-atc--desktop-btn-full .sticky-atc__button .button { width: 100%; }
+      .sticky-atc--desktop-btn-full .sticky-atc__button {
+        flex: 1;
+      }
+      .sticky-atc--desktop-btn-full .sticky-atc__button .button {
+        width: 100%;
+      }
     }
     @media screen and (max-width: 749px) {
-      .sticky-atc--mobile-btn-full .sticky-atc__button { flex: 1; }
-      .sticky-atc--mobile-btn-full .sticky-atc__button .button { width: 100%; }
+      .sticky-atc--mobile-btn-full .sticky-atc__button {
+        flex: 1;
+      }
+      .sticky-atc--mobile-btn-full .sticky-atc__button .button {
+        width: 100%;
+      }
     }
   </style>
 
@@ -908,11 +945,19 @@
                   <div class="star-rating__stars" aria-hidden="true">
                     {%- for i in (1..5) -%}
                       {%- if i <= rating_floor -%}
-                        <svg class="star-rating__star star-rating__star--full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <svg
+                          class="star-rating__star star-rating__star--full"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                        >
                           <path fill="{{ block.settings.star_color }}" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                         </svg>
                       {%- elsif i == partial_star_index and rating_remainder > 0 -%}
-                        <svg class="star-rating__star star-rating__star--partial" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <svg
+                          class="star-rating__star star-rating__star--partial"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                        >
                           <defs>
                             <linearGradient id="star-grad-{{ block.id }}">
                               <stop offset="{{ partial_fill_pct }}%" stop-color="{{ block.settings.star_color }}"/>
@@ -922,7 +967,11 @@
                           <path fill="url(#star-grad-{{ block.id }})" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                         </svg>
                       {%- else -%}
-                        <svg class="star-rating__star star-rating__star--empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <svg
+                          class="star-rating__star star-rating__star--empty"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                        >
                           <path fill="{{ block.settings.star_bg_color }}" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                         </svg>
                       {%- endif -%}
@@ -942,8 +991,14 @@
                   </a>
                 </div>
               {%- when 'benefits_list' -%}
-                <div class="product__benefits-list" style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}" {{ block.shopify_attributes }}>
-                  {%- assign benefit_texts = 'benefit_1,benefit_2,benefit_3,benefit_4,benefit_5,benefit_6' | split: ',' -%}
+                <div
+                  class="product__benefits-list"
+                  style="{% if block.settings.text_color != blank %}color: {{ block.settings.text_color }};{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- assign benefit_texts = 'benefit_1,benefit_2,benefit_3,benefit_4,benefit_5,benefit_6'
+                    | split: ','
+                  -%}
                   {%- assign benefit_icons = 'icon_1,icon_2,icon_3,icon_4,icon_5,icon_6' | split: ',' -%}
                   {%- for benefit_id in benefit_texts -%}
                     {%- assign txt = block.settings[benefit_id] -%}
@@ -954,7 +1009,13 @@
                           {%- if img != blank -%}
                             <img src="{{ img | image_url: width: 48 }}" alt="" width="24" height="24" loading="lazy">
                           {%- else -%}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.icon_color }}"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="{{ block.settings.icon_color }}"
+                            >
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
                           {%- endif -%}
                         </span>
                         <span class="benefit-item__text">{{ txt }}</span>
@@ -1091,7 +1152,10 @@
                 {{ block.settings.custom_liquid }}
               {%- when 'testimonial_videos' -%}
               {%- when 'collapsible_tab' -%}
-                <div class="product__accordion product__accordion--mobile accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                <div
+                  class="product__accordion product__accordion--mobile accordion quick-add-hidden"
+                  {{ block.shopify_attributes }}
+                >
                   <details id="Details-mobile-{{ block.id }}-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
@@ -1099,7 +1163,9 @@
                         <h2 class="h4 accordion__title inline-richtext">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
-                        <span class="toggle-icon"><span class="toggle-plus">+</span><span class="toggle-minus">&minus;</span></span>
+                        <span class="toggle-icon"
+                          ><span class="toggle-plus">+</span><span class="toggle-minus">&minus;</span></span
+                        >
                       </div>
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-mobile-{{ block.id }}-{{ section.id }}">
@@ -1582,7 +1648,10 @@
                   endfor
                 -%}
                 {%- if has_google_icon -%}
-                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+                  <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+                  >
                 {%- endif -%}
                 {%- if trust_count > 0 -%}
                   <div
@@ -1608,10 +1677,18 @@
                         <span class="trust-microcopy__item">
                           {%- if icon_img != blank -%}
                             <span class="trust-microcopy__icon">
-                              <img src="{{ icon_img | image_url: width: 40 }}" alt="" loading="lazy" width="17" height="17">
+                              <img
+                                src="{{ icon_img | image_url: width: 40 }}"
+                                alt=""
+                                loading="lazy"
+                                width="17"
+                                height="17"
+                              >
                             </span>
                           {%- elsif icon_name != blank -%}
-                            <span class="trust-microcopy__icon material-symbols-outlined" aria-hidden="true">{{ icon_name }}</span>
+                            <span class="trust-microcopy__icon material-symbols-outlined" aria-hidden="true">
+                              {{- icon_name -}}
+                            </span>
                           {%- endif -%}
                           <span>{{ tval }}</span>
                         </span>
@@ -1644,7 +1721,12 @@
                           <div class="social-proof-banner__avatar{% if rendered == avatar_count %} social-proof-banner__avatar--last{% endif %}">
                             <img src="{{ aimg | image_url: width: 100 }}" alt="" loading="lazy" width="40" height="40">
                             {%- if rendered == avatar_count -%}
-                              <svg xmlns="http://www.w3.org/2000/svg" class="social-proof-banner__badge" viewBox="0 0 122.88 116.87" aria-hidden="true">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="social-proof-banner__badge"
+                                viewBox="0 0 122.88 116.87"
+                                aria-hidden="true"
+                              >
                                 <polygon fill="{{ block.settings.badge_color }}" fill-rule="evenodd" points="61.37 8.24 80.43 0 90.88 17.79 111.15 22.32 109.15 42.85 122.88 58.43 109.2 73.87 111.15 94.55 91 99 80.43 116.87 61.51 108.62 42.45 116.87 32 99.08 11.73 94.55 13.73 74.01 0 58.43 13.68 42.99 11.73 22.32 31.88 17.87 42.45 0 61.37 8.24 61.37 8.24"/>
                                 <path fill="#ffffff" d="M37.92,65c-6.07-6.53,3.25-16.26,10-10.1,2.38,2.17,5.84,5.34,8.24,7.49L74.66,39.66C81.1,33,91.27,42.78,84.91,49.48L61.67,77.2a7.13,7.13,0,0,1-9.9.44C47.83,73.89,42.05,68.5,37.92,65Z"/>
                               </svg>
@@ -1675,7 +1757,10 @@
                   endif
                 -%}
                 {%- if un_has_google_icon -%}
-                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+                  <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+                  >
                 {%- endif -%}
                 <div
                   class="urgency-notice{% if block.settings.border_width > 0 %} urgency-notice--has-border{% endif %}"
@@ -1697,11 +1782,28 @@
                     <div class="urgency-notice__line">
                       {%- if un_has_icon -%}
                         {%- if block.settings.icon_image != blank -%}
-                          <span class="urgency-notice__icon"{% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %} style="color: {{ block.settings.icon_color }};"{% endif %}>
-                            <img src="{{ block.settings.icon_image | image_url: width: 40 }}" alt="" loading="lazy" width="1em" height="1em">
+                          <span
+                            class="urgency-notice__icon"
+                            {% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %}
+                              style="color: {{ block.settings.icon_color }};"
+                            {% endif %}
+                          >
+                            <img
+                              src="{{ block.settings.icon_image | image_url: width: 40 }}"
+                              alt=""
+                              loading="lazy"
+                              width="1em"
+                              height="1em"
+                            >
                           </span>
                         {%- elsif block.settings.icon_name != blank -%}
-                          <span class="urgency-notice__icon material-symbols-outlined" style="{% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %}color: {{ block.settings.icon_color }};{% endif %}" aria-hidden="true">{{ block.settings.icon_name }}</span>
+                          <span
+                            class="urgency-notice__icon material-symbols-outlined"
+                            style="{% if block.settings.icon_color != blank and block.settings.icon_color != 'rgba(0,0,0,0)' %}color: {{ block.settings.icon_color }};{% endif %}"
+                            aria-hidden="true"
+                          >
+                            {{- block.settings.icon_name -}}
+                          </span>
                         {%- endif -%}
                       {%- endif -%}
                       <span>{{ block.settings.line_1 }}</span>
@@ -1724,7 +1826,10 @@
                     endif
                   endfor
                 -%}
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+                <link
+                  rel="stylesheet"
+                  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+                >
                 <div
                   class="trust-card"
                   style="
@@ -1736,7 +1841,12 @@
                   {{ block.shopify_attributes }}
                 >
                   {%- if block.settings.bg_image != blank -%}
-                    <img class="trust-card__bg-image" src="{{ block.settings.bg_image | image_url: width: 800 }}" alt="" loading="lazy">
+                    <img
+                      class="trust-card__bg-image"
+                      src="{{ block.settings.bg_image | image_url: width: 800 }}"
+                      alt=""
+                      loading="lazy"
+                    >
                   {%- else -%}
                     {{ 'lifestyle-2' | placeholder_svg_tag: 'trust-card__bg-image' }}
                   {%- endif -%}
@@ -1750,7 +1860,9 @@
                           {%- assign tval = block.settings[tid] -%}
                           {%- if tval != blank -%}
                             <div class="trust-card__item">
-                              <span class="material-symbols-outlined" aria-hidden="true">{{ block.settings.icon_name }}</span>
+                              <span class="material-symbols-outlined" aria-hidden="true">
+                                {{- block.settings.icon_name -}}
+                              </span>
                               <span>{{ tval }}</span>
                             </div>
                           {%- endif -%}
@@ -1779,7 +1891,12 @@
                   {{ block.shopify_attributes }}
                 >
                   {%- if block.settings.bg_image != blank -%}
-                    <img class="trust-card-v2__bg-image" src="{{ block.settings.bg_image | image_url: width: 1200 }}" alt="" loading="lazy">
+                    <img
+                      class="trust-card-v2__bg-image"
+                      src="{{ block.settings.bg_image | image_url: width: 1200 }}"
+                      alt=""
+                      loading="lazy"
+                    >
                   {%- endif -%}
                   <div class="trust-card-v2__content">
                     {%- if block.settings.heading != blank -%}
@@ -1806,7 +1923,10 @@
                         {%- if f_text != blank -%}
                           <div class="trust-card-v2__feature-box">
                             {%- if f_icon != blank -%}
-                              <span class="trust-card-v2__feature-icon" style="--icon-url: url('{{ f_icon | image_url: width: 200 }}')"></span>
+                              <span
+                                class="trust-card-v2__feature-icon"
+                                style="--icon-url: url('{{ f_icon | image_url: width: 200 }}')"
+                              ></span>
                             {%- endif -%}
                             <p>{{ f_text }}</p>
                           </div>
@@ -1819,7 +1939,15 @@
                         {%- assign tval = block.settings[tid] -%}
                         {%- if tval != blank -%}
                           <div class="trust-card-v2__item">
-                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.903 7.626c-.319-.277-.735-.567-.716-1.033.02-.496.204-.975.268-1.467.059-.453.022-.939-.308-1.286-.294-.308-.727-.42-1.135-.477-.457-.065-.957-.035-1.394-.197-.407-.15-.558-.716-.712-1.076-.163-.38-.338-.779-.637-1.074-.343-.339-.808-.43-1.267-.297-.522.153-.962.496-1.44.743a1.53 1.53 0 01-.588.178c-.238-.02-.47-.154-.673-.27-.461-.26-.917-.599-1.45-.693-.46-.082-.888.092-1.187.445-.275.324-.436.729-.601 1.116-.173.406-.326.856-.796.97-.801.195-1.923-.015-2.479.748-.283.388-.263.89-.185 1.341.08.467.285.966.239 1.445-.04.418-.546.736-.833.989-.328.288-.672.604-.837 1.019-.38.955.519 1.643 1.143 2.201.162.145.337.298.45.486.112.182.088.408.058.61-.073.493-.24.97-.267 1.47-.025.454.099.906.476 1.189.34.256.782.328 1.194.373.23.025.462.04.692.069.213.026.47.051.65.182.162.118.258.33.342.505.106.223.197.452.297.677.167.373.366.764.701 1.014.407.303.907.274 1.357.087.497-.207.921-.558 1.42-.76.469-.19.875.089 1.273.326.443.263.926.582 1.461.582.452 0 .817-.264 1.066-.624.253-.365.4-.788.582-1.189.088-.196.182-.41.334-.566.149-.151.387-.188.587-.218.798-.12 1.959-.019 2.366-.897.2-.43.122-.931.029-1.378-.05-.241-.112-.48-.155-.723-.037-.204-.087-.457-.001-.658.158-.369.585-.639.875-.898.3-.269.605-.567.757-.948.342-.86-.369-1.528-.958-2.04zm.145 1.655c-.084.34-.477.614-.728.831l.16-.136c-.358.312-.761.644-.933 1.103-.19.51-.047 1.08.069 1.59.066.29.313.975-.004 1.195-.157.11-.371.139-.557.165-.255.036-.512.052-.768.079-.462.05-.956.134-1.309.463-.35.327-.53.798-.714 1.229-.117.274-.324.963-.718.927-.219-.02-.429-.146-.616-.251-.25-.14-.49-.295-.743-.43-.47-.249-.961-.389-1.485-.226-.52.162-.957.502-1.436.748-.154.078-.388.21-.568.15-.18-.057-.292-.276-.373-.43-.23-.433-.37-.91-.63-1.327-.257-.416-.621-.662-1.096-.77-.48-.107-.955-.094-1.457-.187-.154-.03-.364-.071-.464-.208-.113-.155-.067-.41-.04-.584.082-.53.27-1.045.269-1.586-.001-.525-.255-.927-.62-1.284-.347-.338-.809-.623-1.065-1.042-.247-.403.247-.774.517-1.013.365-.322.78-.637 1.01-1.077.25-.478.153-1.037.043-1.543-.054-.245-.116-.489-.154-.737-.027-.174-.073-.429.04-.585.099-.136.31-.177.464-.207.25-.048.505-.065.757-.089.465-.043.972-.094 1.361-.377.386-.28.588-.745.77-1.17.093-.218.182-.439.294-.649.081-.154.193-.373.373-.43.181-.058.412.07.567.149.254.13.494.286.742.427.452.258.947.477 1.477.366.53-.11.983-.442 1.446-.703.186-.105.397-.23.615-.25.197-.018.321.149.415.3.497.8.605 1.887 1.64 2.194.357.106.733.129 1.101.163.286.027.75.023.965.25.197.208.056.67.005.908-.09.424-.213.85-.213 1.286.002.857.687 1.336 1.262 1.86.19.172.566.471.493.77z" fill="currentColor"/><path d="M11.734 6.868c-1.144 1.247-2.288 2.494-3.433 3.741-.042.047-.043.077-.097.045-.16-.095-.322-.19-.483-.284-.454-.268-.909-.536-1.364-.804-.162-.095-.317-.196-.517-.133-.368.115-.415.621-.088.814.344.203.689.406 1.034.609.414.244.828.488 1.242.732.264.156.497.1.697-.118.62-.675 1.239-1.351 1.858-2.026.496-.54.993-1.081 1.489-1.622.104-.114.209-.228.313-.342.394-.429-.256-1.041-.65-.612z" fill="currentColor"/></svg>
+                            <svg
+                              width="18"
+                              height="19"
+                              viewBox="0 0 18 19"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M16.903 7.626c-.319-.277-.735-.567-.716-1.033.02-.496.204-.975.268-1.467.059-.453.022-.939-.308-1.286-.294-.308-.727-.42-1.135-.477-.457-.065-.957-.035-1.394-.197-.407-.15-.558-.716-.712-1.076-.163-.38-.338-.779-.637-1.074-.343-.339-.808-.43-1.267-.297-.522.153-.962.496-1.44.743a1.53 1.53 0 01-.588.178c-.238-.02-.47-.154-.673-.27-.461-.26-.917-.599-1.45-.693-.46-.082-.888.092-1.187.445-.275.324-.436.729-.601 1.116-.173.406-.326.856-.796.97-.801.195-1.923-.015-2.479.748-.283.388-.263.89-.185 1.341.08.467.285.966.239 1.445-.04.418-.546.736-.833.989-.328.288-.672.604-.837 1.019-.38.955.519 1.643 1.143 2.201.162.145.337.298.45.486.112.182.088.408.058.61-.073.493-.24.97-.267 1.47-.025.454.099.906.476 1.189.34.256.782.328 1.194.373.23.025.462.04.692.069.213.026.47.051.65.182.162.118.258.33.342.505.106.223.197.452.297.677.167.373.366.764.701 1.014.407.303.907.274 1.357.087.497-.207.921-.558 1.42-.76.469-.19.875.089 1.273.326.443.263.926.582 1.461.582.452 0 .817-.264 1.066-.624.253-.365.4-.788.582-1.189.088-.196.182-.41.334-.566.149-.151.387-.188.587-.218.798-.12 1.959-.019 2.366-.897.2-.43.122-.931.029-1.378-.05-.241-.112-.48-.155-.723-.037-.204-.087-.457-.001-.658.158-.369.585-.639.875-.898.3-.269.605-.567.757-.948.342-.86-.369-1.528-.958-2.04zm.145 1.655c-.084.34-.477.614-.728.831l.16-.136c-.358.312-.761.644-.933 1.103-.19.51-.047 1.08.069 1.59.066.29.313.975-.004 1.195-.157.11-.371.139-.557.165-.255.036-.512.052-.768.079-.462.05-.956.134-1.309.463-.35.327-.53.798-.714 1.229-.117.274-.324.963-.718.927-.219-.02-.429-.146-.616-.251-.25-.14-.49-.295-.743-.43-.47-.249-.961-.389-1.485-.226-.52.162-.957.502-1.436.748-.154.078-.388.21-.568.15-.18-.057-.292-.276-.373-.43-.23-.433-.37-.91-.63-1.327-.257-.416-.621-.662-1.096-.77-.48-.107-.955-.094-1.457-.187-.154-.03-.364-.071-.464-.208-.113-.155-.067-.41-.04-.584.082-.53.27-1.045.269-1.586-.001-.525-.255-.927-.62-1.284-.347-.338-.809-.623-1.065-1.042-.247-.403.247-.774.517-1.013.365-.322.78-.637 1.01-1.077.25-.478.153-1.037.043-1.543-.054-.245-.116-.489-.154-.737-.027-.174-.073-.429.04-.585.099-.136.31-.177.464-.207.25-.048.505-.065.757-.089.465-.043.972-.094 1.361-.377.386-.28.588-.745.77-1.17.093-.218.182-.439.294-.649.081-.154.193-.373.373-.43.181-.058.412.07.567.149.254.13.494.286.742.427.452.258.947.477 1.477.366.53-.11.983-.442 1.446-.703.186-.105.397-.23.615-.25.197-.018.321.149.415.3.497.8.605 1.887 1.64 2.194.357.106.733.129 1.101.163.286.027.75.023.965.25.197.208.056.67.005.908-.09.424-.213.85-.213 1.286.002.857.687 1.336 1.262 1.86.19.172.566.471.493.77z" fill="currentColor"/><path d="M11.734 6.868c-1.144 1.247-2.288 2.494-3.433 3.741-.042.047-.043.077-.097.045-.16-.095-.322-.19-.483-.284-.454-.268-.909-.536-1.364-.804-.162-.095-.317-.196-.517-.133-.368.115-.415.621-.088.814.344.203.689.406 1.034.609.414.244.828.488 1.242.732.264.156.497.1.697-.118.62-.675 1.239-1.351 1.858-2.026.496-.54.993-1.081 1.489-1.622.104-.114.209-.228.313-.342.394-.429-.256-1.041-.65-.612z" fill="currentColor"/>
+                            </svg>
                             <span>{{ tval }}</span>
                           </div>
                         {%- endif -%}
@@ -1850,7 +1978,8 @@
                 {% endif %}
                 <sticky-atc
                   id="sticky-atc-{{ section.id }}"
-                  class="sticky-atc color-{{ block.settings.color_scheme }}
+                  class="
+                    sticky-atc color-{{ block.settings.color_scheme }}
                     {%- unless block.settings.mobile_show_sale_badge %} sticky-atc--mobile-no-badge{% endunless -%}
                     {%- unless block.settings.desktop_show_sale_badge %} sticky-atc--desktop-no-badge{% endunless -%}
                     {%- if block.settings.mobile_transparent_bg %} sticky-atc--mobile-transparent{% endif -%}
@@ -1866,15 +1995,21 @@
                   {%- endif %}
                   {{ block.shopify_attributes }}
                 >
-                  <div class="sticky-atc-container page-width
-                    {%- if block.settings.desktop_full_button_width %} sticky-atc--desktop-btn-full{% endif -%}
-                    {%- if block.settings.mobile_full_button_width %} sticky-atc--mobile-btn-full{% endif -%}
-                  ">
+                  <div
+                    class="
+                      sticky-atc-container page-width
+                      {%- if block.settings.desktop_full_button_width %} sticky-atc--desktop-btn-full{% endif -%}
+                      {%- if block.settings.mobile_full_button_width %} sticky-atc--mobile-btn-full{% endif -%}
+                    "
+                  >
                     {%- if block.settings.mobile_show_image or block.settings.desktop_show_image -%}
-                      <div class="sticky-atc__image
-                        {%- unless block.settings.mobile_show_image %} mobile-hidden{% endunless -%}
-                        {%- unless block.settings.desktop_show_image %} desktop-hidden{% endunless -%}
-                      ">
+                      <div
+                        class="
+                          sticky-atc__image
+                          {%- unless block.settings.mobile_show_image %} mobile-hidden{% endunless -%}
+                          {%- unless block.settings.desktop_show_image %} desktop-hidden{% endunless -%}
+                        "
+                      >
                         <img
                           id="sticky-atc-image-{{ section.id }}"
                           src="{{ product.featured_image | image_url: width: 500 }}"
@@ -1889,22 +2024,33 @@
                     <div class="sticky-atc__left">
                       <div class="sticky-atc__left__content">
                         {% if block.settings.mobile_show_title or block.settings.desktop_show_title %}
-                          <h4 class="sticky-atc__title
-                            {%- unless block.settings.mobile_show_title %} mobile-hidden{% endunless -%}
-                            {%- unless block.settings.desktop_show_title %} desktop-hidden{% endunless -%}
-                          ">
+                          <h4
+                            class="
+                              sticky-atc__title
+                              {%- unless block.settings.mobile_show_title %} mobile-hidden{% endunless -%}
+                              {%- unless block.settings.desktop_show_title %} desktop-hidden{% endunless -%}
+                            "
+                          >
                             {{ product.title }}
                           </h4>
                         {% endif %}
 
                         {% if block.settings.mobile_rating_stars or block.settings.desktop_rating_stars %}
-                          <div class="sticky-atc__stars
-                            {%- unless block.settings.mobile_rating_stars %} mobile-hidden{% endunless -%}
-                            {%- unless block.settings.desktop_rating_stars %} desktop-hidden{% endunless -%}
-                          " style="--bg-star-color:{{ block.settings.star_color }};">
+                          <div
+                            class="
+                              sticky-atc__stars
+                              {%- unless block.settings.mobile_rating_stars %} mobile-hidden{% endunless -%}
+                              {%- unless block.settings.desktop_rating_stars %} desktop-hidden{% endunless -%}
+                            "
+                            style="--bg-star-color:{{ block.settings.star_color }};"
+                          >
                             <div class="rating-stars__container">
                               {%- for i in (1..5) -%}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="{{ block.settings.star_color }}">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 576 512"
+                                  fill="{{ block.settings.star_color }}"
+                                >
                                   <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                                 </svg>
                               {%- endfor -%}
@@ -1914,10 +2060,14 @@
                         {% endif %}
 
                         {%- if block.settings.mobile_show_price or block.settings.desktop_show_price -%}
-                          <div class="sticky-atc__price
-                            {%- unless block.settings.mobile_show_price %} mobile-hidden{% endunless -%}
-                            {%- unless block.settings.desktop_show_price %} desktop-hidden{% endunless -%}
-                          " id="sticky-atc-separate-price-{{ section.id }}">
+                          <div
+                            class="
+                              sticky-atc__price
+                              {%- unless block.settings.mobile_show_price %} mobile-hidden{% endunless -%}
+                              {%- unless block.settings.desktop_show_price %} desktop-hidden{% endunless -%}
+                            "
+                            id="sticky-atc-separate-price-{{ section.id }}"
+                          >
                             {%- render 'price',
                               product: product,
                               use_variant: true,
@@ -1932,7 +2082,8 @@
                         {% unless product.has_only_default_variant %}
                           <sticky-variant-select
                             id="StickyAtcVariantPicker-{{ section.id }}"
-                            class="sticky-atc__picker--combined no-js-hidden
+                            class="
+                              sticky-atc__picker--combined no-js-hidden
                               {%- unless block.settings.mobile_variant_picker %} mobile-hidden{% endunless -%}
                               {%- unless block.settings.desktop_variant_picker %} desktop-hidden{% endunless -%}
                             "
@@ -1947,8 +2098,12 @@
                                       value="{{ variant.options | join: ',' | escape }}"
                                       data-options="{{ variant.options | join: ',' }}"
                                       data-variant-id="{{ variant.id }}"
-                                      {% if product.selected_or_first_available_variant.id == variant.id %}selected{% endif %}
-                                      {% unless variant.available %}disabled{% endunless %}
+                                      {% if product.selected_or_first_available_variant.id == variant.id %}
+                                        selected
+                                      {% endif %}
+                                      {% unless variant.available %}
+                                        disabled
+                                      {% endunless %}
                                     >
                                       {{ variant.title }}
                                     </option>
@@ -1959,7 +2114,9 @@
                                 </svg>
                               </div>
                             </div>
-                            <script type="application/json">{{ product.variants | json }}</script>
+                            <script type="application/json">
+                              {{ product.variants | json }}
+                            </script>
                           </sticky-variant-select>
                         {% endunless %}
                       {%- endif -%}
@@ -1980,17 +2137,30 @@
                         type="button"
                         class="button"
                         style="font-size:{{ block.settings.button_font_size }}rem;font-weight:{{ block.settings.button_font_weight }};text-transform:{{ block.settings.button_text_transform }};"
-                        {% if block.settings.function == 'add_to_cart' and product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}disabled{% endif %}
+                        {% if block.settings.function == 'add_to_cart'
+                          and product.selected_or_first_available_variant.available == false
+                          or quantity_rule_soldout
+                        %}
+                          disabled
+                        {% endif %}
                       >
                         <span class="sticky-atc__label">
-                          {%- if block.settings.function == 'add_to_cart' and product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                          {%- if block.settings.function == 'add_to_cart'
+                            and product.selected_or_first_available_variant.available == false
+                            or quantity_rule_soldout
+                          -%}
                             {{ 'products.product.sold_out' | t }}
                           {%- else -%}
-                            {% if block.settings.mobile_show_price_in_button or block.settings.desktop_show_price_in_button %}
-                              <span id="sticky-atc-price-{{ section.id }}" class="
-                                {%- unless block.settings.mobile_show_price_in_button %} mobile-hidden{% endunless -%}
-                                {%- unless block.settings.desktop_show_price_in_button %} desktop-hidden{% endunless -%}
-                              ">
+                            {% if block.settings.mobile_show_price_in_button
+                              or block.settings.desktop_show_price_in_button
+                            %}
+                              <span
+                                id="sticky-atc-price-{{ section.id }}"
+                                class="
+                                  {%- unless block.settings.mobile_show_price_in_button %} mobile-hidden{% endunless -%}
+                                  {%- unless block.settings.desktop_show_price_in_button %} desktop-hidden{% endunless -%}
+                                "
+                              >
                                 {{ product.selected_or_first_available_variant.price | money }} &bull;
                               </span>
                             {% endif %}
@@ -1999,7 +2169,13 @@
                         </span>
                         {%- if block.settings.function == 'add_to_cart' -%}
                           <div class="loading__spinner hidden">
-                            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              class="spinner"
+                              viewBox="0 0 66 66"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
                               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                             </svg>
                           </div>
@@ -2011,174 +2187,191 @@
 
                 <script>
                   if (!customElements.get('sticky-atc')) {
-                    customElements.define('sticky-atc', class extends HTMLElement {
-                      connectedCallback() {
-                        if (this.parentElement !== document.body) {
-                          document.body.appendChild(this);
-                        }
+                    customElements.define(
+                      'sticky-atc',
+                      class extends HTMLElement {
+                        connectedCallback() {
+                          if (this.parentElement !== document.body) {
+                            document.body.appendChild(this);
+                          }
 
-                        this.sectionId = this.dataset.section;
-                        this.afterScroll = this.hasAttribute('data-after-scroll');
-                        this.btnFunction = this.dataset.function || 'link';
-                        this.btnLink = this.dataset.link;
-                        this.defaultScroll = this.dataset.defaultScroll;
+                          this.sectionId = this.dataset.section;
+                          this.afterScroll = this.hasAttribute('data-after-scroll');
+                          this.btnFunction = this.dataset.function || 'link';
+                          this.btnLink = this.dataset.link;
+                          this.defaultScroll = this.dataset.defaultScroll;
 
-                        const mainBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
+                          const mainBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
 
-                        if (this.afterScroll && mainBtn) {
-                          this.observer = new IntersectionObserver((entries) => {
-                            entries.forEach(entry => {
-                              if (entry.isIntersecting) {
-                                this.classList.remove('sticky-atc--visible');
-                              } else if (entry.boundingClientRect.top < 0) {
-                                this.classList.add('sticky-atc--visible');
-                              }
-                            });
-                          }, { threshold: 0 });
-                          this.observer.observe(mainBtn);
-                        } else if (!this.afterScroll) {
-                          this.classList.add('sticky-atc--visible');
-                        }
+                          if (this.afterScroll && mainBtn) {
+                            this.observer = new IntersectionObserver(
+                              (entries) => {
+                                entries.forEach((entry) => {
+                                  if (entry.isIntersecting) {
+                                    this.classList.remove('sticky-atc--visible');
+                                  } else if (entry.boundingClientRect.top < 0) {
+                                    this.classList.add('sticky-atc--visible');
+                                  }
+                                });
+                              },
+                              { threshold: 0 }
+                            );
+                            this.observer.observe(mainBtn);
+                          } else if (!this.afterScroll) {
+                            this.classList.add('sticky-atc--visible');
+                          }
 
-                        const btn = this.querySelector('.sticky-atc__button .button');
-                        if (btn && !btn._stickyBound) {
-                          btn._stickyBound = true;
+                          const btn = this.querySelector('.sticky-atc__button .button');
+                          if (btn && !btn._stickyBound) {
+                            btn._stickyBound = true;
 
-                          if (this.btnFunction === 'link') {
-                            btn.addEventListener('click', () => {
-                              var target = this.btnLink || this.defaultScroll;
-                              if (target && target.charAt(0) === '#') {
-                                var dest = document.querySelector(target);
-                                if (dest) dest.scrollIntoView({ behavior: 'smooth' });
-                              } else if (target) {
-                                window.location.href = target;
-                              }
-                            });
-                          } else {
-                            /* Add to cart mode */
-                            btn.addEventListener('click', () => {
-                              if (btn.getAttribute('aria-disabled') === 'true') return;
+                            if (this.btnFunction === 'link') {
+                              btn.addEventListener('click', () => {
+                                var target = this.btnLink || this.defaultScroll;
+                                if (target && target.charAt(0) === '#') {
+                                  var dest = document.querySelector(target);
+                                  if (dest) dest.scrollIntoView({ behavior: 'smooth' });
+                                } else if (target) {
+                                  window.location.href = target;
+                                }
+                              });
+                            } else {
+                              /* Add to cart mode */
+                              btn.addEventListener('click', () => {
+                                if (btn.getAttribute('aria-disabled') === 'true') return;
 
-                              /* Show loading spinner (keeps text visible) */
-                              btn.setAttribute('aria-disabled', 'true');
-                              btn.classList.add('loading');
-                              var spinner = btn.querySelector('.loading__spinner');
-                              if (spinner) spinner.classList.remove('hidden');
+                                /* Show loading spinner (keeps text visible) */
+                                btn.setAttribute('aria-disabled', 'true');
+                                btn.classList.add('loading');
+                                var spinner = btn.querySelector('.loading__spinner');
+                                if (spinner) spinner.classList.remove('hidden');
 
-                              /* Submit the product form directly */
-                              var productForm = document.querySelector('product-form');
-                              if (productForm && productForm.form) {
-                                productForm.form.requestSubmit();
-                              }
+                                /* Submit the product form directly */
+                                var productForm = document.querySelector('product-form');
+                                if (productForm && productForm.form) {
+                                  productForm.form.requestSubmit();
+                                }
 
-                              /* Clear loading when main button finishes */
-                              var currentBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
-                              if (currentBtn) {
-                                var obs = new MutationObserver(function () {
-                                  if (!currentBtn.classList.contains('loading')) {
+                                /* Clear loading when main button finishes */
+                                var currentBtn = document.getElementById('ProductSubmitButton-' + this.sectionId);
+                                if (currentBtn) {
+                                  var obs = new MutationObserver(function () {
+                                    if (!currentBtn.classList.contains('loading')) {
+                                      btn.classList.remove('loading');
+                                      btn.removeAttribute('aria-disabled');
+                                      if (spinner) spinner.classList.add('hidden');
+                                      obs.disconnect();
+                                    }
+                                  });
+                                  obs.observe(currentBtn, { attributes: true, attributeFilter: ['class'] });
+                                  setTimeout(function () {
                                     btn.classList.remove('loading');
                                     btn.removeAttribute('aria-disabled');
                                     if (spinner) spinner.classList.add('hidden');
                                     obs.disconnect();
-                                  }
-                                });
-                                obs.observe(currentBtn, { attributes: true, attributeFilter: ['class'] });
-                                setTimeout(function () {
-                                  btn.classList.remove('loading');
-                                  btn.removeAttribute('aria-disabled');
-                                  if (spinner) spinner.classList.add('hidden');
-                                  obs.disconnect();
-                                }, 8000);
-                              }
-                            });
+                                  }, 8000);
+                                }
+                              });
+                            }
                           }
+
+                          /* Add bottom padding to body so footer isn't hidden behind sticky bar */
+                          requestAnimationFrame(() => {
+                            document.body.style.paddingBottom = this.offsetHeight + 'px';
+                          });
                         }
 
-                        /* Add bottom padding to body so footer isn't hidden behind sticky bar */
-                        requestAnimationFrame(() => {
-                          document.body.style.paddingBottom = this.offsetHeight + 'px';
-                        });
+                        disconnectedCallback() {
+                          if (this.observer) this.observer.disconnect();
+                          document.body.style.paddingBottom = '';
+                        }
                       }
-
-                      disconnectedCallback() {
-                        if (this.observer) this.observer.disconnect();
-                        document.body.style.paddingBottom = '';
-                      }
-                    });
+                    );
                   }
 
                   if (!customElements.get('sticky-variant-select')) {
-                    customElements.define('sticky-variant-select', class extends HTMLElement {
-                      connectedCallback() {
-                        this.select = this.querySelector('select');
-                        this.sectionId = this.dataset.section;
-                        this.productUrl = this.dataset.url;
-                        if (!this.select) return;
+                    customElements.define(
+                      'sticky-variant-select',
+                      class extends HTMLElement {
+                        connectedCallback() {
+                          this.select = this.querySelector('select');
+                          this.sectionId = this.dataset.section;
+                          this.productUrl = this.dataset.url;
+                          if (!this.select) return;
 
-                        this.select.addEventListener('change', this.onChange.bind(this));
+                          this.select.addEventListener('change', this.onChange.bind(this));
 
-                        /* Watch main section for re-renders to sync select */
-                        const mainSection = document.getElementById('MainProduct-' + this.sectionId);
-                        if (mainSection) {
-                          this.mutationObs = new MutationObserver(() => {
-                            const params = new URLSearchParams(window.location.search);
-                            const vid = params.get('variant');
-                            if (vid) {
-                              for (const opt of this.select.options) {
-                                if (opt.dataset.variantId == vid) { opt.selected = true; break; }
+                          /* Watch main section for re-renders to sync select */
+                          const mainSection = document.getElementById('MainProduct-' + this.sectionId);
+                          if (mainSection) {
+                            this.mutationObs = new MutationObserver(() => {
+                              const params = new URLSearchParams(window.location.search);
+                              const vid = params.get('variant');
+                              if (vid) {
+                                for (const opt of this.select.options) {
+                                  if (opt.dataset.variantId == vid) {
+                                    opt.selected = true;
+                                    break;
+                                  }
+                                }
                               }
-                            }
-                          });
-                          this.mutationObs.observe(mainSection, { childList: true, subtree: true });
-                        }
-                      }
-
-                      onChange() {
-                        const option = this.select.options[this.select.selectedIndex];
-                        const variantId = option.dataset.variantId;
-
-                        const url = new URL(window.location);
-                        url.searchParams.set('variant', variantId);
-                        history.replaceState({}, '', url);
-
-                        const mainInput = document.querySelector('#MainProduct-' + this.sectionId + ' .product-variant-id');
-                        if (mainInput) {
-                          mainInput.value = variantId;
-                          mainInput.dispatchEvent(new Event('change', { bubbles: true }));
+                            });
+                            this.mutationObs.observe(mainSection, { childList: true, subtree: true });
+                          }
                         }
 
-                        fetch(this.productUrl + '?variant=' + variantId + '&section_id=' + this.sectionId)
-                          .then(r => r.text())
-                          .then(html => {
-                            const doc = new DOMParser().parseFromString(html, 'text/html');
+                        onChange() {
+                          const option = this.select.options[this.select.selectedIndex];
+                          const variantId = option.dataset.variantId;
 
-                            const newPrice = doc.getElementById('sticky-atc-separate-price-' + this.sectionId);
-                            const curPrice = document.getElementById('sticky-atc-separate-price-' + this.sectionId);
-                            if (newPrice && curPrice) curPrice.innerHTML = newPrice.innerHTML;
+                          const url = new URL(window.location);
+                          url.searchParams.set('variant', variantId);
+                          history.replaceState({}, '', url);
 
-                            const newImg = doc.getElementById('sticky-atc-image-' + this.sectionId);
-                            const curImg = document.getElementById('sticky-atc-image-' + this.sectionId);
-                            if (newImg && curImg) { curImg.src = newImg.src; curImg.alt = newImg.alt; }
+                          const mainInput = document.querySelector(
+                            '#MainProduct-' + this.sectionId + ' .product-variant-id'
+                          );
+                          if (mainInput) {
+                            mainInput.value = variantId;
+                            mainInput.dispatchEvent(new Event('change', { bubbles: true }));
+                          }
 
-                            const newBtnPrice = doc.getElementById('sticky-atc-price-' + this.sectionId);
-                            const curBtnPrice = document.getElementById('sticky-atc-price-' + this.sectionId);
-                            if (newBtnPrice && curBtnPrice) curBtnPrice.innerHTML = newBtnPrice.innerHTML;
+                          fetch(this.productUrl + '?variant=' + variantId + '&section_id=' + this.sectionId)
+                            .then((r) => r.text())
+                            .then((html) => {
+                              const doc = new DOMParser().parseFromString(html, 'text/html');
 
-                            const newBtn = doc.getElementById('StickyAtcBtn-' + this.sectionId);
-                            const curBtn = document.getElementById('StickyAtcBtn-' + this.sectionId);
-                            if (newBtn && curBtn) {
-                              curBtn.disabled = newBtn.disabled;
-                              const newLabel = newBtn.querySelector('.sticky-atc__label');
-                              const curLabel = curBtn.querySelector('.sticky-atc__label');
-                              if (newLabel && curLabel) curLabel.innerHTML = newLabel.innerHTML;
-                            }
-                          });
+                              const newPrice = doc.getElementById('sticky-atc-separate-price-' + this.sectionId);
+                              const curPrice = document.getElementById('sticky-atc-separate-price-' + this.sectionId);
+                              if (newPrice && curPrice) curPrice.innerHTML = newPrice.innerHTML;
+
+                              const newImg = doc.getElementById('sticky-atc-image-' + this.sectionId);
+                              const curImg = document.getElementById('sticky-atc-image-' + this.sectionId);
+                              if (newImg && curImg) {
+                                curImg.src = newImg.src;
+                                curImg.alt = newImg.alt;
+                              }
+
+                              const newBtnPrice = doc.getElementById('sticky-atc-price-' + this.sectionId);
+                              const curBtnPrice = document.getElementById('sticky-atc-price-' + this.sectionId);
+                              if (newBtnPrice && curBtnPrice) curBtnPrice.innerHTML = newBtnPrice.innerHTML;
+
+                              const newBtn = doc.getElementById('StickyAtcBtn-' + this.sectionId);
+                              const curBtn = document.getElementById('StickyAtcBtn-' + this.sectionId);
+                              if (newBtn && curBtn) {
+                                curBtn.disabled = newBtn.disabled;
+                                const newLabel = newBtn.querySelector('.sticky-atc__label');
+                                const curLabel = curBtn.querySelector('.sticky-atc__label');
+                                if (newLabel && curLabel) curLabel.innerHTML = newLabel.innerHTML;
+                              }
+                            });
+                        }
+
+                        disconnectedCallback() {
+                          if (this.mutationObs) this.mutationObs.disconnect();
+                        }
                       }
-
-                      disconnectedCallback() {
-                        if (this.mutationObs) this.mutationObs.disconnect();
-                      }
-                    });
+                    );
                   }
                 </script>
             {%- endcase -%}
@@ -2201,7 +2394,9 @@
                     <h2 class="h4 accordion__title inline-richtext">
                       {{ block.settings.heading | default: block.settings.page.title | escape }}
                     </h2>
-                    <span class="toggle-icon"><span class="toggle-plus">+</span><span class="toggle-minus">&minus;</span></span>
+                    <span class="toggle-icon"
+                      ><span class="toggle-plus">+</span><span class="toggle-minus">&minus;</span></span
+                    >
                   </div>
                 </summary>
                 <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
@@ -2223,7 +2418,11 @@
         {%- if tv_block.settings.video_4 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
         {%- if tv_block.settings.video_5 != blank -%}{%- assign tv_count = tv_count | plus: 1 -%}{%- endif -%}
         {%- if tv_count > 0 -%}
-          <div class="product__testimonial-videos grid__item" style="--testimonial-heading-size: {{ tv_block.settings.heading_size }}px;" {{ tv_block.shopify_attributes }}>
+          <div
+            class="product__testimonial-videos grid__item"
+            style="--testimonial-heading-size: {{ tv_block.settings.heading_size }}px;"
+            {{ tv_block.shopify_attributes }}
+          >
             {%- if tv_block.settings.heading != blank -%}
               <h2 class="testimonial-videos__heading">{{ tv_block.settings.heading }}</h2>
             {%- endif -%}
@@ -2236,27 +2435,85 @@
                     <div class="testimonial-videos__card" data-video-index="{{ forloop.index }}">
                       {{ current_video | video_tag: playsinline: true, loop: true, preload: 'auto', muted: true }}
                       <div class="testimonial-videos__controls">
-                        <button class="testimonial-videos__control-btn testimonial-videos__play-btn" aria-label="Play video" type="button">
-                          <svg class="icon-play" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <button
+                          class="testimonial-videos__control-btn testimonial-videos__play-btn"
+                          aria-label="Play video"
+                          type="button"
+                        >
+                          <svg
+                            class="icon-play"
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 16 16"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path>
                           </svg>
-                          <svg class="icon-pause" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                          <svg
+                            class="icon-pause"
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 16 16"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style="display:none;"
+                          >
                             <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"></path>
                           </svg>
                         </button>
                         <div class="testimonial-videos__controls-right">
-                          <button class="testimonial-videos__control-btn testimonial-videos__mute-btn" aria-label="Unmute video" type="button">
-                            <svg class="icon-muted" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                          <button
+                            class="testimonial-videos__control-btn testimonial-videos__mute-btn"
+                            aria-label="Unmute video"
+                            type="button"
+                          >
+                            <svg
+                              class="icon-muted"
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 16 16"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
                               <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"></path>
                             </svg>
-                            <svg class="icon-unmuted" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                            <svg
+                              class="icon-unmuted"
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 16 16"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style="display:none;"
+                            >
                               <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"></path>
                               <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"></path>
                               <path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"></path>
                             </svg>
                           </button>
-                          <button class="testimonial-videos__control-btn testimonial-videos__fullscreen-btn" aria-label="Full screen" type="button">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                          <button
+                            class="testimonial-videos__control-btn testimonial-videos__fullscreen-btn"
+                            aria-label="Full screen"
+                            type="button"
+                          >
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 16 16"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
                               <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"></path>
                             </svg>
                           </button>
@@ -2269,7 +2526,7 @@
             </div>
             <ul class="testimonial-videos__dots" id="testimonial-dots-{{ section.id }}"></ul>
             <script>
-              (function() {
+              (function () {
                 var wrap = document.getElementById('testimonial-wrap-{{ section.id }}');
                 var slider = document.getElementById('testimonial-slider-{{ section.id }}');
                 var dotsContainer = document.getElementById('testimonial-dots-{{ section.id }}');
@@ -2283,12 +2540,16 @@
                 var totalPages = Math.max(1, totalCards - perPage + 1);
 
                 /* Force first frame render to avoid blurry thumbnails */
-                cards.forEach(function(card) {
+                cards.forEach(function (card) {
                   var video = card.querySelector('video');
                   if (video) {
-                    video.addEventListener('loadeddata', function() {
-                      video.currentTime = 0.001;
-                    }, { once: true });
+                    video.addEventListener(
+                      'loadeddata',
+                      function () {
+                        video.currentTime = 0.001;
+                      },
+                      { once: true }
+                    );
                   }
                 });
 
@@ -2299,9 +2560,11 @@
                   var btn = document.createElement('button');
                   btn.type = 'button';
                   btn.textContent = i + 1;
-                  btn.setAttribute('aria-label', (i + 1) + ' of ' + totalPages);
-                  (function(page) {
-                    btn.addEventListener('click', function() { goToPage(page); });
+                  btn.setAttribute('aria-label', i + 1 + ' of ' + totalPages);
+                  (function (page) {
+                    btn.addEventListener('click', function () {
+                      goToPage(page);
+                    });
                   })(i);
                   li.appendChild(btn);
                   dotsContainer.appendChild(li);
@@ -2317,26 +2580,36 @@
                 }
 
                 function updateDots() {
-                  dotsContainer.querySelectorAll('li').forEach(function(li, idx) {
+                  dotsContainer.querySelectorAll('li').forEach(function (li, idx) {
                     li.classList.toggle('active', idx === currentPage);
                   });
                 }
 
                 /* Touch swipe */
-                var touchStartX = 0, touchDeltaX = 0, isSwiping = false;
-                wrap.addEventListener('touchstart', function(e) {
-                  touchStartX = e.touches[0].clientX;
-                  isSwiping = true;
-                  slider.style.transition = 'none';
-                }, { passive: true });
-                wrap.addEventListener('touchmove', function(e) {
-                  if (!isSwiping) return;
-                  touchDeltaX = e.touches[0].clientX - touchStartX;
-                  var cardWidth = cards[0].offsetWidth;
-                  var base = currentPage * (cardWidth + gap);
-                  slider.style.transform = 'translate3d(' + (-base + touchDeltaX) + 'px, 0, 0)';
-                }, { passive: true });
-                wrap.addEventListener('touchend', function() {
+                var touchStartX = 0,
+                  touchDeltaX = 0,
+                  isSwiping = false;
+                wrap.addEventListener(
+                  'touchstart',
+                  function (e) {
+                    touchStartX = e.touches[0].clientX;
+                    isSwiping = true;
+                    slider.style.transition = 'none';
+                  },
+                  { passive: true }
+                );
+                wrap.addEventListener(
+                  'touchmove',
+                  function (e) {
+                    if (!isSwiping) return;
+                    touchDeltaX = e.touches[0].clientX - touchStartX;
+                    var cardWidth = cards[0].offsetWidth;
+                    var base = currentPage * (cardWidth + gap);
+                    slider.style.transform = 'translate3d(' + (-base + touchDeltaX) + 'px, 0, 0)';
+                  },
+                  { passive: true }
+                );
+                wrap.addEventListener('touchend', function () {
                   if (!isSwiping) return;
                   isSwiping = false;
                   slider.style.transition = '';
@@ -2347,16 +2620,20 @@
                 });
 
                 /* Mouse drag */
-                var mouseDown = false, mouseStartX = 0, mouseDeltaX = 0, hasDragged = false;
-                wrap.addEventListener('mousedown', function(e) {
+                var mouseDown = false,
+                  mouseStartX = 0,
+                  mouseDeltaX = 0,
+                  hasDragged = false;
+                wrap.addEventListener('mousedown', function (e) {
                   if (e.target.closest('button')) return;
-                  mouseDown = true; hasDragged = false;
+                  mouseDown = true;
+                  hasDragged = false;
                   mouseStartX = e.clientX;
                   slider.style.transition = 'none';
                   slider.classList.add('is-dragging');
                   e.preventDefault();
                 });
-                document.addEventListener('mousemove', function(e) {
+                document.addEventListener('mousemove', function (e) {
                   if (!mouseDown) return;
                   mouseDeltaX = e.clientX - mouseStartX;
                   if (Math.abs(mouseDeltaX) > 5) hasDragged = true;
@@ -2364,7 +2641,7 @@
                   var base = currentPage * (cardWidth + gap);
                   slider.style.transform = 'translate3d(' + (-base + mouseDeltaX) + 'px, 0, 0)';
                 });
-                document.addEventListener('mouseup', function() {
+                document.addEventListener('mouseup', function () {
                   if (!mouseDown) return;
                   mouseDown = false;
                   slider.style.transition = '';
@@ -2376,17 +2653,26 @@
                 });
 
                 /* Prevent click on video after drag */
-                cards.forEach(function(card) {
+                cards.forEach(function (card) {
                   var video = card.querySelector('video');
                   if (video) {
-                    video.addEventListener('click', function(e) {
-                      if (hasDragged) { e.preventDefault(); e.stopPropagation(); hasDragged = false; return; }
-                    }, true);
+                    video.addEventListener(
+                      'click',
+                      function (e) {
+                        if (hasDragged) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          hasDragged = false;
+                          return;
+                        }
+                      },
+                      true
+                    );
                   }
                 });
 
                 /* Play / Pause / Mute / Fullscreen controls */
-                cards.forEach(function(card) {
+                cards.forEach(function (card) {
                   var playBtn = card.querySelector('.testimonial-videos__play-btn');
                   var muteBtn = card.querySelector('.testimonial-videos__mute-btn');
                   var fullscreenBtn = card.querySelector('.testimonial-videos__fullscreen-btn');
@@ -2400,25 +2686,34 @@
 
                   function togglePlay() {
                     if (video.paused) {
-                      video.play(); card.classList.add('is-playing');
-                      iconPlay.style.display = 'none'; iconPause.style.display = 'block';
+                      video.play();
+                      card.classList.add('is-playing');
+                      iconPlay.style.display = 'none';
+                      iconPause.style.display = 'block';
                     } else {
-                      video.pause(); card.classList.remove('is-playing');
-                      iconPlay.style.display = 'block'; iconPause.style.display = 'none';
+                      video.pause();
+                      card.classList.remove('is-playing');
+                      iconPlay.style.display = 'block';
+                      iconPause.style.display = 'none';
                     }
                   }
 
-                  playBtn.addEventListener('click', function(e) { e.stopPropagation(); togglePlay(); });
-                  video.addEventListener('click', function() { if (!hasDragged) togglePlay(); });
+                  playBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    togglePlay();
+                  });
+                  video.addEventListener('click', function () {
+                    if (!hasDragged) togglePlay();
+                  });
 
-                  muteBtn.addEventListener('click', function(e) {
+                  muteBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     video.muted = !video.muted;
                     iconMuted.style.display = video.muted ? 'block' : 'none';
                     iconUnmuted.style.display = video.muted ? 'none' : 'block';
                   });
 
-                  fullscreenBtn.addEventListener('click', function(e) {
+                  fullscreenBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     if (video.requestFullscreen) video.requestFullscreen();
                     else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
@@ -4546,7 +4841,7 @@
           "type": "inline_richtext",
           "id": "heading",
           "label": "Heading",
-          "default": "<strong>Why Trust RESILIA®</strong> as Your Wellness Partner?"
+          "default": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?"
         },
         {
           "type": "header",
