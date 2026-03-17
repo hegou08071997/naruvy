@@ -694,32 +694,56 @@
     "ticker_bar_E76PpF": {
       "type": "ticker-bar",
       "blocks": {
-        "ticker_item_wmgTKE": {
-          "type": "ticker_item",
-          "settings": {
-            "text": "Gluten-Free",
-            "icon_name": "verified"
-          }
-        },
-        "ticker_item_YCN9GG": {
-          "type": "ticker_item",
-          "settings": {
-            "text": "No additives",
-            "icon_name": "verified"
-          }
-        },
         "ticker_item_HqnLzq": {
           "type": "ticker_item",
           "settings": {
-            "text": "Non-GMO",
+            "text": "End Dryness",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_k8LYdF": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Stop Odor",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_TGPdcq": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Balance pH",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_R9aqEp": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Prevent BV & Yeast",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_EdVTLR": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "Boost Moisture",
+            "icon_name": "verified"
+          }
+        },
+        "ticker_item_WW7aKr": {
+          "type": "ticker_item",
+          "settings": {
+            "text": "No More Itch",
             "icon_name": "verified"
           }
         }
       },
       "block_order": [
-        "ticker_item_wmgTKE",
-        "ticker_item_YCN9GG",
-        "ticker_item_HqnLzq"
+        "ticker_item_HqnLzq",
+        "ticker_item_k8LYdF",
+        "ticker_item_TGPdcq",
+        "ticker_item_R9aqEp",
+        "ticker_item_EdVTLR",
+        "ticker_item_WW7aKr"
       ],
       "name": "Ticker bar",
       "settings": {
