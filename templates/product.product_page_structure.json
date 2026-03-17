@@ -207,7 +207,7 @@
           "settings": {
             "heading": "Do you offer a guarantee?",
             "icon": "none",
-            "content": "<p>Yes! All Huuha Queen® orders are backed by our 30-day money-back guarantee.</p><p>If you're not completely satisfied, simply contact us—we’ll make it right, no questions asked.</p>",
+            "content": "<p>Yes! All Huuha Queen® orders are backed by our <strong>30-day money-back guarantee.</strong></p><p>If you're not completely satisfied, simply contact us — we'll make it right, no questions asked.</p>",
             "page": ""
           }
         },
