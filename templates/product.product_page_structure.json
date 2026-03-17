@@ -300,7 +300,7 @@
           "type": "stat",
           "settings": {
             "percentage": 97,
-            "heading": "<strong>Said their natural moisture</strong>",
+            "heading": "Said their natural moisture",
             "caption": "came back within the first 2 weeks"
           }
         },
@@ -363,7 +363,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/hf_20260304_083031_ec4a2338-ce8d-479b-86cc-bc542fa9b598.png",
-            "title": "Bacillus Coagulans",
+            "title": "<strong>Bacillus Coagulans</strong>",
             "text": "A spore-forming probiotic that survives stomach acid and actually <strong>reaches your vaginal flora</strong> — with <strong>2 billion CFUs</strong> to <strong>rebalance pH</strong>, <strong>fight BV</strong>, and support a <strong>healthy microbiome</strong>.",
             "card_bg_color": ""
           }
