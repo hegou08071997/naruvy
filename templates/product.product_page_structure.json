@@ -519,7 +519,7 @@
             "rating": "5.0",
             "quote": "\"I'm 58 and thought this was just my life now!\"",
             "details": "I honestly thought the dryness was just permanent. My doctor said try lubricant and that was literally her whole answer. I tried so many different creams and lubes I have a whole basket of them in my bathroom and NONE of them lasted or felt right. My daughter found Kitty Queen online and sent it to me. I didn't expect anything. By the third week everything started feeling alive again not just during intimacy but even just sitting and walking around all day! I almost cried because I forgot what it felt like to just be comfortable in my own body. Thank you Kitty Queen for real!!!",
-            "author_name": "NELSON A.",
+            "author_name": "JESSICA C.",
             "author_image": "shopify://shop_images/hf_20260302_081452_a175dc1f-3072-4dc9-b87f-87431d9253f1.png",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense",
@@ -555,6 +555,9 @@
         "review_3",
         "review_4",
         "review_5"
+      ],
+      "custom_css": [
+        ".ts-review__quote {font-weight: bold;}"
       ],
       "settings": {
         "heading": "Real Women, <strong>Real Results</strong>",
