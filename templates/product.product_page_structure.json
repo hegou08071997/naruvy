@@ -299,16 +299,16 @@
         "stat_JT8ghy": {
           "type": "stat",
           "settings": {
-            "percentage": 94,
-            "heading": "<strong>Said they felt fewer sick days</strong>",
-            "caption": "after taking Huuha Queen® consistently for 2+ weeks"
+            "percentage": 97,
+            "heading": "<strong>Said their natural moisture</strong>",
+            "caption": "came back within the first 2 weeks"
           }
         },
         "stat_W9mrjV": {
           "type": "stat",
           "settings": {
-            "percentage": 96,
-            "heading": "<strong>Would recommend Huuha Queen® to a friend</strong>",
+            "percentage": 95,
+            "heading": "Would recommend Huuha Queen® to a friend",
             "caption": "for natural immune and gut support"
           }
         },
@@ -316,7 +316,7 @@
           "type": "stat",
           "settings": {
             "percentage": 92,
-            "heading": "<strong>Noticed improved digestion & less bloating</strong>",
+            "heading": "Noticed improved digestion & less bloating",
             "caption": "especially after meals"
           }
         },
