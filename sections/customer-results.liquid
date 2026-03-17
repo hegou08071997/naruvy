@@ -182,7 +182,15 @@
     <div class="cr-container">
       <div class="cr-image-col">
         {%- if section.settings.image != blank -%}
-          {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: '', widths: '400,600,800,1000,1200', sizes: '(min-width: 750px) 50vw, 100vw' }}
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              class: '',
+              widths: '400,600,800,1000,1200',
+              sizes: '(min-width: 750px) 50vw, 100vw'
+          }}
         {%- else -%}
           <div class="cr-image-placeholder">
             {{ 'product-1' | placeholder_svg_tag }}
@@ -277,7 +285,7 @@
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "What Customers Report After Using <strong>[BRAND]®</strong>"
+      "default": "What Customers Report After Using <strong>Huuha Queen®</strong>"
     },
     {
       "type": "range",
@@ -367,10 +375,34 @@
     {
       "name": "Customer results",
       "blocks": [
-        { "type": "result", "settings": { "percentage": 88, "text": "<p>Said they would continue using <strong>[BRAND]®</strong> as part of their wellness routine</p>" } },
-        { "type": "result", "settings": { "percentage": 70, "text": "<p>Felt the product supported their heart health and overall wellness goals*</p>" } },
-        { "type": "result", "settings": { "percentage": 91, "text": "<p>Noticed better tolerance compared to other supplements, with no discomfort*</p>" } },
-        { "type": "result", "settings": { "percentage": 79, "text": "<p>Said they were satisfied with the <strong>overall product quality</strong> and would recommend it to others*</p>" } }
+        {
+          "type": "result",
+          "settings": {
+            "percentage": 88,
+            "text": "<p>Said they would continue using <strong>Huuha Queen®</strong> as part of their wellness routine</p>"
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "percentage": 70,
+            "text": "<p>Felt the product supported their heart health and overall wellness goals*</p>"
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "percentage": 91,
+            "text": "<p>Noticed better tolerance compared to other supplements, with no discomfort*</p>"
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "percentage": 79,
+            "text": "<p>Said they were satisfied with the <strong>overall product quality</strong> and would recommend it to others*</p>"
+          }
+        }
       ]
     }
   ]

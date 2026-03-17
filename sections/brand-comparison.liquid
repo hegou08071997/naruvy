@@ -13,7 +13,7 @@
 
 <style>
   .bc-section {
-    background: linear-gradient(180deg, var(--bc-grad-start, #07493A) 0%, var(--bc-grad-end, #002A21) 100%);
+    background: linear-gradient(180deg, var(--bc-grad-start, #07493a) 0%, var(--bc-grad-end, #002a21) 100%);
     color: var(--bc-text, #ffffff);
   }
 
@@ -25,7 +25,7 @@
   }
 
   .bc-heading strong {
-    color: var(--bc-highlight, #FFF7D4);
+    color: var(--bc-highlight, #fff7d4);
   }
 
   .bc-heading--mobile {
@@ -223,7 +223,7 @@
     justify-content: center;
     width: 100%;
     height: var(--bc-cta-height, 54px);
-    background: var(--bc-cta-bg, #E3FFDE);
+    background: var(--bc-cta-bg, #e3ffde);
     color: var(--bc-cta-text, #004c3c);
     border-radius: 6px;
     font-size: 19px;
@@ -235,8 +235,8 @@
 
   .bc-cta:hover {
     background: transparent;
-    color: var(--bc-cta-bg, #E3FFDE);
-    border-color: var(--bc-cta-bg, #E3FFDE);
+    color: var(--bc-cta-bg, #e3ffde);
+    border-color: var(--bc-cta-bg, #e3ffde);
   }
 
   /* Note */
@@ -428,7 +428,11 @@
         <div class="bc-col bc-col--brand">
           <div class="bc-col__header">
             {%- if section.settings.brand_image != blank -%}
-              {{ section.settings.brand_image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'bc-col__header-img', widths: '150,300' }}
+              {{
+                section.settings.brand_image
+                | image_url: width: 300
+                | image_tag: loading: 'lazy', class: 'bc-col__header-img', widths: '150,300'
+              }}
             {%- endif -%}
             {%- if section.settings.brand_name != blank -%}
               <h3 class="bc-col__name">{{ section.settings.brand_name }}</h3>
@@ -440,12 +444,36 @@
                 <div class="bc-feature__inner">
                   <span class="bc-feature__icon">
                     {%- if block.settings.brand_icon != blank -%}
-                      {{ block.settings.brand_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
+                      {{
+                        block.settings.brand_icon
+                        | image_url: width: 64
+                        | image_tag: widths: '32,64', loading: 'lazy'
+                      }}
                     {%- else -%}
                       {%- if section.settings.icons_filled -%}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
                       {%- else -%}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/>
+                        </svg>
                       {%- endif -%}
                     {%- endif -%}
                   </span>
@@ -460,7 +488,11 @@
         <div class="bc-col bc-col--comp">
           {%- if section.settings.competitor_image != blank -%}
             <div class="bc-col__comp-img">
-              {{ section.settings.competitor_image | image_url: width: 300 | image_tag: loading: 'lazy', widths: '150,300' }}
+              {{
+                section.settings.competitor_image
+                | image_url: width: 300
+                | image_tag: loading: 'lazy', widths: '150,300'
+              }}
             </div>
           {%- endif -%}
           {%- if section.settings.competitor_label != blank -%}
@@ -472,12 +504,36 @@
                 <div class="bc-feature__inner">
                   <span class="bc-feature__icon">
                     {%- if block.settings.competitor_icon != blank -%}
-                      {{ block.settings.competitor_icon | image_url: width: 64 | image_tag: widths: '32,64', loading: 'lazy' }}
+                      {{
+                        block.settings.competitor_icon
+                        | image_url: width: 64
+                        | image_tag: widths: '32,64', loading: 'lazy'
+                      }}
                     {%- else -%}
                       {%- if section.settings.icons_filled -%}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                        </svg>
                       {%- else -%}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
                       {%- endif -%}
                     {%- endif -%}
                   </span>
@@ -495,7 +551,11 @@
           <h2 class="bc-heading bc-heading--desktop">{{ section.settings.heading }}</h2>
         {%- endif -%}
 
-        {%- if section.settings.checklist_1 != blank or section.settings.checklist_2 != blank or section.settings.checklist_3 != blank or section.settings.checklist_4 != blank -%}
+        {%- if section.settings.checklist_1 != blank
+          or section.settings.checklist_2 != blank
+          or section.settings.checklist_3 != blank
+          or section.settings.checklist_4 != blank
+        -%}
           <div class="bc-checklist">
             <ul>
               {%- if section.settings.checklist_1 != blank -%}
@@ -552,7 +612,7 @@
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "<strong>[BRAND]®</strong> vs. Other Brands"
+      "default": "<strong>Huuha Queen®</strong> vs. Other Brands"
     },
     {
       "type": "range",
@@ -600,7 +660,7 @@
       "type": "inline_richtext",
       "id": "brand_name",
       "label": "Brand name",
-      "default": "<strong>[BRAND]</strong>"
+      "default": "<strong>Huuha Queen</strong>"
     },
     {
       "type": "color",
@@ -818,11 +878,23 @@
     {
       "name": "Brand comparison",
       "blocks": [
-        { "type": "feature", "settings": { "brand_text": "Clinically Backed", "competitor_text": "Trend-Based Blends" } },
+        {
+          "type": "feature",
+          "settings": { "brand_text": "Clinically Backed", "competitor_text": "Trend-Based Blends" }
+        },
         { "type": "feature", "settings": { "brand_text": "3rd-Party Tested", "competitor_text": "No Test Proof" } },
-        { "type": "feature", "settings": { "brand_text": "Allergen-Free & Clean", "competitor_text": "Fillers & Additives" } },
-        { "type": "feature", "settings": { "brand_text": "Global Certified Facilities", "competitor_text": "Low-Quality Manufacturing" } },
-        { "type": "feature", "settings": { "brand_text": "Vegan & Gluten-Free", "competitor_text": "Sugar, Flavors, Binders" } }
+        {
+          "type": "feature",
+          "settings": { "brand_text": "Allergen-Free & Clean", "competitor_text": "Fillers & Additives" }
+        },
+        {
+          "type": "feature",
+          "settings": { "brand_text": "Global Certified Facilities", "competitor_text": "Low-Quality Manufacturing" }
+        },
+        {
+          "type": "feature",
+          "settings": { "brand_text": "Vegan & Gluten-Free", "competitor_text": "Sugar, Flavors, Binders" }
+        }
       ]
     }
   ]

@@ -28,7 +28,7 @@
         "heading_size": 40,
         "subheadline": "Clinically backed Probiotics + Slippery Elm in one clean, effective daily gummy.",
         "cta_function": "link",
-        "cta_text": "Shop [BRAND]® Now",
+        "cta_text": "Shop Huuha Queen® Now",
         "cta_url": "shopify://products/kit-gua-sha-avena™",
         "cta_bg_color": "#ffd600",
         "cta_text_color": "#000000",
@@ -65,7 +65,7 @@
           "settings": {
             "rating": "4.9",
             "quote": "\"Haven't been sick in months!\"",
-            "details": "I started taking [BRAND] daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
+            "details": "I started taking Huuha Queen daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
             "author_name": "HAILEY A.",
             "tag_1": "Immunity Boost",
             "tag_2": "Prevention",
@@ -77,7 +77,7 @@
           "settings": {
             "rating": "5.0",
             "quote": "\"Helped my digestion more than probiotics.\"",
-            "details": "I've struggled with bloating and irregular digestion for years. [BRAND] made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
+            "details": "I've struggled with bloating and irregular digestion for years. Huuha Queen made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
             "author_name": "DANA H.",
             "tag_1": "Gut Support",
             "tag_2": "Bloat Relief",
@@ -89,7 +89,7 @@
           "settings": {
             "rating": "4.9",
             "quote": "\"A clean product that actually works.\"",
-            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. [BRAND] is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
+            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. Huuha Queen is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
             "author_name": "MIKE M.",
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health",
@@ -101,7 +101,7 @@
           "settings": {
             "rating": "5.0",
             "quote": "\"My go-to during flu season.\"",
-            "details": "Every time I feel something coming on, I take [BRAND] and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
+            "details": "Every time I feel something coming on, I take Huuha Queen and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
             "author_name": "NELSON A.",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense",
@@ -113,7 +113,7 @@
           "settings": {
             "rating": "4.8",
             "quote": "\"Finally, a supplement I can actually feel working.\"",
-            "details": "I've tried so many supplements that promise results but never deliver. [BRAND] is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
+            "details": "I've tried so many supplements that promise results but never deliver. Huuha Queen is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "JESSICA R.",
             "tag_1": "Energy",
             "tag_2": "Digestive Health",
@@ -247,7 +247,7 @@
         "trust_card_v2_fp": {
           "type": "trust_card_v2",
           "settings": {
-            "heading": "<strong>Why Trust [BRAND]®</strong> as Your Wellness Partner?",
+            "heading": "<strong>Why Trust Huuha Queen®</strong> as Your Wellness Partner?",
             "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
             "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
@@ -312,7 +312,7 @@
           "settings": {
             "label": "Reason 1",
             "heading": "Thoughtfully Dosed for Daily Wellness",
-            "details": "<p>Most supplements underdose their key ingredients. [BRAND]® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
+            "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
           }
         },
         "reason_card_xigFGj": {
@@ -358,7 +358,7 @@
       "name": "Reasons why",
       "settings": {
         "badge_text": "5 Reasons Why",
-        "subheading": "[BRAND]® is Different From Everything You've Tried",
+        "subheading": "Huuha Queen® is Different From Everything You've Tried",
         "bg_color": "#fff0f6",
         "text_color": "#000000",
         "badge_bg_color": "#ff1493",
@@ -438,13 +438,13 @@
       ],
       "name": "Brand comparison",
       "settings": {
-        "heading": "[BRAND]® vs. Other Brands",
+        "heading": "Huuha Queen® vs. Other Brands",
         "heading_size": 36,
         "bg_gradient_start": "#18001a",
         "bg_gradient_end": "#d90078",
         "text_color": "#ffffff",
         "highlight_color": "#ffffff",
-        "brand_name": "<strong>[BRAND]</strong>",
+        "brand_name": "<strong>Huuha Queen</strong>",
         "brand_name_color": "#ffffff",
         "brand_image": "shopify://shop_images/generated-1772392286962.png",
         "brand_col_color": "#ff1493",
@@ -501,7 +501,7 @@
           "settings": {
             "heading": "Is this really odorless? I've tried other 'odorless' garlic supplements that still made me burp garlic all day.",
             "icon": "none",
-            "row_content": "<p>Yes, [BRAND] is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
+            "row_content": "<p>Yes, Huuha Queen is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
             "page": ""
           }
         },
@@ -519,7 +519,7 @@
           "settings": {
             "heading": "Why is aged garlic better than fresh garlic or regular garlic pills?",
             "icon": "none",
-            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One [BRAND] capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
+            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One Huuha Queen capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
             "page": ""
           }
         },
@@ -528,7 +528,7 @@
           "settings": {
             "heading": "Can I take this with my current blood pressure medications?",
             "icon": "none",
-            "row_content": "<p>Many customers take [BRAND] alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
+            "row_content": "<p>Many customers take Huuha Queen alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
             "page": ""
           }
         },

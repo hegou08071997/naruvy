@@ -11,8 +11,8 @@
   }
 {%- endstyle -%}
 
-{%- assign ticker_images = section.blocks | where: "type", "ticker_image" -%}
-{%- assign reviews = section.blocks | where: "type", "review" -%}
+{%- assign ticker_images = section.blocks | where: 'type', 'ticker_image' -%}
+{%- assign reviews = section.blocks | where: 'type', 'review' -%}
 
 <style>
   .testimonial-section {
@@ -62,8 +62,12 @@
 
   /* Ticker */
   @keyframes ticker-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .ts-ticker {
@@ -337,7 +341,9 @@
     <div class="ts-header">
       <div class="ts-stars">
         {%- for i in (1..5) -%}
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
         {%- endfor -%}
       </div>
       {%- if section.settings.heading != blank -%}
@@ -355,7 +361,11 @@
         {%- for i in (1..4) -%}
           {%- for block in ticker_images -%}
             {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'ts-ticker__img', widths: '100,200,300' }}
+              {{
+                block.settings.image
+                | image_url: width: 300
+                | image_tag: loading: 'lazy', class: 'ts-ticker__img', widths: '100,200,300'
+              }}
             {%- else -%}
               <div class="ts-ticker__placeholder">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
             {%- endif -%}
@@ -371,13 +381,20 @@
         <div class="ts-reviews__track">
           {%- for block in reviews -%}
             <div class="ts-review-slide" {{ block.shopify_attributes }}>
-              <div class="ts-review-card" {% if block.settings.card_bg_color != blank %}style="--ts-card-bg: {{ block.settings.card_bg_color }};"{% endif %}>
+              <div
+                class="ts-review-card"
+                {% if block.settings.card_bg_color != blank %}
+                  style="--ts-card-bg: {{ block.settings.card_bg_color }};"
+                {% endif %}
+              >
                 <div>
                   <div class="ts-review__rating">
                     <span class="ts-review__rating-num">{{ block.settings.rating }}</span>
                     <div class="ts-review__rating-stars">
                       {%- for i in (1..5) -%}
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
                       {%- endfor -%}
                     </div>
                   </div>
@@ -392,7 +409,11 @@
                   <div class="ts-review__author">
                     <div class="ts-review__auth-info">
                       {%- if block.settings.author_image != blank -%}
-                        {{ block.settings.author_image | image_url: width: 80 | image_tag: loading: 'lazy', class: 'ts-review__avatar', widths: '56,80' }}
+                        {{
+                          block.settings.author_image
+                          | image_url: width: 80
+                          | image_tag: loading: 'lazy', class: 'ts-review__avatar', widths: '56,80'
+                        }}
                       {%- endif -%}
                       {%- if block.settings.author_name != blank -%}
                         <span class="ts-review__name">{{ block.settings.author_name }}</span>
@@ -426,11 +447,15 @@
       {%- if reviews.size > 1 -%}
         <div class="ts-controls">
           <button class="ts-arrow ts-arrow--prev disabled" aria-label="Previous">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <svg viewBox="0 0 24 24">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
           </button>
           <div class="ts-dots"></div>
           <button class="ts-arrow ts-arrow--next" aria-label="Next">
-            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            <svg viewBox="0 0 24 24">
+              <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
           </button>
         </div>
       {%- endif -%}
@@ -460,9 +485,22 @@
         this.prevBtn?.addEventListener('click', () => this.goTo(this.currentIndex - 1));
         this.nextBtn?.addEventListener('click', () => this.goTo(this.currentIndex + 1));
 
-        let startX = 0, diff = 0;
-        this.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
-        this.addEventListener('touchmove', (e) => { diff = e.touches[0].clientX - startX; }, { passive: true });
+        let startX = 0,
+          diff = 0;
+        this.addEventListener(
+          'touchstart',
+          (e) => {
+            startX = e.touches[0].clientX;
+          },
+          { passive: true }
+        );
+        this.addEventListener(
+          'touchmove',
+          (e) => {
+            diff = e.touches[0].clientX - startX;
+          },
+          { passive: true }
+        );
         this.addEventListener('touchend', () => {
           if (Math.abs(diff) > 50) this.goTo(this.currentIndex + (diff < 0 ? 1 : -1));
           diff = 0;
@@ -483,7 +521,9 @@
 
       updateLayout() {
         const pv = this.perView;
-        this.slides.forEach(s => { s.style.flex = `0 0 calc(100% / ${pv})`; });
+        this.slides.forEach((s) => {
+          s.style.flex = `0 0 calc(100% / ${pv})`;
+        });
         if (this.currentIndex > this.maxIndex) this.currentIndex = this.maxIndex;
         this.buildDots();
         this.applyPosition();
@@ -549,7 +589,7 @@
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "See what our customers are saying about [BRAND]"
+      "default": "See what our customers are saying about Huuha Queen"
     },
     {
       "type": "color",
@@ -703,7 +743,7 @@
           "settings": {
             "rating": "4.9",
             "quote": "\"Haven't been sick in months!\"",
-            "details": "I started taking [BRAND] daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
+            "details": "I started taking Huuha Queen daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
             "author_name": "HAILEY A.",
             "tag_1": "Immunity Boost",
             "tag_2": "Prevention"
@@ -714,7 +754,7 @@
           "settings": {
             "rating": "5.0",
             "quote": "\"Helped my digestion more than probiotics.\"",
-            "details": "I've struggled with bloating and irregular digestion for years. [BRAND] made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
+            "details": "I've struggled with bloating and irregular digestion for years. Huuha Queen made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
             "author_name": "DANA H.",
             "tag_1": "Gut Support",
             "tag_2": "Bloat Relief"
@@ -725,7 +765,7 @@
           "settings": {
             "rating": "4.9",
             "quote": "\"A clean product that actually works.\"",
-            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. [BRAND] is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
+            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. Huuha Queen is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
             "author_name": "MIKE M.",
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health"
@@ -736,7 +776,7 @@
           "settings": {
             "rating": "5.0",
             "quote": "\"My go-to during flu season.\"",
-            "details": "Every time I feel something coming on, I take [BRAND] and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
+            "details": "Every time I feel something coming on, I take Huuha Queen and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
             "author_name": "NELSON A.",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense"
@@ -747,7 +787,7 @@
           "settings": {
             "rating": "4.8",
             "quote": "\"Finally, a supplement I can actually feel working.\"",
-            "details": "I've tried so many supplements that promise results but never deliver. [BRAND] is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
+            "details": "I've tried so many supplements that promise results but never deliver. Huuha Queen is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "JESSICA R.",
             "tag_1": "Energy",
             "tag_2": "Digestive Health"

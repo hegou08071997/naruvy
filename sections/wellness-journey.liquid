@@ -12,7 +12,10 @@
 {%- endstyle -%}
 
 {%- if section.settings.cta_note_icon == blank and section.settings.cta_note_icon_name != blank -%}
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet"
+  >
 {%- endif -%}
 
 <style>
@@ -361,7 +364,15 @@
       <!-- Left column -->
       <div class="wj-content">
         {%- if section.settings.brand_image != blank -%}
-          {{ section.settings.brand_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'wj-brand-img', widths: '400,600,800', sizes: '(min-width: 750px) 50vw, 100vw' }}
+          {{
+            section.settings.brand_image
+            | image_url: width: 800
+            | image_tag:
+              loading: 'lazy',
+              class: 'wj-brand-img',
+              widths: '400,600,800',
+              sizes: '(min-width: 750px) 50vw, 100vw'
+          }}
         {%- else -%}
           <div class="wj-brand-placeholder">
             {{ 'product-1' | placeholder_svg_tag }}
@@ -383,7 +394,11 @@
           {%- if section.settings.cta_note != blank -%}
             <p class="wj-cta-note">
               {%- if section.settings.cta_note_icon != blank -%}
-                {{ section.settings.cta_note_icon | image_url: width: 34 | image_tag: widths: '17,34', loading: 'lazy' }}
+                {{
+                  section.settings.cta_note_icon
+                  | image_url: width: 34
+                  | image_tag: widths: '17,34', loading: 'lazy'
+                }}
               {%- elsif section.settings.cta_note_icon_name != blank -%}
                 <span class="material-symbols-outlined">{{ section.settings.cta_note_icon_name }}</span>
               {%- endif -%}
@@ -418,7 +433,11 @@
           {%- if section.settings.cta_note != blank -%}
             <p class="wj-cta-note">
               {%- if section.settings.cta_note_icon != blank -%}
-                {{ section.settings.cta_note_icon | image_url: width: 34 | image_tag: widths: '17,34', loading: 'lazy' }}
+                {{
+                  section.settings.cta_note_icon
+                  | image_url: width: 34
+                  | image_tag: widths: '17,34', loading: 'lazy'
+                }}
               {%- elsif section.settings.cta_note_icon_name != blank -%}
                 <span class="material-symbols-outlined">{{ section.settings.cta_note_icon_name }}</span>
               {%- endif -%}
@@ -432,7 +451,7 @@
 </div>
 
 <script>
-  (function() {
+  (function () {
     var section = document.querySelector('.section-{{ section.id }}-padding');
     if (!section) return;
     var milestones = section.querySelectorAll('.wj-milestone');
@@ -440,7 +459,7 @@
 
     function checkScroll() {
       var viewBottom = window.scrollY + window.innerHeight;
-      milestones.forEach(function(m) {
+      milestones.forEach(function (m) {
         var rect = m.getBoundingClientRect();
         var elemBottom = rect.bottom + window.scrollY;
         if (viewBottom >= elemBottom + 200) {
@@ -471,13 +490,13 @@
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "<strong>Your Wellness</strong> Journey with [BRAND]®"
+      "default": "<strong>Your Wellness</strong> Journey with Huuha Queen®"
     },
     {
       "type": "inline_richtext",
       "id": "description",
       "label": "Description",
-      "default": "[BRAND]® is designed to deliver real, lasting results—not just quick fixes. Here's how your body begins to shift once you start taking it daily:"
+      "default": "Huuha Queen® is designed to deliver real, lasting results—not just quick fixes. Here's how your body begins to shift once you start taking it daily:"
     },
     {
       "type": "color",
