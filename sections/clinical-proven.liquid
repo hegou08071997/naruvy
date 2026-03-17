@@ -57,7 +57,7 @@
     position: relative;
   }
 
-  .cp-stat:nth-child(n+3) {
+  .cp-stat:nth-child(n + 3) {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding-top: 13px;
     margin-top: 13px;
@@ -68,7 +68,7 @@
     font-size: 39.86px;
     line-height: 42px;
     letter-spacing: 0;
-    background: linear-gradient(0deg, var(--cp-pct-color, #E3FFDE), var(--cp-pct-color, #E3FFDE));
+    background: linear-gradient(0deg, var(--cp-pct-color, #e3ffde), var(--cp-pct-color, #e3ffde));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -117,7 +117,7 @@
     font-weight: 500;
     display: inline-block;
     width: 100%;
-    color: var(--cp-highlight-color, #E3FFDE);
+    color: var(--cp-highlight-color, #e3ffde);
   }
 
   .cp-cta__subtitle {
@@ -141,7 +141,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: var(--cp-cta-bg, #E3FFDE);
+    background-color: var(--cp-cta-bg, #e3ffde);
     color: var(--cp-cta-text, #014c3e);
     text-decoration: none;
     font-weight: 600;
@@ -194,7 +194,7 @@
       width: 100%;
     }
 
-    .cp-stat:nth-child(n+2) {
+    .cp-stat:nth-child(n + 2) {
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       padding-top: 23px;
       margin-top: 25px;
@@ -258,7 +258,8 @@
     >
   {%- endif -%}
 
-  <div class="cp-content page-width"
+  <div
+    class="cp-content page-width"
     data-cp-function="{{ section.settings.cta_function }}"
     data-cp-link="{{ section.settings.cta_url }}"
   >
@@ -313,36 +314,39 @@
 </div>
 
 <script>
-  (function() {
+  (function () {
     var statsContainer = document.getElementById('cp-stats-{{ section.id }}');
     if (!statsContainer) return;
 
     var animated = false;
 
-    var observer = new IntersectionObserver(function(entries, obs) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !animated) {
-          animated = true;
-          var els = statsContainer.querySelectorAll('[data-cp-target]');
-          els.forEach(function(el) {
-            var target = parseInt(el.getAttribute('data-cp-target'), 10) || 0;
-            var duration = 1000;
-            var startTime = null;
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            var els = statsContainer.querySelectorAll('[data-cp-target]');
+            els.forEach(function (el) {
+              var target = parseInt(el.getAttribute('data-cp-target'), 10) || 0;
+              var duration = 1000;
+              var startTime = null;
 
-            function step(timestamp) {
-              if (!startTime) startTime = timestamp;
-              var progress = Math.min((timestamp - startTime) / duration, 1);
-              var eased = 1 - Math.pow(1 - progress, 3);
-              el.textContent = Math.round(eased * target) + '%';
-              if (progress < 1) requestAnimationFrame(step);
-            }
+              function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target) + '%';
+                if (progress < 1) requestAnimationFrame(step);
+              }
 
-            requestAnimationFrame(step);
-          });
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+              requestAnimationFrame(step);
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
     observer.observe(statsContainer);
 
@@ -353,8 +357,8 @@
       var cpLink = cpContent.getAttribute('data-cp-link');
       var cpBtns = cpContent.querySelectorAll('[data-cp-btn]');
 
-      cpBtns.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
+      cpBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
           e.preventDefault();
           if (cpFunction === 'add_to_cart') {
             var productForm = document.querySelector('product-form');
@@ -564,14 +568,14 @@
           "settings": {
             "percentage": 94,
             "heading": "Said they felt fewer sick days",
-            "caption": "after taking Resilia® consistently for 2+ weeks"
+            "caption": "after taking [BRAND]® consistently for 2+ weeks"
           }
         },
         {
           "type": "stat",
           "settings": {
             "percentage": 96,
-            "heading": "Would recommend Resilia® to a friend",
+            "heading": "Would recommend [BRAND]® to a friend",
             "caption": "for natural immune and gut support"
           }
         },
@@ -587,7 +591,7 @@
           "type": "stat",
           "settings": {
             "percentage": 89,
-            "heading": "Said they prefer Resilia®'s formula",
+            "heading": "Said they prefer [BRAND]®'s formula",
             "caption": "over other oregano supplements they've tried"
           }
         }

@@ -12,7 +12,10 @@
 {%- endstyle -%}
 
 {%- if section.settings.cta_note_icon == blank and section.settings.cta_note_icon_name != blank -%}
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet"
+  >
 {%- endif -%}
 
 <style>
@@ -345,7 +348,11 @@
           <div class="pb-card__front" data-pb-toggle>
             <div class="pb-card__front-inner">
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'pb-card__img', widths: '125,250,300' }}
+                {{
+                  block.settings.image
+                  | image_url: width: 300
+                  | image_tag: loading: 'lazy', class: 'pb-card__img', widths: '125,250,300'
+                }}
               {%- else -%}
                 <div class="pb-card__img-placeholder">
                   {{ 'product-apparel-2' | placeholder_svg_tag }}
@@ -399,23 +406,23 @@
 </div>
 
 <script>
-  (function() {
+  (function () {
     var section = document.querySelector('.section-{{ section.id }}-padding');
     if (!section) return;
 
     function closeCard(card) {
       card.classList.add('closing');
       card.classList.remove('active');
-      setTimeout(function() {
+      setTimeout(function () {
         card.classList.remove('closing');
       }, 500);
     }
 
-    section.addEventListener('click', function(e) {
+    section.addEventListener('click', function (e) {
       var card = e.target.closest('.pb-card');
       if (!card) return;
       var wasActive = card.classList.contains('active');
-      section.querySelectorAll('.pb-card.active').forEach(function(c) {
+      section.querySelectorAll('.pb-card.active').forEach(function (c) {
         if (c !== card) closeCard(c);
       });
       if (wasActive) {
@@ -443,7 +450,7 @@
       "type": "inline_richtext",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Your body deserves more than empty claims. <strong>Resilia® delivers real, measurable results</strong> using ingredients with decades of clinical research."
+      "default": "Your body deserves more than empty claims. <strong>[BRAND]® delivers real, measurable results</strong> using ingredients with decades of clinical research."
     },
     {
       "type": "color",
@@ -588,7 +595,7 @@
           "settings": {
             "title": "Clarity",
             "description": "Feel focused, not foggy",
-            "answer": "By supporting gut and immune balance, Resilia® helps you feel sharper and more energized—without relying on caffeine or stimulants."
+            "answer": "By supporting gut and immune balance, [BRAND]® helps you feel sharper and more energized—without relying on caffeine or stimulants."
           }
         }
       ]
