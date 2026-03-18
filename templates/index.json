@@ -24,7 +24,7 @@
         "star_color": "#ffcc00",
         "star_empty_color": "#ececec",
         "stars_text": "<strong>4.9/5</strong> Based on 1,200+ Reviews",
-        "heading": "<strong>Support Your Immune System & Gut Health, Naturally.</strong>",
+        "heading": "BOOST MOISTURE & VAGINAL HEALTH",
         "heading_size": 40,
         "subheadline": "Clinically backed Probiotics + Slippery Elm in one clean, effective daily gummy.",
         "cta_function": "link",
@@ -52,7 +52,7 @@
         "icon_2": "shopify://shop_images/usp2.svg",
         "text_2": "THIRD PARTY TESTED",
         "icon_3": "shopify://shop_images/usp3.svg",
-        "text_3": "CLEAN FORMULA",
+        "text_3": "NATURAL INGREDIENTS",
         "padding_top": 16,
         "padding_bottom": 16
       }
@@ -373,7 +373,6 @@
         "label_font_size": 14,
         "card_heading_font_size": 16,
         "details_font_size": 12,
-        "card_width": 200,
         "card_height": 500,
         "card_radius": 12,
         "card_gap": 13,
