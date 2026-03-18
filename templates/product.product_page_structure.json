@@ -603,21 +603,13 @@
             "icon_name": "spa",
             "title": "Boost Natural Moisture"
           }
-        },
-        "benefit_VBRc7d": {
-          "type": "benefit",
-          "settings": {
-            "icon_name": "check_circle",
-            "title": "Benefit title"
-          }
         }
       },
       "block_order": [
         "benefit_1",
         "benefit_2",
         "benefit_3",
-        "benefit_4",
-        "benefit_VBRc7d"
+        "benefit_4"
       ],
       "settings": {
         "heading": "<strong>Feel Better.</strong> Every Day.",
