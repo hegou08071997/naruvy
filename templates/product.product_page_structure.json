@@ -826,7 +826,7 @@
           "type": "reason_card",
           "settings": {
             "label": "Reason 1",
-            "heading": "Thoughtfully Dosed for Daily Wellness†",
+            "heading": "Clinically Chosen for Real Impact",
             "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
           }
         },
@@ -834,7 +834,7 @@
           "type": "reason_card",
           "settings": {
             "label": "Reason 2",
-            "heading": "Two Powerful Plants. One Clean Formula.",
+            "heading": "Targets Balance & Moisture Together",
             "details": "<p>Oregano oil and black seed oil have been studied for centuries and researched in modern science for their roles in supporting immune health, gut comfort, and antioxidant activity.† Together in one softgel — no synthetic fillers, no aftertaste.</p>"
           }
         },
@@ -842,15 +842,33 @@
           "type": "reason_card",
           "settings": {
             "label": "Reason 3",
-            "heading": "No Taste. No Burn. No Nonsense.",
+            "heading": "No Pills. No Problem Taking.",
             "details": "<p>Forget the bitter drops, burps, or reflux. Our <strong>plant-based softgels</strong> are easy to swallow, completely tasteless, and gentle on your stomach.</p>"
+          }
+        },
+        "reason_card_VCdJrA": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 4",
+            "heading": "Natural & Clean Ingredients",
+            "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers clinically studied botanicals in meaningful daily amounts.†</p>"
+          }
+        },
+        "reason_card_Np8tDa": {
+          "type": "reason_card",
+          "settings": {
+            "label": "Reason 5",
+            "heading": "Results You Can Actually Feel",
+            "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers clinically studied botanicals in meaningful daily amounts.†</p>"
           }
         }
       },
       "block_order": [
         "reason_card_XmWM9Y",
         "reason_card_493cPn",
-        "reason_card_HHJT9J"
+        "reason_card_HHJT9J",
+        "reason_card_VCdJrA",
+        "reason_card_Np8tDa"
       ],
       "name": "Reasons why",
       "settings": {
