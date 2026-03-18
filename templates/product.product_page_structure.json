@@ -819,54 +819,69 @@
         "padding_bottom": 40
       }
     },
-    "customer_results": {
-      "type": "customer-results",
+    "reasons_why_VdQFQx": {
+      "type": "reasons-why",
       "blocks": {
-        "cr_1": {
-          "type": "result",
+        "reason_card_XmWM9Y": {
+          "type": "reason_card",
           "settings": {
-            "percentage": 88,
-            "text": "<p>Said they would continue using <strong>Huuha Queen®</strong> as part of their wellness routine</p>"
+            "label": "Reason 1",
+            "heading": "Thoughtfully Dosed for Daily Wellness†",
+            "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
           }
         },
-        "cr_2": {
-          "type": "result",
+        "reason_card_493cPn": {
+          "type": "reason_card",
           "settings": {
-            "percentage": 70,
-            "text": "<p>Felt the product supported their heart health and overall wellness goals*</p>"
+            "label": "Reason 2",
+            "heading": "Two Powerful Plants. One Clean Formula.",
+            "details": "<p>Oregano oil and black seed oil have been studied for centuries and researched in modern science for their roles in supporting immune health, gut comfort, and antioxidant activity.† Together in one softgel — no synthetic fillers, no aftertaste.</p>"
           }
         },
-        "cr_3": {
-          "type": "result",
+        "reason_card_HHJT9J": {
+          "type": "reason_card",
           "settings": {
-            "percentage": 91,
-            "text": "<p>Noticed better tolerance compared to other supplements, with no discomfort*</p>"
-          }
-        },
-        "cr_4": {
-          "type": "result",
-          "settings": {
-            "percentage": 79,
-            "text": "<p>Said they were satisfied with the <strong>overall product quality</strong> and would recommend it to others*</p>"
+            "label": "Reason 3",
+            "heading": "No Taste. No Burn. No Nonsense.",
+            "details": "<p>Forget the bitter drops, burps, or reflux. Our <strong>plant-based softgels</strong> are easy to swallow, completely tasteless, and gentle on your stomach.</p>"
           }
         }
       },
       "block_order": [
-        "cr_1",
-        "cr_2",
-        "cr_3",
-        "cr_4"
+        "reason_card_XmWM9Y",
+        "reason_card_493cPn",
+        "reason_card_HHJT9J"
       ],
+      "name": "Reasons why",
       "settings": {
-        "image": "shopify://shop_images/results.png",
-        "image_radius": 12,
-        "heading": "What Customers Report After Using Huuha Queen®",
-        "heading_size": 32,
-        "highlight_color": "#ffffff",
-        "text_color": "#121212",
-        "percentage_color": "#121212",
-        "bg_color": "#ffffff",
-        "caption": "<p>*Based on customer feedback and post-purchase surveys. Individual results may vary.</p>",
+        "badge_text": "5 Reasons Why",
+        "subheading": "Huuha Queen® is Different From Everything You've Tried",
+        "bg_color": "#f1f3ea",
+        "text_color": "#000000",
+        "badge_bg_color": "#009370",
+        "badge_text_color": "#ffffff",
+        "label_bg_color": "#009370",
+        "label_text_color": "#ffffff",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "rgba(0,0,0,0.3)",
+        "card_text_color": "#000000",
+        "badge_font_size": 28,
+        "subheading_font_size": 31,
+        "label_font_size": 17,
+        "card_heading_font_size": 21,
+        "details_font_size": 16,
+        "card_width": 270,
+        "card_height": 408,
+        "card_radius": 12,
+        "card_gap": 13,
+        "max_width": 1500,
+        "cta_text": "Try Risk-Free Today",
+        "cta_url": "",
+        "cta_bg_color": "#095946",
+        "cta_text_color": "#ffffff",
+        "cta_font_size": 19,
+        "cta_margin_top": 40,
+        "guarantee_text": "30-day money back guarantee",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -1098,7 +1113,7 @@
     "proven_benefits",
     "ticker_bar_E76PpF",
     "wellness_journey",
-    "customer_results",
+    "reasons_why_VdQFQx",
     "brand_comparison",
     "risk_free_trial",
     "1773377171b98d1ae1",
