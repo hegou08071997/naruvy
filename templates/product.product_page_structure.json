@@ -1035,45 +1035,54 @@
         "collapsible_row_kP7dka": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Is this really odorless? I've tried other 'odorless' garlic supplements that still made me burp garlic all day.",
+            "heading": "How do the Kitty Queen™ Slippery Kitty gummies work?",
             "icon": "none",
-            "row_content": "<p>Yes, Huuha Queen is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
+            "row_content": "<p>Huuha Queen uses three ingredients that work from the inside out. <strong>Slippery Elm</strong> rehydrates the tissue that produces your natural moisture. <strong>Bacillus Coagulans</strong> is a probiotic that survives stomach acid to actually reach your vaginal flora and rebalance pH. <strong>Pineapple Fruit</strong> supports freshness naturally. Two gummies a day — your body does the rest.</p>",
             "page": ""
           }
         },
         "collapsible_row_jgAFHc": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long before I see results with my blood pressure? I need something that actually works.",
+            "heading": "How long will it take to see results?",
             "icon": "none",
-            "row_content": "<p>Most customers notice improvements within 2-4 weeks, with significant changes by 6-8 weeks. Clinical studies show aged garlic can help support healthy blood pressure levels over time. However, results vary by individual. We recommend taking consistently for at least 8 weeks while monitoring your numbers. Many customers see 10-20 point improvements in systolic readings, but always consult your doctor before making any changes to medications.</p>",
+            "row_content": "<p>Most women notice changes <strong>within the first 2 weeks</strong>, with full results building over <strong>30 days</strong> of daily use. Take 2 gummies daily. Every body is different — some feel it in the first week, others take 3-4 weeks. Stick with it. The women who see the best results are the ones who stay consistent.</p>",
             "page": ""
           }
         },
         "collapsible_row_qUEDkw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Why is aged garlic better than fresh garlic or regular garlic pills?",
+            "heading": "Can I take it with other supplements?",
             "icon": "none",
-            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One Huuha Queen capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
+            "row_content": "<p>Yes. These gummies are made with <strong>natural ingredients and work alongside your other daily vitamins</strong>. If you're currently on specific medications or hormonal treatments, check with your doctor first.</p>",
             "page": ""
           }
         },
         "collapsible_row_FCYENr": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I take this with my current blood pressure medications?",
+            "heading": "Is this safe if I can't use estrogen or hormones?",
             "icon": "none",
-            "row_content": "<p>Many customers take Huuha Queen alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
+            "row_content": "<p>Yes. Kitty Queen is <strong>100% hormone-free and contains zero estrogen</strong>. It works naturally with your body — no hormones at all. Women on aromatase inhibitors, women who've been through cancer treatment, and women who simply don't want hormones can use this safely.</p>",
             "page": ""
           }
         },
         "collapsible_row_JXE9KX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What's your money-back guarantee? I've wasted money on supplements that didn't work before.",
+            "heading": "Are they vegan and gluten-free?",
             "icon": "none",
-            "row_content": "<p>We offer a 30-day money-back guarantee because we're confident in our 24-month aged garlic. If you don't see improvements in your energy, well-being, or cardiovascular markers within 30 days, simply return the bottles (even if empty) for a full refund. No questions asked.</p><p>We've helped over 50,000 customers and our return rate is under 3% because the aging process really works. Most customers reorder before their first bottle is finished.</p>",
+            "row_content": "<p>Yes. Made with <strong>vegan, gluten-free, allergen-free, non-GMO, and natural ingredients</strong> — safe for a wide range of dietary needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xwHJdL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there any side effects?",
+            "icon": "none",
+            "row_content": "<p>These gummies work with your body's own system, not against it. Our probiotic strain is <strong>stomach-friendly and won't disrupt your natural balance</strong>. No hormones, no harsh chemicals, no digestive issues. Most women experience zero side effects. Take 2 gummies daily with food.</p>",
             "page": ""
           }
         }
@@ -1083,7 +1092,8 @@
         "collapsible_row_jgAFHc",
         "collapsible_row_qUEDkw",
         "collapsible_row_FCYENr",
-        "collapsible_row_JXE9KX"
+        "collapsible_row_JXE9KX",
+        "collapsible_row_xwHJdL"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
