@@ -636,6 +636,7 @@
         "pb_1": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/dhiw1.png",
             "title": "Pineapple Magic",
             "description": "Balance from within",
             "answer": "Real pineapple fruit enzymes naturally destroy harmful bacteria while feeding the good flora."
@@ -644,6 +645,7 @@
         "pb_2": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/dhiw2.png",
             "title": "Slippery Elm",
             "description": "Moisture from the inside",
             "answer": "Slippery Elm is a natural herb rich in soothing mucilage that hydrates. It helps support vaginal moisture and comfort."
@@ -652,6 +654,7 @@
         "pb_3": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/dhiw3.png",
             "title": "Probiotic Power",
             "description": "Science at the source",
             "answer": "Other products simply cover up symtops, our three-part formula helps restore your body's natural flora to its perfect balance."
@@ -660,6 +663,7 @@
         "pb_4": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/dhiw4.png",
             "title": "pH Protection",
             "description": "Feel focused, not foggy",
             "answer": "Our specialized strain forms a protective barrier that helps maintain optimal pH balance all day long."
