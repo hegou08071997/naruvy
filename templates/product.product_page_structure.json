@@ -929,14 +929,14 @@
         "bc_3": {
           "type": "feature",
           "settings": {
-            "brand_text": "Allergen-Free & Clean",
+            "brand_text": "Allergen-Free & Natural",
             "competitor_text": "Fillers & Additives"
           }
         },
         "bc_4": {
           "type": "feature",
           "settings": {
-            "brand_text": "High-Quality Formula",
+            "brand_text": "Global Certified Facilities",
             "competitor_text": "Inconsistent Quality"
           }
         },
