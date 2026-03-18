@@ -990,7 +990,7 @@
     "risk_free_trial": {
       "type": "risk-free-trial",
       "settings": {
-        "badge_image": "shopify://shop_images/guarantee_badge.png",
+        "badge_image": "shopify://shop_images/guarantee_badge_d0cf0c43-aa64-4b01-911f-5f9ca9cefdb1.png",
         "badge_number": "30",
         "badge_label": "DAYS",
         "subtitle": "FEEL THE DIFFERENCE",
