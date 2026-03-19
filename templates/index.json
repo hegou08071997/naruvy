@@ -60,61 +60,120 @@
     "testimonial_slider_gkd3L9": {
       "type": "testimonial-slider",
       "blocks": {
-        "review_JG3hfd": {
+        "ticker_1": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts1.png"
+          }
+        },
+        "ticker_image_pGm3ig": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts2.png"
+          }
+        },
+        "ticker_image_DeKwWj": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts3.png"
+          }
+        },
+        "ticker_image_ziYp3P": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts4.png"
+          }
+        },
+        "ticker_image_p4UjJw": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts5.png"
+          }
+        },
+        "ticker_image_AGTRdD": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts6.png"
+          }
+        },
+        "ticker_image_eQnJRE": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts7.png"
+          }
+        },
+        "ticker_image_wgRraX": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts8.png"
+          }
+        },
+        "ticker_image_E7knVa": {
+          "type": "ticker_image",
+          "settings": {
+            "image": "shopify://shop_images/dts9.png"
+          }
+        },
+        "review_1": {
           "type": "review",
           "settings": {
             "rating": "4.9",
-            "quote": "\"Haven't been sick in months!\"",
-            "details": "I started taking Huuha Queen daily at the start of cold season and haven't gotten sick once. Normally I catch everything, but this year my immune system feels bulletproof. Easy to take and zero aftertaste.",
-            "author_name": "HAILEY A.",
+            "quote": "\"I forgot what normal felt like until now!\"",
+            "details": "I got so used to the dryness I honestly forgot it wasn't supposed to feel like that?? Like I just accepted it as my life. Started Kitty Queen because my cousin wouldn't stop talking about it and within like 2 weeks I actually felt wet again on my own. Not from lube. From my actual body. I didn't even realize how uncomfortable I had been every single day until it stopped. I literally feel normal again and I could cry!!",
+            "author_name": "LASHONDA M.",
+            "author_image": "shopify://shop_images/dts5.png",
             "tag_1": "Immunity Boost",
             "tag_2": "Prevention",
             "card_bg_color": ""
           }
         },
-        "review_FHCbgc": {
+        "review_2": {
           "type": "review",
           "settings": {
             "rating": "5.0",
-            "quote": "\"Helped my digestion more than probiotics.\"",
-            "details": "I've struggled with bloating and irregular digestion for years. Huuha Queen made a noticeable difference in less than two weeks. My gut feels calm, and I feel way more regular now.",
-            "author_name": "DANA H.",
+            "quote": "\"Husband noticed before I even said anything!\"",
+            "details": "Ok I need to share this because WOW. We been together 14 years and I'm not gonna lie there was a point where we just stopped being close. I was dry and self conscious and I didn't want him near me like that. He never said anything but I know he felt it too. Started taking Kitty Queen and didn't tell him. About 3 weeks in he looks at me and goes \"something's different about you.\" He had no idea I was taking anything!! We are all over each other again like it's year one. This is my little secret and it's WORKING 🤫",
+            "author_name": "EBONY T.",
+            "author_image": "shopify://shop_images/dts2.png",
             "tag_1": "Gut Support",
             "tag_2": "Bloat Relief",
             "card_bg_color": ""
           }
         },
-        "review_Q39BYD": {
+        "review_3": {
           "type": "review",
           "settings": {
             "rating": "4.9",
-            "quote": "\"A clean product that actually works.\"",
-            "details": "I love that it's just oregano and black seed oil—nothing else. Most supplements are full of junk. Huuha Queen is simple, pure, and powerful. I feel better overall and trust what I'm putting in my body.",
-            "author_name": "MIKE M.",
+            "quote": "\"I stopped carrying wipes everywhere I go!\"",
+            "details": "I'm not even exaggerating when I say I used to have wipes in my purse, my car, my desk at work, everywhere. I would go to the bathroom before any meeting just to check. I was changing my underwear sometimes twice a day because of the smell and discharge and I was SO embarrassed even though nobody knew. After about 2 weeks on Kitty Queen the odor just started fading. By the end of the first bag I realized I hadn't checked once that whole day!! The freshness is actually real. I feel clean like when I was younger. I tell everyone about these now.",
+            "author_name": "ARNETTE M.",
+            "author_image": "shopify://shop_images/dts3.png",
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health",
             "card_bg_color": ""
           }
         },
-        "review_LBpJ7T": {
+        "review_4": {
           "type": "review",
           "settings": {
             "rating": "5.0",
-            "quote": "\"My go-to during flu season.\"",
-            "details": "Every time I feel something coming on, I take Huuha Queen and it usually stops it in its tracks. It's become a staple in my wellness routine, especially during fall and winter.",
-            "author_name": "NELSON A.",
+            "quote": "\"I'm 58 and thought this was just my life now!\"",
+            "details": "I honestly thought the dryness was just permanent. My doctor said try lubricant and that was literally her whole answer. I tried so many different creams and lubes I have a whole basket of them in my bathroom and NONE of them lasted or felt right. My daughter found Kitty Queen online and sent it to me. I didn't expect anything. By the third week everything started feeling alive again not just during intimacy but even just sitting and walking around all day! I almost cried because I forgot what it felt like to just be comfortable in my own body. Thank you Kitty Queen for real!!!",
+            "author_name": "JESSICA C.",
+            "author_image": "shopify://shop_images/dts9.png",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense",
             "card_bg_color": ""
           }
         },
-        "review_PYyR8a": {
+        "review_5": {
           "type": "review",
           "settings": {
             "rating": "4.8",
             "quote": "\"Finally, a supplement I can actually feel working.\"",
             "details": "I've tried so many supplements that promise results but never deliver. Huuha Queen is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "JESSICA R.",
+            "author_image": "shopify://shop_images/dts1.png",
             "tag_1": "Energy",
             "tag_2": "Digestive Health",
             "card_bg_color": ""
@@ -122,23 +181,35 @@
         }
       },
       "block_order": [
-        "review_JG3hfd",
-        "review_FHCbgc",
-        "review_Q39BYD",
-        "review_LBpJ7T",
-        "review_PYyR8a"
+        "ticker_1",
+        "ticker_image_pGm3ig",
+        "ticker_image_DeKwWj",
+        "ticker_image_ziYp3P",
+        "ticker_image_p4UjJw",
+        "ticker_image_AGTRdD",
+        "ticker_image_eQnJRE",
+        "ticker_image_wgRraX",
+        "ticker_image_E7knVa",
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5"
+      ],
+      "custom_css": [
+        ".ts-review__quote {font-weight: bold;}"
       ],
       "name": "Testimonial slider",
       "settings": {
         "heading": "Real Women, <strong>Real Results</strong>",
-        "subheading": "See what our customers are saying:",
+        "subheading": "See what our customers are saying about Huuha Queen",
         "highlight_color": "#ff1493",
-        "star_color": "#ffd600",
+        "star_color": "#ff1493",
         "verified_color": "#d90078",
         "tag_color": "#ff1493",
         "tag_bg_color": "#fff0f6",
         "ticker_speed": 30,
-        "section_bg_color": "#fff0f6",
+        "section_bg_color": "#fff6fa",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -151,7 +222,7 @@
           "settings": {
             "rating": 4.8,
             "text": "Rated <strong>4.8 Excellent</strong> 50,312+ Reviews",
-            "star_color": "#ffcc00",
+            "star_color": "#ff1493",
             "star_bg_color": "#ececec",
             "star_size": 1.3,
             "star_gap": 0.4,
@@ -164,8 +235,8 @@
           "type": "statement",
           "settings": {
             "subtitle": "93% of customers report:",
-            "title": "Better sleep & recovery within two weeks",
-            "title_size": 28
+            "title": "Natural Moisture & pH Balance Within 2 Weeks",
+            "title_size": 26
           }
         },
         "benefits_list_fp": {
@@ -173,18 +244,18 @@
           "settings": {
             "text_color": "#121212",
             "icon_color": "#d90078",
-            "benefit_1": "Promotes cardiovascular wellness and vitality",
-            "benefit_2": "24-month aged - completely odorless",
-            "benefit_3": "Supports Heart Health and Arterial Function",
-            "benefit_4": "Supports Immune System Naturally",
-            "benefit_5": "",
-            "benefit_6": ""
+            "benefit_1": "Vaginal Odor",
+            "benefit_2": "pH Balance",
+            "benefit_3": "Boost Moisture",
+            "benefit_4": "Flora Support",
+            "benefit_5": "Yeast Balance",
+            "benefit_6": "Gut Health"
           }
         },
         "price_fp": {
           "type": "price",
           "settings": {
-            "price_color": "#9f3f3f",
+            "price_color": "#d90078",
             "compare_price_color": "",
             "sale_badge_text": "St Patrick's Day Sale - Save 69%",
             "sale_badge_weight": "600",
@@ -218,13 +289,15 @@
           "type": "trust_microcopy",
           "settings": {
             "font_size": 1.6,
-            "font_size_2_items": 1.1,
+            "font_size_2_items": 1.4,
             "bg_color": "",
             "text_color": "#121212",
             "text_1": "Refills Ship Every 30 Days",
             "icon_name_1": "verified_user",
+            "icon_image_1": "shopify://shop_images/microcopy1.svg",
             "text_2": "Stop or Cancel Anytime",
-            "icon_name_2": "local_shipping"
+            "icon_name_2": "local_shipping",
+            "icon_image_2": "shopify://shop_images/microcopy2.svg"
           }
         },
         "urgency_notice_fp": {
@@ -247,20 +320,20 @@
         "trust_card_v2_fp": {
           "type": "trust_card_v2",
           "settings": {
-            "heading": "<strong>Why Trust Huuha Queen®</strong> as Your Wellness Partner?",
+            "heading": "<strong>Why Huuha Queen is the #1</strong> Choice For Feminine Care?",
             "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
             "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
             "feature_text_2": "Third Party Tested",
             "feature_icon_3": "shopify://shop_images/trust_card_v2_3.svg",
-            "feature_text_3": "Clean Formulas",
+            "feature_text_3": "All Natural Formula",
             "feature_icon_4": "shopify://shop_images/trust_card_v2_4.svg",
             "feature_text_4": "Globally Trusted Facilities",
-            "item_1": "Vegan-Friendly",
+            "item_1": "No Estrogen",
             "item_2": "No Artificial Additives",
             "item_3": "Allergen-Free",
-            "item_4": "No Added Sugar",
-            "item_5": "No Artificial Flavors",
+            "item_4": "Non-GMO",
+            "item_5": "Vegan-Friendly",
             "item_6": "Gluten-Free",
             "text_color": "#000000",
             "title_color": "#000000",
@@ -307,73 +380,78 @@
     "reasons_why_nEVwaJ": {
       "type": "reasons-why",
       "blocks": {
-        "reason_card_TWzfBB": {
+        "reason_card_XmWM9Y": {
           "type": "reason_card",
           "settings": {
+            "image": "shopify://shop_images/drw1.png",
             "label": "Reason 1",
-            "heading": "Thoughtfully Dosed for Daily Wellness",
-            "details": "<p>Most supplements underdose their key ingredients. Huuha Queen® delivers 6,000 mg of oregano oil and 200 mg of black seed oil per serving — two clinically studied botanicals in meaningful daily amounts.†</p>"
+            "heading": "Clinically Chosen for Real Impact",
+            "details": "<p>We use sporeform bacillus coagulans — meaning these probiotics survive your gut lining (where most probiotics stop) so it can reach your flora and actually work.</p>"
           }
         },
-        "reason_card_xigFGj": {
+        "reason_card_493cPn": {
           "type": "reason_card",
           "settings": {
+            "image": "shopify://shop_images/drw2.png",
             "label": "Reason 2",
-            "heading": "Two Powerful Plants. One Clean Formula.",
-            "details": "<p>Oregano oil and black seed oil have been studied for centuries and researched in modern science for their roles in supporting immune health, gut comfort, and antioxidant activity.† Together in one softgel — no synthetic fillers, no aftertaste.</p>"
+            "heading": "Targets Balance & Moisture Together",
+            "details": "<p>Why take multiple supplements when you can get it all in one? Huuha Queen is designed to not only support just balance, it also boosts moisture. That's truly balanced.</p>"
           }
         },
-        "reason_card_dGnQ3c": {
+        "reason_card_HHJT9J": {
           "type": "reason_card",
           "settings": {
+            "image": "shopify://shop_images/drw3.png",
             "label": "Reason 3",
-            "heading": "No Taste. No Burn. No Nonsense.",
-            "details": "<p>Forget the bitter drops, burps, or reflux. Our <strong>plant-based softgels</strong> are easy to swallow, completely tasteless, and gentle on your stomach.</p>"
+            "heading": "No Pills. No Problem Taking.",
+            "details": "<p>Unlike harsh capsules or hard to use alternatives, Huuha Queen is delicious, gentle, and super easy — without dreading to take or discomfort.</p>"
           }
         },
-        "reason_card_hQNrG3": {
+        "reason_card_VCdJrA": {
           "type": "reason_card",
           "settings": {
+            "image": "shopify://shop_images/drw4.png",
             "label": "Reason 4",
-            "heading": "Results You Can Feel",
-            "details": "<p>Most customers report noticing a difference within 1–2 weeks of consistent daily use — better digestive comfort, more steady energy, and a greater sense of daily wellness.† *Individual results may vary.</p>"
+            "heading": "Natural & Clean Ingredients",
+            "details": "<p>Vegan, Non-GMO. Free from gluten, dairy, soy, allergens, & fillers. Third-party tested for purity & potency.</p>"
           }
         },
-        "reason_card_PDW4fy": {
+        "reason_card_Np8tDa": {
           "type": "reason_card",
           "settings": {
+            "image": "shopify://shop_images/drw5.png",
             "label": "Reason 5",
-            "heading": "Radical Transparency",
-            "details": "<p>We 3rd-party test every batch. No fillers. No fluff. <strong>Just two clinically studied ingredients</strong>—exactly what's on the label, nothing you can't pronounce.</p>"
+            "heading": "Results You Can Actually Feel",
+            "details": "<p>Most women feel a difference within the first 7–14 days: more moisture, freshness, and balance to feel the way you deserve.</p>"
           }
         }
       },
       "block_order": [
-        "reason_card_TWzfBB",
-        "reason_card_xigFGj",
-        "reason_card_dGnQ3c",
-        "reason_card_hQNrG3",
-        "reason_card_PDW4fy"
+        "reason_card_XmWM9Y",
+        "reason_card_493cPn",
+        "reason_card_HHJT9J",
+        "reason_card_VCdJrA",
+        "reason_card_Np8tDa"
       ],
       "name": "Reasons why",
       "settings": {
         "badge_text": "5 Reasons Why",
         "subheading": "Huuha Queen® is Different From Everything You've Tried",
-        "bg_color": "#fff0f6",
+        "bg_color": "#fff6fa",
         "text_color": "#000000",
         "badge_bg_color": "#ff1493",
         "badge_text_color": "#ffffff",
-        "label_bg_color": "#d90078",
+        "label_bg_color": "#ff1493",
         "label_text_color": "#ffffff",
         "card_bg_color": "#ffffff",
         "card_border_color": "#0000004d",
         "card_text_color": "#000000",
-        "badge_font_size": 18,
-        "subheading_font_size": 28,
-        "label_font_size": 14,
-        "card_heading_font_size": 16,
-        "details_font_size": 12,
-        "card_height": 500,
+        "badge_font_size": 28,
+        "subheading_font_size": 31,
+        "label_font_size": 17,
+        "card_heading_font_size": 21,
+        "details_font_size": 16,
+        "card_height": 408,
         "card_radius": 12,
         "card_gap": 13,
         "max_width": 1500,
@@ -384,7 +462,7 @@
         "cta_font_size": 19,
         "cta_margin_top": 40,
         "guarantee_text": "30-day money back guarantee",
-        "guarantee_icon": "shopify://shop_images/5_reasons_why.png",
+        "guarantee_icon": "shopify://shop_images/reasons_why.png",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -409,14 +487,14 @@
         "bc_3": {
           "type": "feature",
           "settings": {
-            "brand_text": "Allergen-Free & Clean",
+            "brand_text": "Allergen-Free & Natural",
             "competitor_text": "Fillers & Additives"
           }
         },
         "bc_4": {
           "type": "feature",
           "settings": {
-            "brand_text": "High-Quality Formula",
+            "brand_text": "Global Certified Facilities",
             "competitor_text": "Inconsistent Quality"
           }
         },
@@ -437,15 +515,15 @@
       ],
       "name": "Brand comparison",
       "settings": {
-        "heading": "Huuha Queen® vs. Other Brands",
+        "heading": "<strong>Huuha Queen®</strong> vs. Other Brands",
         "heading_size": 36,
         "bg_gradient_start": "#18001a",
         "bg_gradient_end": "#d90078",
         "text_color": "#ffffff",
-        "highlight_color": "#ffffff",
+        "highlight_color": "#ff1493",
         "brand_name": "<strong>Huuha Queen</strong>",
         "brand_name_color": "#ffffff",
-        "brand_image": "shopify://shop_images/generated-1772392286962.png",
+        "brand_image": "shopify://shop_images/huuha_packaging_transparent.png",
         "brand_col_color": "#ff1493",
         "brand_icon_color": "#ffffff",
         "competitor_label": "<strong>Other Brands</strong>",
@@ -473,14 +551,14 @@
       "type": "risk-free-trial",
       "name": "Risk-free trial",
       "settings": {
-        "badge_image": "shopify://shop_images/guarantee_badge.png",
+        "badge_image": "shopify://shop_images/guarantee_badge_d0cf0c43-aa64-4b01-911f-5f9ca9cefdb1.png",
         "badge_number": "30",
         "badge_label": "DAYS",
         "subtitle": "FEEL THE DIFFERENCE",
         "heading": "30-Day Risk-Free Trial",
         "heading_size": 23,
         "description": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund—no questions asked.",
-        "image": "shopify://shop_images/guarantee.png",
+        "image": "shopify://shop_images/guarantee_54b87e0c-6c47-42cc-b06a-85d6cf84039b.png",
         "bg_color": "#fff6fa",
         "accent_color": "#ff1493",
         "text_color": "",
@@ -498,45 +576,54 @@
         "collapsible_row_kP7dka": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Is this really odorless? I've tried other 'odorless' garlic supplements that still made me burp garlic all day.",
+            "heading": "How do the Kitty Queen™ Slippery Kitty gummies work?",
             "icon": "none",
-            "row_content": "<p>Yes, Huuha Queen is truly odorless because of our unique 24-month aging process. Unlike regular garlic supplements that just add enteric coating (which often fails), our fermentation completely transforms the harsh compounds that cause odor and burping.</p><p>The aging converts allicin into gentle S-allyl-cysteine molecules that are absorbed without any digestive upset or smell. Thousands of customers confirm zero garlic breath or burping - even their spouses don't know they're taking it.</p>",
+            "row_content": "<p>Huuha Queen uses three ingredients that work from the inside out. <strong>Slippery Elm</strong> rehydrates the tissue that produces your natural moisture. <strong>Bacillus Coagulans</strong> is a probiotic that survives stomach acid to actually reach your vaginal flora and rebalance pH. <strong>Pineapple Fruit</strong> supports freshness naturally. Two gummies a day — your body does the rest.</p>",
             "page": ""
           }
         },
         "collapsible_row_jgAFHc": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long before I see results with my blood pressure? I need something that actually works.",
+            "heading": "How long will it take to see results?",
             "icon": "none",
-            "row_content": "<p>Most customers notice improvements within 2-4 weeks, with significant changes by 6-8 weeks. Clinical studies show aged garlic can help support healthy blood pressure levels over time. However, results vary by individual. We recommend taking consistently for at least 8 weeks while monitoring your numbers. Many customers see 10-20 point improvements in systolic readings, but always consult your doctor before making any changes to medications.</p>",
+            "row_content": "<p>Most women notice changes <strong>within the first 2 weeks</strong>, with full results building over <strong>30 days</strong> of daily use. Take 2 gummies daily. Every body is different — some feel it in the first week, others take 3-4 weeks. Stick with it. The women who see the best results are the ones who stay consistent.</p>",
             "page": ""
           }
         },
         "collapsible_row_qUEDkw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Why is aged garlic better than fresh garlic or regular garlic pills?",
+            "heading": "Can I take it with other supplements?",
             "icon": "none",
-            "row_content": "<p>Fresh garlic and regular pills contain allicin, which is harsh on your stomach and gets destroyed by stomach acid - up to 85% is wasted. Our 24-month aging process converts these unstable compounds into bioavailable S-allyl-cysteine that's 30 times gentler and actually gets absorbed. One Huuha Queen capsule provides the equivalent of 7500mg of aged garlic - more heart-supporting power than eating a whole bulb of raw garlic, without any digestive issues.</p>",
+            "row_content": "<p>Yes. These gummies are made with <strong>natural ingredients and work alongside your other daily vitamins</strong>. If you're currently on specific medications or hormonal treatments, check with your doctor first.</p>",
             "page": ""
           }
         },
         "collapsible_row_FCYENr": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I take this with my current blood pressure medications?",
+            "heading": "Is this safe if I can't use estrogen or hormones?",
             "icon": "none",
-            "row_content": "<p>Many customers take Huuha Queen alongside their medications without issues, but you should always consult your doctor first. Aged garlic is generally well-tolerated, but your healthcare provider needs to monitor your numbers as they may improve and require medication adjustments. Some customers have been able to reduce medications under medical supervision. Never stop or change prescriptions without your doctor's approval.</p>",
+            "row_content": "<p>Yes. Kitty Queen is <strong>100% hormone-free and contains zero estrogen</strong>. It works naturally with your body — no hormones at all. Women on aromatase inhibitors, women who've been through cancer treatment, and women who simply don't want hormones can use this safely.</p>",
             "page": ""
           }
         },
         "collapsible_row_JXE9KX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What's your money-back guarantee? I've wasted money on supplements that didn't work before.",
+            "heading": "Are they vegan and gluten-free?",
             "icon": "none",
-            "row_content": "<p>We offer a 30-day money-back guarantee because we're confident in our 24-month aged garlic. If you don't see improvements in your energy, well-being, or cardiovascular markers within 30 days, simply return the bottles (even if empty) for a full refund. No questions asked.</p><p>We've helped over 50,000 customers and our return rate is under 3% because the aging process really works. Most customers reorder before their first bottle is finished.</p>",
+            "row_content": "<p>Yes. Made with <strong>vegan, gluten-free, allergen-free, non-GMO, and natural ingredients</strong> — safe for a wide range of dietary needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xwHJdL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there any side effects?",
+            "icon": "none",
+            "row_content": "<p>These gummies work with your body's own system, not against it. Our probiotic strain is <strong>stomach-friendly and won't disrupt your natural balance</strong>. No hormones, no harsh chemicals, no digestive issues. Most women experience zero side effects. Take 2 gummies daily with food.</p>",
             "page": ""
           }
         }
@@ -546,12 +633,13 @@
         "collapsible_row_jgAFHc",
         "collapsible_row_qUEDkw",
         "collapsible_row_FCYENr",
-        "collapsible_row_JXE9KX"
+        "collapsible_row_JXE9KX",
+        "collapsible_row_xwHJdL"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
-        "heading": "We're serious about clean health, ask away",
+        "heading": "Frequently Asked Questions",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
