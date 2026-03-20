@@ -105,7 +105,7 @@
             "desktop_rating_stars": true,
             "desktop_show_price": false,
             "desktop_show_sale_badge": false,
-            "desktop_variant_picker": true,
+            "desktop_variant_picker": false,
             "desktop_full_button_width": false,
             "desktop_show_price_in_button": false,
             "desktop_transparent_bg": false,
@@ -114,7 +114,7 @@
             "mobile_rating_stars": false,
             "mobile_show_price": false,
             "mobile_show_sale_badge": false,
-            "mobile_variant_picker": true,
+            "mobile_variant_picker": false,
             "mobile_full_button_width": false,
             "mobile_show_price_in_button": false,
             "mobile_transparent_bg": false
@@ -239,10 +239,7 @@
           "type": "testimonial_videos",
           "settings": {
             "heading": "What our customers are saying:",
-            "heading_size": 23,
-            "video_1": "",
-            "video_2": "",
-            "video_3": ""
+            "heading_size": 23
           }
         }
       },
