@@ -82,7 +82,7 @@
             "show_gift_card_recipient": false,
             "button_font_size": 1.8,
             "button_font_weight": "700",
-            "button_text_transform": "uppercase"
+            "button_text_transform": "none"
           }
         },
         "sticky_cart": {
