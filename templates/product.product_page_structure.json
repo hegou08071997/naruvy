@@ -752,7 +752,7 @@
         "text_color": "#ffffff",
         "border_position": "none",
         "border_thickness": 1,
-        "border_color": "#ffffff",
+        "border_color": "#000000",
         "font_size": 14,
         "font_weight": "500",
         "spacing": 60,
