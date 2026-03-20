@@ -29,7 +29,7 @@
         "subheadline": "Clinically backed Probiotics + Slippery Elm in one clean, effective daily gummy.",
         "cta_function": "link",
         "cta_text": "Shop Huuha Queen® Now",
-        "cta_url": "shopify://products/kit-gua-sha-avena™",
+        "cta_url": "shopify://products/huuha-queen™-slippery-huuha-feminine-wellness-gummies",
         "cta_bg_color": "#ffd600",
         "cta_text_color": "#000000",
         "guarantee_text": "30-day money-back guarantee",
@@ -47,11 +47,8 @@
         "item_gap": 30,
         "item_padding_vertical": 7,
         "item_padding_horizontal": 0,
-        "icon_1": "shopify://shop_images/usp1.svg",
         "text_1": "CLINICALLY STUDIED INGREDIENTS",
-        "icon_2": "shopify://shop_images/usp2.svg",
         "text_2": "THIRD PARTY TESTED",
-        "icon_3": "shopify://shop_images/usp3.svg",
         "text_3": "NATURAL INGREDIENTS",
         "padding_top": 16,
         "padding_bottom": 16
@@ -62,57 +59,39 @@
       "blocks": {
         "ticker_1": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts1_49d2b79c-bfee-4401-ae42-1cc6f04ad95f.png"
-          }
+          "settings": {}
         },
         "ticker_image_pGm3ig": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts2_bb044f24-db2e-4223-b4e8-b57d009e5295.png"
-          }
+          "settings": {}
         },
         "ticker_image_DeKwWj": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts3_e58c285f-45b1-4933-ba09-ea00437d9ae8.png"
-          }
+          "settings": {}
         },
         "ticker_image_ziYp3P": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts4_1292ac0b-f648-4ff3-ae77-016cd785dcb9.png"
-          }
+          "settings": {}
         },
         "ticker_image_p4UjJw": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts5_b1d5e285-0d09-4f0c-aaa7-06abd385ba23.png"
-          }
+          "settings": {}
         },
         "ticker_image_AGTRdD": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts6_23472b45-967b-466d-94ec-bd4a39329e36.png"
-          }
+          "settings": {}
         },
         "ticker_image_eQnJRE": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts7_027feb78-7ba0-4008-8772-7eca00292153.png"
-          }
+          "settings": {}
         },
         "ticker_image_wgRraX": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts8_79011c57-9040-4c11-8892-9f9b21512415.png"
-          }
+          "settings": {}
         },
         "ticker_image_E7knVa": {
           "type": "ticker_image",
-          "settings": {
-            "image": "shopify://shop_images/dts9_3e7dd178-39ba-4162-b6ee-83043c7062b9.png"
-          }
+          "settings": {}
         },
         "ticker_image_3CWTUR": {
           "type": "ticker_image",
@@ -153,7 +132,6 @@
             "quote": "\"I stopped carrying wipes everywhere I go!\"",
             "details": "I'm not even exaggerating when I say I used to have wipes in my purse, my car, my desk at work, everywhere. I would go to the bathroom before any meeting just to check. I was changing my underwear sometimes twice a day because of the smell and discharge and I was SO embarrassed even though nobody knew. After about 2 weeks on Huuha Queen the odor just started fading. By the end of the first bag I realized I hadn't checked once that whole day!! The freshness is actually real. I feel clean like when I was younger. I tell everyone about these now.",
             "author_name": "CANDICE R.",
-            "author_image": "shopify://shop_images/dts8_79011c57-9040-4c11-8892-9f9b21512415.png",
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health",
             "card_bg_color": ""
@@ -166,7 +144,6 @@
             "quote": "\"I'm 58 and thought this was just my life now!\"",
             "details": "I honestly thought the dryness was just permanent. My doctor said try lubricant and that was literally her whole answer. I tried so many different creams and lubes I have a whole basket of them in my bathroom and NONE of them lasted or felt right. My daughter found Huuha Queen online and sent it to me. I didn't expect anything. By the third week everything started feeling alive again not just during intimacy but even just sitting and walking around all day! I almost cried because I forgot what it felt like to just be comfortable in my own body. Thank you Huuha Queen for real!!!",
             "author_name": "JASMINE L.",
-            "author_image": "shopify://shop_images/dts5_b1d5e285-0d09-4f0c-aaa7-06abd385ba23.png",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense",
             "card_bg_color": ""
@@ -179,7 +156,6 @@
             "quote": "\"Finally, a supplement I can actually feel working.\"",
             "details": "I've tried so many supplements that promise results but never deliver. Huuha Queen is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "TONYA S.",
-            "author_image": "shopify://shop_images/dts2_bb044f24-db2e-4223-b4e8-b57d009e5295.png",
             "tag_1": "Energy",
             "tag_2": "Digestive Health",
             "card_bg_color": ""
@@ -301,10 +277,8 @@
             "text_color": "#121212",
             "text_1": "Refills Ship Every 30 Days",
             "icon_name_1": "verified_user",
-            "icon_image_1": "shopify://shop_images/microcopy1.svg",
             "text_2": "Stop or Cancel Anytime",
-            "icon_name_2": "local_shipping",
-            "icon_image_2": "shopify://shop_images/microcopy2.svg"
+            "icon_name_2": "local_shipping"
           }
         },
         "urgency_notice_fp": {
@@ -328,13 +302,9 @@
           "type": "trust_card_v2",
           "settings": {
             "heading": "<strong>Why Huuha Queen is the #1</strong> Choice For Feminine Care?",
-            "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
             "feature_text_1": "Clinically Backed Formulas",
-            "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
             "feature_text_2": "Third Party Tested",
-            "feature_icon_3": "shopify://shop_images/trust_card_v2_3.svg",
             "feature_text_3": "All Natural Formula",
-            "feature_icon_4": "shopify://shop_images/trust_card_v2_4.svg",
             "feature_text_4": "Globally Trusted Facilities",
             "item_1": "No Estrogen",
             "item_2": "No Artificial Additives",
@@ -346,7 +316,6 @@
             "title_color": "#000000",
             "highlight_color": "#ff1493",
             "bg_color": "#ff85c8",
-            "bg_image": "shopify://shop_images/drw1_16e551b2-f880-40e2-9cb2-03d7315d7b16.png",
             "image_opacity": 10,
             "border_radius": 10,
             "heading_size": 28,
@@ -369,7 +338,7 @@
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "patchs-micro-infusion",
+        "product": "huuha-queen™-slippery-huuha-feminine-wellness-gummies",
         "color_scheme": "",
         "secondary_background": false,
         "media_size": "medium",
@@ -464,13 +433,12 @@
         "card_gap": 13,
         "max_width": 1500,
         "cta_text": "Try Risk-Free Today",
-        "cta_url": "",
+        "cta_url": "shopify://products/huuha-queen™-slippery-huuha-feminine-wellness-gummies",
         "cta_bg_color": "#ffd600",
         "cta_text_color": "#000000",
         "cta_font_size": 19,
         "cta_margin_top": 40,
         "guarantee_text": "30-day money back guarantee",
-        "guarantee_icon": "shopify://shop_images/reasons_why.png",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -545,7 +513,7 @@
         "checklist_3": "<strong>Long-Term Health, Not Quick Fixes</strong> - Not just symptom relief",
         "checklist_4": "<strong>Clean & Pure Ingredients</strong> - made without fillers, GMOs, or unnecessary additives",
         "cta_text": "Try Risk-Free Today",
-        "cta_link": "",
+        "cta_link": "shopify://products/huuha-queen™-slippery-huuha-feminine-wellness-gummies",
         "cta_height": 46,
         "cta_bg_color": "#ffd600",
         "cta_text_color": "#000000",
@@ -559,14 +527,14 @@
       "type": "risk-free-trial",
       "name": "Risk-free trial",
       "settings": {
-        "badge_image": "shopify://shop_images/guarantee_badge_d0cf0c43-aa64-4b01-911f-5f9ca9cefdb1.png",
+        "badge_image": "shopify://shop_images/guarantee_badge.png",
         "badge_number": "30",
         "badge_label": "DAYS",
         "subtitle": "FEEL THE DIFFERENCE",
         "heading": "30-Day Risk-Free Trial",
         "heading_size": 23,
         "description": "If you don't experience noticeable improvements within 30 days, simply return your order for a full refund—no questions asked.",
-        "image": "shopify://shop_images/guarantee_54b87e0c-6c47-42cc-b06a-85d6cf84039b.png",
+        "image": "shopify://shop_images/guarantee.png",
         "bg_color": "#fff6fa",
         "accent_color": "#ff1493",
         "text_color": "",
