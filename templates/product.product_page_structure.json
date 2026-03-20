@@ -413,15 +413,21 @@
       "blocks": {
         "ticker_1": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts1.png"
+          }
         },
         "ticker_image_pGm3ig": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts2.png"
+          }
         },
         "ticker_image_DeKwWj": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts4.png"
+          }
         },
         "ticker_image_ziYp3P": {
           "type": "ticker_image",
