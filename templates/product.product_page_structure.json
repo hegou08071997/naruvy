@@ -426,32 +426,44 @@
         "ticker_image_DeKwWj": {
           "type": "ticker_image",
           "settings": {
-            "image": "shopify://shop_images/dts4.png"
+            "image": "shopify://shop_images/dts3.png"
           }
         },
         "ticker_image_ziYp3P": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts4.png"
+          }
         },
         "ticker_image_p4UjJw": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts5.png"
+          }
         },
         "ticker_image_AGTRdD": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts6.png"
+          }
         },
         "ticker_image_eQnJRE": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts7.png"
+          }
         },
         "ticker_image_wgRraX": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts8.png"
+          }
         },
         "ticker_image_E7knVa": {
           "type": "ticker_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dts9.png"
+          }
         },
         "ticker_image_3CWTUR": {
           "type": "ticker_image",
@@ -492,6 +504,7 @@
             "quote": "\"I stopped carrying wipes everywhere I go!\"",
             "details": "I'm not even exaggerating when I say I used to have wipes in my purse, my car, my desk at work, everywhere. I would go to the bathroom before any meeting just to check. I was changing my underwear sometimes twice a day because of the smell and discharge and I was SO embarrassed even though nobody knew. After about 2 weeks on Huuha Queen the odor just started fading. By the end of the first bag I realized I hadn't checked once that whole day!! The freshness is actually real. I feel clean like when I was younger. I tell everyone about these now.",
             "author_name": "CANDICE R.",
+            "author_image": "shopify://shop_images/dts5.png",
             "tag_1": "Clean Ingredients",
             "tag_2": "Whole-Body Health",
             "card_bg_color": ""
@@ -504,6 +517,7 @@
             "quote": "\"I'm 58 and thought this was just my life now!\"",
             "details": "I honestly thought the dryness was just permanent. My doctor said try lubricant and that was literally her whole answer. I tried so many different creams and lubes I have a whole basket of them in my bathroom and NONE of them lasted or felt right. My daughter found Huuha Queen online and sent it to me. I didn't expect anything. By the third week everything started feeling alive again not just during intimacy but even just sitting and walking around all day! I almost cried because I forgot what it felt like to just be comfortable in my own body. Thank you Huuha Queen for real!!!",
             "author_name": "JASMINE L.",
+            "author_image": "shopify://shop_images/dts6.png",
             "tag_1": "Cold Prevention",
             "tag_2": "Daily Defense",
             "card_bg_color": ""
@@ -516,6 +530,7 @@
             "quote": "\"Finally, a supplement I can actually feel working.\"",
             "details": "I've tried so many supplements that promise results but never deliver. Huuha Queen is different. Within the first week I noticed more energy and less bloating. I'm a customer for life.",
             "author_name": "TONYA S.",
+            "author_image": "shopify://shop_images/dts8.png",
             "tag_1": "Energy",
             "tag_2": "Digestive Health",
             "card_bg_color": ""
