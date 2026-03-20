@@ -246,9 +246,9 @@
           "settings": {
             "heading": "What our customers are saying:",
             "heading_size": 23,
-            "video_1": "shopify://files/videos/avena_d4.mp4",
-            "video_2": "shopify://files/videos/avena_d4.mp4",
-            "video_3": "shopify://files/videos/avena_d4.mp4"
+            "video_1": "",
+            "video_2": "",
+            "video_3": ""
           }
         }
       },
