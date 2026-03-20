@@ -1,7 +1,11 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 
-<div class="footer-break-top" aria-hidden="true"></div>
+{%- if section.settings.break_top != blank -%}
+  <div class="footer-break-top" aria-hidden="true" style="background-image: url('{{ section.settings.break_top | image_url: width: 2000 }}');"></div>
+{%- else -%}
+  <div class="footer-break-top" aria-hidden="true"></div>
+{%- endif -%}
 
 <footer class="footer-wrapper" role="contentinfo">
   <div class="footer-inner page-width">
@@ -78,10 +82,25 @@
   </div>
 </footer>
 
+{%- if section.settings.break_bottom != blank -%}
+  <div class="footer-break-bottom" aria-hidden="true" style="background-image: url('{{ section.settings.break_bottom | image_url: width: 2000 }}');"></div>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Footer",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "break_top",
+      "label": "Top Break Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "break_bottom",
+      "label": "Bottom Break Image"
+    }
+  ],
   "blocks": [
     {
       "type": "image",

@@ -90,14 +90,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.footer-break-top {
-  background-image: url('https://cdn.shopify.com/s/files/1/0503/3535/0975/files/break-top.png?v=1772442257');
-}
-
-.footer-break-bottom {
-  background-image: url('https://cdn.shopify.com/s/files/1/0503/3535/0975/files/break-bottom.png?v=1772442257');
-}
-
 /* Wrapper: position:relative als Anker für das absolut positionierte Naked-Bild */
 .footer-wrapper {
   background-color: var(--brand-beige);
