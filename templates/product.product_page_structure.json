@@ -581,6 +581,7 @@
           "type": "benefit",
           "settings": {
             "icon_name": "health_and_safety",
+            "custom_icon": "shopify://shop_images/benefits_showcase1.png",
             "title": "Perfect pH Balance"
           }
         },
@@ -588,6 +589,7 @@
           "type": "benefit",
           "settings": {
             "icon_name": "science",
+            "custom_icon": "shopify://shop_images/benefits_showcase2.png",
             "title": "Fight BV & UTIs"
           }
         },
@@ -595,6 +597,7 @@
           "type": "benefit",
           "settings": {
             "icon_name": "bolt",
+            "custom_icon": "shopify://shop_images/benefits_showcase3.png",
             "title": "Eliminate Odors & Discharge"
           }
         },
@@ -602,6 +605,7 @@
           "type": "benefit",
           "settings": {
             "icon_name": "spa",
+            "custom_icon": "shopify://shop_images/benefits_showcase4.png",
             "title": "Boost Natural Moisture"
           }
         }
