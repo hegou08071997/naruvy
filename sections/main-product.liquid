@@ -91,14 +91,16 @@
       align-items: center;
       justify-content: center;
       padding: 0.8rem 2rem;
-      border: 1px solid rgba(var(--color-foreground), 0.15);
+      border: 1px solid var(--fvp-border, rgba(var(--color-foreground), 0.15));
       border-radius: 40px;
       font-size: 1.4rem;
       cursor: default;
       user-select: none;
+      background: var(--fvp-bg, transparent);
+      color: var(--fvp-text, inherit);
     }
     .fake-variant-picker__option--selected {
-      border-color: rgb(var(--color-foreground));
+      border-color: var(--fvp-text, rgb(var(--color-foreground)));
     }
     .fake-variant-picker__option--soldout {
       text-decoration: line-through;
@@ -1456,21 +1458,30 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'fake_variant_picker' -%}
-                <div class="fake-variant-picker" {{ block.shopify_attributes }}>
+                <div
+                  class="fake-variant-picker"
+                  style="
+                    {%- if block.settings.bg_color != blank %}--fvp-bg: {{ block.settings.bg_color }};{% endif -%}
+                    {%- if block.settings.text_color != blank %}--fvp-text: {{ block.settings.text_color }};{% endif -%}
+                    {%- if block.settings.border_color != blank %}--fvp-border: {{ block.settings.border_color }};{% endif -%}
+                  "
+                  {{ block.shopify_attributes }}
+                >
                   {%- if block.settings.label != blank -%}
                     <p class="fake-variant-picker__label">{{ block.settings.label }}</p>
                   {%- endif -%}
                   <div class="fake-variant-picker__options">
-                    {%- if block.settings.option_1 != blank -%}
-                      <span class="fake-variant-picker__option fake-variant-picker__option--selected">
-                        {{ block.settings.option_1 }}
-                      </span>
-                    {%- endif -%}
-                    {%- if block.settings.option_2 != blank -%}
-                      <span class="fake-variant-picker__option fake-variant-picker__option--soldout">
-                        {{ block.settings.option_2 }}
-                      </span>
-                    {%- endif -%}
+                    {%- assign fvp_options = 'option_1,option_2,option_3,option_4' | split: ',' -%}
+                    {%- assign fvp_soldout = 'option_1_soldout,option_2_soldout,option_3_soldout,option_4_soldout' | split: ',' -%}
+                    {%- for opt_id in fvp_options -%}
+                      {%- assign opt_text = block.settings[opt_id] -%}
+                      {%- assign opt_sold = block.settings[fvp_soldout[forloop.index0]] -%}
+                      {%- if opt_text != blank -%}
+                        <span class="fake-variant-picker__option{% if opt_sold %} fake-variant-picker__option--soldout{% elsif forloop.first %} fake-variant-picker__option--selected{% endif %}">
+                          {{ opt_text }}
+                        </span>
+                      {%- endif -%}
+                    {%- endfor -%}
                   </div>
                 </div>
               {%- when 'buy_buttons' -%}
@@ -3254,16 +3265,73 @@
           "default": "Flavor"
         },
         {
+          "type": "header",
+          "content": "Options"
+        },
+        {
           "type": "text",
           "id": "option_1",
-          "label": "Option 1 (selected)",
+          "label": "Option 1",
           "default": "Pineapple"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_1_soldout",
+          "label": "Option 1 sold out",
+          "default": false
         },
         {
           "type": "text",
           "id": "option_2",
-          "label": "Option 2 (sold out)",
+          "label": "Option 2",
           "default": "Mango Peach"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_2_soldout",
+          "label": "Option 2 sold out",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "option_3",
+          "label": "Option 3"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_3_soldout",
+          "label": "Option 3 sold out",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "option_4",
+          "label": "Option 4"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_4_soldout",
+          "label": "Option 4 sold out",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Option background color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Option text color"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Option border color"
         }
       ]
     },
