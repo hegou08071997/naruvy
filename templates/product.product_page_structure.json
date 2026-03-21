@@ -65,6 +65,14 @@
             "compare_font_size": 1.8
           }
         },
+        "fake_variant_picker_YWiDHE": {
+          "type": "fake_variant_picker",
+          "settings": {
+            "label": "Flavor:",
+            "option_1": "Pineapple",
+            "option_2": "Mango Peach"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -253,6 +261,7 @@
         "title",
         "benefits_list",
         "price",
+        "fake_variant_picker_YWiDHE",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
