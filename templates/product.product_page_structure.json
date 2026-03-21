@@ -147,8 +147,10 @@
             "text_color": "#121212",
             "text_1": "Refills Ship Every 30 Days",
             "icon_name_1": "verified_user",
+            "icon_image_1": "shopify://shop_images/microcopy1.svg",
             "text_2": "Stop or Cancel Anytime",
-            "icon_name_2": "local_shipping"
+            "icon_name_2": "local_shipping",
+            "icon_image_2": "shopify://shop_images/microcopy2.svg"
           }
         },
         "social_proof_banner": {
