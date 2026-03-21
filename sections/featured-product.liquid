@@ -106,6 +106,37 @@
       line-height: 1.4;
     }
 
+    /* Fake variant picker */
+    .fake-variant-picker__label {
+      margin: 0 0 0.8rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .fake-variant-picker__options {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .fake-variant-picker__option {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 2rem;
+      border: 1px solid rgba(var(--color-foreground), 0.15);
+      border-radius: 40px;
+      font-size: 1.4rem;
+      cursor: default;
+      user-select: none;
+    }
+    .fake-variant-picker__option--selected {
+      border-color: rgb(var(--color-foreground));
+    }
+    .fake-variant-picker__option--soldout {
+      text-decoration: line-through;
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
     /* Trust microcopy */
     .trust-microcopy {
       display: flex;
@@ -1168,6 +1199,24 @@
                     block: block,
                     product_form_id: product_form_id
                   %}
+                {%- when 'fake_variant_picker' -%}
+                  <div class="fake-variant-picker" {{ block.shopify_attributes }}>
+                    {%- if block.settings.label != blank -%}
+                      <p class="fake-variant-picker__label">{{ block.settings.label }}</p>
+                    {%- endif -%}
+                    <div class="fake-variant-picker__options">
+                      {%- if block.settings.option_1 != blank -%}
+                        <span class="fake-variant-picker__option fake-variant-picker__option--selected">
+                          {{ block.settings.option_1 }}
+                        </span>
+                      {%- endif -%}
+                      {%- if block.settings.option_2 != blank -%}
+                        <span class="fake-variant-picker__option fake-variant-picker__option--soldout">
+                          {{ block.settings.option_2 }}
+                        </span>
+                      {%- endif -%}
+                    </div>
+                  </div>
                 {%- when 'buy_buttons' -%}
                   <style>
                     #ProductSubmitButton-{{ section.id }} {
@@ -2368,6 +2417,31 @@
             }
           ],
           "default": "circle"
+        }
+      ]
+    },
+    {
+      "type": "fake_variant_picker",
+      "name": "Fake variant picker",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Option name",
+          "default": "Flavor"
+        },
+        {
+          "type": "text",
+          "id": "option_1",
+          "label": "Option 1 (selected)",
+          "default": "Pineapple"
+        },
+        {
+          "type": "text",
+          "id": "option_2",
+          "label": "Option 2 (sold out)",
+          "default": "Mango Peach"
         }
       ]
     },
