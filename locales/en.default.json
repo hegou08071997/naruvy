@@ -544,6 +544,9 @@
       "general": {
         "pay_now_button_label": "Complete Purchase"
       }
+    },
+    "links": {
+      "powered_by_shopify": "| All Rights Reserved"
     }
   }
 }
