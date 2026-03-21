@@ -70,7 +70,16 @@
           "settings": {
             "label": "Flavor:",
             "option_1": "Pineapple",
-            "option_2": "Mango Peach"
+            "option_1_soldout": false,
+            "option_2": "Mango Peach",
+            "option_2_soldout": true,
+            "option_3": "",
+            "option_3_soldout": false,
+            "option_4": "",
+            "option_4_soldout": false,
+            "bg_color": "",
+            "text_color": "",
+            "border_color": ""
           }
         },
         "variant_picker": {
@@ -694,7 +703,7 @@
         "highlight_color": "#ff1493",
         "bg_color": "#fff6fa",
         "cta_text": "Try Risk-Free Today",
-        "cta_link": "",
+        "cta_link": "#ProductInfo-template--19669653651558__main",
         "cta_note": "30-day money back guarantee",
         "cta_note_icon_name": "verified_user",
         "cta_height": 40,
