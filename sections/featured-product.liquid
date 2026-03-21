@@ -351,13 +351,9 @@
       color: var(--tcv2-highlight-color, #ffe57a);
     }
     .trust-card-v2__features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 1rem;
       margin-bottom: 2.4rem;
-      max-width: 36rem;
-      margin-left: auto;
-      margin-right: auto;
     }
     .trust-card-v2__feature-box {
       display: flex;
@@ -367,8 +363,9 @@
       gap: 0.8rem;
       border: 1px solid currentColor;
       border-radius: 8px;
-      padding: 1.4rem 1rem;
-      aspect-ratio: 1 / 1;
+      padding: 1.4rem 0.6rem;
+      flex: 1;
+      min-width: 0;
     }
     .trust-card-v2__feature-icon {
       display: inline-block;
