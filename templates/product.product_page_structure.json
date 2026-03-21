@@ -54,6 +54,7 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "price_color": "#d90078",
             "compare_price_color": "",
