@@ -53,6 +53,10 @@
     "social-media": {
       "name": "Sosiale medier",
       "settings": {
+        "social_bsky_link": {
+          "label": "Bluesky",
+          "info": "https://bsky.app/profile/shopify.com"
+        },
         "social_twitter_link": {
           "label": "X / Twitter",
           "info": "https://x.com/shopify"

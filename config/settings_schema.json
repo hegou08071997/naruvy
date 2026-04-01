@@ -1329,6 +1329,12 @@
       },
       {
         "type": "text",
+        "id": "social_bsky_link",
+        "label": "t:settings_schema.social-media.settings.social_bsky_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_bsky_link.info"
+      },
+      {
+        "type": "text",
         "id": "social_twitter_link",
         "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
         "placeholder": "t:settings_schema.social-media.settings.social_twitter_link.info"
