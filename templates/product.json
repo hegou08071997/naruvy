@@ -54,7 +54,33 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "disabled": true,
+          "settings": {
+            "price_color": "#d90078",
+            "compare_price_color": "",
+            "sale_badge_text": "St Patrick's Day Sale - Save 69%",
+            "sale_badge_weight": "600",
+            "price_font_size": 2,
+            "price_font_weight": "700",
+            "compare_font_size": 1.8
+          }
+        },
+        "fake_variant_picker_YWiDHE": {
+          "type": "fake_variant_picker",
+          "settings": {
+            "label": "Flavor:",
+            "option_1": "Pineapple",
+            "option_1_soldout": false,
+            "option_2": "Mango Peach",
+            "option_2_soldout": true,
+            "option_3": "",
+            "option_3_soldout": false,
+            "option_4": "",
+            "option_4_soldout": false,
+            "bg_color": "",
+            "text_color": "",
+            "border_color": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -71,7 +97,176 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_gift_card_recipient": false,
+            "button_font_size": 1.8,
+            "button_font_weight": "700",
+            "button_text_transform": "none"
+          }
+        },
+        "sticky_cart": {
+          "type": "sticky_cart",
+          "settings": {
+            "function": "link",
+            "button_link": "",
+            "display_when": "after_scroll",
+            "button_label": "Add To Cart",
+            "enable_custom_btn_color": false,
+            "custom_btn_color": "#dd1d1d",
+            "color_scheme": "scheme-1",
+            "star_color": "#ffcc00",
+            "stars_label": "Rated 4.8 Excellent - 50,312+ Reviews",
+            "button_font_size": 1.8,
+            "button_font_weight": "700",
+            "button_text_transform": "none",
+            "desktop_show_image": true,
+            "desktop_show_title": true,
+            "desktop_rating_stars": true,
+            "desktop_show_price": false,
+            "desktop_show_sale_badge": false,
+            "desktop_variant_picker": false,
+            "desktop_full_button_width": false,
+            "desktop_show_price_in_button": false,
+            "desktop_transparent_bg": false,
+            "mobile_show_image": true,
+            "mobile_show_title": true,
+            "mobile_rating_stars": false,
+            "mobile_show_price": false,
+            "mobile_show_sale_badge": false,
+            "mobile_variant_picker": false,
+            "mobile_full_button_width": false,
+            "mobile_show_price_in_button": false,
+            "mobile_transparent_bg": false
+          }
+        },
+        "trust_microcopy": {
+          "type": "trust_microcopy",
+          "settings": {
+            "font_size": 1.6,
+            "font_size_2_items": 1.4,
+            "bg_color": "",
+            "text_color": "#121212",
+            "text_1": "Refills Ship Every 30 Days",
+            "icon_name_1": "verified_user",
+            "icon_image_1": "shopify://shop_images/microcopy1.svg",
+            "text_2": "Stop or Cancel Anytime",
+            "icon_name_2": "local_shipping",
+            "icon_image_2": "shopify://shop_images/microcopy2.svg"
+          }
+        },
+        "social_proof_banner": {
+          "type": "social_proof_banner",
+          "settings": {
+            "text_color": "#121212",
+            "bg_color": "#fff0f6",
+            "border_radius": 50,
+            "title": "<strong>Trusted by thousands</strong>",
+            "subtitle": "who choose Huuha Queen for consistent, long-term wellness support.",
+            "badge_color": "#51af6f",
+            "image_1": "shopify://shop_images/dts10.png",
+            "image_2": "shopify://shop_images/dts5.png",
+            "image_3": "shopify://shop_images/dts9.png"
+          }
+        },
+        "urgency_notice": {
+          "type": "urgency_notice",
+          "settings": {
+            "line_1": "<p><strong>WARNING: Low Stock Notice</strong></p>",
+            "line_2": "<p>This product sold out <span style=\"text-decoration:underline\">12 times</span> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Subscribing protects you against future stockouts. <strong>PS:</strong> Only available here, don't buy <span style=\"text-decoration:underline\">fakes on Amazon/eBay</span></p>",
+            "font_size": 1.2,
+            "bg_color": "#fef2f2",
+            "text_color": "#9f3f3f",
+            "border_width": 2,
+            "border_style": "dashed",
+            "border_color": "#fca5a5",
+            "border_radius": 3,
+            "icon_name": "error",
+            "icon_color": "#d61717",
+            "icon_scale": 1.2
+          }
+        },
+        "collapsible_tab_mjEF8T": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "content": "<p>Huuha Queen™ Slippery Huuha is a daily gummy that <strong>restores your body's natural moisture, balances your pH, and keeps everything fresh</strong> — from the inside out.</p><p>No creams. No suppositories. No mess. Just two gummies a day with the three things your body actually needs:</p><ul><li>Slippery elm for <strong>moisture</strong></li><li>Probiotics for <strong>balance</strong></li><li>Real pineapple for <strong>freshness</strong></li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_gBgAbF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why you need Huuha Queen® Slippery Huuha?",
+            "icon": "none",
+            "content": "<p>If you've been dealing with <strong>dryness</strong>, <strong>odor</strong>, or <strong>pH problems that keep coming back</strong> — and you're tired of the creams that leaked, the pills that did nothing, and the treatments that made things worse — <strong>Huuha Queen™ was made for you.</strong></p><p>Huuha Queen works from the inside.</p><p>No applicators. No discharge. No more guessing which product might be the one. </p><p>Just two gummies. That's it.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_akEwJj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Benefits 🌸",
+            "icon": "none",
+            "content": "<p>✓ <strong>Works with your body —</strong> no hormones, no estrogen, no mess</p><p><strong>✓ Protects against BV, UTI, and yeast</strong></p><p><strong>✓ Balances pH</strong> so infections stop coming back</p><p><strong>✓ Restores natural moisture —</strong> no fake wetness, your body's own</p><p><strong>✓ Eliminates odor from the inside —</strong> not a cover-up</p><p><strong>✓ Supports healthy flora</strong> so your body stays balanced</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_MTCgw9": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Recommended Use",
+            "icon": "none",
+            "content": "<p>Take <strong>2 gummies a day</strong> with food. That's it. Most women start noticing changes within the first 1-2 weeks.</p><p>Full results build over <strong>30 days of daily use</strong>. Stick with it — your body needs time to reset.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_FPPE7p": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Do you offer a guarantee?",
+            "icon": "none",
+            "content": "<p>Yes! All orders come with a <strong>30-day money-back guarantee.</strong></p><p>If you don't feel a real difference in your body — more moisture, less odor, better balance — just reach out and we'll refund you. No hoops. No questions.</p><p>You've spent enough money on things that didn't work. This one is risk-free.</p>",
+            "page": ""
+          }
+        },
+        "trust_card_v2_BX8HtK": {
+          "type": "trust_card_v2",
+          "settings": {
+            "heading": "<strong>Why Huuha Queen is the #1</strong> Choice For Feminine Care?",
+            "feature_icon_1": "shopify://shop_images/trust_card_v2_1.svg",
+            "feature_text_1": "Clinically Backed Formulas",
+            "feature_icon_2": "shopify://shop_images/trust_card_v2_2.svg",
+            "feature_text_2": "Third Party Tested",
+            "feature_icon_3": "shopify://shop_images/trust_card_v2_3.svg",
+            "feature_text_3": "All Natural Formula",
+            "feature_icon_4": "shopify://shop_images/trust_card_v2_4.svg",
+            "feature_text_4": "Globally Trusted Facilities",
+            "item_1": "No Estrogen",
+            "item_2": "No Artificial Additives",
+            "item_3": "Allergen-Free",
+            "item_4": "Non-GMO",
+            "item_5": "Vegan-Friendly",
+            "item_6": "Gluten-Free",
+            "text_color": "#000000",
+            "title_color": "#000000",
+            "highlight_color": "#ff1493",
+            "bg_color": "#ffccfc",
+            "bg_image": "shopify://shop_images/dcp1.jpg",
+            "image_opacity": 10,
+            "border_radius": 10,
+            "heading_size": 28,
+            "feature_text_size": 11,
+            "item_text_size": 16
+          }
+        },
+        "testimonial_videos_block": {
+          "type": "testimonial_videos",
+          "settings": {
+            "heading": "What our customers are saying:",
+            "heading_size": 23,
+            "video_1": "shopify://files/videos/dvdt1.mp4",
+            "video_2": "shopify://files/videos/dvdt2.mp4",
+            "video_3": "shopify://files/videos/dvdt3.mp4"
           }
         }
       },
@@ -106,8 +301,8 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": true,
