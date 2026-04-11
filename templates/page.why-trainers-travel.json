@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "tt_why": {
+      "type": "tt-why",
+      "settings": {
+        "founder_name": "Connor Bray",
+        "contact_email": "contact@trainerstravel.com",
+        "cta_text": "Book a Room",
+        "cta_link": ""
+      }
+    }
+  },
+  "order": ["tt_why"]
+}
