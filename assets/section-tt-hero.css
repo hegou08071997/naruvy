@@ -1,0 +1,572 @@
+/* ================================================================
+   TRAINERS TRAVEL — HERO SECTION
+   section-tt-hero.css
+
+   Layer stack (back → front):
+     1. Navy base (#1A1A2E)
+     2. Diamond grid overlay (SVG data-uri, 80×80 tile)
+     3. Ambient glow waves (3 radial-gradient blobs, slow drift)
+     4. Diagonal slash (bold energy stripe + hairline)
+     5. Gold ring arcs (3 concentric circles, right-side anchor)
+     6. Floating particles (12 gold dots, staggered rise)
+     7. Content (eyebrow → heading → sub → CTA)
+   ================================================================ */
+
+/* ── Keyframes ───────────────────────────────────────────────────
+   All durations are slow (12s–50s) for a premium feel.
+   Transforms only change translate / rotate / scale — never
+   conflict with the positioning transforms on rings.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Ambient glow blobs — gentle drift */
+@keyframes tt-wave-1 {
+  0%   { transform: translateX(-6%)  translateY(0%)   rotate(-13deg) scaleX(1);    }
+  45%  { transform: translateX(4%)   translateY(-5%)  rotate(-10deg) scaleX(1.04); }
+  100% { transform: translateX(-6%)  translateY(0%)   rotate(-13deg) scaleX(1);    }
+}
+@keyframes tt-wave-2 {
+  0%   { transform: translateX(4%)   translateY(5%)   rotate(7deg)  scaleX(1);    }
+  55%  { transform: translateX(-4%)  translateY(1%)   rotate(5deg)  scaleX(1.06); }
+  100% { transform: translateX(4%)   translateY(5%)   rotate(7deg)  scaleX(1);    }
+}
+@keyframes tt-wave-3 {
+  0%   { transform: translateX(0%)   translateY(-2%)  rotate(-20deg) scaleX(1);    }
+  60%  { transform: translateX(-5%)  translateY(3%)   rotate(-17deg) scaleX(1.03); }
+  100% { transform: translateX(0%)   translateY(-2%)  rotate(-20deg) scaleX(1);    }
+}
+
+/* Gold rings — pulse border glow only (no transform, avoids conflicts) */
+@keyframes tt-ring-glow {
+  0%, 100% { border-color: rgba(200, 169, 110, 0.20); }
+  50%       { border-color: rgba(200, 169, 110, 0.38); }
+}
+@keyframes tt-ring-glow-mid {
+  0%, 100% { border-color: rgba(200, 169, 110, 0.14); }
+  50%       { border-color: rgba(200, 169, 110, 0.28); }
+}
+@keyframes tt-ring-accent-pulse {
+  0%, 100% {
+    border-color: rgba(200, 169, 110, 0.50);
+    background-color: rgba(200, 169, 110, 0.04);
+  }
+  50% {
+    border-color: rgba(200, 169, 110, 0.80);
+    background-color: rgba(200, 169, 110, 0.10);
+  }
+}
+
+/* Diagonal slash — breathe opacity */
+@keyframes tt-slash-bold {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1;   }
+}
+@keyframes tt-slash-hair {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1;   }
+}
+
+/* Particles — rise and fade */
+@keyframes tt-particle-rise {
+  0%   { transform: translateY(0)     translateX(0)    scale(1);   opacity: 0;   }
+  8%   {                                                             opacity: 0.6; }
+  85%  {                                                             opacity: 0.2; }
+  100% { transform: translateY(-130px) translateX(12px) scale(0.5); opacity: 0;   }
+}
+
+/* Content entrance — staggered fade-up */
+@keyframes tt-fadein {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Gold rule expand */
+@keyframes tt-rule-expand {
+  from { width: 0;      opacity: 0; }
+  to   { width: 3.2rem; opacity: 1; }
+}
+
+/* Eyebrow letter-spacing reveal */
+@keyframes tt-eyebrow-reveal {
+  from { opacity: 0; letter-spacing: 0.45em; }
+  to   { opacity: 1; letter-spacing: 0.25em; }
+}
+
+/* ── Section shell ───────────────────────────────────────────────── */
+
+.tt-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #1A1A2E;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero {
+    min-height: 100svh;  /* fills viewport on mobile */
+    justify-content: center;
+  }
+}
+
+/* ── Background container ────────────────────────────────────────── */
+
+.tt-hero__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── 1. Diamond grid ──────────────────────────────────────────────
+   SVG tile: 80×80, single diamond (5,40)→(75,40)→(40,75)→(40,5),
+   gold stroke at 10% opacity, gold dots at center + corners 10%.
+   ──────────────────────────────────────────────────────────────── */
+
+.tt-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 5 L75 40 L40 75 L5 40 Z' fill='none' stroke='%23C8A96E' stroke-opacity='0.10' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23C8A96E' fill-opacity='0.10'/%3E%3Ccircle cx='0'  cy='0'  r='1.5' fill='%23C8A96E' fill-opacity='0.10'/%3E%3Ccircle cx='80' cy='0'  r='1.5' fill='%23C8A96E' fill-opacity='0.10'/%3E%3Ccircle cx='0'  cy='80' r='1.5' fill='%23C8A96E' fill-opacity='0.10'/%3E%3Ccircle cx='80' cy='80' r='1.5' fill='%23C8A96E' fill-opacity='0.10'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* ── 2. Ambient glow waves ────────────────────────────────────────
+   Three large elliptical radial-gradient blobs that drift slowly.
+   Combined they create a shifting depth across the navy field.
+   ──────────────────────────────────────────────────────────────── */
+
+.tt-hero__wave {
+  position: absolute;
+  width: 180%;
+  left: -40%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tt-hero__wave--1 {
+  height: 60%;
+  top: -20%;
+  background: radial-gradient(ellipse at center, rgba(200, 169, 110, 0.08) 0%, transparent 65%);
+  animation: tt-wave-1 34s ease-in-out infinite;
+}
+
+.tt-hero__wave--2 {
+  height: 50%;
+  bottom: -18%;
+  background: radial-gradient(ellipse at center, rgba(200, 169, 110, 0.06) 0%, transparent 60%);
+  animation: tt-wave-2 47s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.tt-hero__wave--3 {
+  height: 40%;
+  top: 28%;
+  left: -20%;
+  width: 130%;
+  background: radial-gradient(ellipse at 60% 50%, rgba(37, 37, 69, 0.70) 0%, transparent 55%);
+  animation: tt-wave-3 29s ease-in-out infinite;
+  animation-delay: -18s;
+}
+
+/* ── 3. Diagonal slash elements ───────────────────────────────────
+   Positioned right-of-center to give compositional energy without
+   overlapping the content column on the left.
+   Bold: 90px wide gradient stripe, angled at -22deg.
+   Hair: 2px crisp line, offset 55px right of bold, same angle.
+   ──────────────────────────────────────────────────────────────── */
+
+.tt-hero__slash {
+  position: absolute;
+  top: -15%;
+  height: 130%;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* Bold stripe */
+.tt-hero__slash--bold {
+  right: 22%;
+  width: 90px;
+  background: linear-gradient(
+    to bottom,
+    transparent                    0%,
+    rgba(200, 169, 110, 0.05)     15%,
+    rgba(200, 169, 110, 0.22)     50%,
+    rgba(200, 169, 110, 0.05)     85%,
+    transparent                    100%
+  );
+  transform: rotate(-22deg);
+  animation: tt-slash-bold 11s ease-in-out infinite;
+}
+
+/* Hairline */
+.tt-hero__slash--hair {
+  right: calc(22% + 52px);
+  width: 1.5px;
+  background: linear-gradient(
+    to bottom,
+    transparent                    0%,
+    rgba(200, 169, 110, 0.15)     20%,
+    rgba(200, 169, 110, 0.55)     50%,
+    rgba(200, 169, 110, 0.15)     80%,
+    transparent                    100%
+  );
+  transform: rotate(-22deg);
+  animation: tt-slash-hair 11s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__slash--bold { right: 8%; }
+  .tt-hero__slash--hair { right: calc(8% + 52px); }
+}
+
+/* ── 4. Gold ring arcs ────────────────────────────────────────────
+   Three concentric rings anchored to the right-center of the hero,
+   partially off-screen. They give a sense of a compass rose or
+   championship target. Only border-color is animated (no
+   transform) so positioning stays stable.
+
+   Sizing uses clamp() for fluid scaling.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Ring base — shared positioning */
+.tt-hero__ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Large outer ring */
+.tt-hero__ring--outer {
+  --ring-size: clamp(360px, 48vw, 640px);
+  width:  var(--ring-size);
+  height: var(--ring-size);
+  right: calc(var(--ring-size) * -0.28);  /* ~28% off-screen right */
+  top: 50%;
+  margin-top: calc(var(--ring-size) * -0.5);
+  border: 1.5px solid rgba(200, 169, 110, 0.20);
+  animation: tt-ring-glow 16s ease-in-out infinite;
+}
+
+/* Mid ring */
+.tt-hero__ring--mid {
+  --ring-size: clamp(220px, 30vw, 420px);
+  width:  var(--ring-size);
+  height: var(--ring-size);
+  right: calc(var(--ring-size) * -0.14);
+  top: 50%;
+  margin-top: calc(var(--ring-size) * -0.5);
+  border: 1px solid rgba(200, 169, 110, 0.14);
+  animation: tt-ring-glow-mid 22s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+/* Small accent ring — fully on-screen, acts as a focal jewel */
+.tt-hero__ring--accent {
+  width: 72px;
+  height: 72px;
+  /* Position at intersection of outer ring edge and horizontal mid */
+  right: calc(clamp(360px, 48vw, 640px) * 0.72 - clamp(360px, 48vw, 640px) * 0.28 - 36px);
+  top: 50%;
+  margin-top: -36px;
+  border: 1px solid rgba(200, 169, 110, 0.55);
+  background-color: rgba(200, 169, 110, 0.04);
+  animation: tt-ring-accent-pulse 9s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@media screen and (max-width: 749px) {
+  /* On mobile, anchor rings to bottom-right corner */
+  .tt-hero__ring--outer {
+    right: calc(clamp(360px, 48vw, 640px) * -0.55);
+    top: auto;
+    bottom: calc(clamp(360px, 48vw, 640px) * -0.45);
+    margin-top: 0;
+  }
+  .tt-hero__ring--mid {
+    right: calc(clamp(220px, 30vw, 420px) * -0.40);
+    top: auto;
+    bottom: calc(clamp(220px, 30vw, 420px) * -0.32);
+    margin-top: 0;
+  }
+  .tt-hero__ring--accent {
+    display: none; /* hide detail ring on small screens */
+  }
+}
+
+/* ── 5. Floating particles ────────────────────────────────────────
+   12 gold dots, each with unique position, size, delay, and
+   duration. They rise slowly and fade — like embers or confetti.
+   ──────────────────────────────────────────────────────────────── */
+
+.tt-hero__particles {
+  position: absolute;
+  inset: 0;
+}
+
+.tt-hero__particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #C8A96E;
+  opacity: 0;
+  animation: tt-particle-rise linear infinite;
+}
+
+/* Each particle: unique left%, bottom%, size, duration, delay */
+.tt-hero__particle:nth-child(1)  { left:  7%; bottom: 18%; width: 2px; height: 2px; animation-duration: 13s; animation-delay:   0s; }
+.tt-hero__particle:nth-child(2)  { left: 20%; bottom: 32%; width: 3px; height: 3px; animation-duration: 19s; animation-delay:  -4s; }
+.tt-hero__particle:nth-child(3)  { left: 36%; bottom: 12%; width: 2px; height: 2px; animation-duration: 11s; animation-delay:  -8s; }
+.tt-hero__particle:nth-child(4)  { left: 48%; bottom: 42%; width: 4px; height: 4px; animation-duration: 22s; animation-delay:  -2s; }
+.tt-hero__particle:nth-child(5)  { left: 60%; bottom: 24%; width: 2px; height: 2px; animation-duration: 15s; animation-delay:  -6s; }
+.tt-hero__particle:nth-child(6)  { left: 73%; bottom: 52%; width: 3px; height: 3px; animation-duration: 24s; animation-delay: -11s; }
+.tt-hero__particle:nth-child(7)  { left: 14%; bottom: 62%; width: 2px; height: 2px; animation-duration: 16s; animation-delay:  -3s; }
+.tt-hero__particle:nth-child(8)  { left: 44%; bottom: 72%; width: 4px; height: 4px; animation-duration: 18s; animation-delay:  -7s; }
+.tt-hero__particle:nth-child(9)  { left: 87%; bottom: 28%; width: 2px; height: 2px; animation-duration: 14s; animation-delay: -12s; }
+.tt-hero__particle:nth-child(10) { left: 28%; bottom: 82%; width: 3px; height: 3px; animation-duration: 20s; animation-delay:  -5s; }
+.tt-hero__particle:nth-child(11) { left: 68%; bottom:  8%; width: 2px; height: 2px; animation-duration: 25s; animation-delay:  -9s; }
+.tt-hero__particle:nth-child(12) { left: 53%; bottom: 88%; width: 4px; height: 4px; animation-duration: 17s; animation-delay:  -1s; }
+
+/* ── Content wrapper ──────────────────────────────────────────────── */
+
+.tt-hero__content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__content {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+    text-align: center;
+  }
+}
+
+/* Inner column — left-anchored on desktop, centered on mobile */
+.tt-hero__inner {
+  max-width: 68rem;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__inner {
+    max-width: 100%;
+  }
+}
+
+/* ── Eyebrow ──────────────────────────────────────────────────────── */
+
+.tt-hero__eyebrow {
+  margin: 0 0 1.4rem;
+  font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #C8A96E;
+  animation: tt-eyebrow-reveal 0.65s ease both;
+  animation-delay: 0.05s;
+}
+
+/* ── Gold rule ────────────────────────────────────────────────────── */
+
+.tt-hero__rule {
+  height: 2px;
+  background-color: #C8A96E;
+  margin: 0 0 2.6rem;
+  width: 3.2rem;       /* final state; animation starts at width:0 */
+  animation: tt-rule-expand 0.55s ease both;
+  animation-delay: 0.25s;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__rule {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ── Heading ──────────────────────────────────────────────────────── */
+
+.tt-hero__heading {
+  margin: 0 0 2.2rem;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(4rem, 5.8vw, 7.6rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: #F2F0EB;
+  animation: tt-fadein 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.3s;
+}
+
+/* Italicise each sentence-break naturally */
+.tt-hero__heading br + * {
+  font-style: italic;
+}
+
+/* ── Subheading ───────────────────────────────────────────────────── */
+
+.tt-hero__subheading {
+  margin: 0 0 3.6rem;
+  font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(1.5rem, 1.8vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(242, 240, 235, 0.68);
+  max-width: 50rem;
+  animation: tt-fadein 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.48s;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__subheading {
+    max-width: 100%;
+  }
+}
+
+/* ── CTA group ────────────────────────────────────────────────────── */
+
+.tt-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  animation: tt-fadein 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.65s;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__cta {
+    justify-content: center;
+  }
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+
+.tt-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.5rem 3.4rem;
+  font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color     0.2s ease,
+    color            0.2s ease,
+    transform        0.18s ease;
+  white-space: nowrap;
+}
+
+.tt-hero__btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Primary — solid gold */
+.tt-hero__btn--primary {
+  background-color: #C8A96E;
+  color:            #1A1A2E;
+  border-color:     #C8A96E;
+}
+
+.tt-hero__btn--primary:hover {
+  background-color: #D9BF8F;
+  border-color:     #D9BF8F;
+  color:            #1A1A2E;
+}
+
+/* Ghost — outlined gold */
+.tt-hero__btn--ghost {
+  background-color: transparent;
+  color:            #C8A96E;
+  border-color:     rgba(200, 169, 110, 0.50);
+}
+
+.tt-hero__btn--ghost:hover {
+  background-color: rgba(200, 169, 110, 0.10);
+  border-color:     #C8A96E;
+  color:            #D9BF8F;
+}
+
+@media screen and (max-width: 749px) {
+  .tt-hero__btn {
+    padding: 1.4rem 2.8rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ── CSS Scroll-driven parallax (progressive enhancement) ────────────
+   Supported in Chrome 115+, Firefox 110+ behind flag.
+   In unsupported browsers the rings are simply static — no fallback needed.
+   ──────────────────────────────────────────────────────────────────── */
+
+@supports (animation-timeline: scroll()) {
+  .tt-hero__ring--outer {
+    animation: tt-ring-glow 16s ease-in-out infinite, tt-ring-scroll linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range: auto, 0% 40%;
+  }
+  .tt-hero__wave--1 {
+    animation: tt-wave-1 34s ease-in-out infinite, tt-wave-scroll linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range: auto, 0% 50%;
+  }
+
+  @keyframes tt-ring-scroll {
+    from { translate: 0 0;   }
+    to   { translate: 0 -40px; }
+  }
+  @keyframes tt-wave-scroll {
+    from { translate: 0 0;   }
+    to   { translate: 0 60px; }
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Stop all background animations */
+  .tt-hero__wave--1,
+  .tt-hero__wave--2,
+  .tt-hero__wave--3,
+  .tt-hero__ring--outer,
+  .tt-hero__ring--mid,
+  .tt-hero__ring--accent,
+  .tt-hero__slash--bold,
+  .tt-hero__slash--hair,
+  .tt-hero__particle {
+    animation: none !important;
+  }
+
+  /* Show rings at their mid-animation state (visible) */
+  .tt-hero__ring--outer { border-color: rgba(200, 169, 110, 0.28); }
+  .tt-hero__ring--mid   { border-color: rgba(200, 169, 110, 0.20); }
+
+  /* Collapse entrance animations — show content immediately */
+  .tt-hero__eyebrow {
+    animation: none !important;
+    opacity: 1;
+    letter-spacing: 0.25em;
+  }
+  .tt-hero__rule {
+    animation: none !important;
+    width: 3.2rem;
+    opacity: 1;
+  }
+  .tt-hero__heading,
+  .tt-hero__subheading,
+  .tt-hero__cta {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

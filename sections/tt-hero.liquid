@@ -1,0 +1,158 @@
+{% comment %}
+  Trainers Travel — Custom Hero Section
+  Premium animated hero: navy bg, gold geometric layers, CSS-only motion.
+  Replace Dawn's image-banner on the homepage.
+{% endcomment %}
+
+{{ 'section-tt-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="tt-hero" id="tt-hero-{{ section.id }}" aria-label="{{ section.settings.heading | escape }}">
+
+  {%- comment -%}── Visual layer stack (aria-hidden, decorative only) ──{%- endcomment -%}
+  <div class="tt-hero__bg" aria-hidden="true">
+
+    {%- comment -%}Diamond grid{%- endcomment -%}
+    <div class="tt-hero__grid"></div>
+
+    {%- comment -%}Ambient glow blobs{%- endcomment -%}
+    <div class="tt-hero__wave tt-hero__wave--1"></div>
+    <div class="tt-hero__wave tt-hero__wave--2"></div>
+    <div class="tt-hero__wave tt-hero__wave--3"></div>
+
+    {%- comment -%}Diagonal slash elements — bold energy stripe + hairline{%- endcomment -%}
+    <div class="tt-hero__slash tt-hero__slash--bold"></div>
+    <div class="tt-hero__slash tt-hero__slash--hair"></div>
+
+    {%- comment -%}Gold ring arcs — large outer, mid, accent dot{%- endcomment -%}
+    <div class="tt-hero__ring tt-hero__ring--outer"></div>
+    <div class="tt-hero__ring tt-hero__ring--mid"></div>
+    <div class="tt-hero__ring tt-hero__ring--accent"></div>
+
+    {%- comment -%}Floating gold particles{%- endcomment -%}
+    <div class="tt-hero__particles">
+      {%- for i in (1..12) -%}
+        <span class="tt-hero__particle"></span>
+      {%- endfor -%}
+    </div>
+
+  </div>
+
+  {%- comment -%}── Content ──{%- endcomment -%}
+  <div class="tt-hero__content page-width">
+    <div class="tt-hero__inner">
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="tt-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <div class="tt-hero__rule" aria-hidden="true"></div>
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="tt-hero__heading">
+          {{- section.settings.heading | newline_to_br -}}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="tt-hero__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      <div class="tt-hero__cta">
+        {%- if section.settings.button_text != blank -%}
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="tt-hero__btn tt-hero__btn--primary"
+          >
+            {{- section.settings.button_text -}}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_button_text != blank -%}
+          <a
+            href="{{ section.settings.secondary_button_link | default: '#' }}"
+            class="tt-hero__btn tt-hero__btn--ghost"
+          >
+            {{- section.settings.secondary_button_text -}}
+          </a>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "TT Hero",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Trainers Travel",
+      "info": "Small text above the heading. Leave blank to hide."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Travel smarter. Compete harder.",
+      "info": "Press Enter for a line break in the heading."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Group hotel blocks for the competitive Pokémon community."
+    },
+    {
+      "type": "header",
+      "content": "Primary button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore Events"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary button"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Button text",
+      "info": "Leave blank to hide."
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TT Hero",
+      "settings": {
+        "eyebrow": "Trainers Travel",
+        "heading": "Travel smarter. Compete harder.",
+        "subheading": "Group hotel blocks for the competitive Pokémon community.",
+        "button_text": "Explore Events"
+      }
+    }
+  ]
+}
+{% endschema %}
