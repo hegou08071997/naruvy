@@ -1,0 +1,437 @@
+/* ============================================================
+   TRAINERS TRAVEL — BRAND STYLESHEET
+   Navy #1A1A2E | Gold #C8A96E | Off-white #F2F0EB
+   Headings: Playfair Display | Body: DM Sans
+   ============================================================ */
+
+/* ——— Brand Tokens ——————————————————————————————————————— */
+:root {
+  --tt-navy:       #1A1A2E;
+  --tt-navy-mid:   #252545;
+  --tt-navy-dark:  #0F0F1E;
+  --tt-gold:       #C8A96E;
+  --tt-gold-light: #D9BF8F;
+  --tt-gold-dark:  #A88B4E;
+  --tt-offwhite:   #F2F0EB;
+  --tt-offwhite-dim: rgba(242, 240, 235, 0.65);
+  --tt-gold-line:  rgba(200, 169, 110, 0.22);
+}
+
+/* ——— Color Scheme Overrides ————————————————————————————— */
+/* scheme-1 (default / :root) — Navy primary */
+:root,
+.color-scheme-1 {
+  --color-background:          26, 26, 46;
+  --gradient-background:       #1A1A2E;
+  --color-foreground:          242, 240, 235;
+  --color-background-contrast: 37, 37, 69;
+  --color-shadow:              10, 10, 18;
+  --color-button:              200, 169, 110;
+  --color-button-text:         26, 26, 46;
+  --color-secondary-button:    26, 26, 46;
+  --color-secondary-button-text: 200, 169, 110;
+  --color-link:                200, 169, 110;
+  --color-badge-foreground:    26, 26, 46;
+  --color-badge-background:    200, 169, 110;
+  --color-badge-border:        200, 169, 110;
+  --payment-terms-background-color: rgb(26, 26, 46);
+}
+
+/* scheme-2 — Mid-navy (used for cards) */
+.color-scheme-2 {
+  --color-background:          37, 37, 69;
+  --gradient-background:       #252545;
+  --color-foreground:          242, 240, 235;
+  --color-background-contrast: 50, 50, 90;
+  --color-shadow:              10, 10, 18;
+  --color-button:              200, 169, 110;
+  --color-button-text:         26, 26, 46;
+  --color-secondary-button:    37, 37, 69;
+  --color-secondary-button-text: 200, 169, 110;
+  --color-link:                200, 169, 110;
+  --color-badge-foreground:    242, 240, 235;
+  --color-badge-background:    37, 37, 69;
+  --color-badge-border:        200, 169, 110;
+  --payment-terms-background-color: rgb(37, 37, 69);
+}
+
+/* scheme-3 — Deep navy accent */
+.color-scheme-3 {
+  --color-background:          30, 30, 53;
+  --gradient-background:       #1E1E35;
+  --color-foreground:          242, 240, 235;
+  --color-background-contrast: 45, 45, 75;
+  --color-shadow:              10, 10, 18;
+  --color-button:              200, 169, 110;
+  --color-button-text:         26, 26, 46;
+  --color-secondary-button:    30, 30, 53;
+  --color-secondary-button-text: 200, 169, 110;
+  --color-link:                200, 169, 110;
+  --color-badge-foreground:    242, 240, 235;
+  --color-badge-background:    30, 30, 53;
+  --color-badge-border:        200, 169, 110;
+  --payment-terms-background-color: rgb(30, 30, 53);
+}
+
+/* scheme-4 — Darkest navy */
+.color-scheme-4 {
+  --color-background:          15, 15, 30;
+  --gradient-background:       #0F0F1E;
+  --color-foreground:          242, 240, 235;
+  --color-background-contrast: 26, 26, 46;
+  --color-shadow:              0, 0, 0;
+  --color-button:              200, 169, 110;
+  --color-button-text:         15, 15, 30;
+  --color-secondary-button:    15, 15, 30;
+  --color-secondary-button-text: 200, 169, 110;
+  --color-link:                200, 169, 110;
+  --color-badge-foreground:    242, 240, 235;
+  --color-badge-background:    15, 15, 30;
+  --color-badge-border:        200, 169, 110;
+  --payment-terms-background-color: rgb(15, 15, 30);
+}
+
+/* scheme-5 — Gold accent (sale badges, CTAs) */
+.color-scheme-5 {
+  --color-background:          200, 169, 110;
+  --gradient-background:       #C8A96E;
+  --color-foreground:          26, 26, 46;
+  --color-background-contrast: 168, 139, 78;
+  --color-shadow:              10, 10, 18;
+  --color-button:              26, 26, 46;
+  --color-button-text:         200, 169, 110;
+  --color-secondary-button:    200, 169, 110;
+  --color-secondary-button-text: 26, 26, 46;
+  --color-link:                26, 26, 46;
+  --color-badge-foreground:    26, 26, 46;
+  --color-badge-background:    200, 169, 110;
+  --color-badge-border:        26, 26, 46;
+  --payment-terms-background-color: rgb(200, 169, 110);
+}
+
+/* ——— Font Overrides ————————————————————————————————————— */
+/* Google Fonts take precedence over Shopify CDN fallbacks  */
+:root {
+  --font-heading-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-heading-style:  normal;
+  --font-heading-weight: 700;
+  --font-body-family:    'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-body-style:     normal;
+  --font-body-weight:    400;
+  --font-body-weight-bold: 700;
+}
+
+/* ——— Typography ————————————————————————————————————————— */
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5, .hxl, .hxxl {
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0.01em;
+}
+
+/* Subtle gold accent on primary display headings */
+.banner__heading,
+.section-heading {
+  color: rgb(var(--color-foreground));
+}
+
+/* ——— Buttons ————————————————————————————————————————————  */
+.button,
+.button--primary {
+  background-color: var(--tt-gold);
+  color:            var(--tt-navy);
+  border-color:     var(--tt-gold);
+  font-family:      var(--font-body-family);
+  font-weight:      600;
+  letter-spacing:   0.1em;
+  text-transform:   uppercase;
+  font-size:        1.2rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover,
+.button--primary:hover {
+  background-color: var(--tt-gold-light);
+  border-color:     var(--tt-gold-light);
+  color:            var(--tt-navy);
+}
+
+.button--secondary {
+  border-color: var(--tt-gold);
+  color:        var(--tt-gold);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.button--secondary:hover {
+  background-color: rgba(200, 169, 110, 0.12);
+  color: var(--tt-gold-light);
+}
+
+/* ——— Links ——————————————————————————————————————————————— */
+a {
+  color: var(--tt-gold);
+}
+
+a:hover {
+  color: var(--tt-gold-light);
+}
+
+/* ——— Header / Navigation ————————————————————————————————— */
+.header,
+.header-wrapper {
+  background-color: var(--tt-navy);
+  border-bottom: 1px solid var(--tt-gold-line);
+}
+
+.header__heading-link,
+.header__menu-item {
+  color: var(--tt-offwhite);
+}
+
+.header__menu-item:hover,
+.header__menu-item:focus {
+  color: var(--tt-gold);
+}
+
+/* ——— Hero Banner ————————————————————————————————————————— */
+/*
+  Navy base with repeating gold geometric diamond grid.
+  The SVG tile (80×80px) contains:
+    - A diamond outline (stroke gold @ 12% opacity)
+    - Subtle gold dots at diamond center and tile corners (15% opacity)
+  A soft radial gradient adds depth at the viewport center.
+  The background sits behind .banner__media — when a store owner
+  adds an image via the editor, it covers the pattern naturally.
+*/
+.banner {
+  background-color: var(--tt-navy);
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 50% 50%,
+      rgba(37, 37, 69, 0.55) 0%,
+      rgba(26, 26, 46, 0)    70%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 5 L75 40 L40 75 L5 40 Z' fill='none' stroke='%23C8A96E' stroke-opacity='0.12' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23C8A96E' fill-opacity='0.14'/%3E%3Ccircle cx='0'  cy='0'  r='2' fill='%23C8A96E' fill-opacity='0.14'/%3E%3Ccircle cx='80' cy='0'  r='2' fill='%23C8A96E' fill-opacity='0.14'/%3E%3Ccircle cx='0'  cy='80' r='2' fill='%23C8A96E' fill-opacity='0.14'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23C8A96E' fill-opacity='0.14'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 80px 80px;
+  background-repeat: no-repeat, repeat;
+}
+
+/* Gold rule below hero */
+.banner {
+  box-shadow: 0 3px 0 0 rgba(200, 169, 110, 0.25);
+}
+
+/* Text content box on the hero — subtle glass effect */
+.banner__box {
+  background-color: rgba(26, 26, 46, 0.72);
+  border: 1px solid var(--tt-gold-line);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* On desktop transparent variant, remove the box background */
+@media screen and (min-width: 750px) {
+  .banner--desktop-transparent .banner__box {
+    background-color: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Gold decorative line above heading inside banner */
+.banner__box .banner__heading::before {
+  content: '';
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  background-color: var(--tt-gold);
+  margin: 0 auto 1.2rem;
+  opacity: 0.85;
+}
+
+.banner--content-align-left .banner__box .banner__heading::before,
+.banner--content-align-mobile-left .banner__box .banner__heading::before {
+  margin-left: 0;
+}
+
+.banner--content-align-right .banner__box .banner__heading::before,
+.banner--content-align-mobile-right .banner__box .banner__heading::before {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* ——— Cards ——————————————————————————————————————————————— */
+.card-wrapper .card,
+.card-wrapper.card {
+  background-color: var(--tt-navy-mid);
+  border-color: var(--tt-gold-line);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-wrapper .card:hover,
+.card-wrapper.card:hover {
+  border-color: rgba(200, 169, 110, 0.45);
+}
+
+.card__heading a {
+  color: var(--tt-offwhite);
+}
+
+.card__heading a:hover {
+  color: var(--tt-gold);
+}
+
+/* Price */
+.price__regular,
+.price__sale {
+  color: var(--tt-offwhite);
+}
+
+.price__sale {
+  color: var(--tt-gold);
+}
+
+/* ——— Collection Banner / Hero ———————————————————————————— */
+.collection-hero {
+  background-color: var(--tt-navy);
+  border-bottom: 1px solid var(--tt-gold-line);
+}
+
+/* ——— Forms & Inputs ————————————————————————————————————— */
+.field__input,
+.select__select,
+.customer .field__input {
+  background-color: var(--tt-navy-mid);
+  border-color: rgba(200, 169, 110, 0.3);
+  color: var(--tt-offwhite);
+}
+
+.field__input:focus,
+.select__select:focus {
+  border-color: var(--tt-gold);
+  box-shadow: 0 0 0 1px var(--tt-gold);
+  outline: none;
+}
+
+.field__label,
+.select__label {
+  color: var(--tt-offwhite-dim);
+  background-color: transparent;
+}
+
+/* ——— Footer ——————————————————————————————————————————————— */
+.footer {
+  background-color: var(--tt-navy-dark);
+  border-top: 1px solid var(--tt-gold-line);
+  color: var(--tt-offwhite);
+}
+
+.footer__heading {
+  color: var(--tt-gold);
+  font-family: var(--font-heading-family);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.footer a {
+  color: var(--tt-offwhite-dim);
+}
+
+.footer a:hover {
+  color: var(--tt-gold);
+}
+
+/* ——— Cart Drawer / Notification ————————————————————————— */
+.cart-notification,
+.cart-drawer {
+  background-color: var(--tt-navy-mid);
+  border-color: var(--tt-gold-line);
+}
+
+.cart-notification__heading,
+.cart-drawer__heading {
+  color: var(--tt-offwhite);
+}
+
+/* ——— Predictive Search ——————————————————————————————————— */
+.predictive-search {
+  background-color: var(--tt-navy-mid);
+  border-color: var(--tt-gold-line);
+}
+
+.predictive-search__item:hover,
+.predictive-search__item:focus {
+  background-color: rgba(200, 169, 110, 0.08);
+}
+
+/* ——— Menu Drawer (mobile nav) ———————————————————————————— */
+.menu-drawer,
+.menu-drawer__navigation {
+  background-color: var(--tt-navy);
+}
+
+.menu-drawer__menu-item,
+.menu-drawer__close-button {
+  color: var(--tt-offwhite);
+}
+
+.menu-drawer__menu-item:hover {
+  color: var(--tt-gold);
+}
+
+/* ——— Breadcrumbs ————————————————————————————————————————— */
+.breadcrumb,
+.breadcrumb__item {
+  color: var(--tt-offwhite-dim);
+}
+
+.breadcrumb__item a:hover {
+  color: var(--tt-gold);
+}
+
+/* ——— Pagination ————————————————————————————————————————— */
+.pagination__item--current {
+  background-color: var(--tt-gold);
+  color: var(--tt-navy);
+  border-color: var(--tt-gold);
+}
+
+.pagination__item:hover:not(.pagination__item--current) {
+  border-color: var(--tt-gold);
+  color: var(--tt-gold);
+}
+
+/* ——— Product Page ——————————————————————————————————————— */
+.product__title {
+  color: var(--tt-offwhite);
+}
+
+.product-form__submit {
+  background-color: var(--tt-gold);
+  color: var(--tt-navy);
+  border-color: var(--tt-gold);
+}
+
+.product-form__submit:hover {
+  background-color: var(--tt-gold-light);
+  border-color: var(--tt-gold-light);
+}
+
+/* Variant pills */
+.swatch-input__button--active,
+.swatch-input__button:checked + label {
+  border-color: var(--tt-gold);
+  color: var(--tt-gold);
+}
+
+/* ——— Responsive adjustments ————————————————————————————— */
+@media screen and (max-width: 749px) {
+  /* Tighter decorative line on mobile banners */
+  .banner__box .banner__heading::before {
+    width: 2.4rem;
+    margin-bottom: 0.8rem;
+  }
+}

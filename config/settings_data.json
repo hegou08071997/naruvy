@@ -6,63 +6,63 @@
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#FFFFFF",
+            "background": "#1A1A2E",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#F2F0EB",
+            "button": "#C8A96E",
+            "button_label": "#1A1A2E",
+            "secondary_button_label": "#C8A96E",
+            "shadow": "#0A0A12"
           }
         },
         "scheme-2": {
           "settings": {
-            "background": "#F3F3F3",
+            "background": "#252545",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#F2F0EB",
+            "button": "#C8A96E",
+            "button_label": "#1A1A2E",
+            "secondary_button_label": "#C8A96E",
+            "shadow": "#0A0A12"
           }
         },
         "scheme-3": {
           "settings": {
-            "background": "#242833",
+            "background": "#1E1E35",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#000000",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#F2F0EB",
+            "button": "#C8A96E",
+            "button_label": "#1A1A2E",
+            "secondary_button_label": "#C8A96E",
+            "shadow": "#0A0A12"
           }
         },
         "scheme-4": {
           "settings": {
-            "background": "#121212",
+            "background": "#0F0F1E",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#F2F0EB",
+            "button": "#C8A96E",
+            "button_label": "#0F0F1E",
+            "secondary_button_label": "#C8A96E",
+            "shadow": "#000000"
           }
         },
         "scheme-5": {
           "settings": {
-            "background": "#334FB4",
+            "background": "#C8A96E",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#334FB4",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#1A1A2E",
+            "button": "#1A1A2E",
+            "button_label": "#C8A96E",
+            "secondary_button_label": "#1A1A2E",
+            "shadow": "#0A0A12"
           }
         }
       },
-      "type_header_font": "assistant_n4",
-      "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_header_font": "playfair_display_n4",
+      "heading_scale": 110,
+      "type_body_font": "dm_sans_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
@@ -93,8 +93,8 @@
       "card_image_padding": 0,
       "card_text_alignment": "left",
       "card_color_scheme": "scheme-2",
-      "card_border_thickness": 0,
-      "card_border_opacity": 10,
+      "card_border_thickness": 1,
+      "card_border_opacity": 20,
       "card_corner_radius": 0,
       "card_shadow_opacity": 0,
       "card_shadow_horizontal_offset": 0,
@@ -104,8 +104,8 @@
       "collection_card_image_padding": 0,
       "collection_card_text_alignment": "left",
       "collection_card_color_scheme": "scheme-2",
-      "collection_card_border_thickness": 0,
-      "collection_card_border_opacity": 10,
+      "collection_card_border_thickness": 1,
+      "collection_card_border_opacity": 20,
       "collection_card_corner_radius": 0,
       "collection_card_shadow_opacity": 0,
       "collection_card_shadow_horizontal_offset": 0,
@@ -115,8 +115,8 @@
       "blog_card_image_padding": 0,
       "blog_card_text_alignment": "left",
       "blog_card_color_scheme": "scheme-2",
-      "blog_card_border_thickness": 0,
-      "blog_card_border_opacity": 10,
+      "blog_card_border_thickness": 1,
+      "blog_card_border_opacity": 20,
       "blog_card_corner_radius": 0,
       "blog_card_shadow_opacity": 0,
       "blog_card_shadow_horizontal_offset": 0,
