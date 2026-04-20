@@ -1,0 +1,30 @@
+#!/bin/sh
+# Refuse direct commits to main. main auto-deploys to the live Shopify theme
+# via the GitHub integration — anything that lands here goes live. Feature work
+# belongs on a branch that gets reviewed and merged via PR.
+#
+# To bypass in a genuine emergency: git commit --no-verify
+# (Then ask yourself twice whether it was actually an emergency.)
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$branch" = "main" ]; then
+  echo ""
+  echo "  ✗ Direct commits to main are blocked on this repo."
+  echo ""
+  echo "  main auto-deploys to the live Shopify theme. All work goes"
+  echo "  through a branch + PR + Greptile review."
+  echo ""
+  echo "  Create a branch:"
+  echo "    git checkout -b <type>/<short-description>"
+  echo ""
+  echo "  Types: fix, feat, restyle, tokens, refactor, docs, chore, content"
+  echo "  (see .claude/skills/commit/SKILL.md)"
+  echo ""
+  echo "  Emergency override (not recommended):"
+  echo "    git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+exit 0

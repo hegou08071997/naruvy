@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "greptile-api": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["./.greptile/mcp-proxy.mjs"]
+    }
+  }
+}

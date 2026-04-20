@@ -1,0 +1,29 @@
+[
+  {
+    "path": "CLAUDE.md",
+    "description": "Project coding standards — the authoritative source for all conventions"
+  },
+  {
+    "path": "docs/architecture.md",
+    "description": "Theme structure, OS 2.0 templating model, deploy path"
+  },
+  {
+    "path": "docs/components.md",
+    "description": "Shared snippet/section registry — check before creating any new section or snippet",
+    "scope": ["sections/**", "snippets/**"]
+  },
+  {
+    "path": "docs/design/system.md",
+    "description": "Design tokens — colours, typography, spacing, radii, shadows",
+    "scope": ["assets/**/*.css", "sections/**/*.liquid", "snippets/**/*.liquid", "config/settings_data.json"]
+  },
+  {
+    "path": "docs/design/vision.md",
+    "description": "Brand direction and design personality",
+    "scope": ["sections/**", "snippets/**", "assets/**/*.css"]
+  },
+  {
+    "path": "docs/decisions.md",
+    "description": "Architectural decisions log — check before proposing alternative approaches"
+  }
+]

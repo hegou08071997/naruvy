@@ -1,0 +1,114 @@
+{
+  "strictness": 2,
+  "commentTypes": ["logic", "syntax", "style"],
+  "triggerOnUpdates": false,
+  "ignorePatterns": "node_modules/**\n.shopify/**\nassets/*.js.map\n*.lock\n**/*.generated.*\nlocales/*.json",
+  "rules": [
+    {
+      "id": "design-tokens-only",
+      "rule": "Never hardcode colours, font-sizes, spacing, or radii in section/snippet CSS. Use Dawn's CSS custom properties or Sick Rabbit tokens defined in assets/base.css and config/settings_data.json. If a value isn't in the token system, add it to docs/design/system.md and assets/base.css first.",
+      "scope": ["assets/**/*.css", "sections/**/*.liquid", "snippets/**/*.liquid", "layout/**/*.liquid"],
+      "severity": "high"
+    },
+    {
+      "id": "no-hex-in-liquid-inline-styles",
+      "rule": "Never write hex or rgb() colour values in inline style='' attributes inside Liquid templates. Pull from settings or use a CSS class backed by tokens.",
+      "scope": ["sections/**/*.liquid", "snippets/**/*.liquid", "layout/**/*.liquid", "templates/**/*.liquid"],
+      "severity": "high"
+    },
+    {
+      "id": "section-schema-required",
+      "rule": "Any .liquid file in sections/ must keep a {% schema %} block with valid settings, blocks, and presets so merchants can still add and edit it from the theme editor. Do not inline a section's markup without its schema.",
+      "scope": ["sections/**/*.liquid"],
+      "severity": "high"
+    },
+    {
+      "id": "use-render-not-include",
+      "rule": "Always use {% render 'snippet-name' %} to render snippets. Never use the deprecated {% include %} tag.",
+      "scope": ["sections/**/*.liquid", "snippets/**/*.liquid", "layout/**/*.liquid", "templates/**/*.liquid"],
+      "severity": "medium"
+    },
+    {
+      "id": "shopify-money-filter",
+      "rule": "Format prices with the money, money_with_currency, or money_without_trailing_zeros filters. Never format currency client-side or concatenate a currency symbol manually.",
+      "scope": ["sections/**/*.liquid", "snippets/**/*.liquid", "assets/**/*.js"],
+      "severity": "high"
+    },
+    {
+      "id": "translate-user-facing-strings",
+      "rule": "Every user-facing string in Liquid must go through the t filter with a key from locales/en.default.json. Don't hardcode English copy in templates.",
+      "scope": ["sections/**/*.liquid", "snippets/**/*.liquid", "layout/**/*.liquid"],
+      "severity": "medium"
+    },
+    {
+      "id": "no-client-side-business-logic",
+      "rule": "Don't reimplement cart, variant selection, or money formatting in client-side JS. Use Shopify's Cart AJAX API and Liquid objects. Dawn is HTML-first, JS-only-as-needed.",
+      "scope": ["assets/**/*.js"],
+      "severity": "high"
+    },
+    {
+      "id": "check-components-registry",
+      "rule": "Before creating a new snippet or section, check docs/components.md for existing shared components that cover the need. If a Liquid pattern shows up in 2+ places, extract it into snippets/ instead of copying.",
+      "scope": ["sections/**/*.liquid", "snippets/**/*.liquid"],
+      "severity": "medium"
+    },
+    {
+      "id": "update-components-registry",
+      "rule": "When adding or renaming a snippet or section, update docs/components.md in the same PR.",
+      "scope": ["sections/**", "snippets/**"],
+      "severity": "medium"
+    },
+    {
+      "id": "naming-conventions",
+      "rule": "Snippets and sections: kebab-case filenames. JSON templates: kebab-case. CSS: kebab-case (prefix with section-<name>.css). Liquid variables: snake_case. Locale keys: dot-separated snake_case.",
+      "scope": ["assets/**", "sections/**", "snippets/**", "templates/**", "locales/**"],
+      "severity": "low"
+    },
+    {
+      "id": "preserve-dawn-files",
+      "rule": "Don't rename, delete, or restructure Dawn's existing files. Prefer additive changes (new sections, new snippets, CSS overrides) so git merge upstream/main stays tractable.",
+      "scope": ["assets/**", "sections/**", "snippets/**", "templates/**", "layout/**", "config/**"],
+      "severity": "high"
+    },
+    {
+      "id": "theme-check-clean",
+      "rule": "Any change must pass `shopify theme check`. Don't suppress check rules without a justification in docs/decisions.md.",
+      "scope": [".theme-check.yml", "sections/**", "snippets/**", "assets/**", "layout/**", "templates/**"],
+      "severity": "medium"
+    }
+  ],
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "description": "Project coding standards — the authoritative source for all conventions"
+    },
+    {
+      "path": "docs/architecture.md",
+      "description": "Theme structure, OS 2.0 templating model, deploy path"
+    },
+    {
+      "path": "docs/components.md",
+      "description": "Shared snippet/section registry — check before creating any new section or snippet",
+      "scope": ["sections/**", "snippets/**"]
+    },
+    {
+      "path": "docs/design/system.md",
+      "description": "Design tokens — colours, typography, spacing, radii, shadows",
+      "scope": ["assets/**/*.css", "sections/**/*.liquid", "snippets/**/*.liquid", "config/settings_data.json"]
+    },
+    {
+      "path": "docs/design/vision.md",
+      "description": "Brand direction and design personality",
+      "scope": ["sections/**", "snippets/**", "assets/**/*.css"]
+    },
+    {
+      "path": "docs/decisions.md",
+      "description": "Architectural decisions log — check before proposing alternative approaches"
+    }
+  ],
+  "other": [
+    "This is a Shopify Online Store 2.0 theme, forked from Dawn. Liquid + JSON templates + CSS + vanilla JS only. No bundler, no TypeScript, no framework.",
+    "Deploy is via Shopify's GitHub integration: pushing to `main` syncs to the live theme. Merchant edits in Shopify admin auto-commit back to the connected branch.",
+    "Dawn is tracked as `upstream`. Prefer additive changes over restructuring so upstream merges stay tractable."
+  ]
+}

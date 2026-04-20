@@ -8,3 +8,10 @@
 ehthumbs.db
 Thumbs.db
 .shopify
+
+# Greptile MCP (contains API key)
+.greptile/mcp-proxy.mjs
+
+# Python bytecode (from .claude/skills/* scripts)
+__pycache__/
+*.pyc

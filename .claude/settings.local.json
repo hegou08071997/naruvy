@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(where py *)",
+      "Bash(where uv *)",
+      "Bash(uv --version)",
+      "Bash(uv python *)"
+    ]
+  }
+}
