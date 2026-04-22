@@ -18,8 +18,8 @@
   --tt-mid: #4a4a6a;
   --tt-border: #d8d4cc;
 
-  --tt-max-w: 900px;
-  --tt-pad-h: 24px;
+  --tt-max-w: 1080px;
+  --tt-pad-h: 32px;
 
   font-family: inherit;
   color: var(--tt-navy);
@@ -84,25 +84,48 @@
 /* ─── 2. HERO ─────────────────────────────────────────────── */
 .tt-home__hero {
   background: var(--tt-navy);
-  padding: 56px 0 52px;
+  padding: 64px 0 60px;
   border-bottom: 2px solid var(--tt-gold);
 }
 
+.tt-home__hero-kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tt-gold);
+  margin: 0 0 1rem;
+  opacity: 0.9;
+}
+
 .tt-home__hero-heading {
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--tt-off-white);
-  margin: 0 0 0.65rem;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+  margin: 0 0 1rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  max-width: 680px;
 }
 
 .tt-home__hero-sub {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: rgba(242, 240, 235, 0.6);
-  margin: 0 0 1.75rem;
-  max-width: 480px;
-  line-height: 1.55;
+  margin: 0 0 2rem;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.tt-home__hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tt-home__hero-proof {
+  font-size: 0.8rem;
+  color: rgba(242, 240, 235, 0.35);
 }
 
 /* ─── Buttons ─────────────────────────────────────────────── */
