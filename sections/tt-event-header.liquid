@@ -45,10 +45,17 @@
   {%- endfor -%}
 {%- endfor -%}
 
-{%- if eh_all_sold_out -%}
+{%- if col.products_count == 0 -%}
+  {%- assign eh_status_tag = 'coming-soon' -%}
+{%- elsif eh_all_sold_out -%}
   {%- assign eh_status_tag = 'sold-out' -%}
 {%- elsif eh_status_tag == '' -%}
   {%- assign eh_status_tag = 'available' -%}
+{%- endif -%}
+
+{%- comment -%}When the collection is empty, hide the Dawn product grid that follows{%- endcomment -%}
+{%- if col.products_count == 0 -%}
+  <style>.shopify-section-{{ section.id }} ~ .shopify-section { display: none !important; }</style>
 {%- endif -%}
 
 <div class="tt-eh">
@@ -82,18 +89,24 @@
       </div>
     {%- endif -%}
 
-    <div class="tt-eh__footer-bar">
-      {%- if eh_min_price != nil -%}
-        <p class="tt-eh__pricing-note">
-          {%- if eh_status_tag == 'sold-out' -%}
-            All rooms sold out.
-          {%- else -%}
-            From <strong>{{ eh_min_price | money }}</strong> &mdash; all taxes &amp; fees included.
-          {%- endif -%}
-        </p>
-      {%- endif -%}
-      <p class="tt-eh__rooms-count">{{ col.products_count }} room type{%- if col.products_count != 1 -%}s{%- endif -%} available</p>
-    </div>
+    {%- if eh_status_tag == 'coming-soon' -%}
+      <div class="tt-eh__coming-soon-note">
+        Hotel block not yet open. Follow us for updates when rooms become available.
+      </div>
+    {%- else -%}
+      <div class="tt-eh__footer-bar">
+        {%- if eh_min_price != nil -%}
+          <p class="tt-eh__pricing-note">
+            {%- if eh_status_tag == 'sold-out' -%}
+              All rooms sold out.
+            {%- else -%}
+              From <strong>{{ eh_min_price | money }}</strong> &mdash; all taxes &amp; fees included.
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+        <p class="tt-eh__rooms-count">{{ col.products_count }} room type{%- if col.products_count != 1 -%}s{%- endif -%} available</p>
+      </div>
+    {%- endif -%}
 
   </div>
 </div>
