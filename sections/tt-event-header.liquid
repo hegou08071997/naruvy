@@ -90,8 +90,41 @@
     {%- endif -%}
 
     {%- if eh_status_tag == 'coming-soon' -%}
-      <div class="tt-eh__coming-soon-note">
-        Hotel block not yet open. Follow us for updates when rooms become available.
+      <div class="tt-eh__coming-soon-body">
+        <div class="tt-eh__cs-grid">
+          <div class="tt-eh__cs-col">
+            <p class="tt-eh__cs-label">What&rsquo;s confirmed</p>
+            <ul class="tt-eh__cs-list">
+              {%- if eh_date_str != '' -%}
+                <li>{{ eh_date_str }}</li>
+              {%- elsif col.description contains 'June' or col.description contains 'July' or col.description contains 'August' or col.description contains 'May' -%}
+                {%- comment -%}date in description, skip — already shown above{%- endcomment -%}
+              {%- endif -%}
+              {%- if eh_city_str != '' -%}
+                <li>{{ eh_city_str }}</li>
+              {%- endif -%}
+              {%- if col.description != blank -%}
+                {%- assign desc_text = col.description | strip_html -%}
+                <li>{{ desc_text | truncate: 120 }}</li>
+              {%- endif -%}
+            </ul>
+          </div>
+          <div class="tt-eh__cs-col">
+            <p class="tt-eh__cs-label">What&rsquo;s coming</p>
+            <ul class="tt-eh__cs-list">
+              <li>Group hotel block at a negotiated rate</li>
+              <li>All-in pricing &mdash; taxes and fees included</li>
+              <li>Venue-proximity selection</li>
+              <li>One-click booking, no loyalty account needed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tt-eh__cs-cta">
+          <p>We&rsquo;ll announce when rooms open. Follow us or reach out directly.</p>
+          <a href="mailto:{{ section.settings.notify_email | default: 'contact@trainerstravel.com' }}" class="tt-eh__cs-btn">
+            contact@trainerstravel.com
+          </a>
+        </div>
       </div>
     {%- else -%}
       <div class="tt-eh__footer-bar">
@@ -116,6 +149,14 @@
   "name": "Event Header",
   "tag": "div",
   "class": "section",
-  "limit": 1
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "notify_email",
+      "label": "Contact email (coming soon CTA)",
+      "default": "contact@trainerstravel.com"
+    }
+  ]
 }
 {% endschema %}
