@@ -1,0 +1,153 @@
+{% comment %}
+  Trainers Travel — Sponsored Players page
+  File: sections/tt-sponsored.liquid
+
+  Template: page.sponsored-players
+  Add players via the schema blocks in the theme editor.
+{% endcomment %}
+
+{{ 'section-tt-sponsored.css' | asset_url | stylesheet_tag }}
+
+<div class="tt-sp">
+
+  <div class="tt-sp__hero">
+    <div class="tt-sp__container">
+      <p class="tt-sp__eyebrow">Trainers Travel</p>
+      <h1 class="tt-sp__heading">Sponsored Players</h1>
+      <p class="tt-sp__sub">
+        These are the players we support. Follow them, root for them, watch their content.
+      </p>
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="tt-sp__grid-wrap">
+      <div class="tt-sp__container">
+        <div class="tt-sp__grid">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'player' -%}
+              <div class="tt-sp__card" {{ block.shopify_attributes }}>
+
+                {%- if block.settings.avatar != blank -%}
+                  <div class="tt-sp__avatar">
+                    <img
+                      src="{{ block.settings.avatar | image_url: width: 200 }}"
+                      alt="{{ block.settings.name | escape }}"
+                      width="100"
+                      height="100"
+                      loading="lazy"
+                    >
+                  </div>
+                {%- else -%}
+                  <div class="tt-sp__avatar tt-sp__avatar--placeholder" aria-hidden="true">
+                    <span>{{ block.settings.name | slice: 0 | upcase }}</span>
+                  </div>
+                {%- endif -%}
+
+                <div class="tt-sp__card-body">
+                  <p class="tt-sp__player-name">{{ block.settings.name }}</p>
+
+                  {%- if block.settings.handle != blank -%}
+                    <p class="tt-sp__player-handle">@{{ block.settings.handle }}</p>
+                  {%- endif -%}
+
+                  {%- if block.settings.bio != blank -%}
+                    <p class="tt-sp__player-bio">{{ block.settings.bio }}</p>
+                  {%- endif -%}
+
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="tt-sp__player-link" target="_blank" rel="noopener noreferrer">
+                      {{ block.settings.link_label | default: 'Follow' }}
+                    </a>
+                  {%- endif -%}
+                </div>
+
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="tt-sp__empty">
+      <div class="tt-sp__container">
+        <p>Players coming soon.</p>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="tt-sp__footer-note">
+    <div class="tt-sp__container">
+      <p>
+        Interested in a sponsorship? Reach out at
+        <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Sponsored Players",
+  "tag": "div",
+  "class": "section",
+  "limit": 1,
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "contact@trainerstravel.com"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "player",
+      "name": "Player",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Player name"
+        },
+        {
+          "type": "text",
+          "id": "handle",
+          "label": "Social handle",
+          "info": "Without the @ symbol"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Profile photo"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Short bio"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Profile link"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Follow"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sponsored Players"
+    }
+  ]
+}
+{% endschema %}

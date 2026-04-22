@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "tt_sponsored": {
+      "type": "tt-sponsored",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "contact_email": "contact@trainerstravel.com"
+      }
+    }
+  },
+  "order": ["tt_sponsored"]
+}
