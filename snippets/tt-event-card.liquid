@@ -1,9 +1,11 @@
 {% comment %}
   Renders a single event card.
-  Usage: {% render 'tt-event-card', col: collection_object %}
+  Usage: {% render 'tt-event-card', col: collection_object, block: block %}
 
-  Derives status badge and starting price from product tags.
-  Reads city: and event-date: tags for meta line.
+  - Status badge + min price derived from product tags.
+  - city: and event-date: product tags populate the meta line.
+  - block.settings.event_date / event_city override the meta line when
+    no products exist yet (coming soon events).
 {% endcomment %}
 
 {%- assign ec_min_price = nil -%}
@@ -33,6 +35,14 @@
     {%- endif -%}
   {%- endfor -%}
 {%- endfor -%}
+
+{%- comment -%}Block overrides — used for coming soon events with no products{%- endcomment -%}
+{%- if ec_date_str == '' and block != blank and block.settings.event_date != blank -%}
+  {%- assign ec_date_str = block.settings.event_date -%}
+{%- endif -%}
+{%- if ec_city_str == '' and block != blank and block.settings.event_city != blank -%}
+  {%- assign ec_city_str = block.settings.event_city -%}
+{%- endif -%}
 
 {%- if col.products_count == 0 -%}
   {%- assign ec_status_tag = 'coming-soon' -%}
@@ -67,11 +77,13 @@
     {%- endif -%}
   </div>
   <div class="tt-home__event-card-footer">
-    {%- if ec_min_price != nil and ec_status_tag != 'sold-out' -%}
+    {%- if ec_min_price != nil and ec_status_tag != 'sold-out' and ec_status_tag != 'coming-soon' -%}
       <span class="tt-home__event-card-price">
         From {{ ec_min_price | money }} <span class="tt-home__event-card-price-note">all-in</span>
       </span>
     {%- endif -%}
-    <span class="tt-home__event-card-cta">View rooms &rarr;</span>
+    <span class="tt-home__event-card-cta">
+      {%- if ec_status_tag == 'coming-soon' -%}Notify me &rarr;{%- else -%}View rooms &rarr;{%- endif -%}
+    </span>
   </div>
 </a>

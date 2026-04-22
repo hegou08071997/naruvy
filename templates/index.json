@@ -6,19 +6,25 @@
         "indy-2026": {
           "type": "event",
           "settings": {
-            "collection": "indianapolis-regional-2026"
+            "collection": "indianapolis-regional-2026",
+            "event_date": "May 29\u201331, 2026",
+            "event_city": "Indianapolis, IN"
           }
         },
         "naic-2026": {
           "type": "event",
           "settings": {
-            "collection": "naic-2026"
+            "collection": "naic-2026",
+            "event_date": "June 12\u201314, 2026",
+            "event_city": "New Orleans, LA"
           }
         },
         "worlds-2026": {
           "type": "event",
           "settings": {
-            "collection": "worlds-2026"
+            "collection": "worlds-2026",
+            "event_date": "August 28\u201330, 2026",
+            "event_city": "San Francisco, CA"
           }
         }
       },
