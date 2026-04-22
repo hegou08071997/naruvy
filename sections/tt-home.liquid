@@ -1,0 +1,451 @@
+{% comment %}
+  Trainers Travel — Homepage
+  File: sections/tt-home.liquid
+
+  Single-page design: header → event → price comparison → buy → FAQ → footer.
+  No animated reveals, no particles, no campaign typography. Just the deal.
+{% endcomment %}
+
+{{ 'section-tt-home.css' | asset_url | stylesheet_tag }}
+
+<div class="tt-home">
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    1. HEADER — minimal wordmark + contact
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <header class="tt-home__header">
+    <div class="tt-home__header-inner">
+      <span class="tt-home__wordmark">Trainers Travel</span>
+      {%- if section.settings.contact_email != blank -%}
+        <a href="mailto:{{ section.settings.contact_email }}" class="tt-home__header-email">
+          {{ section.settings.contact_email }}
+        </a>
+      {%- endif -%}
+    </div>
+  </header>
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    2. EVENT BLOCK
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <section class="tt-home__event">
+    <div class="tt-home__container">
+      <p class="tt-home__eyebrow">{{ section.settings.event_eyebrow }}</p>
+      <h1 class="tt-home__event-name">{{ section.settings.event_name }}</h1>
+      <p class="tt-home__event-dates">{{ section.settings.event_subtitle }}</p>
+      <div class="tt-home__hotel-line">
+        <span class="tt-home__hotel-name">{{ section.settings.hotel_name }}</span>
+        <span class="tt-home__hotel-sep" aria-hidden="true">&mdash;</span>
+        <span class="tt-home__hotel-proximity">{{ section.settings.hotel_proximity }}</span>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    3. PRICE COMPARISON
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <section class="tt-home__pricing">
+    <div class="tt-home__container">
+      <h2 class="tt-home__section-title">What nearby hotels actually cost</h2>
+      <div class="tt-home__compare">
+
+        <div class="tt-home__compare-col tt-home__compare-col--theirs">
+          <div class="tt-home__compare-header">
+            <span class="tt-home__compare-label">Book on your own</span>
+            <span class="tt-home__compare-note">Google rate + 17% Indiana tax &amp; city fees</span>
+          </div>
+          <ul class="tt-home__compare-list">
+            <li class="tt-home__compare-item">
+              <span class="tt-home__compare-hotel">Courtyard by Marriott</span>
+              <span class="tt-home__compare-price">$179<span class="tt-home__per-nt">/nt after tax</span></span>
+            </li>
+            <li class="tt-home__compare-item">
+              <span class="tt-home__compare-hotel">Hyatt Place</span>
+              <span class="tt-home__compare-price">$179<span class="tt-home__per-nt">/nt after tax</span></span>
+            </li>
+            <li class="tt-home__compare-item">
+              <span class="tt-home__compare-hotel">Crowne Plaza (direct)</span>
+              <span class="tt-home__compare-price">$205<span class="tt-home__per-nt">/nt after tax</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tt-home__compare-col tt-home__compare-col--ours">
+          <div class="tt-home__compare-header">
+            <span class="tt-home__compare-label">Through us</span>
+            <span class="tt-home__compare-note">All-in. No hidden fees.</span>
+          </div>
+          <ul class="tt-home__compare-list">
+            <li class="tt-home__compare-item tt-home__compare-item--highlight">
+              <span class="tt-home__compare-hotel">Crowne Plaza &mdash; Skywalk connected</span>
+              <span class="tt-home__compare-price tt-home__compare-price--highlight">$179<span class="tt-home__per-nt">/nt all-in</span></span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="tt-home__pricing-footnote">
+        All hotel rates on Google are shown before Indiana&rsquo;s 17% tax and city fees. Our price includes everything.
+      </p>
+    </div>
+  </section>
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    4. BUY BUTTONS — product cards
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <section class="tt-home__buy" id="book">
+    <div class="tt-home__container">
+      <h2 class="tt-home__section-title">Book your room</h2>
+      <p class="tt-home__buy-sub">Non-refundable &middot; Name transfer available at no charge &middot; Confirmation within 24&nbsp;hrs</p>
+
+      <div class="tt-home__cards">
+
+        {%- assign queen_handle = section.settings.product_queen -%}
+        {%- assign king_handle = section.settings.product_king -%}
+
+        {%- if queen_handle != blank -%}
+          {%- assign queen_product = all_products[queen_handle] -%}
+        {%- endif -%}
+        {%- if king_handle != blank -%}
+          {%- assign king_product = all_products[king_handle] -%}
+        {%- endif -%}
+
+        {%- comment -%}Double Queen card{%- endcomment -%}
+        {%- if queen_product and queen_product.available -%}
+          <div class="tt-home__card">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">Double Queen</p>
+              <p class="tt-home__card-name">{{ queen_product.title }}</p>
+              <p class="tt-home__card-specs">
+                Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews
+              </p>
+              {%- if queen_product.variants.first.inventory_management != blank and queen_product.variants.first.inventory_quantity > 0 and queen_product.variants.first.inventory_quantity <= 10 -%}
+                <p class="tt-home__card-urgency">Only {{ queen_product.variants.first.inventory_quantity }} left</p>
+              {%- endif -%}
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">{{ queen_product.price | money }}</p>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ queen_product.variants.first.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="tt-home__btn tt-home__btn--primary">
+                  Add to Cart
+                </button>
+              </form>
+            </div>
+          </div>
+        {%- elsif queen_handle != blank -%}
+          {%- comment -%}Product handle set but sold out{%- endcomment -%}
+          <div class="tt-home__card tt-home__card--sold-out">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">Double Queen</p>
+              <p class="tt-home__card-name">{{ queen_product.title | default: 'Double Queen — 2-Night Stay' }}</p>
+              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">{{ queen_product.price | money | default: '$358' }}</p>
+              <button class="tt-home__btn tt-home__btn--sold-out" disabled>Sold Out</button>
+            </div>
+          </div>
+        {%- else -%}
+          {%- comment -%}No handle configured — show placeholder{%- endcomment -%}
+          <div class="tt-home__card">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">Double Queen</p>
+              <p class="tt-home__card-name">Crowne Plaza Indianapolis &mdash; 2&nbsp;Nights</p>
+              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">$358</p>
+              <a href="/collections/all" class="tt-home__btn tt-home__btn--primary">View Rooms</a>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- comment -%}King card{%- endcomment -%}
+        {%- if king_product and king_product.available -%}
+          <div class="tt-home__card">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">King</p>
+              <p class="tt-home__card-name">{{ king_product.title }}</p>
+              <p class="tt-home__card-specs">
+                Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews
+              </p>
+              {%- if king_product.variants.first.inventory_management != blank and king_product.variants.first.inventory_quantity > 0 and king_product.variants.first.inventory_quantity <= 10 -%}
+                <p class="tt-home__card-urgency">Only {{ king_product.variants.first.inventory_quantity }} left</p>
+              {%- endif -%}
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">{{ king_product.price | money }}</p>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ king_product.variants.first.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="tt-home__btn tt-home__btn--primary">
+                  Add to Cart
+                </button>
+              </form>
+            </div>
+          </div>
+        {%- elsif king_handle != blank -%}
+          <div class="tt-home__card tt-home__card--sold-out">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">King</p>
+              <p class="tt-home__card-name">{{ king_product.title | default: 'King — 2-Night Stay' }}</p>
+              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">{{ king_product.price | money | default: '$358' }}</p>
+              <button class="tt-home__btn tt-home__btn--sold-out" disabled>Sold Out</button>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="tt-home__card">
+            <div class="tt-home__card-body">
+              <p class="tt-home__card-room-type">King</p>
+              <p class="tt-home__card-name">Crowne Plaza Indianapolis &mdash; 2&nbsp;Nights</p>
+              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
+            </div>
+            <div class="tt-home__card-footer">
+              <p class="tt-home__card-price">$358</p>
+              <a href="/collections/all" class="tt-home__btn tt-home__btn--primary">View Rooms</a>
+            </div>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    5. FAQ — accordion
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <section class="tt-home__faq">
+    <div class="tt-home__container">
+      <h2 class="tt-home__section-title">Questions</h2>
+      <dl class="tt-home__faq-list">
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-1">
+              How does booking work?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-1" hidden>
+            Buy here. After purchase we send a short form to collect your guest name. We coordinate with the hotel directly — you walk in, give your name, and check in. No extra steps.
+          </dd>
+        </div>
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-2">
+              What does all-in pricing mean?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-2" hidden>
+            The price you see is the price you pay. Indiana adds 17% in hotel tax and city fees on top of the rack rate — that math is already done and included. No line-item surprises at checkout or check-in.
+          </dd>
+        </div>
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-3">
+              Can I cancel?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-3" hidden>
+            Bookings are non-refundable. Name transfers are available at no charge — if your plans change, you can transfer to another player.
+          </dd>
+        </div>
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-4">
+              How many people per room?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-4" hidden>
+            Follows standard hotel policy. Double queen rooms accommodate up to 4 guests. King rooms accommodate up to 2. Additional guests may be subject to the hotel's standard extra-person fee.
+          </dd>
+        </div>
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-5">
+              Where is the hotel?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-5" hidden>
+            Crowne Plaza Indianapolis Downtown Union Station is the closest Skywalk-connected hotel to Halls H &amp; I at the Indiana Convention Center. Walk to the tournament without going outside.
+          </dd>
+        </div>
+
+        <div class="tt-home__faq-item">
+          <dt class="tt-home__faq-q">
+            <button class="tt-home__faq-btn" aria-expanded="false" aria-controls="faq-6">
+              Who is Trainers Travel?
+              <span class="tt-home__faq-icon" aria-hidden="true"></span>
+            </button>
+          </dt>
+          <dd class="tt-home__faq-a" id="faq-6" hidden>
+            Group hotel booking for the competitive Pokémon community. We negotiate room blocks directly with hotels, price everything all-in, and handle coordination with the property. Built by players who got tired of the checkout tax surprise.
+          </dd>
+        </div>
+
+      </dl>
+    </div>
+  </section>
+
+  {%- comment -%}═══════════════════════════════════════════════════════
+    6. FOOTER — minimal
+  ═══════════════════════════════════════════════════════{%- endcomment -%}
+  <footer class="tt-home__footer">
+    <div class="tt-home__container">
+      <div class="tt-home__footer-inner">
+        <p class="tt-home__footer-tagline">Built by players, for players.</p>
+        <div class="tt-home__footer-links">
+          {%- if section.settings.contact_email != blank -%}
+            <a href="mailto:{{ section.settings.contact_email }}" class="tt-home__footer-link">
+              {{ section.settings.contact_email }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_x != blank -%}
+            <a href="{{ section.settings.social_x }}" class="tt-home__footer-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          {%- endif -%}
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" class="tt-home__footer-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+          {%- endif -%}
+          {%- if section.settings.social_discord != blank -%}
+            <a href="{{ section.settings.social_discord }}" class="tt-home__footer-link" target="_blank" rel="noopener noreferrer">Discord</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Minimal accordion for FAQ — no library, no animation library.
+  (function () {
+    var btns = document.querySelectorAll('.tt-home__faq-btn');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var targetId = this.getAttribute('aria-controls');
+        var answer = document.getElementById(targetId);
+        this.setAttribute('aria-expanded', String(!expanded));
+        if (expanded) {
+          answer.hidden = true;
+        } else {
+          answer.hidden = false;
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "TT Home",
+  "tag": "div",
+  "class": "section",
+  "limit": 1,
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Event"
+    },
+    {
+      "type": "text",
+      "id": "event_eyebrow",
+      "label": "Eyebrow text",
+      "default": "Now booking"
+    },
+    {
+      "type": "text",
+      "id": "event_name",
+      "label": "Event name",
+      "default": "Indianapolis Regional"
+    },
+    {
+      "type": "text",
+      "id": "event_subtitle",
+      "label": "Event subtitle",
+      "default": "Pokémon TCG Regional Championship — May 29–31, 2026"
+    },
+    {
+      "type": "text",
+      "id": "hotel_name",
+      "label": "Hotel name",
+      "default": "Crowne Plaza Indianapolis Downtown Union Station"
+    },
+    {
+      "type": "text",
+      "id": "hotel_proximity",
+      "label": "Proximity line",
+      "default": "Closest Skywalk-connected hotel to Halls H & I"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "text",
+      "id": "product_queen",
+      "label": "Double Queen product handle",
+      "info": "Enter the product handle (URL slug) for the Double Queen room product."
+    },
+    {
+      "type": "text",
+      "id": "product_king",
+      "label": "King product handle",
+      "info": "Enter the product handle (URL slug) for the King room product."
+    },
+    {
+      "type": "header",
+      "content": "Contact & Social"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "contact@trainerstravel.com"
+    },
+    {
+      "type": "url",
+      "id": "social_x",
+      "label": "X / Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_discord",
+      "label": "Discord URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TT Home",
+      "settings": {
+        "event_eyebrow": "Now booking",
+        "event_name": "Indianapolis Regional",
+        "event_subtitle": "Pokémon TCG Regional Championship — May 29–31, 2026",
+        "hotel_name": "Crowne Plaza Indianapolis Downtown Union Station",
+        "hotel_proximity": "Closest Skywalk-connected hotel to Halls H & I",
+        "contact_email": "contact@trainerstravel.com"
+      }
+    }
+  ]
+}
+{% endschema %}

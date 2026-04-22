@@ -1,0 +1,544 @@
+/*
+ * section-tt-home.css
+ * Trainers Travel — single-page homepage
+ *
+ * The tt-home section renders its own header, so we hide the Dawn global
+ * header/announcement bar on the homepage (template-index body class).
+ */
+
+.template-index .shopify-section-group-header-group {
+  display: none !important;
+}
+
+/*
+ * section-tt-home.css
+ * Trainers Travel — single-page homepage
+ *
+ * Design language: community-tool utility. Clean grid, restrained brand colors,
+ * no scroll reveals, no animations, no campaign typography. Spacing is generous
+ * so the hierarchy reads without effort.
+ *
+ * Brand tokens
+ * --tt-navy:    #1A1A2E
+ * --tt-gold:    #C8A96E
+ * --tt-off-white: #F2F0EB
+ */
+
+/* ─── Reset & tokens ──────────────────────────────────────── */
+.tt-home {
+  --tt-navy: #1A1A2E;
+  --tt-gold: #C8A96E;
+  --tt-off-white: #F2F0EB;
+  --tt-mid: #4a4a6a;
+  --tt-border: #d8d4cc;
+  --tt-red: #c0392b;
+  --tt-green: #27ae60;
+
+  --tt-max-w: 860px;
+  --tt-pad-h: 24px;
+
+  font-family: inherit;
+  color: var(--tt-navy);
+  background: var(--tt-off-white);
+}
+
+.tt-home *,
+.tt-home *::before,
+.tt-home *::after {
+  box-sizing: border-box;
+}
+
+/* ─── Layout container ────────────────────────────────────── */
+.tt-home__container {
+  max-width: var(--tt-max-w);
+  margin: 0 auto;
+  padding: 0 var(--tt-pad-h);
+}
+
+/* ─── Shared typography helpers ───────────────────────────── */
+.tt-home__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tt-gold);
+  margin: 0 0 0.5rem;
+}
+
+.tt-home__section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--tt-navy);
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── 1. HEADER ───────────────────────────────────────────── */
+.tt-home__header {
+  background: var(--tt-navy);
+  padding: 14px var(--tt-pad-h);
+}
+
+.tt-home__header-inner {
+  max-width: var(--tt-max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tt-home__wordmark {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--tt-off-white);
+}
+
+.tt-home__header-email {
+  font-size: 0.8rem;
+  color: var(--tt-gold);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.tt-home__header-email:hover {
+  opacity: 1;
+}
+
+/* ─── 2. EVENT BLOCK ──────────────────────────────────────── */
+.tt-home__event {
+  background: var(--tt-navy);
+  padding: 48px 0 40px;
+  border-bottom: 2px solid var(--tt-gold);
+}
+
+.tt-home__event .tt-home__container {
+  text-align: left;
+}
+
+.tt-home__event-name {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--tt-off-white);
+  margin: 0 0 0.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tt-home__event-dates {
+  font-size: 0.95rem;
+  color: rgba(242, 240, 235, 0.65);
+  margin: 0 0 1.25rem;
+}
+
+.tt-home__hotel-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.tt-home__hotel-name {
+  color: var(--tt-gold);
+  font-weight: 600;
+}
+
+.tt-home__hotel-sep {
+  color: rgba(242, 240, 235, 0.3);
+}
+
+.tt-home__hotel-proximity {
+  color: rgba(242, 240, 235, 0.7);
+}
+
+/* ─── 3. PRICE COMPARISON ─────────────────────────────────── */
+.tt-home__pricing {
+  background: var(--tt-off-white);
+  padding: 40px 0;
+  border-bottom: 1px solid var(--tt-border);
+}
+
+.tt-home__compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--tt-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 560px) {
+  .tt-home__compare {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tt-home__compare-col {
+  padding: 0;
+}
+
+.tt-home__compare-col--theirs {
+  border-right: 1px solid var(--tt-border);
+  background: #fff;
+}
+
+@media (max-width: 560px) {
+  .tt-home__compare-col--theirs {
+    border-right: none;
+    border-bottom: 1px solid var(--tt-border);
+  }
+}
+
+.tt-home__compare-col--ours {
+  background: #fff;
+}
+
+.tt-home__compare-header {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--tt-border);
+  background: #f7f5f1;
+}
+
+.tt-home__compare-col--ours .tt-home__compare-header {
+  background: #f0ede6;
+}
+
+.tt-home__compare-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--tt-navy);
+  margin-bottom: 2px;
+}
+
+.tt-home__compare-note {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--tt-mid);
+}
+
+.tt-home__compare-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tt-home__compare-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #f0ede6;
+  font-size: 0.88rem;
+}
+
+.tt-home__compare-item:last-child {
+  border-bottom: none;
+}
+
+.tt-home__compare-item--highlight {
+  background: rgba(200, 169, 110, 0.08);
+}
+
+.tt-home__compare-hotel {
+  color: var(--tt-navy);
+  flex: 1;
+  min-width: 0;
+}
+
+.tt-home__compare-price {
+  font-weight: 700;
+  color: var(--tt-navy);
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.tt-home__compare-price--highlight {
+  color: var(--tt-gold);
+  font-size: 1.05rem;
+}
+
+.tt-home__per-nt {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--tt-mid);
+  margin-left: 2px;
+}
+
+.tt-home__compare-price--highlight .tt-home__per-nt {
+  color: var(--tt-gold);
+  opacity: 0.75;
+}
+
+.tt-home__pricing-footnote {
+  font-size: 0.78rem;
+  color: var(--tt-mid);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── 4. BUY SECTION ──────────────────────────────────────── */
+.tt-home__buy {
+  background: var(--tt-navy);
+  padding: 40px 0;
+}
+
+.tt-home__buy .tt-home__section-title {
+  color: var(--tt-off-white);
+}
+
+.tt-home__buy-sub {
+  font-size: 0.8rem;
+  color: rgba(242, 240, 235, 0.55);
+  margin: -0.75rem 0 1.5rem;
+  line-height: 1.5;
+}
+
+.tt-home__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .tt-home__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tt-home__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tt-home__card--sold-out {
+  opacity: 0.6;
+}
+
+.tt-home__card-body {
+  padding: 20px 20px 16px;
+  flex: 1;
+}
+
+.tt-home__card-room-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tt-gold);
+  margin: 0 0 4px;
+}
+
+.tt-home__card-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tt-off-white);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.tt-home__card-specs {
+  font-size: 0.78rem;
+  color: rgba(242, 240, 235, 0.55);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tt-home__card-urgency {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e8a87c;
+}
+
+.tt-home__card-footer {
+  padding: 14px 20px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tt-home__card-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--tt-off-white);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.tt-home__btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.tt-home__btn--primary {
+  background: var(--tt-gold);
+  color: var(--tt-navy);
+}
+
+.tt-home__btn--primary:hover {
+  background: #d4b87c;
+}
+
+.tt-home__btn--sold-out {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(242, 240, 235, 0.4);
+  cursor: not-allowed;
+}
+
+/* ─── 5. FAQ ──────────────────────────────────────────────── */
+.tt-home__faq {
+  background: var(--tt-off-white);
+  padding: 40px 0;
+  border-bottom: 1px solid var(--tt-border);
+}
+
+.tt-home__faq-list {
+  margin: 0;
+  padding: 0;
+}
+
+.tt-home__faq-item {
+  border-bottom: 1px solid var(--tt-border);
+}
+
+.tt-home__faq-item:first-child {
+  border-top: 1px solid var(--tt-border);
+}
+
+.tt-home__faq-q {
+  margin: 0;
+}
+
+.tt-home__faq-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--tt-navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+}
+
+.tt-home__faq-btn:hover {
+  color: var(--tt-gold);
+}
+
+/* Plus/minus icon */
+.tt-home__faq-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.tt-home__faq-icon::before,
+.tt-home__faq-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* horizontal bar */
+.tt-home__faq-icon::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+/* vertical bar */
+.tt-home__faq-icon::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+/* When expanded, hide vertical bar (turns + into -) */
+.tt-home__faq-btn[aria-expanded="true"] .tt-home__faq-icon::after {
+  opacity: 0;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.tt-home__faq-a {
+  padding: 0 0 16px;
+  font-size: 0.88rem;
+  color: var(--tt-mid);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── 6. FOOTER ───────────────────────────────────────────── */
+.tt-home__footer {
+  background: var(--tt-navy);
+  padding: 28px 0;
+}
+
+.tt-home__footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tt-home__footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(242, 240, 235, 0.45);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.tt-home__footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tt-home__footer-link {
+  font-size: 0.82rem;
+  color: rgba(242, 240, 235, 0.6);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.tt-home__footer-link:hover {
+  color: var(--tt-gold);
+}
