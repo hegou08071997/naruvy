@@ -1,0 +1,75 @@
+{% comment %}
+  Renders a single event card.
+  Usage: {% render 'tt-event-card', col: collection_object %}
+
+  Derives status badge and starting price from product tags.
+  Reads city: and event-date: tags for meta line.
+{% endcomment %}
+
+{%- assign ec_min_price = nil -%}
+{%- assign ec_all_sold_out = true -%}
+{%- assign ec_status_tag = '' -%}
+{%- assign ec_date_str = '' -%}
+{%- assign ec_city_str = '' -%}
+
+{%- for product in col.products limit: 20 -%}
+  {%- if product.available -%}
+    {%- assign ec_all_sold_out = false -%}
+  {%- endif -%}
+  {%- if ec_min_price == nil or product.price_min < ec_min_price -%}
+    {%- assign ec_min_price = product.price_min -%}
+  {%- endif -%}
+  {%- for tag in product.tags -%}
+    {%- if tag == 'status:selling-fast' and ec_status_tag == '' -%}
+      {%- assign ec_status_tag = 'selling-fast' -%}
+    {%- elsif tag == 'status:coming-soon' and ec_status_tag == '' -%}
+      {%- assign ec_status_tag = 'coming-soon' -%}
+    {%- endif -%}
+    {%- if tag contains 'event-date:' and ec_date_str == '' -%}
+      {%- assign ec_date_str = tag | remove: 'event-date:' -%}
+    {%- endif -%}
+    {%- if tag contains 'city:' and ec_city_str == '' -%}
+      {%- assign ec_city_str = tag | remove: 'city:' | capitalize -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- if ec_all_sold_out -%}
+  {%- assign ec_status_tag = 'sold-out' -%}
+{%- elsif ec_status_tag == '' -%}
+  {%- assign ec_status_tag = 'available' -%}
+{%- endif -%}
+
+<a href="{{ col.url }}" class="tt-home__event-card tt-home__event-card--{{ ec_status_tag }}">
+  <div class="tt-home__event-card-top">
+    <span class="tt-home__event-badge tt-home__event-badge--{{ ec_status_tag }}">
+      {%- case ec_status_tag -%}
+        {%- when 'sold-out' -%}Sold Out
+        {%- when 'selling-fast' -%}Selling Fast
+        {%- when 'coming-soon' -%}Coming Soon
+        {%- else -%}Now Booking
+      {%- endcase -%}
+    </span>
+  </div>
+  <div class="tt-home__event-card-body">
+    <p class="tt-home__event-card-title">{{ col.title }}</p>
+    {%- if ec_city_str != '' or ec_date_str != '' -%}
+      <p class="tt-home__event-card-meta">
+        {%- if ec_city_str != '' -%}{{ ec_city_str }}{%- endif -%}
+        {%- if ec_city_str != '' and ec_date_str != '' -%} &middot; {%- endif -%}
+        {%- if ec_date_str != '' -%}{{ ec_date_str }}{%- endif -%}
+      </p>
+    {%- endif -%}
+    {%- if col.description != blank -%}
+      <p class="tt-home__event-card-desc">{{ col.description | strip_html | truncate: 120 }}</p>
+    {%- endif -%}
+  </div>
+  <div class="tt-home__event-card-footer">
+    {%- if ec_min_price != nil and ec_status_tag != 'sold-out' -%}
+      <span class="tt-home__event-card-price">
+        From {{ ec_min_price | money }} <span class="tt-home__event-card-price-note">all-in</span>
+      </span>
+    {%- endif -%}
+    <span class="tt-home__event-card-cta">View rooms &rarr;</span>
+  </div>
+</a>

@@ -51,104 +51,47 @@
   </section>
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    3. EVENTS GRID — reads from navigation menu, zero theme edits needed
-       To add an event: create collection in admin → add to the
-       "Event Collections" menu (Online Store → Navigation).
+    3. EVENTS GRID
+    Priority order:
+      1. Nav menu (handle: events_menu setting) — automatic, scales forever
+      2. Section blocks — manual collection pickers, use these right now
+      3. Empty state — only shows if neither is configured
   ═══════════════════════════════════════════════════════{%- endcomment -%}
   <section class="tt-home__events">
     <div class="tt-home__container">
       <h2 class="tt-home__section-title">Upcoming events</h2>
 
       {%- assign events_menu = linklists[section.settings.events_menu] -%}
+      {%- assign use_menu = false -%}
+      {%- if events_menu != blank and events_menu.links.size > 0 -%}
+        {%- assign use_menu = true -%}
+      {%- endif -%}
 
-      {%- if events_menu.links.size > 0 -%}
+      {%- comment -%}Build the list of collections to render{%- endcomment -%}
+      {%- assign ec_cols = '' -%}
+
+      {%- if use_menu or section.blocks.size > 0 -%}
         <div class="tt-home__events-grid">
-          {%- for link in events_menu.links -%}
-            {%- assign col = link.object -%}
-            {%- if col == blank -%}{%- continue -%}{%- endif -%}
 
-            {%- comment -%}
-              Derive status + min price from collection products.
-              Status precedence: sold-out > selling-fast > coming-soon > available
-              We read product tags: status:sold-out, status:selling-fast, status:coming-soon
-            {%- endcomment -%}
-            {%- assign ec_min_price = nil -%}
-            {%- assign ec_all_sold_out = true -%}
-            {%- assign ec_has_available = false -%}
-            {%- assign ec_status_tag = '' -%}
-
-            {%- for product in col.products limit: 20 -%}
-              {%- if product.available -%}
-                {%- assign ec_has_available = true -%}
-                {%- assign ec_all_sold_out = false -%}
-              {%- endif -%}
-              {%- if ec_min_price == nil or product.price_min < ec_min_price -%}
-                {%- assign ec_min_price = product.price_min -%}
-              {%- endif -%}
-              {%- for tag in product.tags -%}
-                {%- if tag == 'status:selling-fast' and ec_status_tag == '' -%}
-                  {%- assign ec_status_tag = 'selling-fast' -%}
-                {%- elsif tag == 'status:coming-soon' and ec_status_tag == '' -%}
-                  {%- assign ec_status_tag = 'coming-soon' -%}
-                {%- endif -%}
-              {%- endfor -%}
+          {%- comment -%}——— Source: nav menu ———{%- endcomment -%}
+          {%- if use_menu -%}
+            {%- for link in events_menu.links -%}
+              {%- assign col = link.object -%}
+              {%- if col == blank -%}{%- continue -%}{%- endif -%}
+              {%- render 'tt-event-card', col: col -%}
             {%- endfor -%}
 
-            {%- if ec_all_sold_out -%}
-              {%- assign ec_status_tag = 'sold-out' -%}
-            {%- elsif ec_status_tag == '' -%}
-              {%- assign ec_status_tag = 'available' -%}
-            {%- endif -%}
-
-            {%- comment -%}Pull event-date tag for display{%- endcomment -%}
-            {%- assign ec_date_str = '' -%}
-            {%- assign ec_city_str = '' -%}
-            {%- for product in col.products limit: 5 -%}
-              {%- for tag in product.tags -%}
-                {%- if tag contains 'event-date:' and ec_date_str == '' -%}
-                  {%- assign ec_date_str = tag | remove: 'event-date:' -%}
-                {%- endif -%}
-                {%- if tag contains 'city:' and ec_city_str == '' -%}
-                  {%- assign ec_city_str = tag | remove: 'city:' | capitalize -%}
-                {%- endif -%}
-              {%- endfor -%}
+          {%- comment -%}——— Source: section blocks ———{%- endcomment -%}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'event' -%}
+                {%- assign col = collections[block.settings.collection] -%}
+                {%- if col == blank -%}{%- continue -%}{%- endif -%}
+                {%- render 'tt-event-card', col: col, block: block -%}
+              {%- endif -%}
             {%- endfor -%}
+          {%- endif -%}
 
-            <a href="{{ col.url }}" class="tt-home__event-card tt-home__event-card--{{ ec_status_tag }}">
-              <div class="tt-home__event-card-top">
-                <span class="tt-home__event-badge tt-home__event-badge--{{ ec_status_tag }}">
-                  {%- case ec_status_tag -%}
-                    {%- when 'sold-out' -%}Sold Out
-                    {%- when 'selling-fast' -%}Selling Fast
-                    {%- when 'coming-soon' -%}Coming Soon
-                    {%- else -%}Now Booking
-                  {%- endcase -%}
-                </span>
-              </div>
-              <div class="tt-home__event-card-body">
-                <p class="tt-home__event-card-title">{{ col.title }}</p>
-                {%- if ec_city_str != '' or ec_date_str != '' -%}
-                  <p class="tt-home__event-card-meta">
-                    {%- if ec_city_str != '' -%}{{ ec_city_str }}{%- endif -%}
-                    {%- if ec_city_str != '' and ec_date_str != '' -%} &middot; {%- endif -%}
-                    {%- if ec_date_str != '' -%}{{ ec_date_str }}{%- endif -%}
-                  </p>
-                {%- endif -%}
-                {%- if col.description != blank -%}
-                  <p class="tt-home__event-card-desc">{{ col.description | strip_html | truncate: 120 }}</p>
-                {%- endif -%}
-              </div>
-              <div class="tt-home__event-card-footer">
-                {%- if ec_min_price != nil and ec_status_tag != 'sold-out' -%}
-                  <span class="tt-home__event-card-price">
-                    From {{ ec_min_price | money }} <span class="tt-home__event-card-price-note">all-in</span>
-                  </span>
-                {%- endif -%}
-                <span class="tt-home__event-card-cta">View rooms &rarr;</span>
-              </div>
-            </a>
-
-          {%- endfor -%}
         </div>
 
       {%- else -%}
@@ -336,7 +279,7 @@
       "id": "events_menu",
       "label": "Event collections menu handle",
       "default": "event-collections",
-      "info": "Create a navigation menu in Online Store → Navigation. Set its handle to match this value. Add a link to each event collection. The grid updates automatically."
+      "info": "Advanced: create a navigation menu in Online Store → Navigation with this handle, add each event collection as a link, and the grid populates automatically. While that menu doesn't exist, the 'Event' blocks below are used instead."
     },
     {
       "type": "header",
@@ -377,6 +320,20 @@
       "type": "url",
       "id": "social_discord",
       "label": "Discord URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Event collection",
+          "info": "Pick an event collection. The card title, description, pricing, and status badge are all read from the collection automatically."
+        }
+      ]
     }
   ],
   "presets": [
