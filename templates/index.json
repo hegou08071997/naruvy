@@ -8,9 +8,21 @@
           "settings": {
             "collection": "indianapolis-regional-2026"
           }
+        },
+        "naic-2026": {
+          "type": "event",
+          "settings": {
+            "collection": "naic-2026"
+          }
+        },
+        "worlds-2026": {
+          "type": "event",
+          "settings": {
+            "collection": "worlds-2026"
+          }
         }
       },
-      "block_order": ["indy-2026"],
+      "block_order": ["indy-2026", "naic-2026", "worlds-2026"],
       "settings": {
         "events_menu": "event-collections",
         "events_cta_text": "View Events",

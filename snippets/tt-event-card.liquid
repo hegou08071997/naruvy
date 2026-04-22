@@ -34,7 +34,9 @@
   {%- endfor -%}
 {%- endfor -%}
 
-{%- if ec_all_sold_out -%}
+{%- if col.products_count == 0 -%}
+  {%- assign ec_status_tag = 'coming-soon' -%}
+{%- elsif ec_all_sold_out -%}
   {%- assign ec_status_tag = 'sold-out' -%}
 {%- elsif ec_status_tag == '' -%}
   {%- assign ec_status_tag = 'available' -%}
