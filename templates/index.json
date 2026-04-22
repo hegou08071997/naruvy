@@ -3,13 +3,9 @@
     "tt_home": {
       "type": "tt-home",
       "settings": {
-        "event_eyebrow": "Now booking",
-        "event_name": "Indianapolis Regional",
-        "event_subtitle": "Pokémon TCG Regional Championship — May 29–31, 2026",
-        "hotel_name": "Crowne Plaza Indianapolis Downtown Union Station",
-        "hotel_proximity": "Closest Skywalk-connected hotel to Halls H & I",
-        "product_queen": "",
-        "product_king": "",
+        "events_menu": "event-collections",
+        "events_cta_text": "View Events",
+        "events_cta_link": "",
         "contact_email": "contact@trainerstravel.com",
         "social_x": "",
         "social_instagram": "",

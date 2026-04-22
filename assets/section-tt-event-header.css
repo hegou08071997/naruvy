@@ -1,0 +1,126 @@
+/*
+ * section-tt-event-header.css
+ * Trainers Travel — event collection page header
+ */
+
+.tt-eh {
+  --tt-navy: #1A1A2E;
+  --tt-gold: #C8A96E;
+  --tt-off-white: #F2F0EB;
+  --tt-mid: #4a4a6a;
+  --tt-border: #d8d4cc;
+
+  background: var(--tt-navy);
+  border-bottom: 2px solid var(--tt-gold);
+  color: var(--tt-off-white);
+}
+
+.tt-eh__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 36px;
+}
+
+/* Back link + badge row */
+.tt-eh__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tt-eh__back {
+  font-size: 0.8rem;
+  color: rgba(242, 240, 235, 0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.tt-eh__back:hover { color: var(--tt-gold); }
+
+/* Status badges — same system as homepage cards */
+.tt-eh__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.tt-eh__badge--available {
+  background: rgba(39, 174, 96, 0.18);
+  color: #58d68d;
+}
+.tt-eh__badge--selling-fast {
+  background: rgba(200, 169, 110, 0.2);
+  color: var(--tt-gold);
+}
+.tt-eh__badge--coming-soon {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(242, 240, 235, 0.6);
+}
+.tt-eh__badge--sold-out {
+  background: rgba(192, 57, 43, 0.18);
+  color: #e74c3c;
+}
+
+/* Title */
+.tt-eh__title {
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: var(--tt-off-white);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Date / city meta */
+.tt-eh__meta {
+  font-size: 0.88rem;
+  color: rgba(242, 240, 235, 0.55);
+  margin: 0 0 1.25rem;
+}
+
+/* Collection description — written in Shopify admin */
+.tt-eh__description {
+  font-size: 0.92rem;
+  color: rgba(242, 240, 235, 0.75);
+  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+}
+
+.tt-eh__description p { margin: 0 0 0.75em; }
+.tt-eh__description p:last-child { margin-bottom: 0; }
+.tt-eh__description strong { color: var(--tt-off-white); }
+.tt-eh__description a { color: var(--tt-gold); text-decoration: none; }
+.tt-eh__description a:hover { text-decoration: underline; }
+
+/* Bottom bar */
+.tt-eh__footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tt-eh__pricing-note {
+  font-size: 0.88rem;
+  color: rgba(242, 240, 235, 0.65);
+  margin: 0;
+}
+.tt-eh__pricing-note strong {
+  color: var(--tt-off-white);
+  font-size: 1rem;
+}
+
+.tt-eh__rooms-count {
+  font-size: 0.78rem;
+  color: rgba(242, 240, 235, 0.4);
+  margin: 0;
+}

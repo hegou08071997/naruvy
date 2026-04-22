@@ -1,0 +1,108 @@
+{% comment %}
+  Trainers Travel — Event collection header
+  File: sections/tt-event-header.liquid
+
+  Used in templates/collection.event.json.
+  Shows the collection title and description prominently at the top of an
+  event collection page. All event-specific details (hotel name, venue
+  proximity, dates, price comparison notes) live in the collection
+  description written in Shopify admin — no theme edits required.
+
+  Also reads product tags to derive a status badge and starting price,
+  and surfaces an "all-in pricing" note inline.
+{% endcomment %}
+
+{{ 'section-tt-event-header.css' | asset_url | stylesheet_tag }}
+
+{%- assign col = collection -%}
+
+{%- comment -%}Derive status and pricing from collection products{%- endcomment -%}
+{%- assign eh_min_price = nil -%}
+{%- assign eh_all_sold_out = true -%}
+{%- assign eh_status_tag = '' -%}
+{%- assign eh_date_str = '' -%}
+{%- assign eh_city_str = '' -%}
+
+{%- for product in col.products limit: 20 -%}
+  {%- if product.available -%}
+    {%- assign eh_all_sold_out = false -%}
+  {%- endif -%}
+  {%- if eh_min_price == nil or product.price_min < eh_min_price -%}
+    {%- assign eh_min_price = product.price_min -%}
+  {%- endif -%}
+  {%- for tag in product.tags -%}
+    {%- if tag == 'status:selling-fast' and eh_status_tag == '' -%}
+      {%- assign eh_status_tag = 'selling-fast' -%}
+    {%- elsif tag == 'status:coming-soon' and eh_status_tag == '' -%}
+      {%- assign eh_status_tag = 'coming-soon' -%}
+    {%- endif -%}
+    {%- if tag contains 'event-date:' and eh_date_str == '' -%}
+      {%- assign eh_date_str = tag | remove: 'event-date:' -%}
+    {%- endif -%}
+    {%- if tag contains 'city:' and eh_city_str == '' -%}
+      {%- assign eh_city_str = tag | remove: 'city:' | capitalize -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- if eh_all_sold_out -%}
+  {%- assign eh_status_tag = 'sold-out' -%}
+{%- elsif eh_status_tag == '' -%}
+  {%- assign eh_status_tag = 'available' -%}
+{%- endif -%}
+
+<div class="tt-eh">
+  <div class="tt-eh__inner">
+
+    <div class="tt-eh__top">
+      <a href="/" class="tt-eh__back">&larr; All events</a>
+      <span class="tt-eh__badge tt-eh__badge--{{ eh_status_tag }}">
+        {%- case eh_status_tag -%}
+          {%- when 'sold-out' -%}Sold Out
+          {%- when 'selling-fast' -%}Selling Fast
+          {%- when 'coming-soon' -%}Coming Soon
+          {%- else -%}Now Booking
+        {%- endcase -%}
+      </span>
+    </div>
+
+    <h1 class="tt-eh__title">{{ col.title }}</h1>
+
+    {%- if eh_city_str != '' or eh_date_str != '' -%}
+      <p class="tt-eh__meta">
+        {%- if eh_city_str != '' -%}{{ eh_city_str }}{%- endif -%}
+        {%- if eh_city_str != '' and eh_date_str != '' -%} &middot; {%- endif -%}
+        {%- if eh_date_str != '' -%}{{ eh_date_str }}{%- endif -%}
+      </p>
+    {%- endif -%}
+
+    {%- if col.description != blank -%}
+      <div class="tt-eh__description">
+        {{ col.description }}
+      </div>
+    {%- endif -%}
+
+    <div class="tt-eh__footer-bar">
+      {%- if eh_min_price != nil -%}
+        <p class="tt-eh__pricing-note">
+          {%- if eh_status_tag == 'sold-out' -%}
+            All rooms sold out.
+          {%- else -%}
+            From <strong>{{ eh_min_price | money }}</strong> &mdash; all taxes &amp; fees included.
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+      <p class="tt-eh__rooms-count">{{ col.products_count }} room type{%- if col.products_count != 1 -%}s{%- endif -%} available</p>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Event Header",
+  "tag": "div",
+  "class": "section",
+  "limit": 1
+}
+{% endschema %}

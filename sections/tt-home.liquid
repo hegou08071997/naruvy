@@ -2,8 +2,18 @@
   Trainers Travel — Homepage
   File: sections/tt-home.liquid
 
-  Single-page design: header → event → price comparison → buy → FAQ → footer.
-  No animated reveals, no particles, no campaign typography. Just the deal.
+  Multi-event architecture. No hardcoded event names here — ever.
+  The events grid reads from a Shopify navigation menu whose handle is
+  configured in section settings (default: "event-collections"). To add a
+  new event to the homepage: create the collection in admin, then add a link
+  to that collection in the "Event Collections" navigation menu. Done.
+
+  Page structure:
+    1. Header   — minimal wordmark + contact link
+    2. Hero     — evergreen brand copy + CTA
+    3. Events   — dynamic grid from navigation menu
+    4. FAQ      — evergreen answers
+    5. Footer   — email + social
 {% endcomment %}
 
 {{ 'section-tt-home.css' | asset_url | stylesheet_tag }}
@@ -11,7 +21,7 @@
 <div class="tt-home">
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    1. HEADER — minimal wordmark + contact
+    1. HEADER
   ═══════════════════════════════════════════════════════{%- endcomment -%}
   <header class="tt-home__header">
     <div class="tt-home__header-inner">
@@ -25,198 +35,139 @@
   </header>
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    2. EVENT BLOCK
+    2. HERO
   ═══════════════════════════════════════════════════════{%- endcomment -%}
-  <section class="tt-home__event">
+  <section class="tt-home__hero">
     <div class="tt-home__container">
-      <p class="tt-home__eyebrow">{{ section.settings.event_eyebrow }}</p>
-      <h1 class="tt-home__event-name">{{ section.settings.event_name }}</h1>
-      <p class="tt-home__event-dates">{{ section.settings.event_subtitle }}</p>
-      <div class="tt-home__hotel-line">
-        <span class="tt-home__hotel-name">{{ section.settings.hotel_name }}</span>
-        <span class="tt-home__hotel-sep" aria-hidden="true">&mdash;</span>
-        <span class="tt-home__hotel-proximity">{{ section.settings.hotel_proximity }}</span>
-      </div>
-    </div>
-  </section>
-
-  {%- comment -%}═══════════════════════════════════════════════════════
-    3. PRICE COMPARISON
-  ═══════════════════════════════════════════════════════{%- endcomment -%}
-  <section class="tt-home__pricing">
-    <div class="tt-home__container">
-      <h2 class="tt-home__section-title">What nearby hotels actually cost</h2>
-      <div class="tt-home__compare">
-
-        <div class="tt-home__compare-col tt-home__compare-col--theirs">
-          <div class="tt-home__compare-header">
-            <span class="tt-home__compare-label">Book on your own</span>
-            <span class="tt-home__compare-note">Google rate + 17% Indiana tax &amp; city fees</span>
-          </div>
-          <ul class="tt-home__compare-list">
-            <li class="tt-home__compare-item">
-              <span class="tt-home__compare-hotel">Courtyard by Marriott</span>
-              <span class="tt-home__compare-price">$179<span class="tt-home__per-nt">/nt after tax</span></span>
-            </li>
-            <li class="tt-home__compare-item">
-              <span class="tt-home__compare-hotel">Hyatt Place</span>
-              <span class="tt-home__compare-price">$179<span class="tt-home__per-nt">/nt after tax</span></span>
-            </li>
-            <li class="tt-home__compare-item">
-              <span class="tt-home__compare-hotel">Crowne Plaza (direct)</span>
-              <span class="tt-home__compare-price">$205<span class="tt-home__per-nt">/nt after tax</span></span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="tt-home__compare-col tt-home__compare-col--ours">
-          <div class="tt-home__compare-header">
-            <span class="tt-home__compare-label">Through us</span>
-            <span class="tt-home__compare-note">All-in. No hidden fees.</span>
-          </div>
-          <ul class="tt-home__compare-list">
-            <li class="tt-home__compare-item tt-home__compare-item--highlight">
-              <span class="tt-home__compare-hotel">Crowne Plaza &mdash; Skywalk connected</span>
-              <span class="tt-home__compare-price tt-home__compare-price--highlight">$179<span class="tt-home__per-nt">/nt all-in</span></span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-      <p class="tt-home__pricing-footnote">
-        All hotel rates on Google are shown before Indiana&rsquo;s 17% tax and city fees. Our price includes everything.
+      <h1 class="tt-home__hero-heading">Travel smarter.<br>Compete harder.</h1>
+      <p class="tt-home__hero-sub">
+        Group hotel blocks for the competitive Pok&eacute;mon TCG community.
+        All-in pricing. No hidden fees. Close to the venue.
       </p>
+      <a href="{{ section.settings.events_cta_link | default: '/collections/all' }}" class="tt-home__btn tt-home__btn--primary">
+        {{ section.settings.events_cta_text | default: 'View Events' }}
+      </a>
     </div>
   </section>
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    4. BUY BUTTONS — product cards
+    3. EVENTS GRID — reads from navigation menu, zero theme edits needed
+       To add an event: create collection in admin → add to the
+       "Event Collections" menu (Online Store → Navigation).
   ═══════════════════════════════════════════════════════{%- endcomment -%}
-  <section class="tt-home__buy" id="book">
+  <section class="tt-home__events">
     <div class="tt-home__container">
-      <h2 class="tt-home__section-title">Book your room</h2>
-      <p class="tt-home__buy-sub">Non-refundable &middot; Name transfer available at no charge &middot; Confirmation within 24&nbsp;hrs</p>
+      <h2 class="tt-home__section-title">Upcoming events</h2>
 
-      <div class="tt-home__cards">
+      {%- assign events_menu = linklists[section.settings.events_menu] -%}
 
-        {%- assign queen_handle = section.settings.product_queen -%}
-        {%- assign king_handle = section.settings.product_king -%}
+      {%- if events_menu.links.size > 0 -%}
+        <div class="tt-home__events-grid">
+          {%- for link in events_menu.links -%}
+            {%- assign col = link.object -%}
+            {%- if col == blank -%}{%- continue -%}{%- endif -%}
 
-        {%- if queen_handle != blank -%}
-          {%- assign queen_product = all_products[queen_handle] -%}
-        {%- endif -%}
-        {%- if king_handle != blank -%}
-          {%- assign king_product = all_products[king_handle] -%}
-        {%- endif -%}
+            {%- comment -%}
+              Derive status + min price from collection products.
+              Status precedence: sold-out > selling-fast > coming-soon > available
+              We read product tags: status:sold-out, status:selling-fast, status:coming-soon
+            {%- endcomment -%}
+            {%- assign ec_min_price = nil -%}
+            {%- assign ec_all_sold_out = true -%}
+            {%- assign ec_has_available = false -%}
+            {%- assign ec_status_tag = '' -%}
 
-        {%- comment -%}Double Queen card{%- endcomment -%}
-        {%- if queen_product and queen_product.available -%}
-          <div class="tt-home__card">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">Double Queen</p>
-              <p class="tt-home__card-name">{{ queen_product.title }}</p>
-              <p class="tt-home__card-specs">
-                Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews
-              </p>
-              {%- if queen_product.variants.first.inventory_management != blank and queen_product.variants.first.inventory_quantity > 0 and queen_product.variants.first.inventory_quantity <= 10 -%}
-                <p class="tt-home__card-urgency">Only {{ queen_product.variants.first.inventory_quantity }} left</p>
+            {%- for product in col.products limit: 20 -%}
+              {%- if product.available -%}
+                {%- assign ec_has_available = true -%}
+                {%- assign ec_all_sold_out = false -%}
               {%- endif -%}
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">{{ queen_product.price | money }}</p>
-              <form method="post" action="/cart/add">
-                <input type="hidden" name="id" value="{{ queen_product.variants.first.id }}">
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit" class="tt-home__btn tt-home__btn--primary">
-                  Add to Cart
-                </button>
-              </form>
-            </div>
-          </div>
-        {%- elsif queen_handle != blank -%}
-          {%- comment -%}Product handle set but sold out{%- endcomment -%}
-          <div class="tt-home__card tt-home__card--sold-out">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">Double Queen</p>
-              <p class="tt-home__card-name">{{ queen_product.title | default: 'Double Queen — 2-Night Stay' }}</p>
-              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">{{ queen_product.price | money | default: '$358' }}</p>
-              <button class="tt-home__btn tt-home__btn--sold-out" disabled>Sold Out</button>
-            </div>
-          </div>
-        {%- else -%}
-          {%- comment -%}No handle configured — show placeholder{%- endcomment -%}
-          <div class="tt-home__card">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">Double Queen</p>
-              <p class="tt-home__card-name">Crowne Plaza Indianapolis &mdash; 2&nbsp;Nights</p>
-              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">$358</p>
-              <a href="/collections/all" class="tt-home__btn tt-home__btn--primary">View Rooms</a>
-            </div>
-          </div>
-        {%- endif -%}
-
-        {%- comment -%}King card{%- endcomment -%}
-        {%- if king_product and king_product.available -%}
-          <div class="tt-home__card">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">King</p>
-              <p class="tt-home__card-name">{{ king_product.title }}</p>
-              <p class="tt-home__card-specs">
-                Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews
-              </p>
-              {%- if king_product.variants.first.inventory_management != blank and king_product.variants.first.inventory_quantity > 0 and king_product.variants.first.inventory_quantity <= 10 -%}
-                <p class="tt-home__card-urgency">Only {{ king_product.variants.first.inventory_quantity }} left</p>
+              {%- if ec_min_price == nil or product.price_min < ec_min_price -%}
+                {%- assign ec_min_price = product.price_min -%}
               {%- endif -%}
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">{{ king_product.price | money }}</p>
-              <form method="post" action="/cart/add">
-                <input type="hidden" name="id" value="{{ king_product.variants.first.id }}">
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit" class="tt-home__btn tt-home__btn--primary">
-                  Add to Cart
-                </button>
-              </form>
-            </div>
-          </div>
-        {%- elsif king_handle != blank -%}
-          <div class="tt-home__card tt-home__card--sold-out">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">King</p>
-              <p class="tt-home__card-name">{{ king_product.title | default: 'King — 2-Night Stay' }}</p>
-              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">{{ king_product.price | money | default: '$358' }}</p>
-              <button class="tt-home__btn tt-home__btn--sold-out" disabled>Sold Out</button>
-            </div>
-          </div>
-        {%- else -%}
-          <div class="tt-home__card">
-            <div class="tt-home__card-body">
-              <p class="tt-home__card-room-type">King</p>
-              <p class="tt-home__card-name">Crowne Plaza Indianapolis &mdash; 2&nbsp;Nights</p>
-              <p class="tt-home__card-specs">Breakfast credit included &middot; Skywalk access &middot; 4.2&nbsp;&#9733;, 4,500+ reviews</p>
-            </div>
-            <div class="tt-home__card-footer">
-              <p class="tt-home__card-price">$358</p>
-              <a href="/collections/all" class="tt-home__btn tt-home__btn--primary">View Rooms</a>
-            </div>
-          </div>
-        {%- endif -%}
+              {%- for tag in product.tags -%}
+                {%- if tag == 'status:selling-fast' and ec_status_tag == '' -%}
+                  {%- assign ec_status_tag = 'selling-fast' -%}
+                {%- elsif tag == 'status:coming-soon' and ec_status_tag == '' -%}
+                  {%- assign ec_status_tag = 'coming-soon' -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
 
-      </div>
+            {%- if ec_all_sold_out -%}
+              {%- assign ec_status_tag = 'sold-out' -%}
+            {%- elsif ec_status_tag == '' -%}
+              {%- assign ec_status_tag = 'available' -%}
+            {%- endif -%}
+
+            {%- comment -%}Pull event-date tag for display{%- endcomment -%}
+            {%- assign ec_date_str = '' -%}
+            {%- assign ec_city_str = '' -%}
+            {%- for product in col.products limit: 5 -%}
+              {%- for tag in product.tags -%}
+                {%- if tag contains 'event-date:' and ec_date_str == '' -%}
+                  {%- assign ec_date_str = tag | remove: 'event-date:' -%}
+                {%- endif -%}
+                {%- if tag contains 'city:' and ec_city_str == '' -%}
+                  {%- assign ec_city_str = tag | remove: 'city:' | capitalize -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+
+            <a href="{{ col.url }}" class="tt-home__event-card tt-home__event-card--{{ ec_status_tag }}">
+              <div class="tt-home__event-card-top">
+                <span class="tt-home__event-badge tt-home__event-badge--{{ ec_status_tag }}">
+                  {%- case ec_status_tag -%}
+                    {%- when 'sold-out' -%}Sold Out
+                    {%- when 'selling-fast' -%}Selling Fast
+                    {%- when 'coming-soon' -%}Coming Soon
+                    {%- else -%}Now Booking
+                  {%- endcase -%}
+                </span>
+              </div>
+              <div class="tt-home__event-card-body">
+                <p class="tt-home__event-card-title">{{ col.title }}</p>
+                {%- if ec_city_str != '' or ec_date_str != '' -%}
+                  <p class="tt-home__event-card-meta">
+                    {%- if ec_city_str != '' -%}{{ ec_city_str }}{%- endif -%}
+                    {%- if ec_city_str != '' and ec_date_str != '' -%} &middot; {%- endif -%}
+                    {%- if ec_date_str != '' -%}{{ ec_date_str }}{%- endif -%}
+                  </p>
+                {%- endif -%}
+                {%- if col.description != blank -%}
+                  <p class="tt-home__event-card-desc">{{ col.description | strip_html | truncate: 120 }}</p>
+                {%- endif -%}
+              </div>
+              <div class="tt-home__event-card-footer">
+                {%- if ec_min_price != nil and ec_status_tag != 'sold-out' -%}
+                  <span class="tt-home__event-card-price">
+                    From {{ ec_min_price | money }} <span class="tt-home__event-card-price-note">all-in</span>
+                  </span>
+                {%- endif -%}
+                <span class="tt-home__event-card-cta">View rooms &rarr;</span>
+              </div>
+            </a>
+
+          {%- endfor -%}
+        </div>
+
+      {%- else -%}
+        <div class="tt-home__events-empty">
+          <p>Events coming soon &mdash; check back shortly or follow us for updates.</p>
+          {%- if section.settings.contact_email != blank -%}
+            <p>
+              Want early access?
+              <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
     </div>
   </section>
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    5. FAQ — accordion
+    4. FAQ
   ═══════════════════════════════════════════════════════{%- endcomment -%}
   <section class="tt-home__faq">
     <div class="tt-home__container">
@@ -324,7 +275,7 @@
   </section>
 
   {%- comment -%}═══════════════════════════════════════════════════════
-    6. FOOTER — minimal
+    5. FOOTER
   ═══════════════════════════════════════════════════════{%- endcomment -%}
   <footer class="tt-home__footer">
     <div class="tt-home__container">
@@ -353,20 +304,14 @@
 </div>
 
 <script>
-  // Minimal accordion for FAQ — no library, no animation library.
   (function () {
     var btns = document.querySelectorAll('.tt-home__faq-btn');
     btns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var expanded = this.getAttribute('aria-expanded') === 'true';
-        var targetId = this.getAttribute('aria-controls');
-        var answer = document.getElementById(targetId);
+        var answer = document.getElementById(this.getAttribute('aria-controls'));
         this.setAttribute('aria-expanded', String(!expanded));
-        if (expanded) {
-          answer.hidden = true;
-        } else {
-          answer.hidden = false;
-        }
+        answer.hidden = expanded;
       });
     });
   })();
@@ -384,53 +329,29 @@
   "settings": [
     {
       "type": "header",
-      "content": "Event"
+      "content": "Events"
     },
     {
       "type": "text",
-      "id": "event_eyebrow",
-      "label": "Eyebrow text",
-      "default": "Now booking"
-    },
-    {
-      "type": "text",
-      "id": "event_name",
-      "label": "Event name",
-      "default": "Indianapolis Regional"
-    },
-    {
-      "type": "text",
-      "id": "event_subtitle",
-      "label": "Event subtitle",
-      "default": "Pokémon TCG Regional Championship — May 29–31, 2026"
-    },
-    {
-      "type": "text",
-      "id": "hotel_name",
-      "label": "Hotel name",
-      "default": "Crowne Plaza Indianapolis Downtown Union Station"
-    },
-    {
-      "type": "text",
-      "id": "hotel_proximity",
-      "label": "Proximity line",
-      "default": "Closest Skywalk-connected hotel to Halls H & I"
+      "id": "events_menu",
+      "label": "Event collections menu handle",
+      "default": "event-collections",
+      "info": "Create a navigation menu in Online Store → Navigation. Set its handle to match this value. Add a link to each event collection. The grid updates automatically."
     },
     {
       "type": "header",
-      "content": "Products"
+      "content": "Hero CTA"
     },
     {
       "type": "text",
-      "id": "product_queen",
-      "label": "Double Queen product handle",
-      "info": "Enter the product handle (URL slug) for the Double Queen room product."
+      "id": "events_cta_text",
+      "label": "Button text",
+      "default": "View Events"
     },
     {
-      "type": "text",
-      "id": "product_king",
-      "label": "King product handle",
-      "info": "Enter the product handle (URL slug) for the King room product."
+      "type": "url",
+      "id": "events_cta_link",
+      "label": "Button link"
     },
     {
       "type": "header",
@@ -462,11 +383,8 @@
     {
       "name": "TT Home",
       "settings": {
-        "event_eyebrow": "Now booking",
-        "event_name": "Indianapolis Regional",
-        "event_subtitle": "Pokémon TCG Regional Championship — May 29–31, 2026",
-        "hotel_name": "Crowne Plaza Indianapolis Downtown Union Station",
-        "hotel_proximity": "Closest Skywalk-connected hotel to Halls H & I",
+        "events_menu": "event-collections",
+        "events_cta_text": "View Events",
         "contact_email": "contact@trainerstravel.com"
       }
     }
