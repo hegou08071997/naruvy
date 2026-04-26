@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+  CloudVaultUS — Admin "New Order" Notification Email
+  ====================================================
+  Paste this into:
+  Shopify Admin → Settings → Notifications → New order → Email body (HTML)
+
+  All {{ variables }} are Shopify Liquid — rendered automatically.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Order — CloudVaultUS</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #09090b;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #f4f4f5;
+      padding: 24px 16px;
+    }
+    .wrap { max-width: 600px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      background: #111116;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px 14px 0 0;
+      padding: 28px 32px;
+      border-bottom: 3px solid #e63946;
+    }
+    .brand { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    .brand span { color: #e63946; }
+    .alert-badge {
+      display: inline-block;
+      background: #e63946;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-top: 12px;
+    }
+    .order-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f4f4f5;
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Body */
+    .body { background: #111116; border: 1px solid rgba(255,255,255,0.07); border-top: none; padding: 0; }
+
+    /* Info grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .info-cell {
+      background: #111116;
+      padding: 20px 24px;
+    }
+    .info-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #52525b;
+      margin-bottom: 6px;
+    }
+    .info-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #f4f4f5;
+      line-height: 1.5;
+    }
+    .info-value.accent { color: #e63946; font-weight: 700; font-size: 1.1rem; }
+
+    /* Line items */
+    .items-section { padding: 24px 28px; }
+    .items-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #52525b;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      gap: 16px;
+    }
+    .item-row:last-child { border-bottom: none; }
+    .item-name { font-size: 0.9rem; font-weight: 500; color: #f4f4f5; line-height: 1.4; }
+    .item-variant { font-size: 0.78rem; color: #a1a1aa; margin-top: 3px; }
+    .item-qty-price { text-align: right; flex-shrink: 0; }
+    .item-qty { font-size: 0.78rem; color: #a1a1aa; }
+    .item-price { font-size: 0.9rem; font-weight: 600; color: #e63946; }
+
+    /* Totals */
+    .totals { padding: 20px 28px; background: #18181f; border-top: 1px solid rgba(255,255,255,0.06); }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 0.85rem;
+      color: #a1a1aa;
+    }
+    .total-row.grand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f4f4f5;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 8px;
+      padding-top: 14px;
+    }
+    .total-row.grand .amount { color: #e63946; }
+
+    /* CTA */
+    .cta-section { padding: 24px 28px; text-align: center; }
+    .cta-btn {
+      display: inline-block;
+      background: #e63946;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0d0d10;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-top: none;
+      border-radius: 0 0 14px 14px;
+      padding: 20px 28px;
+      text-align: center;
+    }
+    .footer p { font-size: 0.75rem; color: #3f3f46; line-height: 1.6; }
+    .footer a { color: #52525b; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">Cloud<span>Vault</span>US</div>
+    <div class="alert-badge">🔔 New Order Received</div>
+    <div class="order-number">Order {{ order.name }}</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- Info grid -->
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-label">Customer</div>
+        <div class="info-value">{{ order.shipping_address.name }}</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Order Total</div>
+        <div class="info-value accent">{{ order.total_price | money }}</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Email</div>
+        <div class="info-value">{{ order.email }}</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Phone</div>
+        <div class="info-value">{{ order.shipping_address.phone | default: 'Not provided' }}</div>
+      </div>
+      <div class="info-cell" style="grid-column: 1 / -1;">
+        <div class="info-label">Ship To</div>
+        <div class="info-value">
+          {{ order.shipping_address.address1 }}{% if order.shipping_address.address2 != blank %}, {{ order.shipping_address.address2 }}{% endif %}<br>
+          {{ order.shipping_address.city }}, {{ order.shipping_address.province_code }} {{ order.shipping_address.zip }}<br>
+          {{ order.shipping_address.country }}
+        </div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Payment</div>
+        <div class="info-value">{{ order.payment_gateway | replace: '_', ' ' | capitalize }}</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Placed At</div>
+        <div class="info-value">{{ order.created_at | date: "%b %d, %Y %I:%M %p" }}</div>
+      </div>
+    </div>
+
+    <!-- Line items -->
+    <div class="items-section">
+      <div class="items-title">Items Ordered ({{ order.line_items | size }})</div>
+      {% for line_item in order.line_items %}
+        <div class="item-row">
+          <div>
+            <div class="item-name">{{ line_item.title }}</div>
+            {% if line_item.variant_title and line_item.variant_title != 'Default Title' %}
+              <div class="item-variant">{{ line_item.variant_title }}</div>
+            {% endif %}
+            {% if line_item.sku != blank %}
+              <div class="item-variant">SKU: {{ line_item.sku }}</div>
+            {% endif %}
+          </div>
+          <div class="item-qty-price">
+            <div class="item-qty">Qty: {{ line_item.quantity }}</div>
+            <div class="item-price">{{ line_item.final_line_price | money }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Totals -->
+    <div class="totals">
+      <div class="total-row">
+        <span>Subtotal</span>
+        <span>{{ order.subtotal_price | money }}</span>
+      </div>
+      {% if order.shipping_price > 0 %}
+        <div class="total-row">
+          <span>Shipping</span>
+          <span>{{ order.shipping_price | money }}</span>
+        </div>
+      {% endif %}
+      {% if order.total_tax > 0 %}
+        <div class="total-row">
+          <span>Tax</span>
+          <span>{{ order.total_tax | money }}</span>
+        </div>
+      {% endif %}
+      {% if order.total_discounts > 0 %}
+        <div class="total-row">
+          <span>Discount</span>
+          <span>-{{ order.total_discounts | money }}</span>
+        </div>
+      {% endif %}
+      <div class="total-row grand">
+        <span>Total Charged</span>
+        <span class="amount">{{ order.total_price | money }}</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a href="https://admin.shopify.com/store/cloudvaultus/orders/{{ order.id }}" class="cta-btn">
+        View &amp; Fulfill Order →
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      This is an automated notification from your CloudVaultUS store.<br>
+      <strong>Action required:</strong> Ship via FedEx/UPS with Adult Signature Required.<br>
+      <a href="https://admin.shopify.com/store/cloudvaultus/orders">View all orders</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
