@@ -1,7 +1,7 @@
 /* ============================================================
-   CloudVaultUS — Premium Dark Mode Engine
+   CloudVaultUS — Premium Light Theme
+   Inspired by: geekbar.com + vaping360.com aesthetic
    File: assets/custom.css
-   Built on Shopify Dawn base theme
    ============================================================ */
 
 /* ── 1. GOOGLE FONTS ─────────────────────────────────────── */
@@ -10,48 +10,65 @@
 /* ── 2. BRAND TOKENS ─────────────────────────────────────── */
 :root {
   /* Accent */
-  --cvus-red:           #e63946;
-  --cvus-red-hover:     #c1121f;
-  --cvus-red-glow:      rgba(230, 57, 70, 0.18);
-  --cvus-red-subtle:    rgba(230, 57, 70, 0.08);
+  --cvus-red:            #e63946;
+  --cvus-red-hover:      #c1121f;
+  --cvus-red-glow:       rgba(230, 57, 70, 0.15);
+  --cvus-red-subtle:     rgba(230, 57, 70, 0.06);
 
-  /* Backgrounds */
-  --cvus-bg:            #09090b;
-  --cvus-surface:       #111116;
-  --cvus-elevated:      #18181f;
-  --cvus-hover:         #1f1f28;
+  /* Backgrounds — LIGHT */
+  --cvus-bg:             #f5f5f7;   /* page background — Apple light gray */
+  --cvus-surface:        #ffffff;   /* cards, panels */
+  --cvus-elevated:       #f0f0f2;   /* image placeholder, subtle fills */
+  --cvus-hover:          #f8f8fa;   /* hover state */
 
   /* Text */
-  --cvus-text:          #f4f4f5;
-  --cvus-text-sub:      #a1a1aa;
-  --cvus-text-muted:    #52525b;
+  --cvus-text:           #111116;   /* near-black primary */
+  --cvus-text-sub:       #4b4b57;   /* secondary */
+  --cvus-text-muted:     #9b9bab;   /* placeholders, disabled */
 
   /* Borders */
-  --cvus-border:        rgba(255, 255, 255, 0.07);
-  --cvus-border-strong: rgba(255, 255, 255, 0.14);
+  --cvus-border:         rgba(0, 0, 0, 0.08);
+  --cvus-border-strong:  rgba(0, 0, 0, 0.14);
+
+  /* Header stays dark — like geekbar.com */
+  --cvus-header-bg:      #0e0e12;
+  --cvus-header-text:    #f4f4f5;
+  --cvus-header-sub:     rgba(244, 244, 245, 0.6);
+  --cvus-header-border:  rgba(255, 255, 255, 0.07);
+
+  /* Footer */
+  --cvus-footer-bg:      #111116;
+  --cvus-footer-text:    rgba(244, 244, 245, 0.7);
 
   /* Typography */
   --cvus-font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --cvus-font-display: 'Barlow Condensed', sans-serif;
 
-  /* Dawn RGB variable overrides (raw triplets — Dawn uses rgb(var(--color-x))) */
-  --color-background:             9,   9,  11;
-  --color-foreground:           244, 244, 245;
-  --color-background-contrast:   26,  26,  31;
-  --color-shadow:                  0,   0,   0;
-  --color-button:               230,  57,  70;
-  --color-button-text:          255, 255, 255;
-  --color-secondary-button:      26,  26,  32;
-  --color-secondary-button-text:244, 244, 245;
-  --color-link:                 230,  57,  70;
-  --color-badge-foreground:     255, 255, 255;
-  --color-badge-background:     230,  57,  70;
-  --color-badge-border:         230,  57,  70;
+  /* Dawn RGB overrides */
+  --color-background:             245, 245, 247;
+  --color-foreground:              17,  17,  22;
+  --color-background-contrast:    230, 230, 235;
+  --color-shadow:                  17,  17,  22;
+  --color-button:                 230,  57,  70;
+  --color-button-text:            255, 255, 255;
+  --color-secondary-button:       255, 255, 255;
+  --color-secondary-button-text:   17,  17,  22;
+  --color-link:                   230,  57,  70;
+  --color-badge-foreground:       255, 255, 255;
+  --color-badge-background:       230,  57,  70;
+  --color-badge-border:           230,  57,  70;
+
+  /* Shadows */
+  --cvus-shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.06);
+  --cvus-shadow-md:  0 4px 20px rgba(0, 0, 0, 0.08);
+  --cvus-shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.10);
+  --cvus-shadow-xl:  0 24px 60px rgba(0, 0, 0, 0.14);
 
   /* Shape */
-  --cvus-radius-sm:   4px;
-  --cvus-radius-md:   8px;
-  --cvus-radius-lg:   14px;
+  --cvus-radius-sm:   6px;
+  --cvus-radius-md:   10px;
+  --cvus-radius-lg:   16px;
+  --cvus-radius-xl:   24px;
   --cvus-radius-pill: 999px;
 }
 
@@ -75,7 +92,7 @@ body {
 /* ── 4. CUSTOM SCROLLBAR ─────────────────────────────────── */
 ::-webkit-scrollbar              { width: 6px; }
 ::-webkit-scrollbar-track        { background: var(--cvus-bg); }
-::-webkit-scrollbar-thumb        { background: #3f3f46; border-radius: 3px; }
+::-webkit-scrollbar-thumb        { background: #d1d1d6; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover  { background: var(--cvus-red); }
 
 /* ── 5. TYPOGRAPHY ───────────────────────────────────────── */
@@ -91,7 +108,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
-h3 { font-size: clamp(1.3rem, 2.5vw, 2rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
 
 p  { color: var(--cvus-text-sub); }
 a  { color: var(--cvus-text); text-decoration: none; transition: color 0.2s; }
@@ -102,7 +119,6 @@ a:hover { color: var(--cvus-red); }
   background-color: var(--cvus-red) !important;
   color: #fff !important;
 }
-
 .announcement-bar__message,
 .announcement-bar__message p,
 .announcement-bar__message a {
@@ -114,39 +130,36 @@ a:hover { color: var(--cvus-red); }
   color: #fff !important;
 }
 
-/* ── 7. HEADER ───────────────────────────────────────────── */
+/* ── 7. HEADER — stays dark like geekbar.com ─────────────── */
 .header,
 .shopify-section-group-header-group .header {
-  background-color: rgba(9, 9, 11, 0.94) !important;
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border-bottom: 1px solid var(--cvus-border) !important;
+  background-color: var(--cvus-header-bg) !important;
+  border-bottom: 1px solid var(--cvus-header-border) !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 100 !important;
+  backdrop-filter: none !important;
 }
 
-/* Logo */
 .header__heading,
 .header__heading-link {
   font-family: var(--cvus-font-display) !important;
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   font-weight: 800 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: var(--cvus-text) !important;
+  color: var(--cvus-header-text) !important;
 }
 
-/* Nav links */
 .header__menu-item,
 .header__menu-item span,
 .header__menu-item .link {
   font-family: var(--cvus-font-body) !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
-  letter-spacing: 0.1em !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  color: var(--cvus-text-sub) !important;
+  color: var(--cvus-header-sub) !important;
   transition: color 0.2s !important;
 }
 
@@ -155,40 +168,34 @@ a:hover { color: var(--cvus-red); }
   color: var(--cvus-red) !important;
 }
 
-/* Header icons */
 .header__icon svg,
 .header__icon path {
-  fill: var(--cvus-text-sub) !important;
-  stroke: var(--cvus-text-sub) !important;
+  fill: var(--cvus-header-sub) !important;
+  stroke: var(--cvus-header-sub) !important;
   transition: fill 0.2s, stroke 0.2s !important;
 }
-
 .header__icon:hover svg,
 .header__icon:hover path {
   fill: var(--cvus-red) !important;
   stroke: var(--cvus-red) !important;
 }
 
-/* Cart bubble */
 .cart-count-bubble {
   background-color: var(--cvus-red) !important;
   color: #fff !important;
 }
 
-/* Mobile menu drawer */
+/* Mobile menu */
 .menu-drawer,
 .menu-drawer__navigation,
 .menu-drawer__container {
-  background-color: var(--cvus-surface) !important;
-  border-right: 1px solid var(--cvus-border) !important;
+  background-color: var(--cvus-header-bg) !important;
+  border-right: 1px solid var(--cvus-header-border) !important;
 }
-
 .menu-drawer__menu-item,
 .menu-drawer__menu-item span {
-  color: var(--cvus-text) !important;
+  color: var(--cvus-header-text) !important;
   font-family: var(--cvus-font-body) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 /* ── 8. BUTTONS ──────────────────────────────────────────── */
@@ -201,58 +208,55 @@ button[type="submit"]:not(.shopify-challenge__button),
   border: none !important;
   border-radius: var(--cvus-radius-md) !important;
   font-family: var(--cvus-font-body) !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   font-size: 0.82rem !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   padding: 14px 28px !important;
   cursor: pointer !important;
   transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  box-shadow: 0 4px 14px var(--cvus-red-glow) !important;
 }
 
 .button:hover,
 .button--primary:hover {
   background-color: var(--cvus-red-hover) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 28px var(--cvus-red-glow) !important;
+  box-shadow: 0 8px 24px var(--cvus-red-glow) !important;
 }
-
 .button:active { transform: translateY(0) !important; }
 
-/* Secondary outline button */
 .button--secondary {
-  background-color: transparent !important;
-  border: 1px solid var(--cvus-border-strong) !important;
+  background-color: var(--cvus-surface) !important;
+  border: 2px solid var(--cvus-border-strong) !important;
   color: var(--cvus-text) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cvus-shadow-sm) !important;
 }
-
 .button--secondary:hover {
-  background-color: var(--cvus-hover) !important;
   border-color: var(--cvus-red) !important;
+  color: var(--cvus-red) !important;
   transform: translateY(-1px) !important;
-  box-shadow: none !important;
 }
 
-/* ── 9. CARDS ────────────────────────────────────────────── */
+/* ── 9. CARDS — white with shadow, geekbar style ─────────── */
 .card-wrapper,
 .card,
 .product-card-wrapper {
   background-color: var(--cvus-surface) !important;
   border: 1px solid var(--cvus-border) !important;
   border-radius: var(--cvus-radius-lg) !important;
+  box-shadow: var(--cvus-shadow-sm) !important;
   overflow: hidden;
-  transition: border-color 0.25s ease,
+  transition: box-shadow 0.3s ease,
               transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.3s ease !important;
+              border-color 0.25s !important;
 }
 
 .card-wrapper:hover,
 .card:hover {
-  border-color: var(--cvus-red) !important;
+  box-shadow: var(--cvus-shadow-xl) !important;
   transform: translateY(-5px) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
-              0 0 0 1px var(--cvus-red-subtle) !important;
+  border-color: rgba(230, 57, 70, 0.3) !important;
 }
 
 .card__content,
@@ -262,19 +266,17 @@ button[type="submit"]:not(.shopify-challenge__button),
   background: transparent !important;
 }
 
-/* Product title on card */
 .card__heading,
 .card__heading a,
 .card-information .card__heading {
   font-family: var(--cvus-font-display) !important;
-  font-size: 1.05rem !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
+  letter-spacing: 0.03em !important;
   text-transform: uppercase !important;
   color: var(--cvus-text) !important;
 }
 
-/* Price */
 .price,
 .price__regular,
 .price-item,
@@ -282,17 +284,14 @@ button[type="submit"]:not(.shopify-challenge__button),
 .price .money {
   color: var(--cvus-red) !important;
   font-weight: 700 !important;
-  font-family: var(--cvus-font-body) !important;
 }
 
-/* Sale price */
 .price--on-sale .price-item--regular {
   color: var(--cvus-text-muted) !important;
   text-decoration: line-through;
   font-weight: 400 !important;
 }
 
-/* Vendor / sub-text on card */
 .card__information .caption,
 .card-information .caption {
   color: var(--cvus-text-muted) !important;
@@ -313,12 +312,11 @@ button[type="submit"]:not(.shopify-challenge__button),
 .product-card-wrapper .media img {
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
-
 .card-wrapper:hover .card__media img {
-  transform: scale(1.07) !important;
+  transform: scale(1.06) !important;
 }
 
-/* ── 11. COLLECTION & SECTION BACKGROUNDS ────────────────── */
+/* ── 11. SECTION BACKGROUNDS ─────────────────────────────── */
 .color-background-1,
 .color-base-background-1,
 [class*="color-scheme-"] {
@@ -329,9 +327,10 @@ button[type="submit"]:not(.shopify-challenge__button),
 .color-background-2,
 .color-base-background-2 {
   background-color: var(--cvus-surface) !important;
+  color: var(--cvus-text) !important;
 }
 
-/* Section headings */
+/* Section titles */
 .title,
 .collection__title,
 .section-header .title {
@@ -339,6 +338,11 @@ button[type="submit"]:not(.shopify-challenge__button),
   color: var(--cvus-text) !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
+}
+
+/* White section (used between collections) */
+.section-full-white {
+  background: var(--cvus-surface) !important;
 }
 
 /* ── 12. FORM INPUTS ─────────────────────────────────────── */
@@ -352,15 +356,15 @@ input[type="search"],
 textarea,
 select {
   background-color: var(--cvus-surface) !important;
-  border: 1px solid var(--cvus-border-strong) !important;
+  border: 1.5px solid var(--cvus-border-strong) !important;
   border-radius: var(--cvus-radius-md) !important;
   color: var(--cvus-text) !important;
   font-family: var(--cvus-font-body) !important;
+  box-shadow: var(--cvus-shadow-sm) !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 
 .field__input:focus,
-.select__select:focus,
 input:focus,
 textarea:focus,
 select:focus {
@@ -387,30 +391,29 @@ cart-drawer,
 .cart-drawer__form {
   background-color: var(--cvus-surface) !important;
   border-left: 1px solid var(--cvus-border) !important;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.12) !important;
 }
-
 .cart-drawer__header {
+  background: var(--cvus-bg) !important;
   border-bottom: 1px solid var(--cvus-border) !important;
 }
-
 .cart-drawer__footer {
-  background-color: var(--cvus-elevated) !important;
+  background-color: var(--cvus-bg) !important;
   border-top: 1px solid var(--cvus-border) !important;
 }
-
 .cart-item__name,
 .cart-item__name a {
   color: var(--cvus-text) !important;
   font-family: var(--cvus-font-display) !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
 }
+.cart-item__price { color: var(--cvus-red) !important; }
 
-/* ── 14. FOOTER ──────────────────────────────────────────── */
+/* ── 14. FOOTER — stays dark ─────────────────────────────── */
 .footer,
 .footer-section {
-  background-color: var(--cvus-surface) !important;
-  border-top: 1px solid var(--cvus-border) !important;
+  background-color: var(--cvus-footer-bg) !important;
+  border-top: none !important;
 }
 
 .footer-block__heading {
@@ -419,21 +422,27 @@ cart-drawer,
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
-  color: var(--cvus-text) !important;
+  color: #f4f4f5 !important;
 }
 
 .footer__column,
 .footer__content-top,
-.footer__content-bottom {
-  color: var(--cvus-text-sub) !important;
+.footer__content-bottom,
+.footer p,
+.footer li,
+.footer span {
+  color: var(--cvus-footer-text) !important;
 }
 
 .footer a {
-  color: var(--cvus-text-sub) !important;
+  color: var(--cvus-footer-text) !important;
   transition: color 0.2s !important;
 }
-
 .footer a:hover { color: var(--cvus-red) !important; }
+
+.footer__content-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
 
 /* ── 15. BADGE ───────────────────────────────────────────── */
 .badge {
@@ -442,7 +451,7 @@ cart-drawer,
   border: none !important;
   border-radius: var(--cvus-radius-sm) !important;
   font-family: var(--cvus-font-body) !important;
-  font-size: 0.68rem !important;
+  font-size: 0.66rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
@@ -464,59 +473,50 @@ cart-drawer,
   line-height: 1.7 !important;
 }
 
-/* Variant pills */
 .variant-pills .swatch-input__item,
 .variant-pills__item {
   background-color: var(--cvus-surface) !important;
-  border: 1px solid var(--cvus-border-strong) !important;
+  border: 1.5px solid var(--cvus-border-strong) !important;
   color: var(--cvus-text) !important;
   border-radius: var(--cvus-radius-sm) !important;
-  font-family: var(--cvus-font-body) !important;
-  font-size: 0.8rem !important;
-  transition: border-color 0.2s, background-color 0.2s !important;
+  box-shadow: var(--cvus-shadow-sm) !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
 }
-
 .variant-pills .swatch-input__item:hover {
   border-color: var(--cvus-red) !important;
+  box-shadow: 0 0 0 3px var(--cvus-red-subtle) !important;
 }
-
 .variant-pills input:checked + .swatch-input__item,
 .variant-pills .swatch-input__item--active {
   background-color: var(--cvus-red) !important;
   border-color: var(--cvus-red) !important;
   color: #fff !important;
+  box-shadow: 0 4px 12px var(--cvus-red-glow) !important;
 }
 
-/* Quantity selector */
 .quantity__input,
 .quantity {
   background-color: var(--cvus-surface) !important;
-  border: 1px solid var(--cvus-border-strong) !important;
+  border: 1.5px solid var(--cvus-border-strong) !important;
   border-radius: var(--cvus-radius-md) !important;
   color: var(--cvus-text) !important;
 }
 
-.quantity__button svg path { stroke: var(--cvus-text-sub) !important; }
-.quantity__button:hover svg path { stroke: var(--cvus-red) !important; }
-
 /* ── 17. DIVIDERS ────────────────────────────────────────── */
 hr,
-.section-header__line,
-.header-group__line {
-  border-color: var(--cvus-border) !important;
-}
+.section-header__line { border-color: var(--cvus-border) !important; }
 
-/* ── 18. UTILITY / BRAND CLASSES ─────────────────────────── */
+/* ── 18. UTILITY CLASSES ─────────────────────────────────── */
 
-/* Gradient text effect */
+/* Red gradient text */
 .cvus-gradient-text {
-  background: linear-gradient(135deg, #ffffff 40%, var(--cvus-red));
+  background: linear-gradient(135deg, var(--cvus-text) 40%, var(--cvus-red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Red glow accent line under section heading */
+/* Red underline accent for section headings */
 .cvus-accent-line::after {
   content: '';
   display: block;
@@ -525,10 +525,10 @@ hr,
   background: var(--cvus-red);
   border-radius: 2px;
   margin-top: 14px;
-  box-shadow: 0 0 14px var(--cvus-red-glow);
+  box-shadow: 0 0 10px var(--cvus-red-glow);
 }
 
-/* Small all-caps label above headings */
+/* Small eyebrow label */
 .cvus-eyebrow {
   display: block;
   font-family: var(--cvus-font-body);
@@ -540,21 +540,85 @@ hr,
   margin-bottom: 10px;
 }
 
-/* Surface box */
+/* White surface box */
 .cvus-box {
   background: var(--cvus-surface);
   border: 1px solid var(--cvus-border);
   border-radius: var(--cvus-radius-lg);
+  box-shadow: var(--cvus-shadow-md);
   padding: 2rem;
 }
 
-/* ── 19. MOBILE ──────────────────────────────────────────── */
+/* ── 19. SPEC / PRODUCT DESCRIPTION STYLES ───────────────── */
+.cvus-product-spec h3 {
+  font-family: var(--cvus-font-display) !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--cvus-text) !important;
+  margin: 0 0 0.75rem !important;
+}
+
+.cvus-product-spec p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--cvus-text-sub);
+  margin-bottom: 1.2rem;
+}
+
+.cvus-spec-list {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  background: var(--cvus-bg);
+  border: 1px solid var(--cvus-border);
+  border-radius: var(--cvus-radius-md);
+  overflow: hidden;
+  box-shadow: var(--cvus-shadow-sm);
+}
+
+.cvus-spec-list li {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--cvus-border);
+  font-size: 0.85rem;
+  color: var(--cvus-text-sub);
+  display: flex;
+  gap: 8px;
+  background: var(--cvus-surface);
+}
+.cvus-spec-list li:nth-child(even) { background: var(--cvus-bg); }
+.cvus-spec-list li:last-child { border-bottom: none; }
+.cvus-spec-list li strong { color: var(--cvus-text); min-width: 160px; flex-shrink: 0; }
+
+.cvus-warning {
+  background: rgba(230, 57, 70, 0.05);
+  border: 1px solid rgba(230, 57, 70, 0.2);
+  border-radius: var(--cvus-radius-md);
+  padding: 12px 16px;
+  font-size: 0.78rem !important;
+  color: #c0392b !important;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* ── 20. PAGE TRANSITIONS ────────────────────────────────── */
+@keyframes cvus-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 21. FOCUS ACCESSIBILITY ─────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--cvus-red) !important;
+  outline-offset: 3px !important;
+}
+
+/* ── 22. MOBILE ──────────────────────────────────────────── */
 @media (max-width: 749px) {
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.6rem; }
-
-  .card__heading { font-size: 0.95rem !important; }
-
+  .card__heading { font-size: 0.9rem !important; }
   .button,
   .button--primary {
     padding: 13px 22px !important;
@@ -562,8 +626,53 @@ hr,
   }
 }
 
-/* ── 20. FOCUS ACCESSIBILITY (keep visible for keyboard nav) */
-:focus-visible {
-  outline: 2px solid var(--cvus-red) !important;
-  outline-offset: 3px !important;
+/* ── 23. HERO SECTION overrides for light theme ──────────── */
+.cvus-hero {
+  background-color: var(--cvus-header-bg);
+}
+
+/* ── 24. COLLECTION PAGE ─────────────────────────────────── */
+.collection-hero,
+.collection__hero {
+  background: var(--cvus-surface) !important;
+  border-bottom: 1px solid var(--cvus-border) !important;
+}
+
+.collection__title {
+  color: var(--cvus-text) !important;
+}
+
+/* Filters sidebar */
+.facets__wrapper,
+.facets-container {
+  background: var(--cvus-surface) !important;
+  border: 1px solid var(--cvus-border) !important;
+  border-radius: var(--cvus-radius-md) !important;
+  box-shadow: var(--cvus-shadow-sm) !important;
+}
+
+/* ── 25. BREADCRUMBS ─────────────────────────────────────── */
+.breadcrumb,
+nav[aria-label="breadcrumbs"] {
+  color: var(--cvus-text-muted) !important;
+}
+
+/* ── 26. POPUPS / MODALS ─────────────────────────────────── */
+.modal__content,
+.popup-modal,
+.predictive-search {
+  background: var(--cvus-surface) !important;
+  border: 1px solid var(--cvus-border) !important;
+  border-radius: var(--cvus-radius-lg) !important;
+  box-shadow: var(--cvus-shadow-xl) !important;
+  color: var(--cvus-text) !important;
+}
+
+.predictive-search__item:hover {
+  background: var(--cvus-bg) !important;
+}
+
+/* ── 27. AGE GATE overrides for light theme ──────────────── */
+.cvus-ag__backdrop {
+  background: rgba(17, 17, 22, 0.85) !important;
 }

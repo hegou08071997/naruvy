@@ -201,7 +201,10 @@
 
 <!-- ── PRODUCT PAGE STYLES ───────────────────────────────── -->
 {% stylesheet %}
-.cvus-pdp { padding: 4rem 0 6rem; }
+.cvus-pdp {
+  padding: 4rem 0 6rem;
+  background: var(--cvus-bg);
+}
 
 /* Layout */
 .cvus-pdp__layout {
@@ -218,8 +221,10 @@
 /* Gallery */
 .cvus-pdp__main-image {
   position: relative;
-  background: var(--cvus-elevated);
+  background: var(--cvus-surface);
+  border: 1px solid var(--cvus-border);
   border-radius: var(--cvus-radius-lg);
+  box-shadow: var(--cvus-shadow-md);
   overflow: hidden;
   aspect-ratio: 1 / 1;
 }
