@@ -1,417 +1,351 @@
 {% comment %}
-  CloudVaultUS — Premium Product Grid Section
+  CloudVaultUS — Featured Products Grid (Light)
   File: sections/cvus-product-grid.liquid
-  Add via: Shopify Theme Editor → Add section → CloudVaultUS Product Grid
+  Design: warm section bg · white elevated cards · red accent price
 {% endcomment %}
 
+{%- assign grid_collection = section.settings.collection -%}
+
 <section class="cvus-pg" id="cvus-pg-{{ section.id }}">
+
   <div class="page-width">
+    {%- comment %} Section header {% endcomment %}
+    <div class="cvus-section-head cvus-pg__head">
+      <h2 class="cvus-section-title">{{ section.settings.title | default: 'Featured Products' }}</h2>
+      {%- if section.settings.view_all_label != blank -%}
+        <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="cvus-see-all">
+          {{ section.settings.view_all_label }} →
+        </a>
+      {%- endif -%}
+    </div>
 
-    {%- if section.settings.heading != blank or section.settings.eyebrow != blank -%}
-      <div class="cvus-pg__header">
-        {%- if section.settings.eyebrow != blank -%}
-          <span class="cvus-eyebrow">{{ section.settings.eyebrow }}</span>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="cvus-pg__heading cvus-accent-line">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.subheading != blank -%}
-          <p class="cvus-pg__subheading">{{ section.settings.subheading }}</p>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+    {%- comment %} Products grid {% endcomment %}
+    <div class="cvus-pg__grid">
 
-    {%- assign collection = section.settings.collection -%}
-    {%- assign product_limit = section.settings.product_limit -%}
-
-    {%- if collection != blank and collection.products_count > 0 -%}
-      <ul class="cvus-pg__grid" role="list">
-        {%- for product in collection.products limit: product_limit -%}
-          <li class="cvus-pg__item">
-            <div class="cvus-pg__card">
-
-              <!-- Image wrapper -->
-              <a href="{{ product.url }}" class="cvus-pg__image-link" aria-label="{{ product.title | escape }}">
-                <div class="cvus-pg__image-wrap">
-                  {%- if product.featured_image != blank -%}
+      {%- if grid_collection != blank and grid_collection.products_count > 0 -%}
+        {%- for product in grid_collection.products limit: section.settings.products_to_show -%}
+          {%- liquid
+            assign is_sale = false
+            if product.compare_at_price > product.price
+              assign is_sale = true
+            endif
+          -%}
+          <article class="cvus-pg__card">
+            <a href="{{ product.url }}" class="cvus-pg__card-media-link" tabindex="-1" aria-hidden="true">
+              <div class="cvus-pg__media">
+                {%- if is_sale -%}
+                  <span class="cvus-pg__badge cvus-pg__badge--sale">Sale</span>
+                {%- else -%}
+                  <span class="cvus-pg__badge">New</span>
+                {%- endif -%}
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: product.title,
+                      class: 'cvus-pg__img'
+                  }}
+                  {%- if product.images.size > 1 -%}
                     {{
-                      product.featured_image
+                      product.images[1]
                       | image_url: width: 600
                       | image_tag:
                         loading: 'lazy',
-                        alt: product.featured_image.alt | default: product.title,
-                        class: 'cvus-pg__img cvus-pg__img--primary',
-                        widths: '300, 400, 500, 600'
+                        alt: product.title,
+                        class: 'cvus-pg__img cvus-pg__img--hover'
                     }}
-                    {%- if product.images[1] != blank -%}
-                      {{
-                        product.images[1]
-                        | image_url: width: 600
-                        | image_tag:
-                          loading: 'lazy',
-                          alt: product.images[1].alt | default: product.title,
-                          class: 'cvus-pg__img cvus-pg__img--secondary',
-                          widths: '300, 400, 500, 600'
-                      }}
-                    {%- endif -%}
-                  {%- else -%}
-                    <div class="cvus-pg__img-placeholder">
-                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    </div>
                   {%- endif -%}
-
-                  <!-- Badges -->
-                  <div class="cvus-pg__badges">
-                    {%- if product.available == false -%}
-                      <span class="cvus-pg__badge cvus-pg__badge--sold-out">Sold Out</span>
-                    {%- elsif product.compare_at_price > product.price -%}
-                      {%- assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price -%}
-                      <span class="cvus-pg__badge cvus-pg__badge--sale">-{{ discount }}%</span>
-                    {%- endif -%}
-                    {%- if product.tags contains 'new' or product.tags contains 'New' -%}
-                      <span class="cvus-pg__badge cvus-pg__badge--new">New</span>
-                    {%- endif -%}
+                {%- else -%}
+                  <div class="cvus-pg__img-placeholder">
+                    {{ product.title | slice: 0, 1 | upcase }}
                   </div>
-
-                  <!-- Quick add overlay -->
-                  {%- if section.settings.show_quick_add and product.available -%}
-                    <div class="cvus-pg__quick-add">
-                      {%- if product.variants.size == 1 -%}
-                        <form action="/cart/add" method="post">
-                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                          <input type="hidden" name="quantity" value="1">
-                          <button type="submit" class="cvus-pg__qa-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
-                            </svg>
-                            Add to Cart
-                          </button>
-                        </form>
-                      {%- else -%}
-                        <a href="{{ product.url }}" class="cvus-pg__qa-btn">View Options</a>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                </div>
-              </a>
-
-              <!-- Card info -->
-              <div class="cvus-pg__info">
-                {%- if section.settings.show_vendor and product.vendor != blank -%}
-                  <span class="cvus-pg__vendor">{{ product.vendor }}</span>
-                {%- endif -%}
-
-                <h3 class="cvus-pg__title">
-                  <a href="{{ product.url }}" class="cvus-pg__title-link">{{ product.title }}</a>
-                </h3>
-
-                {%- if section.settings.show_rating -%}
-                  <div class="cvus-pg__stars" aria-label="Rating" role="img">
-                    {% for i in (1..5) %}
-                      <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
-                    {% endfor %}
-                  </div>
-                {%- endif -%}
-
-                <div class="cvus-pg__price-row">
-                  {%- if product.compare_at_price > product.price -%}
-                    <span class="cvus-pg__price cvus-pg__price--sale">{{ product.price | money }}</span>
-                    <span class="cvus-pg__price cvus-pg__price--compare">{{ product.compare_at_price | money }}</span>
-                  {%- else -%}
-                    <span class="cvus-pg__price">{{ product.price | money }}</span>
-                  {%- endif -%}
-                </div>
-
-                {%- if section.settings.show_variants_count and product.variants.size > 1 -%}
-                  <span class="cvus-pg__variants">{{ product.variants.size }} variants</span>
                 {%- endif -%}
               </div>
-            </div>
-          </li>
-        {%- endfor -%}
-      </ul>
+            </a>
 
-      {%- if section.settings.show_view_all -%}
-        <div class="cvus-pg__footer">
-          <a href="{{ collection.url }}" class="button button--secondary cvus-pg__view-all">
-            View All {{ collection.title }}
-          </a>
-        </div>
+            <div class="cvus-pg__info">
+              {%- if product.vendor != blank -%}
+                <p class="cvus-pg__vendor">{{ product.vendor }}</p>
+              {%- endif -%}
+              <h3 class="cvus-pg__name">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              <p class="cvus-pg__type">{{ product.type | default: 'Disposable Vape' }}</p>
+              <div class="cvus-pg__bottom">
+                <div class="cvus-pg__price-row">
+                  <span class="cvus-pg__price">{{ product.price | money }}</span>
+                  {%- if is_sale -%}
+                    <span class="cvus-pg__compare">{{ product.compare_at_price | money }}</span>
+                  {%- endif -%}
+                </div>
+                <button
+                  class="cvus-pg__add"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  aria-label="Add {{ product.title }} to cart"
+                >Add</button>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+
+      {%- else -%}
+        {%- comment %} Placeholder cards — shown until collection is assigned {% endcomment %}
+        {%- for i in (1..3) -%}
+          <article class="cvus-pg__card cvus-pg__card--empty">
+            <div class="cvus-pg__media">
+              <span class="cvus-pg__badge">New</span>
+              <div class="cvus-pg__img-placeholder">?</div>
+            </div>
+            <div class="cvus-pg__info">
+              <p class="cvus-pg__vendor">CloudVaultUS</p>
+              <h3 class="cvus-pg__name">Product Name</h3>
+              <p class="cvus-pg__type">Disposable Vape</p>
+              <div class="cvus-pg__bottom">
+                <span class="cvus-pg__price">$19.99</span>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
       {%- endif -%}
 
-    {%- else -%}
-      <div class="cvus-pg__empty">
-        <p>No products found. <a href="/admin/products">Add products in your Shopify Admin.</a></p>
-      </div>
-    {%- endif -%}
-
+    </div>
   </div>
+
 </section>
 
+<script>
+  (function () {
+    document.querySelectorAll('[data-variant-id]').forEach(function (btn) {
+      btn.addEventListener('click', async function () {
+        const id = btn.dataset.variantId;
+        if (!id) return;
+        const orig = btn.textContent;
+        btn.textContent = '…';
+        btn.disabled = true;
+        try {
+          await fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id, quantity: 1 })
+          });
+          btn.textContent = '✓ Added';
+          window.dispatchEvent(new CustomEvent('cart:refresh'));
+          setTimeout(function () {
+            btn.textContent = orig;
+            btn.disabled = false;
+          }, 1800);
+        } catch (e) {
+          btn.textContent = orig;
+          btn.disabled = false;
+        }
+      });
+    });
+  })();
+</script>
+
 {% stylesheet %}
-/* ── PRODUCT GRID ────────────────────────────────────────── */
+/* ── PRODUCT GRID — LIGHT ────────────────────────────────── */
 .cvus-pg {
-  padding: 5rem 0;
-  background: var(--cvus-bg);
+  background: #F3F2EF;   /* slightly warmer than page bg = section depth */
+  padding: 48px 0 60px;
 }
 
-/* Header */
-.cvus-pg__header {
-  margin-bottom: 3rem;
-  max-width: 640px;
+.cvus-pg__head {
+  margin-bottom: 28px;
 }
 
-.cvus-pg__heading {
-  font-size: clamp(1.8rem, 4vw, 3rem) !important;
-  margin: 0 0 0.5rem !important;
-}
-
-.cvus-pg__subheading {
-  color: var(--cvus-text-sub);
-  font-size: 0.95rem;
-  max-width: 480px;
-  line-height: 1.7;
-  margin: 0.5rem 0 0;
-}
-
-/* Grid */
+/* Card grid — real gaps, white cards on warm gray */
 .cvus-pg__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-@media (max-width: 1100px) { .cvus-pg__grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 749px)  { .cvus-pg__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-@media (max-width: 420px)  { .cvus-pg__grid { grid-template-columns: 1fr; } }
-
-/* Card */
+/* ── Card ───────────────────────────────────────────────── */
 .cvus-pg__card {
-  background: var(--cvus-surface);
-  border: 1px solid var(--cvus-border);
-  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease,
+              transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: border-color 0.25s, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.3s;
 }
-
 .cvus-pg__card:hover {
-  border-color: rgba(230, 57, 70, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
   transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(230,57,70,0.15);
+  border-color: rgba(230, 57, 70, 0.15);
 }
 
-/* Image area */
-.cvus-pg__image-link {
-  display: block;
-  text-decoration: none;
-}
-
-.cvus-pg__image-wrap {
+/* Media — warm tinted bg so product images float cleanly */
+.cvus-pg__card-media-link { display: block; text-decoration: none; }
+.cvus-pg__media {
   position: relative;
-  aspect-ratio: 1 / 1;
-  background: var(--cvus-elevated);
+  height: 230px;
+  background: #FAF9F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
 .cvus-pg__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease;
+  object-fit: contain;
+  transition: transform 0.45s ease, opacity 0.3s ease;
+  padding: 12px;
 }
-
-.cvus-pg__img--primary  { position: relative; z-index: 1; }
-.cvus-pg__img--secondary {
+.cvus-pg__img--hover {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  opacity: 0;
+  padding: 12px;
+}
+.cvus-pg__card:hover .cvus-pg__img:not(.cvus-pg__img--hover) {
+  transform: scale(1.05);
   opacity: 0;
 }
+.cvus-pg__card:hover .cvus-pg__img--hover { opacity: 1; }
 
-.cvus-pg__card:hover .cvus-pg__img--primary   { opacity: 0; }
-.cvus-pg__card:hover .cvus-pg__img--secondary { opacity: 1; }
-.cvus-pg__card:hover .cvus-pg__img            { transform: scale(1.06); }
-
-/* Placeholder */
 .cvus-pg__img-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--cvus-elevated);
-}
-.cvus-pg__img-placeholder svg { opacity: 0.2; width: 60%; height: 60%; }
-
-/* Badges */
-.cvus-pg__badges {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #D1D0D9;
+  background: #F3F2EF;
 }
 
+/* Badge */
 .cvus-pg__badge {
-  display: inline-block;
-  font-family: var(--cvus-font-body);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  line-height: 1.4;
-}
-
-.cvus-pg__badge--sale     { background: var(--cvus-red);  color: #fff; }
-.cvus-pg__badge--new      { background: #2563eb; color: #fff; }
-.cvus-pg__badge--sold-out { background: #3f3f46; color: #a1a1aa; }
-
-/* Quick add overlay */
-.cvus-pg__quick-add {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.cvus-pg__card:hover .cvus-pg__quick-add {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.cvus-pg__qa-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 11px 16px;
-  background: var(--cvus-red);
+  top: 12px;
+  left: 12px;
+  background: #E63946;
   color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-family: var(--cvus-font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.cvus-pg__qa-btn:hover { background: var(--cvus-red-hover); color: #fff; }
-
-/* Card info */
-.cvus-pg__info {
-  padding: 1rem 1.1rem 1.2rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.cvus-pg__vendor {
-  font-family: var(--cvus-font-body);
-  font-size: 0.68rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cvus-text-muted);
+  padding: 4px 9px;
+  border-radius: 4px;
+  z-index: 2;
 }
+.cvus-pg__badge--sale { background: #E63946; }
 
-.cvus-pg__title {
-  font-family: var(--cvus-font-display) !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.03em !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
-  line-height: 1.3 !important;
-}
-
-.cvus-pg__title-link {
-  color: var(--cvus-text) !important;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.cvus-pg__title-link:hover { color: var(--cvus-red) !important; }
-
-/* Stars */
-.cvus-pg__stars {
+/* Info block */
+.cvus-pg__info {
+  padding: 16px 18px 18px;
   display: flex;
-  gap: 2px;
-  color: #f59e0b;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
 }
 
-/* Price */
-.cvus-pg__price-row {
+.cvus-pg__vendor {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #AEADB8 !important;
+  margin: 0 !important;
+}
+
+.cvus-pg__name {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  line-height: 1.1 !important;
+  margin: 2px 0 0 !important;
+}
+.cvus-pg__name a { color: inherit !important; text-decoration: none; }
+.cvus-pg__name a:hover { color: #E63946 !important; }
+
+.cvus-pg__type {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #AEADB8 !important;
+  margin: 0 0 10px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+/* Bottom row: price + add button */
+.cvus-pg__bottom {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cvus-pg__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
 }
 
 .cvus-pg__price {
-  font-family: var(--cvus-font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--cvus-red);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #E63946;
 }
-
-.cvus-pg__price--sale { color: var(--cvus-red); }
-
-.cvus-pg__price--compare {
-  font-size: 0.8rem;
+.cvus-pg__compare {
+  font-size: 12px;
   font-weight: 400;
-  color: var(--cvus-text-muted);
+  color: #AEADB8;
   text-decoration: line-through;
 }
 
-/* Variants count */
-.cvus-pg__variants {
-  font-family: var(--cvus-font-body);
-  font-size: 0.72rem;
-  color: var(--cvus-text-muted);
-  letter-spacing: 0.04em;
+/* Add button */
+.cvus-pg__add {
+  background: #1A1A1E;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
 }
-
-/* View all footer */
-.cvus-pg__footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
+.cvus-pg__add:hover:not(:disabled) {
+  background: #E63946;
+  transform: translateY(-1px);
 }
+.cvus-pg__add:disabled { opacity: 0.5; cursor: default; }
 
-.cvus-pg__view-all { min-width: 200px; text-align: center; }
-
-/* Empty state */
-.cvus-pg__empty {
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--cvus-text-muted);
-  border: 1px dashed var(--cvus-border);
-  border-radius: 14px;
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 749px) {
+  .cvus-pg { padding: 36px 0 48px; }
+  .cvus-pg__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cvus-pg__media { height: 170px; }
+  .cvus-pg__name { font-size: 15px !important; }
+}
+@media (max-width: 480px) {
+  .cvus-pg__grid { gap: 10px; }
+  .cvus-pg__media { height: 140px; }
+  .cvus-pg__info { padding: 12px 14px 14px; }
 }
 {% endstylesheet %}
 
@@ -422,77 +356,36 @@
   "class": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "Section header"
-    },
-    {
       "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow label",
+      "id": "title",
+      "label": "Section title",
       "default": "Featured Products"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Section heading",
-      "default": "Top Sellers"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Section subheading"
-    },
-    {
-      "type": "header",
-      "content": "Products"
     },
     {
       "type": "collection",
       "id": "collection",
-      "label": "Collection to display"
+      "label": "Collection"
     },
     {
       "type": "range",
-      "id": "product_limit",
-      "label": "Number of products",
-      "min": 2,
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 3,
       "max": 12,
-      "step": 1,
-      "default": 8
+      "step": 3,
+      "default": 6
     },
     {
-      "type": "header",
-      "content": "Card options"
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View All"
     },
     {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": "Show brand name",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "label": "Show star rating",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_variants_count",
-      "label": "Show variants count",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_quick_add",
-      "label": "Show quick add button on hover",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_view_all",
-      "label": "Show View All button",
-      "default": true
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all URL",
+      "default": "/collections/all"
     }
   ],
   "presets": [

@@ -1,0 +1,143 @@
+{% comment %}
+  CloudVaultUS — Features Strip (Light)
+  File: sections/cvus-features-strip.liquid
+{% endcomment %}
+
+<div class="cvus-strip">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'feature' -%}
+      <div class="cvus-strip__item" {{ block.shopify_attributes }}>
+        <div class="cvus-strip__icon-wrap" aria-hidden="true">{{ block.settings.icon }}</div>
+        <div class="cvus-strip__text">
+          <p class="cvus-strip__title">{{ block.settings.title }}</p>
+          <p class="cvus-strip__sub">{{ block.settings.subtitle }}</p>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if section.blocks.size == 0 -%}
+    <div class="cvus-strip__item">
+      <div class="cvus-strip__icon-wrap">🚚</div>
+      <div class="cvus-strip__text">
+        <p class="cvus-strip__title">Free Shipping</p>
+        <p class="cvus-strip__sub">Orders over $35</p>
+      </div>
+    </div>
+    <div class="cvus-strip__item">
+      <div class="cvus-strip__icon-wrap">🔒</div>
+      <div class="cvus-strip__text">
+        <p class="cvus-strip__title">Secure Payment</p>
+        <p class="cvus-strip__sub">256-bit SSL</p>
+      </div>
+    </div>
+    <div class="cvus-strip__item">
+      <div class="cvus-strip__icon-wrap">✅</div>
+      <div class="cvus-strip__text">
+        <p class="cvus-strip__title">Authentic Products</p>
+        <p class="cvus-strip__sub">Verified brands only</p>
+      </div>
+    </div>
+    <div class="cvus-strip__item">
+      <div class="cvus-strip__icon-wrap">🎧</div>
+      <div class="cvus-strip__text">
+        <p class="cvus-strip__title">24/7 Support</p>
+        <p class="cvus-strip__sub">Always available</p>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+.cvus-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.cvus-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  transition: background 0.2s;
+}
+.cvus-strip__item:last-child { border-right: none; }
+.cvus-strip__item:hover { background: #FAFAF8; }
+
+.cvus-strip__icon-wrap {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cvus-strip__text { display: flex; flex-direction: column; gap: 2px; }
+
+.cvus-strip__title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #1A1A1E !important;
+  margin: 0 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.cvus-strip__sub {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #AEADB8 !important;
+  margin: 0 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+}
+
+@media (max-width: 749px) {
+  .cvus-strip { grid-template-columns: repeat(2, 1fr); }
+  .cvus-strip__item:nth-child(2) { border-right: none; }
+  .cvus-strip__item:nth-child(3),
+  .cvus-strip__item:nth-child(4) { border-top: 1px solid rgba(0,0,0,0.07); }
+  .cvus-strip__item { padding: 18px 20px; }
+}
+@media (max-width: 480px) {
+  .cvus-strip { grid-template-columns: 1fr; }
+  .cvus-strip__item { border-right: none !important; }
+  .cvus-strip__item + .cvus-strip__item { border-top: 1px solid rgba(0,0,0,0.07); }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Features Strip",
+  "tag": "div",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "icon",     "label": "Icon (emoji)", "default": "🚚" },
+        { "type": "text", "id": "title",    "label": "Title",        "default": "Free Shipping" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle",     "default": "Orders over $35" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Strip",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "🚚", "title": "Free Shipping",      "subtitle": "Orders over $35" } },
+        { "type": "feature", "settings": { "icon": "🔒", "title": "Secure Payment",     "subtitle": "256-bit SSL encrypted" } },
+        { "type": "feature", "settings": { "icon": "✅", "title": "Authentic Products", "subtitle": "Verified brands only" } },
+        { "type": "feature", "settings": { "icon": "🎧", "title": "24/7 Support",       "subtitle": "Always available" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

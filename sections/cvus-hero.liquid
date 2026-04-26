@@ -1,254 +1,301 @@
 {% comment %}
-  CloudVaultUS — Custom Full-Width Hero Section
+  CloudVaultUS — Premium Light Hero
   File: sections/cvus-hero.liquid
-  Add via: Shopify Theme Editor → Add section → CloudVaultUS Hero
+  Design: warm off-white left · soft-tinted product panel right · dark type
 {% endcomment %}
 
 <section class="cvus-hero" id="cvus-hero-{{ section.id }}">
-  {%- if section.settings.video_url != blank -%}
-    <video
-      class="cvus-hero__video"
-      autoplay muted loop playsinline
-      poster="{{ section.settings.image | image_url: width: 1920 }}"
-    >
-      <source src="{{ section.settings.video_url }}" type="video/mp4">
-    </video>
-  {%- elsif section.settings.image != blank -%}
-    <div class="cvus-hero__image">
+
+  {%- comment %} Right product-image panel {% endcomment %}
+  <div class="cvus-hero__panel" aria-hidden="true">
+    {%- if section.settings.product_image != blank -%}
       {{
-        section.settings.image
-        | image_url: width: 1920
+        section.settings.product_image
+        | image_url: width: 1000
         | image_tag:
           loading: 'eager',
           fetchpriority: 'high',
-          alt: section.settings.image.alt
+          class: 'cvus-hero__product-img',
+          alt: ''
       }}
-    </div>
-  {%- else -%}
-    <div class="cvus-hero__image cvus-hero__image--placeholder"></div>
-  {%- endif -%}
-
-  <div class="cvus-hero__overlay"></div>
-
-  <div class="cvus-hero__content page-width">
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="cvus-hero__eyebrow cvus-eyebrow">
-        {{ section.settings.eyebrow }}
-      </span>
+    {%- else -%}
+      <img
+        class="cvus-hero__product-img"
+        src="{{ 'cvus-hero-pulse.png' | asset_url }}"
+        alt="Geek Bar Pulse — CloudVaultUS"
+        loading="eager"
+        fetchpriority="high"
+      >
     {%- endif -%}
-
-    {%- if section.settings.heading != blank -%}
-      <h1 class="cvus-hero__heading cvus-gradient-text">
-        {{ section.settings.heading }}
-      </h1>
-    {%- endif -%}
-
-    {%- if section.settings.subheading != blank -%}
-      <p class="cvus-hero__subheading">{{ section.settings.subheading }}</p>
-    {%- endif -%}
-
-    <div class="cvus-hero__cta-group">
-      {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
-        <a
-          href="{{ section.settings.cta_url }}"
-          class="button cvus-hero__cta-primary"
-        >
-          {{ section.settings.cta_label }}
-        </a>
-      {%- endif -%}
-
-      {%- if section.settings.cta2_label != blank and section.settings.cta2_url != blank -%}
-        <a
-          href="{{ section.settings.cta2_url }}"
-          class="button button--secondary cvus-hero__cta-secondary"
-        >
-          {{ section.settings.cta2_label }}
-        </a>
-      {%- endif -%}
-    </div>
-
-    {%- if section.settings.show_scroll_indicator -%}
-      <div class="cvus-hero__scroll-indicator" aria-hidden="true">
-        <span></span>
-      </div>
-    {%- endif -%}
+    <div class="cvus-hero__panel-glow" aria-hidden="true"></div>
   </div>
+
+  {%- comment %} Left→right blend: warm white fades into the panel {% endcomment %}
+  <div class="cvus-hero__blend" aria-hidden="true"></div>
+
+  {%- comment %} Left content {% endcomment %}
+  <div class="page-width cvus-hero__inner">
+    <div class="cvus-hero__content">
+
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="cvus-eyebrow cvus-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="cvus-hero__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="cvus-hero__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      <div class="cvus-hero__btns">
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_url | default: '/collections/all' }}"
+             class="button cvus-hero__cta-primary">
+            {{ section.settings.cta_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta2_label != blank -%}
+          <a href="{{ section.settings.cta2_url | default: '/collections' }}"
+             class="button button--secondary cvus-hero__cta-secondary">
+            {{ section.settings.cta2_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- comment %} Stats row {% endcomment %}
+      <div class="cvus-hero__stats">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'stat' -%}
+            {%- unless forloop.first -%}
+              <div class="cvus-hero__stat-sep" aria-hidden="true"></div>
+            {%- endunless -%}
+            <div class="cvus-hero__stat" {{ block.shopify_attributes }}>
+              <span class="cvus-hero__stat-val">{{ block.settings.value }}</span>
+              <span class="cvus-hero__stat-label">{{ block.settings.label }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if section.blocks.size == 0 -%}
+          <div class="cvus-hero__stat">
+            <span class="cvus-hero__stat-val">35K+</span>
+            <span class="cvus-hero__stat-label">Max Puffs</span>
+          </div>
+          <div class="cvus-hero__stat-sep" aria-hidden="true"></div>
+          <div class="cvus-hero__stat">
+            <span class="cvus-hero__stat-val">5%</span>
+            <span class="cvus-hero__stat-label">Nicotine</span>
+          </div>
+          <div class="cvus-hero__stat-sep" aria-hidden="true"></div>
+          <div class="cvus-hero__stat">
+            <span class="cvus-hero__stat-val">4.9★</span>
+            <span class="cvus-hero__stat-label">Rating</span>
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
-<style>
-  #cvus-hero-{{ section.id }} {
-    min-height: {{ section.settings.height }}vh;
-  }
-
-  #cvus-hero-{{ section.id }} .cvus-hero__overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(9, 9, 11, {{ section.settings.overlay_top_opacity | divided_by: 100.0 }}) 0%,
-      rgba(9, 9, 11, {{ section.settings.overlay_mid_opacity  | divided_by: 100.0 }}) 50%,
-      rgba(9, 9, 11, {{ section.settings.overlay_bot_opacity  | divided_by: 100.0 }}) 100%
-    );
-  }
-</style>
-
 {% stylesheet %}
-/* ── HERO SECTION ────────────────────────────────────────── */
+/* ── LIGHT HERO ──────────────────────────────────────────── */
 .cvus-hero {
   position: relative;
-  width: 100%;
-  min-height: 90vh;
+  background: #F8F7F4;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: var(--cvus-bg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* Background image */
-.cvus-hero__image {
+/* ── Right image panel ──────────────────────────────────── */
+.cvus-hero__panel {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 54%;
+  /* Softly warm-tinted — not white, not colored. Premium. */
+  background: linear-gradient(145deg, #FFF8F8 0%, #FFF3F0 40%, #FEF0EE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-left: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.cvus-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.03);
-  transition: transform 8s ease;
+.cvus-hero__product-img {
+  width: 78%;
+  height: 90%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.14));
+  transition: transform 7s ease;
+}
+.cvus-hero:hover .cvus-hero__product-img {
+  transform: scale(1.03) translateY(-6px);
 }
 
-.cvus-hero:hover .cvus-hero__image img {
-  transform: scale(1.08);
-}
-
-/* Placeholder background when no image set */
-.cvus-hero__image--placeholder {
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a1020 50%, #0a0a0f 100%);
-}
-
-/* Background video */
-.cvus-hero__video {
+/* Subtle ambient glow at the product base */
+.cvus-hero__panel-glow {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Gradient overlay */
-.cvus-hero__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 40%;
+  background: radial-gradient(ellipse, rgba(230, 57, 70, 0.14) 0%, transparent 70%);
+  filter: blur(32px);
   pointer-events: none;
 }
 
-/* Content */
-.cvus-hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 760px;
-  padding: 8rem 2rem;
-}
-
-/* Eyebrow */
-.cvus-hero__eyebrow {
-  margin-bottom: 1.2rem;
-  animation: cvus-fade-up 0.6s ease both;
-}
-
-/* Main heading */
-.cvus-hero__heading {
-  font-size: clamp(3rem, 8vw, 6.5rem) !important;
-  line-height: 0.95 !important;
-  margin: 0 0 1.5rem !important;
-  animation: cvus-fade-up 0.7s 0.1s ease both;
-}
-
-/* Subheading */
-.cvus-hero__subheading {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  color: var(--cvus-text-sub);
-  max-width: 520px;
-  line-height: 1.7;
-  margin: 0 0 2.5rem;
-  animation: cvus-fade-up 0.7s 0.2s ease both;
-}
-
-/* CTA buttons */
-.cvus-hero__cta-group {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  animation: cvus-fade-up 0.7s 0.3s ease both;
-}
-
-.cvus-hero__cta-primary {
-  padding: 16px 36px !important;
-  font-size: 0.85rem !important;
-}
-
-.cvus-hero__cta-secondary {
-  padding: 16px 36px !important;
-  font-size: 0.85rem !important;
-}
-
-/* Scroll indicator */
-.cvus-hero__scroll-indicator {
+/* ── Blend: warm white → transparent → panel ───────────── */
+.cvus-hero__blend {
   position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 54%;
+  background: linear-gradient(to right, #F8F7F4 0%, rgba(248, 247, 244, 0) 38%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.cvus-hero__scroll-indicator span {
-  display: block;
-  width: 22px;
-  height: 36px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 11px;
+/* ── Left content ───────────────────────────────────────── */
+.cvus-hero__inner {
   position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
-.cvus-hero__scroll-indicator span::after {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 8px;
-  background: var(--cvus-red);
-  border-radius: 2px;
-  margin: 5px auto 0;
-  animation: cvus-scroll-dot 1.8s ease infinite;
+.cvus-hero__content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* Animations */
+.cvus-hero__eyebrow {
+  margin-bottom: 16px;
+  animation: cvus-fade-up 0.5s 0.08s ease both;
+}
+
+.cvus-hero__heading {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(3.8rem, 7.5vw, 7rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.03em !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  margin: 0 0 20px !important;
+  animation: cvus-fade-up 0.55s 0.16s ease both;
+}
+
+.cvus-hero__sub {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #6B6B7A !important;
+  max-width: 38ch !important;
+  margin: 0 0 28px !important;
+  animation: cvus-fade-up 0.55s 0.24s ease both;
+}
+
+/* Buttons */
+.cvus-hero__btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  animation: cvus-fade-up 0.55s 0.32s ease both;
+}
+
+/* Stats */
+.cvus-hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: cvus-fade-up 0.55s 0.40s ease both;
+}
+
+.cvus-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.cvus-hero__stat-sep {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.cvus-hero__stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #1A1A1E;
+}
+
+.cvus-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #AEADB8;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
 @keyframes cvus-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes cvus-scroll-dot {
-  0%   { opacity: 1; transform: translateY(0); }
-  80%  { opacity: 0; transform: translateY(12px); }
-  100% { opacity: 0; transform: translateY(0); }
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 989px) {
+  .cvus-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .cvus-hero__panel {
+    position: relative;
+    width: 100%;
+    height: 56vw;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    order: 2;
+  }
+  .cvus-hero__product-img { width: 65%; height: 90%; }
+  .cvus-hero__blend { display: none; }
+  .cvus-hero__inner { order: 1; padding: 3.5rem 0 2.5rem; }
+  .cvus-hero__content { max-width: 100%; align-items: center; text-align: center; }
+  .cvus-hero__sub { margin-left: auto !important; margin-right: auto !important; }
+  .cvus-hero__btns { justify-content: center; }
+  .cvus-hero__stats { justify-content: center; }
+  .cvus-hero__stat { align-items: center; }
+  .cvus-hero__heading { font-size: clamp(3rem, 11vw, 5rem) !important; }
 }
 
-/* Mobile */
-@media (max-width: 749px) {
-  .cvus-hero__content   { padding: 6rem 1.5rem 5rem; max-width: 100%; }
-  .cvus-hero__heading   { font-size: clamp(2.4rem, 10vw, 3.5rem) !important; }
-  .cvus-hero__cta-group { flex-direction: column; }
-  .cvus-hero__cta-primary,
-  .cvus-hero__cta-secondary { text-align: center !important; }
+@media (max-width: 480px) {
+  .cvus-hero__panel { height: 70vw; }
+  .cvus-hero__stats { flex-wrap: wrap; gap: 12px 0; }
+  .cvus-hero__stat-sep { display: none; }
+  .cvus-hero__stat { padding-right: 0; margin-right: 0; }
 }
 {% endstylesheet %}
 
@@ -257,21 +304,17 @@
   "name": "CloudVaultUS Hero",
   "tag": "section",
   "class": "section",
+  "max_blocks": 4,
   "settings": [
     {
       "type": "header",
-      "content": "Media"
+      "content": "Product Image"
     },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Background image"
-    },
-    {
-      "type": "url",
-      "id": "video_url",
-      "label": "Background video URL (.mp4)",
-      "info": "Overrides image if set. Use a hosted .mp4 URL."
+      "id": "product_image",
+      "label": "Product image (right panel)",
+      "info": "Leave blank to use default Geek Bar Pulse X. Tall portrait images work best."
     },
     {
       "type": "header",
@@ -280,107 +323,72 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow label",
-      "default": "Premium Vape Products"
+      "label": "Eyebrow",
+      "default": "New Arrival"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Elevate Your Experience"
+      "default": "Next-Level\nVaping"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Discover CloudVaultUS — curated premium vapes sourced directly from top manufacturers."
+      "default": "Premium disposable vapes with industry-leading puff counts. Sourced from top brands — shipped to your door."
     },
     {
       "type": "header",
-      "content": "Primary CTA"
+      "content": "Primary Button"
     },
     {
       "type": "text",
       "id": "cta_label",
-      "label": "Button label",
+      "label": "Label",
       "default": "Shop Now"
     },
     {
       "type": "url",
       "id": "cta_url",
-      "label": "Button URL",
+      "label": "URL",
       "default": "/collections/all"
     },
     {
       "type": "header",
-      "content": "Secondary CTA"
+      "content": "Secondary Button"
     },
     {
       "type": "text",
       "id": "cta2_label",
-      "label": "Button 2 label",
-      "default": "View Collections"
+      "label": "Label",
+      "default": "View All"
     },
     {
       "type": "url",
       "id": "cta2_url",
-      "label": "Button 2 URL",
+      "label": "URL",
       "default": "/collections"
-    },
+    }
+  ],
+  "blocks": [
     {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "range",
-      "id": "height",
-      "label": "Hero height (vh)",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "default": 90
-    },
-    {
-      "type": "header",
-      "content": "Overlay opacity"
-    },
-    {
-      "type": "range",
-      "id": "overlay_top_opacity",
-      "label": "Top opacity %",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "overlay_mid_opacity",
-      "label": "Middle opacity %",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "overlay_bot_opacity",
-      "label": "Bottom opacity %",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 90
-    },
-    {
-      "type": "checkbox",
-      "id": "show_scroll_indicator",
-      "label": "Show scroll indicator",
-      "default": true
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "35K+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Max Puffs" }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "CloudVaultUS Hero"
+      "name": "CloudVaultUS Hero",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "35K+", "label": "Max Puffs" } },
+        { "type": "stat", "settings": { "value": "5%",   "label": "Nicotine"  } },
+        { "type": "stat", "settings": { "value": "4.9★", "label": "Rating"    } }
+      ]
     }
   ]
 }

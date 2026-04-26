@@ -1,0 +1,198 @@
+{% comment %}
+  CloudVaultUS — Brand Showcase Strip
+  File: sections/cvus-brand-showcase.liquid
+  Design: rose-tinted band with text-based brand cards (Bebas Neue logos)
+{% endcomment %}
+
+<section class="cvus-brands" id="cvus-brands-{{ section.id }}">
+  <div class="page-width">
+    <div class="cvus-brands__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="cvus-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="cvus-brands__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="cvus-brands__sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="cvus-brands__row">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'brand' -%}
+          {%- assign url = block.settings.url -%}
+          {%- if url != blank -%}<a href="{{ url }}" class="cvus-brand-card" {{ block.shopify_attributes }}>{%- else -%}<div class="cvus-brand-card" {{ block.shopify_attributes }}>{%- endif -%}
+            <span class="cvus-brand-card__name">{{ block.settings.name }}</span>
+            {%- if block.settings.tagline != blank -%}
+              <span class="cvus-brand-card__tag">{{ block.settings.tagline }}</span>
+            {%- endif -%}
+          {%- if url != blank -%}</a>{%- else -%}</div>{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if section.blocks.size == 0 -%}
+        <div class="cvus-brand-card">
+          <span class="cvus-brand-card__name">Geek Bar</span>
+          <span class="cvus-brand-card__tag">Premium Disposables</span>
+        </div>
+        <div class="cvus-brand-card">
+          <span class="cvus-brand-card__name">Lost Mary</span>
+          <span class="cvus-brand-card__tag">Turbo Series</span>
+        </div>
+        <div class="cvus-brand-card">
+          <span class="cvus-brand-card__name">Elf Bar</span>
+          <span class="cvus-brand-card__tag">Best Sellers</span>
+        </div>
+        <div class="cvus-brand-card">
+          <span class="cvus-brand-card__name">Hyde</span>
+          <span class="cvus-brand-card__tag">High Capacity</span>
+        </div>
+        <div class="cvus-brand-card">
+          <span class="cvus-brand-card__name">Funky Republic</span>
+          <span class="cvus-brand-card__tag">Bold Flavors</span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.cvus-brands {
+  background: linear-gradient(180deg, #FFF8F8 0%, #FFF3F0 100%);
+  padding: 64px 0 56px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.cvus-brands__head {
+  text-align: center;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.cvus-brands__title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+.cvus-brands__sub {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: #6B6B7A !important;
+  max-width: 52ch;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+}
+
+.cvus-brands__row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.cvus-brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 28px 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  min-height: 110px;
+}
+.cvus-brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  border-color: rgba(230, 57, 70, 0.18);
+}
+.cvus-brand-card__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: #1A1A1E;
+  line-height: 1;
+}
+.cvus-brand-card__tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #AEADB8;
+  line-height: 1.4;
+}
+
+@media (max-width: 989px) {
+  .cvus-brands__row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .cvus-brands { padding: 48px 0 40px; }
+  .cvus-brands__row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cvus-brand-card { padding: 22px 12px; min-height: 90px; }
+  .cvus-brand-card__name { font-size: 18px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brand Showcase",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Carried Brands"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Authentic. Verified. Premium."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We partner only with the most trusted manufacturers in the industry — every product authenticated."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        { "type": "text", "id": "name",    "label": "Brand name", "default": "Geek Bar" },
+        { "type": "text", "id": "tagline", "label": "Tagline",    "default": "Premium Disposables" },
+        { "type": "url",  "id": "url",     "label": "Link URL (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Showcase",
+      "blocks": [
+        { "type": "brand", "settings": { "name": "Geek Bar",       "tagline": "Premium Disposables" } },
+        { "type": "brand", "settings": { "name": "Lost Mary",      "tagline": "Turbo Series" } },
+        { "type": "brand", "settings": { "name": "Elf Bar",        "tagline": "Best Sellers" } },
+        { "type": "brand", "settings": { "name": "Hyde",           "tagline": "High Capacity" } },
+        { "type": "brand", "settings": { "name": "Funky Republic", "tagline": "Bold Flavors" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

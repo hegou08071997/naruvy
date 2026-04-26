@@ -1,70 +1,75 @@
 /* ============================================================
    CloudVaultUS — Premium Light Theme
-   Inspired by: geekbar.com + vaping360.com aesthetic
-   File: assets/custom.css
+   Palette: warm off-white base · vibrant red accent · charcoal text
+   Fonts: Bebas Neue (display) · DM Sans (body, weight 300/400/500)
    ============================================================ */
 
 /* ── 1. GOOGLE FONTS ─────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
-/* ── 2. BRAND TOKENS ─────────────────────────────────────── */
+/* ── 2. DESIGN TOKENS ────────────────────────────────────── */
 :root {
-  /* Accent */
-  --cvus-red:            #e63946;
-  --cvus-red-hover:      #c1121f;
-  --cvus-red-glow:       rgba(230, 57, 70, 0.15);
-  --cvus-red-subtle:     rgba(230, 57, 70, 0.06);
+  /* ── Red accent ── */
+  --cvus-red:           #E63946;
+  --cvus-red-hover:     #C1121F;
+  --cvus-red-glow:      rgba(230, 57, 70, 0.18);
+  --cvus-red-subtle:    rgba(230, 57, 70, 0.07);
+  --cvus-red-tint:      #FFF4F4;   /* section background accent */
 
-  /* Backgrounds — LIGHT */
-  --cvus-bg:             #f5f5f7;   /* page background — Apple light gray */
-  --cvus-surface:        #ffffff;   /* cards, panels */
-  --cvus-elevated:       #f0f0f2;   /* image placeholder, subtle fills */
-  --cvus-hover:          #f8f8fa;   /* hover state */
+  /* ── Backgrounds: warm, not clinical white ── */
+  --cvus-bg:            #F8F7F4;   /* warm cloud white — base */
+  --cvus-surface:       #FFFFFF;   /* cards, panels */
+  --cvus-surface-warm:  #FFFCFB;   /* hero right-panel tint */
+  --cvus-elevated:      #F0EFE9;   /* subtle fills, alt rows */
+  --cvus-section-alt:   #F3F2EF;   /* alternating section bg */
 
-  /* Text */
-  --cvus-text:           #111116;   /* near-black primary */
-  --cvus-text-sub:       #4b4b57;   /* secondary */
-  --cvus-text-muted:     #9b9bab;   /* placeholders, disabled */
+  /* ── Text ── */
+  --cvus-text:          #1A1A1E;   /* warm charcoal */
+  --cvus-text-sub:      #6B6B7A;   /* medium warm gray */
+  --cvus-text-muted:    #AEADB8;   /* light gray */
+  --cvus-text-dim:      #D1D0D9;   /* very muted */
 
-  /* Borders */
-  --cvus-border:         rgba(0, 0, 0, 0.08);
-  --cvus-border-strong:  rgba(0, 0, 0, 0.14);
+  /* ── Borders: barely-there on light ── */
+  --cvus-border:        rgba(0, 0, 0, 0.07);
+  --cvus-border-strong: rgba(0, 0, 0, 0.12);
 
-  /* Header stays dark — like geekbar.com */
-  --cvus-header-bg:      #0e0e12;
-  --cvus-header-text:    #f4f4f5;
-  --cvus-header-sub:     rgba(244, 244, 245, 0.6);
-  --cvus-header-border:  rgba(255, 255, 255, 0.07);
+  /* ── Header: dark for premium contrast ── */
+  --cvus-header-bg:     #111111;
+  --cvus-header-text:   #FFFFFF;
+  --cvus-header-sub:    rgba(255, 255, 255, 0.55);
+  --cvus-header-border: rgba(255, 255, 255, 0.08);
 
-  /* Footer */
-  --cvus-footer-bg:      #111116;
-  --cvus-footer-text:    rgba(244, 244, 245, 0.7);
+  /* ── Footer ── */
+  --cvus-footer-bg:     #111111;
+  --cvus-footer-text:   rgba(255, 255, 255, 0.45);
 
-  /* Typography */
-  --cvus-font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --cvus-font-display: 'Barlow Condensed', sans-serif;
+  /* ── Typography ── */
+  --cvus-font-display:  'Bebas Neue', sans-serif;
+  --cvus-font-body:     'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Dawn RGB overrides */
-  --color-background:             245, 245, 247;
-  --color-foreground:              17,  17,  22;
-  --color-background-contrast:    230, 230, 235;
-  --color-shadow:                  17,  17,  22;
-  --color-button:                 230,  57,  70;
-  --color-button-text:            255, 255, 255;
-  --color-secondary-button:       255, 255, 255;
-  --color-secondary-button-text:   17,  17,  22;
-  --color-link:                   230,  57,  70;
-  --color-badge-foreground:       255, 255, 255;
-  --color-badge-background:       230,  57,  70;
-  --color-badge-border:           230,  57,  70;
+  /* ── Dawn RGB overrides — light theme ── */
+  --color-background:              248, 247, 244;
+  --color-foreground:               26,  26,  30;
+  --color-background-contrast:     240, 239, 233;
+  --color-shadow:                   26,  26,  30;
+  --color-button:                  230,  57,  70;
+  --color-button-text:             255, 255, 255;
+  --color-secondary-button:        255, 255, 255;
+  --color-secondary-button-text:    26,  26,  30;
+  --color-link:                    230,  57,  70;
+  --color-badge-foreground:        255, 255, 255;
+  --color-badge-background:        230,  57,  70;
+  --color-badge-border:            230,  57,  70;
 
-  /* Shadows */
-  --cvus-shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.06);
-  --cvus-shadow-md:  0 4px 20px rgba(0, 0, 0, 0.08);
-  --cvus-shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.10);
-  --cvus-shadow-xl:  0 24px 60px rgba(0, 0, 0, 0.14);
+  /* ── Shadows: subtle & warm ── */
+  --cvus-shadow-xs:   0 1px 4px  rgba(0, 0, 0, 0.05);
+  --cvus-shadow-sm:   0 2px 10px rgba(0, 0, 0, 0.06);
+  --cvus-shadow-md:   0 6px 24px rgba(0, 0, 0, 0.08);
+  --cvus-shadow-lg:   0 16px 48px rgba(0, 0, 0, 0.10);
+  --cvus-shadow-xl:   0 32px 72px rgba(0, 0, 0, 0.12);
+  --cvus-shadow-red:  0 8px 32px rgba(230, 57, 70, 0.22);
 
-  /* Shape */
+  /* ── Shape ── */
   --cvus-radius-sm:   6px;
   --cvus-radius-md:   10px;
   --cvus-radius-lg:   16px;
@@ -73,9 +78,7 @@
 }
 
 /* ── 3. GLOBAL RESET ─────────────────────────────────────── */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -87,66 +90,68 @@ body {
   background-color: var(--cvus-bg) !important;
   color: var(--cvus-text) !important;
   font-family: var(--cvus-font-body) !important;
+  font-weight: 400 !important;
 }
 
-/* ── 4. CUSTOM SCROLLBAR ─────────────────────────────────── */
-::-webkit-scrollbar              { width: 6px; }
-::-webkit-scrollbar-track        { background: var(--cvus-bg); }
-::-webkit-scrollbar-thumb        { background: #d1d1d6; border-radius: 3px; }
+/* ── 4. SCROLLBAR ─────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: #F0EFE9; }
+::-webkit-scrollbar-thumb        { background: #D1D0D9; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover  { background: var(--cvus-red); }
 
 /* ── 5. TYPOGRAPHY ───────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6,
 .h0, .h1, .h2, .h3 {
   font-family: var(--cvus-font-display) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.02em !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
   color: var(--cvus-text) !important;
-  line-height: 1.1 !important;
+  line-height: 0.95 !important;
 }
 
-h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
-h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
-h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
+h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.6rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 
-p  { color: var(--cvus-text-sub); }
-a  { color: var(--cvus-text); text-decoration: none; transition: color 0.2s; }
+p   { color: var(--cvus-text-sub); font-weight: 400; line-height: 1.68; }
+a   { color: var(--cvus-text); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--cvus-red); }
+strong { font-weight: 600; color: var(--cvus-text); }
 
 /* ── 6. ANNOUNCEMENT BAR ─────────────────────────────────── */
 .announcement-bar {
   background-color: var(--cvus-red) !important;
-  color: #fff !important;
 }
 .announcement-bar__message,
 .announcement-bar__message p,
 .announcement-bar__message a {
   font-family: var(--cvus-font-body) !important;
-  font-size: 0.78rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.1em !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
   color: #fff !important;
 }
 
-/* ── 7. HEADER — stays dark like geekbar.com ─────────────── */
+/* ── 7. HEADER — dark, glass ─────────────────────────────── */
 .header,
 .shopify-section-group-header-group .header {
   background-color: var(--cvus-header-bg) !important;
   border-bottom: 1px solid var(--cvus-header-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 100 !important;
-  backdrop-filter: none !important;
 }
 
 .header__heading,
 .header__heading-link {
   font-family: var(--cvus-font-display) !important;
-  font-size: 1.5rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.1em !important;
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
   color: var(--cvus-header-text) !important;
 }
@@ -155,29 +160,24 @@ a:hover { color: var(--cvus-red); }
 .header__menu-item span,
 .header__menu-item .link {
   font-family: var(--cvus-font-body) !important;
-  font-size: 0.8rem !important;
+  font-size: 11px !important;
   font-weight: 500 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
   color: var(--cvus-header-sub) !important;
   transition: color 0.2s !important;
 }
-
 .header__menu-item:hover span,
-.header__menu-item:hover .link {
-  color: var(--cvus-red) !important;
-}
+.header__menu-item:hover .link { color: #fff !important; }
 
-.header__icon svg,
-.header__icon path {
+.header__icon svg, .header__icon path {
   fill: var(--cvus-header-sub) !important;
   stroke: var(--cvus-header-sub) !important;
   transition: fill 0.2s, stroke 0.2s !important;
 }
-.header__icon:hover svg,
-.header__icon:hover path {
-  fill: var(--cvus-red) !important;
-  stroke: var(--cvus-red) !important;
+.header__icon:hover svg, .header__icon:hover path {
+  fill: #fff !important;
+  stroke: #fff !important;
 }
 
 .cart-count-bubble {
@@ -186,15 +186,12 @@ a:hover { color: var(--cvus-red); }
 }
 
 /* Mobile menu */
-.menu-drawer,
-.menu-drawer__navigation,
-.menu-drawer__container {
-  background-color: var(--cvus-header-bg) !important;
-  border-right: 1px solid var(--cvus-header-border) !important;
+.menu-drawer, .menu-drawer__navigation, .menu-drawer__container {
+  background-color: #111 !important;
+  border-right: 1px solid rgba(255,255,255,0.08) !important;
 }
-.menu-drawer__menu-item,
-.menu-drawer__menu-item span {
-  color: var(--cvus-header-text) !important;
+.menu-drawer__menu-item, .menu-drawer__menu-item span {
+  color: #fff !important;
   font-family: var(--cvus-font-body) !important;
 }
 
@@ -208,84 +205,73 @@ button[type="submit"]:not(.shopify-challenge__button),
   border: none !important;
   border-radius: var(--cvus-radius-md) !important;
   font-family: var(--cvus-font-body) !important;
-  font-weight: 700 !important;
-  font-size: 0.82rem !important;
-  letter-spacing: 0.1em !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
-  padding: 14px 28px !important;
+  padding: 14px 32px !important;
   cursor: pointer !important;
   transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s !important;
-  box-shadow: 0 4px 14px var(--cvus-red-glow) !important;
+  box-shadow: 0 4px 16px var(--cvus-red-glow) !important;
 }
-
-.button:hover,
-.button--primary:hover {
+.button:hover, .button--primary:hover {
   background-color: var(--cvus-red-hover) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px var(--cvus-red-glow) !important;
+  box-shadow: var(--cvus-shadow-red) !important;
 }
 .button:active { transform: translateY(0) !important; }
 
 .button--secondary {
   background-color: var(--cvus-surface) !important;
-  border: 2px solid var(--cvus-border-strong) !important;
+  border: 1.5px solid var(--cvus-border-strong) !important;
   color: var(--cvus-text) !important;
-  box-shadow: var(--cvus-shadow-sm) !important;
+  box-shadow: var(--cvus-shadow-xs) !important;
 }
 .button--secondary:hover {
   border-color: var(--cvus-red) !important;
   color: var(--cvus-red) !important;
+  background-color: var(--cvus-red-subtle) !important;
   transform: translateY(-1px) !important;
+  box-shadow: none !important;
 }
 
-/* ── 9. CARDS — white with shadow, geekbar style ─────────── */
-.card-wrapper,
-.card,
-.product-card-wrapper {
+/* ── 9. PRODUCT CARDS — white + shadow ───────────────────── */
+.card-wrapper, .card, .product-card-wrapper {
   background-color: var(--cvus-surface) !important;
   border: 1px solid var(--cvus-border) !important;
   border-radius: var(--cvus-radius-lg) !important;
   box-shadow: var(--cvus-shadow-sm) !important;
   overflow: hidden;
-  transition: box-shadow 0.3s ease,
-              transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               border-color 0.25s !important;
 }
-
-.card-wrapper:hover,
-.card:hover {
-  box-shadow: var(--cvus-shadow-xl) !important;
+.card-wrapper:hover, .card:hover {
+  box-shadow: var(--cvus-shadow-lg) !important;
   transform: translateY(-5px) !important;
-  border-color: rgba(230, 57, 70, 0.3) !important;
+  border-color: rgba(230, 57, 70, 0.18) !important;
 }
 
-.card__content,
-.card__inner,
-.card-information,
-.card-information__wrapper {
+.card__content, .card__inner,
+.card-information, .card-information__wrapper {
   background: transparent !important;
 }
 
-.card__heading,
-.card__heading a,
+.card__heading, .card__heading a,
 .card-information .card__heading {
   font-family: var(--cvus-font-display) !important;
   font-size: 1rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.03em !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
   color: var(--cvus-text) !important;
+  line-height: 1.1 !important;
 }
 
-.price,
-.price__regular,
-.price-item,
-.price-item--regular,
-.price .money {
+.price, .price__regular, .price-item,
+.price-item--regular, .price .money {
   color: var(--cvus-red) !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 }
-
 .price--on-sale .price-item--regular {
   color: var(--cvus-text-muted) !important;
   text-decoration: line-through;
@@ -295,103 +281,76 @@ button[type="submit"]:not(.shopify-challenge__button),
 .card__information .caption,
 .card-information .caption {
   color: var(--cvus-text-muted) !important;
-  font-size: 0.72rem !important;
-  letter-spacing: 0.08em !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
 }
 
 /* ── 10. PRODUCT IMAGES ──────────────────────────────────── */
-.media,
-.card__media,
-.product__media-item {
-  background-color: var(--cvus-elevated) !important;
+.media, .card__media, .product__media-item {
+  background-color: #F8F7F4 !important;
   overflow: hidden;
 }
-
-.card__media img,
-.product-card-wrapper .media img {
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+.card__media img, .product-card-wrapper .media img {
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 .card-wrapper:hover .card__media img {
   transform: scale(1.06) !important;
 }
 
 /* ── 11. SECTION BACKGROUNDS ─────────────────────────────── */
-.color-background-1,
-.color-base-background-1,
+.color-background-1, .color-base-background-1,
 [class*="color-scheme-"] {
   background-color: var(--cvus-bg) !important;
   color: var(--cvus-text) !important;
 }
-
-.color-background-2,
-.color-base-background-2 {
+.color-background-2, .color-base-background-2 {
   background-color: var(--cvus-surface) !important;
   color: var(--cvus-text) !important;
 }
 
-/* Section titles */
-.title,
-.collection__title,
-.section-header .title {
+.title, .collection__title, .section-header .title {
   font-family: var(--cvus-font-display) !important;
   color: var(--cvus-text) !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
-}
-
-/* White section (used between collections) */
-.section-full-white {
-  background: var(--cvus-surface) !important;
+  font-size: clamp(1.8rem, 4vw, 3.4rem) !important;
 }
 
 /* ── 12. FORM INPUTS ─────────────────────────────────────── */
-.field__input,
-.select__select,
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="search"],
-textarea,
-select {
+.field__input, .select__select,
+input[type="text"], input[type="email"],
+input[type="tel"], input[type="password"],
+input[type="search"], textarea, select {
   background-color: var(--cvus-surface) !important;
   border: 1.5px solid var(--cvus-border-strong) !important;
   border-radius: var(--cvus-radius-md) !important;
   color: var(--cvus-text) !important;
   font-family: var(--cvus-font-body) !important;
-  box-shadow: var(--cvus-shadow-sm) !important;
+  font-weight: 400 !important;
+  box-shadow: var(--cvus-shadow-xs) !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
 }
-
-.field__input:focus,
-input:focus,
-textarea:focus,
-select:focus {
+.field__input:focus, input:focus, textarea:focus, select:focus {
   border-color: var(--cvus-red) !important;
   outline: none !important;
   box-shadow: 0 0 0 3px var(--cvus-red-subtle) !important;
 }
-
-.field__label,
-label {
+.field__label, label {
   color: var(--cvus-text-sub) !important;
   font-family: var(--cvus-font-body) !important;
-  font-size: 0.78rem !important;
-  letter-spacing: 0.06em !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
 }
-
-input::placeholder,
-textarea::placeholder { color: var(--cvus-text-muted) !important; }
+input::placeholder, textarea::placeholder { color: var(--cvus-text-muted) !important; }
 
 /* ── 13. CART DRAWER ─────────────────────────────────────── */
-cart-drawer,
-.cart-drawer,
-.cart-drawer__form {
+cart-drawer, .cart-drawer, .cart-drawer__form {
   background-color: var(--cvus-surface) !important;
   border-left: 1px solid var(--cvus-border) !important;
-  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: -8px 0 48px rgba(0, 0, 0, 0.12) !important;
 }
 .cart-drawer__header {
   background: var(--cvus-bg) !important;
@@ -401,45 +360,38 @@ cart-drawer,
   background-color: var(--cvus-bg) !important;
   border-top: 1px solid var(--cvus-border) !important;
 }
-.cart-item__name,
-.cart-item__name a {
+.cart-item__name, .cart-item__name a {
   color: var(--cvus-text) !important;
   font-family: var(--cvus-font-display) !important;
   text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
 }
-.cart-item__price { color: var(--cvus-red) !important; }
+.cart-item__price { color: var(--cvus-red) !important; font-weight: 600 !important; }
+.totals__total-value { color: var(--cvus-text) !important; font-weight: 600 !important; }
 
-/* ── 14. FOOTER — stays dark ─────────────────────────────── */
-.footer,
-.footer-section {
+/* ── 14. FOOTER ──────────────────────────────────────────── */
+.footer, .footer-section {
   background-color: var(--cvus-footer-bg) !important;
   border-top: none !important;
 }
-
 .footer-block__heading {
-  font-family: var(--cvus-font-display) !important;
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
+  font-family: var(--cvus-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #f4f4f5 !important;
+  color: #fff !important;
+  margin-bottom: 16px !important;
 }
-
-.footer__column,
-.footer__content-top,
-.footer__content-bottom,
-.footer p,
-.footer li,
-.footer span {
-  color: var(--cvus-footer-text) !important;
-}
-
+.footer__column, .footer__content-top, .footer__content-bottom,
+.footer p, .footer li, .footer span { color: var(--cvus-footer-text) !important; }
 .footer a {
   color: var(--cvus-footer-text) !important;
+  font-size: 12px;
+  font-weight: 400;
   transition: color 0.2s !important;
 }
-.footer a:hover { color: var(--cvus-red) !important; }
-
+.footer a:hover { color: #fff !important; }
 .footer__content-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
 }
@@ -451,36 +403,35 @@ cart-drawer,
   border: none !important;
   border-radius: var(--cvus-radius-sm) !important;
   font-family: var(--cvus-font-body) !important;
-  font-size: 0.66rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
+  padding: 3px 8px !important;
 }
 
 /* ── 16. PRODUCT PAGE ────────────────────────────────────── */
 .product__title {
   font-family: var(--cvus-font-display) !important;
-  font-size: clamp(1.8rem, 4vw, 3rem) !important;
-  font-weight: 800 !important;
+  font-size: clamp(2rem, 4.5vw, 3.6rem) !important;
+  font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.03em !important;
+  letter-spacing: 0.04em !important;
   color: var(--cvus-text) !important;
+  line-height: 0.95 !important;
 }
-
-.product__description,
-.product-description {
+.product__description, .product-description {
   color: var(--cvus-text-sub) !important;
   line-height: 1.7 !important;
+  font-weight: 400 !important;
 }
-
-.variant-pills .swatch-input__item,
-.variant-pills__item {
+.variant-pills .swatch-input__item, .variant-pills__item {
   background-color: var(--cvus-surface) !important;
   border: 1.5px solid var(--cvus-border-strong) !important;
   color: var(--cvus-text) !important;
   border-radius: var(--cvus-radius-sm) !important;
-  box-shadow: var(--cvus-shadow-sm) !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
+  font-family: var(--cvus-font-body) !important;
 }
 .variant-pills .swatch-input__item:hover {
   border-color: var(--cvus-red) !important;
@@ -491,11 +442,9 @@ cart-drawer,
   background-color: var(--cvus-red) !important;
   border-color: var(--cvus-red) !important;
   color: #fff !important;
-  box-shadow: 0 4px 12px var(--cvus-red-glow) !important;
+  box-shadow: var(--cvus-shadow-red) !important;
 }
-
-.quantity__input,
-.quantity {
+.quantity__input, .quantity {
   background-color: var(--cvus-surface) !important;
   border: 1.5px solid var(--cvus-border-strong) !important;
   border-radius: var(--cvus-radius-md) !important;
@@ -503,85 +452,86 @@ cart-drawer,
 }
 
 /* ── 17. DIVIDERS ────────────────────────────────────────── */
-hr,
-.section-header__line { border-color: var(--cvus-border) !important; }
+hr, .section-header__line { border-color: var(--cvus-border) !important; }
 
 /* ── 18. UTILITY CLASSES ─────────────────────────────────── */
 
-/* Red gradient text */
-.cvus-gradient-text {
-  background: linear-gradient(135deg, var(--cvus-text) 40%, var(--cvus-red));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Red underline accent for section headings */
-.cvus-accent-line::after {
-  content: '';
-  display: block;
-  width: 44px;
-  height: 3px;
-  background: var(--cvus-red);
-  border-radius: 2px;
-  margin-top: 14px;
-  box-shadow: 0 0 10px var(--cvus-red-glow);
-}
-
-/* Small eyebrow label */
+/* Eyebrow label */
 .cvus-eyebrow {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--cvus-font-body);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--cvus-red);
-  margin-bottom: 10px;
+}
+.cvus-eyebrow::before, .cvus-eyebrow::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--cvus-red);
+  opacity: 0.5;
 }
 
-/* White surface box */
+/* Section header pattern */
+.cvus-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cvus-border);
+}
+.cvus-section-title {
+  font-family: var(--cvus-font-display) !important;
+  font-size: clamp(1.8rem, 4vw, 3.2rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: var(--cvus-text) !important;
+  line-height: 1 !important;
+}
+.cvus-see-all {
+  font-family: var(--cvus-font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cvus-text-sub);
+  border-bottom: 1px solid var(--cvus-border-strong);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cvus-see-all:hover { color: var(--cvus-red); border-color: var(--cvus-red); }
+
+/* Dark surface box */
 .cvus-box {
   background: var(--cvus-surface);
   border: 1px solid var(--cvus-border);
   border-radius: var(--cvus-radius-lg);
-  box-shadow: var(--cvus-shadow-md);
+  box-shadow: var(--cvus-shadow-sm);
   padding: 2rem;
 }
 
 /* ── 19. SPEC / PRODUCT DESCRIPTION STYLES ───────────────── */
-.cvus-product-spec h3 {
-  font-family: var(--cvus-font-display) !important;
-  font-size: 1.2rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  color: var(--cvus-text) !important;
-  margin: 0 0 0.75rem !important;
-}
-
-.cvus-product-spec p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--cvus-text-sub);
-  margin-bottom: 1.2rem;
-}
-
 .cvus-spec-list {
   list-style: none;
   margin: 0 0 1.2rem;
   padding: 0;
-  background: var(--cvus-bg);
+  background: var(--cvus-surface);
   border: 1px solid var(--cvus-border);
   border-radius: var(--cvus-radius-md);
   overflow: hidden;
-  box-shadow: var(--cvus-shadow-sm);
+  box-shadow: var(--cvus-shadow-xs);
 }
-
 .cvus-spec-list li {
   padding: 10px 16px;
   border-bottom: 1px solid var(--cvus-border);
-  font-size: 0.85rem;
+  font-size: 13px;
+  font-weight: 400;
   color: var(--cvus-text-sub);
   display: flex;
   gap: 8px;
@@ -589,26 +539,39 @@ hr,
 }
 .cvus-spec-list li:nth-child(even) { background: var(--cvus-bg); }
 .cvus-spec-list li:last-child { border-bottom: none; }
-.cvus-spec-list li strong { color: var(--cvus-text); min-width: 160px; flex-shrink: 0; }
+.cvus-spec-list li strong {
+  color: var(--cvus-text);
+  font-weight: 600;
+  min-width: 160px;
+  flex-shrink: 0;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
 .cvus-warning {
   background: rgba(230, 57, 70, 0.05);
-  border: 1px solid rgba(230, 57, 70, 0.2);
+  border: 1px solid rgba(230, 57, 70, 0.18);
   border-radius: var(--cvus-radius-md);
   padding: 12px 16px;
-  font-size: 0.78rem !important;
-  color: #c0392b !important;
-  line-height: 1.5;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #C1121F !important;
+  line-height: 1.6;
   margin-top: 1rem;
 }
 
-/* ── 20. PAGE TRANSITIONS ────────────────────────────────── */
+/* ── 20. ANIMATIONS ──────────────────────────────────────── */
 @keyframes cvus-fade-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes cvus-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-/* ── 21. FOCUS ACCESSIBILITY ─────────────────────────────── */
+/* ── 21. FOCUS ───────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--cvus-red) !important;
   outline-offset: 3px !important;
@@ -616,63 +579,43 @@ hr,
 
 /* ── 22. MOBILE ──────────────────────────────────────────── */
 @media (max-width: 749px) {
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.6rem; }
-  .card__heading { font-size: 0.9rem !important; }
-  .button,
-  .button--primary {
-    padding: 13px 22px !important;
-    font-size: 0.8rem !important;
+  .button, .button--primary {
+    padding: 13px 24px !important;
+    font-size: 11px !important;
   }
 }
 
-/* ── 23. HERO SECTION overrides for light theme ──────────── */
-.cvus-hero {
-  background-color: var(--cvus-header-bg);
-}
-
-/* ── 24. COLLECTION PAGE ─────────────────────────────────── */
-.collection-hero,
-.collection__hero {
+/* ── 23. COLLECTION / SEARCH PAGES ──────────────────────── */
+.collection-hero, .collection__hero {
   background: var(--cvus-surface) !important;
   border-bottom: 1px solid var(--cvus-border) !important;
 }
+.collection__title { color: var(--cvus-text) !important; }
 
-.collection__title {
-  color: var(--cvus-text) !important;
-}
-
-/* Filters sidebar */
-.facets__wrapper,
-.facets-container {
+/* ── 24. PREDICTIVE SEARCH ───────────────────────────────── */
+.predictive-search, predictive-search {
   background: var(--cvus-surface) !important;
-  border: 1px solid var(--cvus-border) !important;
-  border-radius: var(--cvus-radius-md) !important;
-  box-shadow: var(--cvus-shadow-sm) !important;
-}
-
-/* ── 25. BREADCRUMBS ─────────────────────────────────────── */
-.breadcrumb,
-nav[aria-label="breadcrumbs"] {
-  color: var(--cvus-text-muted) !important;
-}
-
-/* ── 26. POPUPS / MODALS ─────────────────────────────────── */
-.modal__content,
-.popup-modal,
-.predictive-search {
-  background: var(--cvus-surface) !important;
-  border: 1px solid var(--cvus-border) !important;
-  border-radius: var(--cvus-radius-lg) !important;
+  border: 1px solid var(--cvus-border-strong) !important;
   box-shadow: var(--cvus-shadow-xl) !important;
+  border-radius: var(--cvus-radius-md) !important;
+}
+.predictive-search__item-heading { color: var(--cvus-text) !important; }
+.predictive-search__item:hover { background: var(--cvus-bg) !important; }
+
+/* ── 25. PAGINATION ──────────────────────────────────────── */
+.pagination__item {
+  background: var(--cvus-surface) !important;
+  border: 1px solid var(--cvus-border) !important;
+  border-radius: var(--cvus-radius-sm) !important;
   color: var(--cvus-text) !important;
+  box-shadow: var(--cvus-shadow-xs) !important;
+}
+.pagination__item--current {
+  background: var(--cvus-red) !important;
+  border-color: var(--cvus-red) !important;
+  color: #fff !important;
 }
 
-.predictive-search__item:hover {
-  background: var(--cvus-bg) !important;
-}
-
-/* ── 27. AGE GATE overrides for light theme ──────────────── */
-.cvus-ag__backdrop {
-  background: rgba(17, 17, 22, 0.85) !important;
-}
+/* ── 26. RICH TEXT SECTIONS ──────────────────────────────── */
+.rte h1, .rte h2, .rte h3 { color: var(--cvus-text) !important; }
+.rte p { color: var(--cvus-text-sub) !important; }

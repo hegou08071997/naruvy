@@ -1,210 +1,203 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "cvus_hero": {
+      "type": "cvus-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
+        "stat-1": {
+          "type": "stat",
+          "settings": { "value": "35K+", "label": "Max Puffs" }
         },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
+        "stat-2": {
+          "type": "stat",
+          "settings": { "value": "5%", "label": "Nicotine" }
         },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
+        "stat-3": {
+          "type": "stat",
+          "settings": { "value": "4.9★", "label": "Rating" }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["stat-1", "stat-2", "stat-3"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "New Arrival",
+        "heading": "Next-Level\nVaping",
+        "subheading": "Premium disposable vapes with industry-leading puff counts. Sourced from top brands — shipped to your door.",
+        "cta_label": "Shop Now",
+        "cta_url": "/collections/all",
+        "cta2_label": "View All",
+        "cta2_url": "/collections"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "cvus_features": {
+      "type": "cvus-features-strip",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
+        "feat-1": {
+          "type": "feature",
+          "settings": { "icon": "🚚", "title": "Free Shipping", "subtitle": "Orders over $35" }
         },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
+        "feat-2": {
+          "type": "feature",
+          "settings": { "icon": "🔒", "title": "Secure Payment", "subtitle": "256-bit SSL" }
+        },
+        "feat-3": {
+          "type": "feature",
+          "settings": { "icon": "✅", "title": "Authentic Products", "subtitle": "Verified brands only" }
+        },
+        "feat-4": {
+          "type": "feature",
+          "settings": { "icon": "🎧", "title": "24/7 Support", "subtitle": "Always available" }
         }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["feat-1", "feat-2", "feat-3", "feat-4"],
+      "settings": {}
+    },
+    "cvus_brands": {
+      "type": "cvus-brand-showcase",
+      "blocks": {
+        "brand-1": {
+          "type": "brand",
+          "settings": { "name": "Geek Bar", "tagline": "Premium Disposables" }
+        },
+        "brand-2": {
+          "type": "brand",
+          "settings": { "name": "Lost Mary", "tagline": "Turbo Series" }
+        },
+        "brand-3": {
+          "type": "brand",
+          "settings": { "name": "Elf Bar", "tagline": "Best Sellers" }
+        },
+        "brand-4": {
+          "type": "brand",
+          "settings": { "name": "Hyde", "tagline": "High Capacity" }
+        },
+        "brand-5": {
+          "type": "brand",
+          "settings": { "name": "Funky Republic", "tagline": "Bold Flavors" }
+        }
+      },
+      "block_order": ["brand-1", "brand-2", "brand-3", "brand-4", "brand-5"],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "eyebrow": "Carried Brands",
+        "title": "Authentic. Verified. Premium.",
+        "subtitle": "We partner only with the most trusted manufacturers in the industry — every product authenticated."
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "cvus_products": {
+      "type": "cvus-product-grid",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "title": "Featured Products",
         "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "products_to_show": 6,
+        "view_all_label": "View All",
+        "view_all_url": "/collections/all"
       }
     },
-    "collage": {
-      "type": "collage",
+    "cvus_categories": {
+      "type": "cvus-category-cards",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "cat-1": {
+          "type": "category",
           "settings": {
-            "collection": ""
+            "title": "Disposables",
+            "count": "12 Products",
+            "subtitle": "High-puff devices ready out of the box.",
+            "url": "/collections/all",
+            "tint": "rose"
           }
         },
-        "product": {
-          "type": "product",
+        "cat-2": {
+          "type": "category",
           "settings": {
-            "product": "",
-            "second_image": false
+            "title": "Pod Systems",
+            "count": "8 Products",
+            "subtitle": "Refillable, rechargeable, premium build.",
+            "url": "/collections/all",
+            "tint": "mint"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "cat-3": {
+          "type": "category",
           "settings": {
-            "collection": ""
+            "title": "Salt Nic",
+            "count": "14 Products",
+            "subtitle": "Smooth, high-strength e-liquids.",
+            "url": "/collections/all",
+            "tint": "peach"
+          }
+        },
+        "cat-4": {
+          "type": "category",
+          "settings": {
+            "title": "Accessories",
+            "count": "6 Products",
+            "subtitle": "Coils, batteries, chargers, cases.",
+            "url": "/collections/all",
+            "tint": "lavender"
           }
         }
       },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
+      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Shop By Category",
+        "see_all_label": "View All",
+        "see_all_url": "/collections"
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
+    "cvus_editorial": {
+      "type": "cvus-editorial",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "point-1": {
+          "type": "point",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "icon": "✓",
+            "title": "100% Authentic Products",
+            "description": "Sourced directly from manufacturers — every device verified."
           }
         },
-        "column2": {
-          "type": "column",
+        "point-2": {
+          "type": "point",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "icon": "⚡",
+            "title": "Ships in 24 Hours",
+            "description": "Fast, signature-required delivery via FedEx & UPS."
           }
         },
-        "column3": {
-          "type": "column",
+        "point-3": {
+          "type": "point",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "icon": "21+",
+            "title": "Age-Verified Checkout",
+            "description": "Real ID verification on every order. Always 21+ only."
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["point-1", "point-2", "point-3"],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Why CloudVaultUS",
+        "heading": "Premium Vapes,\nAuthenticated.",
+        "body": "We go beyond dropshipping. Every product in our catalog is sourced directly from authorized manufacturers, age-gated at checkout, and ships with adult-signature delivery.",
+        "cta_label": "Shop the Collection",
+        "cta_url": "/collections/all"
+      }
+    },
+    "cvus_newsletter": {
+      "type": "cvus-newsletter",
+      "settings": {
+        "eyebrow": "Join the Vault",
+        "heading": "Get 10% Off Your\nFirst Order.",
+        "body": "Subscribe for early access to new flavors, restock alerts, and members-only deals.",
+        "placeholder": "Enter your email",
+        "button_label": "Get 10% Off",
+        "success_message": "Thanks! Check your inbox for your discount code."
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "cvus_hero",
+    "cvus_features",
+    "cvus_brands",
+    "cvus_products",
+    "cvus_categories",
+    "cvus_editorial",
+    "cvus_newsletter"
   ]
 }

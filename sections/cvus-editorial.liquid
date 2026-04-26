@@ -1,0 +1,295 @@
+{% comment %}
+  CloudVaultUS — Editorial / Why Us
+  File: sections/cvus-editorial.liquid
+  Design: large product image left + 3 brand promises right
+{% endcomment %}
+
+<section class="cvus-edit" id="cvus-edit-{{ section.id }}">
+  <div class="page-width">
+    <div class="cvus-edit__grid">
+
+      {%- comment %} LEFT — Image {% endcomment %}
+      <div class="cvus-edit__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1000
+            | image_tag:
+              loading: 'lazy',
+              alt: section.settings.heading,
+              class: 'cvus-edit__img'
+          }}
+        {%- else -%}
+          <img
+            src="{{ 'cvus-product-pulse-x.png' | asset_url }}"
+            alt="{{ section.settings.heading }}"
+            class="cvus-edit__img"
+            loading="lazy"
+          >
+        {%- endif -%}
+        <div class="cvus-edit__media-glow" aria-hidden="true"></div>
+      </div>
+
+      {%- comment %} RIGHT — Content {% endcomment %}
+      <div class="cvus-edit__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="cvus-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="cvus-edit__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <p class="cvus-edit__body">{{ section.settings.body }}</p>
+        {%- endif -%}
+
+        <div class="cvus-edit__points">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'point' -%}
+              <div class="cvus-edit__point" {{ block.shopify_attributes }}>
+                <div class="cvus-edit__point-icon" aria-hidden="true">{{ block.settings.icon }}</div>
+                <div class="cvus-edit__point-text">
+                  <p class="cvus-edit__point-title">{{ block.settings.title }}</p>
+                  <p class="cvus-edit__point-desc">{{ block.settings.description }}</p>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if section.blocks.size == 0 -%}
+            <div class="cvus-edit__point">
+              <div class="cvus-edit__point-icon">✓</div>
+              <div class="cvus-edit__point-text">
+                <p class="cvus-edit__point-title">100% Authentic Products</p>
+                <p class="cvus-edit__point-desc">Sourced directly from manufacturers — every device verified.</p>
+              </div>
+            </div>
+            <div class="cvus-edit__point">
+              <div class="cvus-edit__point-icon">⚡</div>
+              <div class="cvus-edit__point-text">
+                <p class="cvus-edit__point-title">Ships in 24 Hours</p>
+                <p class="cvus-edit__point-desc">Fast, signature-required delivery via FedEx & UPS.</p>
+              </div>
+            </div>
+            <div class="cvus-edit__point">
+              <div class="cvus-edit__point-icon">21+</div>
+              <div class="cvus-edit__point-text">
+                <p class="cvus-edit__point-title">Age-Verified Checkout</p>
+                <p class="cvus-edit__point-desc">Real ID verification on every order. Always 21+ only.</p>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="button cvus-edit__cta">
+            {{ section.settings.cta_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.cvus-edit {
+  background: #FFFFFF;
+  padding: 80px 0;
+}
+
+.cvus-edit__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Left: Image ── */
+.cvus-edit__media {
+  position: relative;
+  background: linear-gradient(155deg, #FFF8F8 0%, #FEF0EE 100%);
+  border-radius: 24px;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+.cvus-edit__img {
+  width: 70%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.16));
+  position: relative;
+  z-index: 2;
+}
+.cvus-edit__media-glow {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 40%;
+  background: radial-gradient(ellipse, rgba(230,57,70,0.18) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+/* ── Right: Content ── */
+.cvus-edit__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.cvus-edit__heading {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 0.95 !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  margin: 0 !important;
+}
+.cvus-edit__body {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #6B6B7A !important;
+  max-width: 44ch;
+  margin: 0 !important;
+}
+
+.cvus-edit__points {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 14px 0 8px;
+  width: 100%;
+}
+.cvus-edit__point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.cvus-edit__point:last-child { border-bottom: none; }
+
+.cvus-edit__point-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #FFF3F0;
+  border: 1px solid rgba(230, 57, 70, 0.25);
+  border-radius: 50%;
+  color: #E63946;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cvus-edit__point-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1A1A1E !important;
+  margin: 0 0 2px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.cvus-edit__point-desc {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #6B6B7A !important;
+  margin: 0 !important;
+  line-height: 1.55 !important;
+}
+
+.cvus-edit__cta {
+  margin-top: 8px;
+}
+
+@media (max-width: 989px) {
+  .cvus-edit { padding: 56px 0; }
+  .cvus-edit__grid { grid-template-columns: 1fr; gap: 36px; }
+  .cvus-edit__media { min-height: 380px; padding: 40px 28px; }
+  .cvus-edit__img { width: 60%; max-width: 320px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Editorial Section",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Leave blank to use bundled Pulse X image."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why CloudVaultUS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium Vapes,\nAuthenticated."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "We go beyond dropshipping. Every product in our catalog is sourced directly from authorized manufacturers, age-gated at checkout, and ships with adult-signature delivery."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Promise",
+      "settings": [
+        { "type": "text",     "id": "icon",        "label": "Icon (text/emoji)", "default": "✓" },
+        { "type": "text",     "id": "title",       "label": "Title",             "default": "100% Authentic" },
+        { "type": "textarea", "id": "description", "label": "Description",       "default": "Sourced directly from manufacturers — every device verified." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial — Why Us",
+      "blocks": [
+        { "type": "point", "settings": { "icon": "✓",  "title": "100% Authentic Products", "description": "Sourced directly from manufacturers — every device verified." } },
+        { "type": "point", "settings": { "icon": "⚡", "title": "Ships in 24 Hours",       "description": "Fast, signature-required delivery via FedEx & UPS." } },
+        { "type": "point", "settings": { "icon": "21+", "title": "Age-Verified Checkout",  "description": "Real ID verification on every order. Always 21+ only." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

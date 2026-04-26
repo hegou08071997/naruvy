@@ -1,0 +1,270 @@
+{% comment %}
+  CloudVaultUS — Newsletter Capture
+  File: sections/cvus-newsletter.liquid
+  Design: full-width rose-tinted section with email signup
+{% endcomment %}
+
+<section class="cvus-news" id="cvus-news-{{ section.id }}">
+  <div class="cvus-news__bg" aria-hidden="true"></div>
+  <div class="page-width">
+    <div class="cvus-news__inner">
+
+      <div class="cvus-news__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="cvus-eyebrow cvus-news__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="cvus-news__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <p class="cvus-news__body">{{ section.settings.body }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="cvus-news__form-wrap">
+        {%- form 'customer', class: 'cvus-news__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter, cloudvaultus-homepage">
+          <div class="cvus-news__field">
+            <input
+              type="email"
+              name="contact[email]"
+              id="CvusNewsEmail-{{ section.id }}"
+              autocomplete="email"
+              required
+              placeholder="{{ section.settings.placeholder | default: 'Enter your email' }}"
+              class="cvus-news__input"
+            >
+            <button type="submit" class="cvus-news__submit" aria-label="Subscribe">
+              {{ section.settings.button_label | default: 'Get 10% Off' }}
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {%- if form.posted_successfully? -%}
+            <p class="cvus-news__success">✓ {{ section.settings.success_message | default: 'Thanks! Check your inbox for your discount code.' }}</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <p class="cvus-news__error">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+
+          <p class="cvus-news__legal">
+            By subscribing, you confirm you are 21 or older and consent to receive marketing emails. Unsubscribe anytime.
+          </p>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.cvus-news {
+  position: relative;
+  background: linear-gradient(135deg, #FFF8F8 0%, #FFE9E5 50%, #FFF3F0 100%);
+  padding: 88px 0;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+/* Decorative ambient blob */
+.cvus-news__bg {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50%;
+  height: 140%;
+  background: radial-gradient(ellipse, rgba(230, 57, 70, 0.10) 0%, transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.cvus-news__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.cvus-news__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cvus-news__heading {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(2.4rem, 4.6vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 0.95 !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  margin: 0 !important;
+}
+.cvus-news__body {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #4B4B57 !important;
+  max-width: 38ch;
+  margin: 0 !important;
+}
+
+/* ── Form ── */
+.cvus-news__form-wrap { width: 100%; }
+.cvus-news__form { display: flex; flex-direction: column; gap: 12px; }
+
+.cvus-news__field {
+  display: flex;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cvus-news__field:focus-within {
+  border-color: #E63946;
+  box-shadow: 0 8px 28px rgba(230, 57, 70, 0.18);
+}
+
+.cvus-news__input {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #1A1A1E !important;
+  padding: 14px 18px !important;
+  border-radius: 0 !important;
+}
+.cvus-news__input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.cvus-news__input::placeholder { color: #AEADB8 !important; }
+
+.cvus-news__submit {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #1A1A1E !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 12px 22px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  flex-shrink: 0;
+  box-shadow: none !important;
+}
+.cvus-news__submit:hover {
+  background: #E63946 !important;
+  transform: translateY(-1px) !important;
+}
+
+.cvus-news__legal {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #6B6B7A !important;
+  line-height: 1.55 !important;
+  margin: 4px 0 0 !important;
+}
+
+.cvus-news__success {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+  background: #DCFCE7;
+  border: 1px solid #86EFAC;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0;
+}
+.cvus-news__error {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #B91C1C;
+  background: rgba(230,57,70,0.08);
+  border: 1px solid rgba(230,57,70,0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0;
+}
+
+@media (max-width: 989px) {
+  .cvus-news { padding: 64px 0; }
+  .cvus-news__inner { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 480px) {
+  .cvus-news { padding: 48px 0; }
+  .cvus-news__field { flex-direction: column; padding: 10px; gap: 8px; }
+  .cvus-news__submit { width: 100%; justify-content: center; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Newsletter Capture",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Join the Vault"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get 10% Off Your\nFirst Order."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Subscribe for early access to new flavors, restock alerts, and members-only deals."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get 10% Off"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks! Check your inbox for your discount code."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Capture"
+    }
+  ]
+}
+{% endschema %}
