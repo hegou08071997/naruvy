@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "cvus-product-main",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

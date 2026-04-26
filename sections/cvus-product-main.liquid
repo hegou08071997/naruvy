@@ -1,0 +1,613 @@
+{% comment %}
+  CloudVaultUS — Premium Product Page
+  File: sections/cvus-product-main.liquid
+  Template: templates/product.cvus.json
+  Assign this template to products in Shopify Admin → Products → [product] → Theme template
+{% endcomment %}
+
+{%- assign product = product -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<div class="cvus-pdp" data-product-id="{{ product.id }}">
+  <div class="page-width">
+    <div class="cvus-pdp__layout">
+
+      <!-- ── LEFT: MEDIA GALLERY ───────────────────────────── -->
+      <div class="cvus-pdp__gallery">
+        <!-- Main image -->
+        <div class="cvus-pdp__main-image" id="cvus-main-img">
+          {%- if product.featured_image != blank -%}
+            <img
+              id="cvus-pdp-main-img"
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.featured_image.alt | default: product.title }}"
+              width="800"
+              loading="eager"
+              fetchpriority="high"
+              class="cvus-pdp__img"
+            >
+          {%- else -%}
+            <div class="cvus-pdp__img-placeholder">
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+
+          <!-- Badges -->
+          <div class="cvus-pdp__badges">
+            {%- if product.compare_at_price > product.price -%}
+              {%- assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price -%}
+              <span class="cvus-badge">Sale -{{ discount }}%</span>
+            {%- endif -%}
+            {%- if product.tags contains 'new' or product.tags contains 'New' -%}
+              <span class="cvus-badge cvus-badge--blue">New Arrival</span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Thumbnail strip -->
+        {%- if product.images.size > 1 -%}
+          <div class="cvus-pdp__thumbs" role="list">
+            {%- for image in product.images limit: 8 -%}
+              <button
+                class="cvus-pdp__thumb {% if forloop.first %}is-active{% endif %}"
+                data-img-src="{{ image | image_url: width: 800 }}"
+                data-img-alt="{{ image.alt | default: product.title }}"
+                aria-label="View image {{ forloop.index }}"
+                type="button"
+              >
+                <img
+                  src="{{ image | image_url: width: 120 }}"
+                  alt="{{ image.alt | default: product.title }}"
+                  loading="lazy"
+                  width="120"
+                >
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- ── RIGHT: PRODUCT INFO ───────────────────────────── -->
+      <div class="cvus-pdp__info">
+
+        <!-- Vendor + breadcrumb -->
+        <div class="cvus-pdp__meta">
+          <span class="cvus-pdp__vendor">{{ product.vendor }}</span>
+          <span class="cvus-pdp__separator">·</span>
+          <a href="/collections/all" class="cvus-pdp__back">All Products</a>
+        </div>
+
+        <!-- Title -->
+        <h1 class="cvus-pdp__title">{{ product.title }}</h1>
+
+        <!-- Rating (static display) -->
+        <div class="cvus-pdp__rating" aria-label="5 out of 5 stars">
+          <div class="cvus-pdp__stars">
+            {% for i in (1..5) %}
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+              </svg>
+            {% endfor %}
+          </div>
+          <span class="cvus-pdp__review-count">Authorized Retailer</span>
+        </div>
+
+        <!-- Price -->
+        <div class="cvus-pdp__price-block">
+          {%- if product.compare_at_price > product.price -%}
+            <span class="cvus-pdp__price cvus-pdp__price--sale">{{ current_variant.price | money }}</span>
+            <span class="cvus-pdp__price cvus-pdp__price--compare">{{ current_variant.compare_at_price | money }}</span>
+          {%- else -%}
+            <span class="cvus-pdp__price">{{ current_variant.price | money }}</span>
+          {%- endif -%}
+          <span class="cvus-pdp__tax-note">+ shipping at checkout</span>
+        </div>
+
+        <!-- Divider -->
+        <hr class="cvus-pdp__divider">
+
+        <!-- Variant / Flavor Picker -->
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="cvus-pdp__option-group">
+              <p class="cvus-pdp__option-label">
+                {{ option.name }}:
+                <span class="cvus-pdp__option-selected" id="cvus-selected-{{ option.position }}">
+                  {{ current_variant.options[forloop.index0] }}
+                </span>
+              </p>
+              <div class="cvus-pdp__flavor-grid" role="group" aria-label="{{ option.name }}">
+                {%- for value in option.values -%}
+                  <button
+                    type="button"
+                    class="cvus-pdp__flavor-btn {% if current_variant.options[forloop.index0] == value %}is-selected{% endif %}"
+                    data-option-position="{{ option.position }}"
+                    data-option-value="{{ value | escape }}"
+                    aria-pressed="{% if current_variant.options[forloop.index0] == value %}true{% else %}false{% endif %}"
+                  >
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <!-- Quantity -->
+        <div class="cvus-pdp__qty-row">
+          <label class="cvus-pdp__qty-label" for="cvus-qty">Quantity</label>
+          <div class="cvus-pdp__qty-wrap">
+            <button class="cvus-pdp__qty-btn" type="button" data-action="decrease" aria-label="Decrease quantity">−</button>
+            <input
+              type="number"
+              id="cvus-qty"
+              class="cvus-pdp__qty-input"
+              name="quantity"
+              value="1"
+              min="1"
+              max="99"
+              aria-label="Quantity"
+            >
+            <button class="cvus-pdp__qty-btn" type="button" data-action="increase" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <!-- Add to Cart -->
+        <form action="/cart/add" method="post" class="cvus-pdp__form" id="cvus-atc-form">
+          <input type="hidden" name="id" id="cvus-variant-id" value="{{ current_variant.id }}">
+          <input type="hidden" name="quantity" id="cvus-qty-hidden" value="1">
+
+          {%- if current_variant.available -%}
+            <button type="submit" class="button cvus-pdp__atc-btn" id="cvus-atc-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              Add to Cart
+            </button>
+          {%- else -%}
+            <button type="button" class="button cvus-pdp__atc-btn cvus-pdp__atc-btn--unavailable" disabled>
+              Out of Stock
+            </button>
+          {%- endif -%}
+        </form>
+
+        <!-- Trust badges -->
+        <div class="cvus-pdp__trust">
+          <div class="cvus-pdp__trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Authorized Retailer</span>
+          </div>
+          <div class="cvus-pdp__trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Adult Signature Required</span>
+          </div>
+          <div class="cvus-pdp__trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>21+ Age Verified</span>
+          </div>
+        </div>
+
+        <!-- Product description / specs -->
+        <div class="cvus-pdp__description">
+          {{ product.description }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCT PAGE STYLES ───────────────────────────────── -->
+{% stylesheet %}
+.cvus-pdp { padding: 4rem 0 6rem; }
+
+/* Layout */
+.cvus-pdp__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 899px) {
+  .cvus-pdp__layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Gallery */
+.cvus-pdp__main-image {
+  position: relative;
+  background: var(--cvus-elevated);
+  border-radius: var(--cvus-radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.cvus-pdp__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cvus-pdp__main-image:hover .cvus-pdp__img { transform: scale(1.04); }
+
+.cvus-pdp__img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cvus-elevated);
+}
+.cvus-pdp__img-placeholder svg { opacity: 0.15; width: 50%; height: 50%; }
+
+/* Badges */
+.cvus-pdp__badges {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+/* Thumbnails */
+.cvus-pdp__thumbs {
+  display: flex; gap: 10px; margin-top: 1rem; flex-wrap: wrap;
+}
+
+.cvus-pdp__thumb {
+  width: 72px; height: 72px;
+  border: 2px solid var(--cvus-border);
+  border-radius: 8px; overflow: hidden;
+  background: var(--cvus-elevated);
+  cursor: pointer; padding: 0;
+  transition: border-color 0.2s;
+}
+
+.cvus-pdp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cvus-pdp__thumb:hover,
+.cvus-pdp__thumb.is-active { border-color: var(--cvus-red); }
+
+/* Info panel */
+.cvus-pdp__meta {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 0.75rem;
+}
+
+.cvus-pdp__vendor {
+  font-family: var(--cvus-font-body);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cvus-red);
+}
+
+.cvus-pdp__separator { color: var(--cvus-text-muted); }
+
+.cvus-pdp__back {
+  font-family: var(--cvus-font-body);
+  font-size: 0.72rem; color: var(--cvus-text-muted) !important;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.cvus-pdp__back:hover { color: var(--cvus-text) !important; }
+
+/* Title */
+.cvus-pdp__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem) !important;
+  margin: 0 0 0.75rem !important;
+}
+
+/* Rating */
+.cvus-pdp__rating { display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+.cvus-pdp__stars { display: flex; gap: 3px; color: #f59e0b; }
+.cvus-pdp__review-count {
+  font-size: 0.78rem; color: var(--cvus-text-muted);
+  font-family: var(--cvus-font-body); letter-spacing: 0.04em;
+}
+
+/* Price */
+.cvus-pdp__price-block { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.cvus-pdp__price { font-size: 1.8rem; font-weight: 800; color: var(--cvus-red); font-family: var(--cvus-font-body); }
+.cvus-pdp__price--sale { color: var(--cvus-red); }
+.cvus-pdp__price--compare { font-size: 1rem; font-weight: 400; color: var(--cvus-text-muted); text-decoration: line-through; }
+.cvus-pdp__tax-note { font-size: 0.75rem; color: var(--cvus-text-muted); width: 100%; }
+
+/* Divider */
+.cvus-pdp__divider { border-color: var(--cvus-border); margin: 1.5rem 0; }
+
+/* Option group */
+.cvus-pdp__option-group { margin-bottom: 1.5rem; }
+
+.cvus-pdp__option-label {
+  font-family: var(--cvus-font-body) !important;
+  font-size: 0.8rem !important; font-weight: 600 !important;
+  letter-spacing: 0.08em !important; text-transform: uppercase !important;
+  color: var(--cvus-text-sub) !important; margin-bottom: 0.75rem !important;
+}
+
+.cvus-pdp__option-selected {
+  color: var(--cvus-text) !important; font-weight: 700 !important;
+}
+
+/* Flavor buttons */
+.cvus-pdp__flavor-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.cvus-pdp__flavor-btn {
+  background: var(--cvus-surface);
+  border: 1px solid var(--cvus-border-strong);
+  border-radius: var(--cvus-radius-md);
+  color: var(--cvus-text-sub);
+  font-family: var(--cvus-font-body);
+  font-size: 0.78rem; font-weight: 500;
+  padding: 7px 14px; cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.cvus-pdp__flavor-btn:hover {
+  border-color: var(--cvus-red); color: var(--cvus-text);
+}
+
+.cvus-pdp__flavor-btn.is-selected {
+  background: var(--cvus-red); border-color: var(--cvus-red);
+  color: #fff; font-weight: 600;
+}
+
+/* Qty */
+.cvus-pdp__qty-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+.cvus-pdp__qty-label {
+  font-family: var(--cvus-font-body) !important; font-size: 0.8rem !important;
+  font-weight: 600 !important; letter-spacing: 0.08em !important;
+  text-transform: uppercase !important; color: var(--cvus-text-sub) !important;
+  min-width: 70px;
+}
+
+.cvus-pdp__qty-wrap { display: flex; align-items: center; gap: 0; }
+.cvus-pdp__qty-btn {
+  width: 40px; height: 40px;
+  background: var(--cvus-surface); border: 1px solid var(--cvus-border-strong);
+  color: var(--cvus-text); font-size: 1.2rem; cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.cvus-pdp__qty-btn:first-child { border-radius: 8px 0 0 8px; }
+.cvus-pdp__qty-btn:last-child  { border-radius: 0 8px 8px 0; }
+.cvus-pdp__qty-btn:hover { background: var(--cvus-red); color: #fff; border-color: var(--cvus-red); }
+
+.cvus-pdp__qty-input {
+  width: 56px; height: 40px;
+  background: var(--cvus-surface) !important;
+  border: 1px solid var(--cvus-border-strong) !important;
+  border-left: none !important; border-right: none !important;
+  border-radius: 0 !important;
+  color: var(--cvus-text) !important;
+  font-family: var(--cvus-font-body) !important;
+  font-size: 0.95rem !important; font-weight: 600 !important;
+  text-align: center; padding: 0 !important;
+}
+.cvus-pdp__qty-input::-webkit-inner-spin-button,
+.cvus-pdp__qty-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+/* ATC button */
+.cvus-pdp__atc-btn {
+  width: 100% !important; padding: 17px !important;
+  font-size: 0.9rem !important; letter-spacing: 0.12em !important;
+  display: flex !important; align-items: center !important;
+  justify-content: center !important; gap: 10px !important;
+  margin-bottom: 1.2rem;
+}
+
+.cvus-pdp__atc-btn--unavailable {
+  background: var(--cvus-surface) !important;
+  color: var(--cvus-text-muted) !important;
+  cursor: not-allowed !important;
+  transform: none !important; box-shadow: none !important;
+}
+
+/* Trust badges */
+.cvus-pdp__trust {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  padding: 1rem 0; border-top: 1px solid var(--cvus-border);
+  border-bottom: 1px solid var(--cvus-border); margin-bottom: 1.5rem;
+}
+
+.cvus-pdp__trust-item {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--cvus-font-body); font-size: 0.75rem;
+  font-weight: 500; color: var(--cvus-text-sub);
+  letter-spacing: 0.03em;
+}
+.cvus-pdp__trust-item svg { color: var(--cvus-red); flex-shrink: 0; }
+
+/* Description / specs */
+.cvus-pdp__description { color: var(--cvus-text-sub); line-height: 1.7; }
+
+/* Spec styles injected from product body */
+.cvus-product-spec h3 {
+  font-family: var(--cvus-font-display) !important;
+  font-size: 1.2rem !important; font-weight: 700 !important;
+  text-transform: uppercase !important; letter-spacing: 0.04em !important;
+  color: var(--cvus-text) !important; margin: 0 0 0.75rem !important;
+}
+
+.cvus-product-spec p {
+  font-size: 0.9rem; line-height: 1.7;
+  color: var(--cvus-text-sub); margin-bottom: 1.2rem;
+}
+
+.cvus-spec-list {
+  list-style: none; margin: 0 0 1.2rem; padding: 0;
+  background: var(--cvus-elevated);
+  border: 1px solid var(--cvus-border);
+  border-radius: var(--cvus-radius-md);
+  overflow: hidden;
+}
+
+.cvus-spec-list li {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--cvus-border);
+  font-size: 0.85rem; color: var(--cvus-text-sub);
+  display: flex; gap: 8px;
+}
+.cvus-spec-list li:last-child { border-bottom: none; }
+.cvus-spec-list li strong { color: var(--cvus-text); min-width: 160px; flex-shrink: 0; }
+
+.cvus-warning {
+  background: rgba(230, 57, 70, 0.06);
+  border: 1px solid rgba(230, 57, 70, 0.2);
+  border-radius: var(--cvus-radius-md);
+  padding: 12px 16px;
+  font-size: 0.78rem !important; color: #fca5a5 !important;
+  line-height: 1.5; margin-top: 1rem;
+}
+{% endstylesheet %}
+
+<!-- ── PRODUCT PAGE JAVASCRIPT ───────────────────────────── -->
+<script>
+(function () {
+  const form       = document.getElementById('cvus-atc-form');
+  const variantId  = document.getElementById('cvus-variant-id');
+  const qtyInput   = document.getElementById('cvus-qty');
+  const qtyHidden  = document.getElementById('cvus-qty-hidden');
+  const mainImg    = document.getElementById('cvus-pdp-main-img');
+  const thumbs     = document.querySelectorAll('.cvus-pdp__thumb');
+  const flavorBtns = document.querySelectorAll('.cvus-pdp__flavor-btn');
+  const atcBtn     = document.getElementById('cvus-atc-btn');
+
+  // Product variants data
+  const variants = {{ product.variants | json }};
+
+  /* ── Quantity control ─────────────────────────────────── */
+  document.querySelectorAll('.cvus-pdp__qty-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (btn.dataset.action === 'increase') val = Math.min(val + 1, 99);
+      if (btn.dataset.action === 'decrease') val = Math.max(val - 1, 1);
+      qtyInput.value = val;
+      qtyHidden.value = val;
+    });
+  });
+
+  qtyInput.addEventListener('input', () => {
+    qtyHidden.value = qtyInput.value;
+  });
+
+  /* ── Thumbnail switcher ───────────────────────────────── */
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      if (mainImg) {
+        mainImg.src = thumb.dataset.imgSrc;
+        mainImg.alt = thumb.dataset.imgAlt;
+      }
+      thumbs.forEach(t => t.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+    });
+  });
+
+  /* ── Flavor / variant picker ──────────────────────────── */
+  const selectedOptions = {};
+
+  // Init from current variant
+  {{ product.selected_or_first_available_variant.options | json }}.forEach((val, i) => {
+    selectedOptions[i + 1] = val;
+  });
+
+  flavorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pos = btn.dataset.optionPosition;
+      const val = btn.dataset.optionValue;
+
+      // Update selected display
+      const display = document.getElementById('cvus-selected-' + pos);
+      if (display) display.textContent = val;
+
+      // Update button states
+      document.querySelectorAll(`.cvus-pdp__flavor-btn[data-option-position="${pos}"]`).forEach(b => {
+        b.classList.remove('is-selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-selected');
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Update selected options map
+      selectedOptions[pos] = val;
+
+      // Find matching variant
+      const match = variants.find(v => {
+        return v.options.every((opt, idx) => {
+          const key = String(idx + 1);
+          return selectedOptions[key] ? selectedOptions[key] === opt : true;
+        });
+      });
+
+      if (match) {
+        variantId.value = match.id;
+        // Update URL without reload
+        const url = new URL(window.location.href);
+        url.searchParams.set('variant', match.id);
+        window.history.replaceState({}, '', url);
+        // Update image if variant has one
+        if (match.featured_image && mainImg) {
+          mainImg.src = match.featured_image.src;
+        }
+        // Update availability
+        if (atcBtn) {
+          if (match.available) {
+            atcBtn.disabled = false;
+            atcBtn.textContent = '';
+            atcBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Add to Cart';
+            atcBtn.classList.remove('cvus-pdp__atc-btn--unavailable');
+          } else {
+            atcBtn.disabled = true;
+            atcBtn.textContent = 'Out of Stock';
+            atcBtn.classList.add('cvus-pdp__atc-btn--unavailable');
+          }
+        }
+      }
+    });
+  });
+
+  /* ── Add to cart with feedback ────────────────────────── */
+  if (form && atcBtn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const originalHTML = atcBtn.innerHTML;
+      atcBtn.innerHTML = 'Adding…';
+      atcBtn.disabled = true;
+
+      try {
+        const res = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: parseInt(variantId.value, 10),
+            quantity: parseInt(qtyInput.value, 10) || 1
+          })
+        });
+
+        if (res.ok) {
+          atcBtn.innerHTML = '✓ Added to Cart';
+          atcBtn.style.background = '#16a34a';
+          setTimeout(() => {
+            atcBtn.innerHTML = originalHTML;
+            atcBtn.style.background = '';
+            atcBtn.disabled = false;
+          }, 2000);
+        } else {
+          throw new Error();
+        }
+      } catch {
+        atcBtn.innerHTML = 'Error — Try Again';
+        atcBtn.style.background = '#dc2626';
+        setTimeout(() => {
+          atcBtn.innerHTML = originalHTML;
+          atcBtn.style.background = '';
+          atcBtn.disabled = false;
+        }, 2000);
+      }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "CloudVaultUS Product Page",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}
