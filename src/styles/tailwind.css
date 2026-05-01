@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@source '../../layout/**/*.liquid';
+@source '../../templates/**/*.liquid';
+@source '../../sections/**/*.liquid';
+@source '../../snippets/**/*.liquid';
+@source '../../assets/**/*.js';
+@source '../../config/**/*.json';

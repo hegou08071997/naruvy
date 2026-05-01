@@ -68,6 +68,30 @@ You can also run it from a terminal with the following Shopify CLI command:
 shopify theme check
 ```
 
+### Tailwind CSS
+
+This theme includes a Tailwind CSS build pipeline that compiles to `assets/tailwind.css`.
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run a one-time Tailwind build:
+
+```bash
+npm run tailwind:build
+```
+
+Run Tailwind in watch mode during development:
+
+```bash
+npm run tailwind:watch
+```
+
+In local development, run `npm run tailwind:watch` in one terminal and `shopify theme serve` in another. Tailwind source lives in `src/styles/tailwind.css`, and the compiled output is served from `assets/tailwind.css`.
+
 ### Continuous Integration
 
 Dawn uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/Shopify/dawn/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
