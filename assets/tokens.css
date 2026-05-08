@@ -122,4 +122,38 @@
     --vb-dur-base: 0ms;
     --vb-dur-slow: 0ms;
   }
+  /* ============================================================
+   Velobiotics typography tokens (Pass B — added with Poppins)
+   ============================================================ */
+
+:root {
+  /* System-stack fallback for instant render before Poppins arrives */
+  --vb-font-stack-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Primary Velobiotics font stack */
+  --vb-font-sans: 'Poppins', var(--vb-font-stack-fallback);
+
+  /* Weight scale (matches loaded weights — don't reference any value not in the @font-face list) */
+  --vb-fw-regular: 400;
+  --vb-fw-medium: 500;
+  --vb-fw-semibold: 600;
+  --vb-fw-bold: 700;
+}
+
+/* Apply Poppins as the default body font.
+   Dawn's section-specific font-family declarations (h1, h2, .button, etc.)
+   will continue to win cascade where they exist; this only catches anything
+   that doesn't have an explicit family. */
+body {
+  font-family: var(--vb-font-sans);
+}
+
+/* Optional utility classes for Velobiotics-specific surfaces.
+   Use sparingly — prefer setting font-family at the component level
+   when porting sections in Phase 3. */
+.vb-font-sans { font-family: var(--vb-font-sans); }
+.vb-fw-regular { font-weight: var(--vb-fw-regular); }
+.vb-fw-medium { font-weight: var(--vb-fw-medium); }
+.vb-fw-semibold { font-weight: var(--vb-fw-semibold); }
+.vb-fw-bold { font-weight: var(--vb-fw-bold); }
 }
