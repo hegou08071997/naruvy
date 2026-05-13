@@ -72,10 +72,30 @@
 .mega-menu__link--active {
   color: rgb(var(--color-foreground));
   text-decoration: underline;
+  text-decoration-color: rgb(var(--color-button));
+  text-underline-offset: 0.4rem;
+}
+
+.mega-menu__link--level-2:hover,
+.mega-menu__link--level-2.mega-menu__link--active {
+  text-shadow: 0 0 8px rgba(var(--color-shadow), 0.45);
 }
 
 .mega-menu__link--active:hover {
   text-decoration-thickness: 0.2rem;
+}
+
+.mega-menu__content {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+}
+
+.header__menu-item:hover span,
+.header__menu-item:focus-visible span {
+  color: rgb(var(--color-button));
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.6rem;
 }
 
 .mega-menu .mega-menu__list--condensed {
@@ -84,4 +104,31 @@
 
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
+}
+
+.mega-menu__shop-all {
+  grid-column: 1 / -1;
+  margin-top: 1.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.mega-menu__list--condensed .mega-menu__shop-all {
+  border-top: 0;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+.mega-menu__shop-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+}
+
+.mega-menu__shop-all-link .icon-arrow {
+  width: 1rem;
+  height: 1rem;
 }

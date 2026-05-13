@@ -278,10 +278,14 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "shop_all": "Shop all {{ title }}",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
       }
+    },
+    "top_utility_bar": {
+      "nav_label": "Utility links"
     },
     "cart": {
       "title": "Your cart",

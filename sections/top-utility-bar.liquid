@@ -1,0 +1,82 @@
+{%- comment -%}
+  Top utility bar shown above the announcement bar.
+  Renders a left tagline, an inline link list (track order, shipping, help, wholesale),
+  and an optional age-compliance notice on the right.
+{%- endcomment -%}
+
+<link rel="stylesheet" href="{{ 'section-top-utility-bar.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-top-utility-bar.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="top-utility-bar color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width top-utility-bar__grid">
+    <p class="top-utility-bar__tagline">
+      {%- if section.settings.tagline != blank -%}
+        {{ section.settings.tagline | escape }}
+      {%- endif -%}
+    </p>
+
+    {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+      <nav class="top-utility-bar__nav" aria-label="{{ 'sections.top_utility_bar.nav_label' | t }}">
+        <ul class="top-utility-bar__list" role="list">
+          {%- for link in section.settings.menu.links -%}
+            <li class="top-utility-bar__item">
+              <a href="{{ link.url }}" class="top-utility-bar__link link link--text">
+                {{- link.title | escape -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    {%- if section.settings.age_notice != blank -%}
+      <p class="top-utility-bar__age">
+        <span class="top-utility-bar__age-badge" aria-hidden="true">21+</span>
+        <span>{{ section.settings.age_notice | escape }}</span>
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Top utility bar",
+  "class": "section-top-utility-bar",
+  "tag": "aside",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-6"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline (left)",
+      "default": "Free U.S. shipping on orders over $75"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Utility menu (center)",
+      "default": "footer",
+      "info": "Recommended: create a menu named ‘Top bar menu’ with links like Track Order, Shipping & PACT Act, Wholesale, Help."
+    },
+    {
+      "type": "text",
+      "id": "age_notice",
+      "label": "Age notice (right)",
+      "default": "Adults 21+ only. Adult signature required."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top utility bar"
+    }
+  ]
+}
+{% endschema %}

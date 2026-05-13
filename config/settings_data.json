@@ -55,8 +55,30 @@
             "text": "#FFFFFF",
             "button": "#FFFFFF",
             "button_label": "#334FB4",
-            "secondary_button_label": "#FFFFFF",
+            "secondary_button_label": "#334FB4",
             "shadow": "#121212"
+          }
+        },
+        "scheme-6": {
+          "settings": {
+            "background": "#05070A",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#00E5FF",
+            "button_label": "#05070A",
+            "secondary_button_label": "#00E5FF",
+            "shadow": "#00E5FF"
+          }
+        },
+        "scheme-7": {
+          "settings": {
+            "background": "#0E1116",
+            "background_gradient": "",
+            "text": "#E6F7FF",
+            "button": "#C6FF00",
+            "button_label": "#05070A",
+            "secondary_button_label": "#C6FF00",
+            "shadow": "#00E5FF"
           }
         }
       },
@@ -92,7 +114,7 @@
       "card_style": "standard",
       "card_image_padding": 0,
       "card_text_alignment": "left",
-      "card_color_scheme": "scheme-2",
+      "card_color_scheme": "scheme-7",
       "card_border_thickness": 0,
       "card_border_opacity": 10,
       "card_corner_radius": 0,
@@ -103,7 +125,7 @@
       "collection_card_style": "standard",
       "collection_card_image_padding": 0,
       "collection_card_text_alignment": "left",
-      "collection_card_color_scheme": "scheme-2",
+      "collection_card_color_scheme": "scheme-7",
       "collection_card_border_thickness": 0,
       "collection_card_border_opacity": 10,
       "collection_card_corner_radius": 0,
@@ -151,7 +173,7 @@
       "drawer_shadow_blur": 5,
       "badge_position": "bottom left",
       "badge_corner_radius": 40,
-      "sale_badge_color_scheme": "scheme-5",
+      "sale_badge_color_scheme": "scheme-6",
       "sold_out_badge_color_scheme": "scheme-3",
       "social_twitter_link": "",
       "social_facebook_link": "",

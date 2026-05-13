@@ -66,6 +66,15 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
+                  <li class="mega-menu__shop-all">
+                    <a
+                      href="{{ link.url }}"
+                      class="mega-menu__shop-all-link link button button--small button--secondary"
+                    >
+                      {{ 'sections.header.shop_all' | t: title: link.title }}
+                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                    </a>
+                  </li>
                 </ul>
               </div>
             </details>
