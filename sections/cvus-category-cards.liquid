@@ -1,0 +1,246 @@
+{% comment %}
+  CloudVaultUS — Shop By Category
+  File: sections/cvus-category-cards.liquid
+  Design: 4 cards, each with its own warm flavor-tinted backdrop
+{% endcomment %}
+
+<section class="cvus-cats" id="cvus-cats-{{ section.id }}">
+  <div class="page-width">
+
+    <div class="cvus-section-head cvus-cats__head">
+      <h2 class="cvus-section-title">{{ section.settings.title | default: 'Shop By Category' }}</h2>
+      {%- if section.settings.see_all_label != blank -%}
+        <a href="{{ section.settings.see_all_url | default: '/collections' }}" class="cvus-see-all">
+          {{ section.settings.see_all_label }} →
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="cvus-cats__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          <a
+            href="{{ block.settings.url | default: '/collections' }}"
+            class="cvus-cat-card cvus-cat-card--{{ block.settings.tint }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="cvus-cat-card__inner">
+              <span class="cvus-cat-card__count">{{ block.settings.count }}</span>
+              <h3 class="cvus-cat-card__title">{{ block.settings.title }}</h3>
+              <p class="cvus-cat-card__desc">{{ block.settings.subtitle }}</p>
+              <span class="cvus-cat-card__cta">
+                Shop Now
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if section.blocks.size == 0 -%}
+        <div class="cvus-cat-card cvus-cat-card--rose">
+          <div class="cvus-cat-card__inner">
+            <span class="cvus-cat-card__count">12 Products</span>
+            <h3 class="cvus-cat-card__title">Disposables</h3>
+            <p class="cvus-cat-card__desc">High-puff devices ready out of the box.</p>
+            <span class="cvus-cat-card__cta">Shop Now →</span>
+          </div>
+        </div>
+        <div class="cvus-cat-card cvus-cat-card--mint">
+          <div class="cvus-cat-card__inner">
+            <span class="cvus-cat-card__count">8 Products</span>
+            <h3 class="cvus-cat-card__title">Pod Systems</h3>
+            <p class="cvus-cat-card__desc">Refillable, rechargeable, premium build.</p>
+            <span class="cvus-cat-card__cta">Shop Now →</span>
+          </div>
+        </div>
+        <div class="cvus-cat-card cvus-cat-card--peach">
+          <div class="cvus-cat-card__inner">
+            <span class="cvus-cat-card__count">14 Products</span>
+            <h3 class="cvus-cat-card__title">Salt Nic</h3>
+            <p class="cvus-cat-card__desc">Smooth, high-strength e-liquids.</p>
+            <span class="cvus-cat-card__cta">Shop Now →</span>
+          </div>
+        </div>
+        <div class="cvus-cat-card cvus-cat-card--lavender">
+          <div class="cvus-cat-card__inner">
+            <span class="cvus-cat-card__count">6 Products</span>
+            <h3 class="cvus-cat-card__title">Accessories</h3>
+            <p class="cvus-cat-card__desc">Coils, batteries, chargers, cases.</p>
+            <span class="cvus-cat-card__cta">Shop Now →</span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.cvus-cats { padding: 80px 0; background: #F8F7F4; }
+.cvus-cats__head { margin-bottom: 28px; }
+
+.cvus-cats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.cvus-cat-card {
+  position: relative;
+  display: block;
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  text-decoration: none;
+  overflow: hidden;
+  min-height: 240px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.cvus-cat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.12);
+}
+
+/* Tints: each category gets its own flavor-coded backdrop */
+.cvus-cat-card--rose     { background: linear-gradient(155deg, #FFF0EE 0%, #FFE1DD 100%); }
+.cvus-cat-card--mint     { background: linear-gradient(155deg, #EAF5EF 0%, #D5E9DD 100%); }
+.cvus-cat-card--peach    { background: linear-gradient(155deg, #FFF1E5 0%, #FFE0CC 100%); }
+.cvus-cat-card--lavender { background: linear-gradient(155deg, #F1EEFA 0%, #DDD6F0 100%); }
+
+.cvus-cat-card__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.cvus-cat-card__count {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 30, 0.55);
+  margin-bottom: 12px;
+}
+
+.cvus-cat-card__title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  line-height: 1 !important;
+  margin: 0 0 10px !important;
+}
+
+.cvus-cat-card__desc {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #4B4B57 !important;
+  line-height: 1.55 !important;
+  margin: 0 0 auto !important;
+  max-width: 28ch;
+}
+
+.cvus-cat-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1A1A1E;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(26, 26, 30, 0.18);
+  transition: gap 0.2s, color 0.2s;
+}
+.cvus-cat-card:hover .cvus-cat-card__cta {
+  gap: 10px;
+  color: #E63946;
+}
+
+@media (max-width: 989px) {
+  .cvus-cats__grid { grid-template-columns: repeat(2, 1fr); }
+  .cvus-cats { padding: 56px 0; }
+  .cvus-cat-card__title { font-size: 2rem !important; }
+  .cvus-cat-card { min-height: 200px; }
+}
+@media (max-width: 480px) {
+  .cvus-cats__grid { grid-template-columns: 1fr; gap: 12px; }
+  .cvus-cat-card { padding: 28px 24px 24px; min-height: 180px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Category Cards",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Shop By Category"
+    },
+    {
+      "type": "text",
+      "id": "see_all_label",
+      "label": "View all label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "see_all_url",
+      "label": "View all URL",
+      "default": "/collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "text",   "id": "title",    "label": "Title",       "default": "Disposables" },
+        { "type": "text",   "id": "count",    "label": "Count label", "default": "12 Products" },
+        { "type": "text",   "id": "subtitle", "label": "Description", "default": "High-puff devices ready out of the box." },
+        { "type": "url",    "id": "url",      "label": "Link URL",    "default": "/collections/all" },
+        {
+          "type": "select",
+          "id": "tint",
+          "label": "Backdrop tint",
+          "default": "rose",
+          "options": [
+            { "value": "rose",     "label": "Rose" },
+            { "value": "mint",     "label": "Mint" },
+            { "value": "peach",    "label": "Peach" },
+            { "value": "lavender", "label": "Lavender" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Cards",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Disposables", "count": "12 Products", "subtitle": "High-puff devices ready out of the box.",   "tint": "rose"     } },
+        { "type": "category", "settings": { "title": "Pod Systems", "count": "8 Products",  "subtitle": "Refillable, rechargeable, premium build.",  "tint": "mint"     } },
+        { "type": "category", "settings": { "title": "Salt Nic",    "count": "14 Products", "subtitle": "Smooth, high-strength e-liquids.",          "tint": "peach"    } },
+        { "type": "category", "settings": { "title": "Accessories", "count": "6 Products",  "subtitle": "Coils, batteries, chargers, cases.",        "tint": "lavender" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

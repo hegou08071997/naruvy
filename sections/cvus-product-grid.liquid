@@ -1,0 +1,397 @@
+{% comment %}
+  CloudVaultUS — Featured Products Grid (Light)
+  File: sections/cvus-product-grid.liquid
+  Design: warm section bg · white elevated cards · red accent price
+{% endcomment %}
+
+{%- assign grid_collection = section.settings.collection -%}
+
+<section class="cvus-pg" id="cvus-pg-{{ section.id }}">
+
+  <div class="page-width">
+    {%- comment %} Section header {% endcomment %}
+    <div class="cvus-section-head cvus-pg__head">
+      <h2 class="cvus-section-title">{{ section.settings.title | default: 'Featured Products' }}</h2>
+      {%- if section.settings.view_all_label != blank -%}
+        <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="cvus-see-all">
+          {{ section.settings.view_all_label }} →
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- comment %} Products grid {% endcomment %}
+    <div class="cvus-pg__grid">
+
+      {%- if grid_collection != blank and grid_collection.products_count > 0 -%}
+        {%- for product in grid_collection.products limit: section.settings.products_to_show -%}
+          {%- liquid
+            assign is_sale = false
+            if product.compare_at_price > product.price
+              assign is_sale = true
+            endif
+          -%}
+          <article class="cvus-pg__card">
+            <a href="{{ product.url }}" class="cvus-pg__card-media-link" tabindex="-1" aria-hidden="true">
+              <div class="cvus-pg__media">
+                {%- if is_sale -%}
+                  <span class="cvus-pg__badge cvus-pg__badge--sale">Sale</span>
+                {%- else -%}
+                  <span class="cvus-pg__badge">New</span>
+                {%- endif -%}
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: product.title,
+                      class: 'cvus-pg__img'
+                  }}
+                  {%- if product.images.size > 1 -%}
+                    {{
+                      product.images[1]
+                      | image_url: width: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: product.title,
+                        class: 'cvus-pg__img cvus-pg__img--hover'
+                    }}
+                  {%- endif -%}
+                {%- else -%}
+                  <div class="cvus-pg__img-placeholder">
+                    {{ product.title | slice: 0, 1 | upcase }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </a>
+
+            <div class="cvus-pg__info">
+              {%- if product.vendor != blank -%}
+                <p class="cvus-pg__vendor">{{ product.vendor }}</p>
+              {%- endif -%}
+              <h3 class="cvus-pg__name">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              <p class="cvus-pg__type">{{ product.type | default: 'Disposable Vape' }}</p>
+              <div class="cvus-pg__bottom">
+                <div class="cvus-pg__price-row">
+                  <span class="cvus-pg__price">{{ product.price | money }}</span>
+                  {%- if is_sale -%}
+                    <span class="cvus-pg__compare">{{ product.compare_at_price | money }}</span>
+                  {%- endif -%}
+                </div>
+                <button
+                  class="cvus-pg__add"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  aria-label="Add {{ product.title }} to cart"
+                >Add</button>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+
+      {%- else -%}
+        {%- comment %} Placeholder cards — shown until collection is assigned {% endcomment %}
+        {%- for i in (1..3) -%}
+          <article class="cvus-pg__card cvus-pg__card--empty">
+            <div class="cvus-pg__media">
+              <span class="cvus-pg__badge">New</span>
+              <div class="cvus-pg__img-placeholder">?</div>
+            </div>
+            <div class="cvus-pg__info">
+              <p class="cvus-pg__vendor">CloudVaultUS</p>
+              <h3 class="cvus-pg__name">Product Name</h3>
+              <p class="cvus-pg__type">Disposable Vape</p>
+              <div class="cvus-pg__bottom">
+                <span class="cvus-pg__price">$19.99</span>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-variant-id]').forEach(function (btn) {
+      btn.addEventListener('click', async function () {
+        const id = btn.dataset.variantId;
+        if (!id) return;
+        const orig = btn.textContent;
+        btn.textContent = '…';
+        btn.disabled = true;
+        try {
+          await fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id, quantity: 1 })
+          });
+          btn.textContent = '✓ Added';
+          window.dispatchEvent(new CustomEvent('cart:refresh'));
+          setTimeout(function () {
+            btn.textContent = orig;
+            btn.disabled = false;
+          }, 1800);
+        } catch (e) {
+          btn.textContent = orig;
+          btn.disabled = false;
+        }
+      });
+    });
+  })();
+</script>
+
+{% stylesheet %}
+/* ── PRODUCT GRID — LIGHT ────────────────────────────────── */
+.cvus-pg {
+  background: #F3F2EF;   /* slightly warmer than page bg = section depth */
+  padding: 48px 0 60px;
+}
+
+.cvus-pg__head {
+  margin-bottom: 28px;
+}
+
+/* Card grid — real gaps, white cards on warm gray */
+.cvus-pg__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+.cvus-pg__card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease,
+              transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.cvus-pg__card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+  transform: translateY(-5px);
+  border-color: rgba(230, 57, 70, 0.15);
+}
+
+/* Media — warm tinted bg so product images float cleanly */
+.cvus-pg__card-media-link { display: block; text-decoration: none; }
+.cvus-pg__media {
+  position: relative;
+  height: 230px;
+  background: #FAF9F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cvus-pg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.45s ease, opacity 0.3s ease;
+  padding: 12px;
+}
+.cvus-pg__img--hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  padding: 12px;
+}
+.cvus-pg__card:hover .cvus-pg__img:not(.cvus-pg__img--hover) {
+  transform: scale(1.05);
+  opacity: 0;
+}
+.cvus-pg__card:hover .cvus-pg__img--hover { opacity: 1; }
+
+.cvus-pg__img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #D1D0D9;
+  background: #F3F2EF;
+}
+
+/* Badge */
+.cvus-pg__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #E63946;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 4px;
+  z-index: 2;
+}
+.cvus-pg__badge--sale { background: #E63946; }
+
+/* Info block */
+.cvus-pg__info {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.cvus-pg__vendor {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #AEADB8 !important;
+  margin: 0 !important;
+}
+
+.cvus-pg__name {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #1A1A1E !important;
+  line-height: 1.1 !important;
+  margin: 2px 0 0 !important;
+}
+.cvus-pg__name a { color: inherit !important; text-decoration: none; }
+.cvus-pg__name a:hover { color: #E63946 !important; }
+
+.cvus-pg__type {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #AEADB8 !important;
+  margin: 0 0 10px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+/* Bottom row: price + add button */
+.cvus-pg__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cvus-pg__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.cvus-pg__price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #E63946;
+}
+.cvus-pg__compare {
+  font-size: 12px;
+  font-weight: 400;
+  color: #AEADB8;
+  text-decoration: line-through;
+}
+
+/* Add button */
+.cvus-pg__add {
+  background: #1A1A1E;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.cvus-pg__add:hover:not(:disabled) {
+  background: #E63946;
+  transform: translateY(-1px);
+}
+.cvus-pg__add:disabled { opacity: 0.5; cursor: default; }
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 749px) {
+  .cvus-pg { padding: 36px 0 48px; }
+  .cvus-pg__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cvus-pg__media { height: 170px; }
+  .cvus-pg__name { font-size: 15px !important; }
+}
+@media (max-width: 480px) {
+  .cvus-pg__grid { gap: 10px; }
+  .cvus-pg__media { height: 140px; }
+  .cvus-pg__info { padding: 12px 14px 14px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CloudVaultUS Product Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Featured Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all URL",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CloudVaultUS Product Grid"
+    }
+  ]
+}
+{% endschema %}

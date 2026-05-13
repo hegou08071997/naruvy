@@ -15,6 +15,11 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {{- '<!-- CloudVaultUS: Google Fonts -->' }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -256,6 +261,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -302,6 +308,113 @@
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
+
+    {%- comment %} ── CloudVaultUS FDA / Nicotine Warning Bar ── {% endcomment %}
+    <div class="cvus-warning-bar" role="banner" aria-label="Nicotine warning">
+      <div class="cvus-warning-bar__inner page-width">
+        <p class="cvus-warning-bar__msg">
+          <strong>WARNING:</strong> This product contains nicotine. Nicotine is an addictive chemical.
+        </p>
+        <div class="cvus-warning-bar__badge" aria-label="21 plus — Youth Prevention">
+          <span class="cvus-warning-bar__age">21+</span>
+          <div class="cvus-warning-bar__badge-text">
+            <span class="cvus-warning-bar__badge-title">YOUTH PREVENTION</span>
+            <span class="cvus-warning-bar__badge-sub">For existing adult smokers and vapers only.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .cvus-warning-bar {
+        background: #111116;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        width: 100%;
+        position: relative;
+        z-index: 101;
+      }
+      .cvus-warning-bar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .cvus-warning-bar__msg {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255,255,255,0.85);
+        margin: 0;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+      }
+      .cvus-warning-bar__msg strong {
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .cvus-warning-bar__badge {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        border-left: 1px solid rgba(255,255,255,0.12);
+        padding-left: 20px;
+      }
+      .cvus-warning-bar__age {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 2px solid rgba(255,255,255,0.7);
+        border-radius: 50%;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: #ffffff;
+        flex-shrink: 0;
+        letter-spacing: 0.02em;
+      }
+      .cvus-warning-bar__badge-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .cvus-warning-bar__badge-title {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #ffffff;
+        line-height: 1.2;
+      }
+      .cvus-warning-bar__badge-sub {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.02em;
+      }
+      @media (max-width: 749px) {
+        .cvus-warning-bar__inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .cvus-warning-bar__badge {
+          border-left: none;
+          padding-left: 0;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          padding-top: 10px;
+          width: 100%;
+        }
+        .cvus-warning-bar__msg { font-size: 11px; }
+      }
+    </style>
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
@@ -372,5 +485,10 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {{- '<!-- CloudVaultUS: Age Gate -->' }}
+    {{ 'cvus-age-gate.css' | asset_url | stylesheet_tag }}
+    {% render 'cvus-age-gate' %}
+    <script src="{{ 'cvus-age-gate.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
