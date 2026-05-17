@@ -8,7 +8,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "🌿 Free Shipping on Orders Over $50 — Eco-Friendly Kitchenware",
+            "text": "🚚 Free Shipping on Orders Over $50 — Use Code: CLEAN10 for 10% Off",
             "text_alignment": "center",
             "color_scheme": "scheme-3",
             "link": "shopify://collections/all"
@@ -17,7 +17,7 @@
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "✦ New Arrivals — Sustainable Kitchen Essentials Now In Stock",
+            "text": "✨ New Arrivals Every Week · 30-Day Money-Back Guarantee · Secure Payments",
             "text_alignment": "center",
             "color_scheme": "scheme-3",
             "link": "shopify://collections/all"
@@ -26,7 +26,7 @@
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
-            "text": "🍃 30-Day Easy Returns | Crafted with Natural Materials",
+            "text": "🏆 Trusted by 12 Million+ Happy Kitchens Worldwide",
             "text_alignment": "center",
             "color_scheme": "scheme-3",
             "link": ""
