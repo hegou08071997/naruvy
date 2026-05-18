@@ -861,13 +861,452 @@ body {
   color: #fff !important;
 }
 
-/* ============ MOBILE RESPONSIVE ============ */
+/* ============================================================
+   MOBILE RESPONSIVE — Comprehensive Mobile-First Improvements
+   ============================================================ */
 
-@media (max-width: 749px) {
+/* === TABLET (1024px and below) === */
+
+@media (max-width: 1024px) {
+  .shrine-section-header {
+    margin-bottom: 32px;
+  }
+
+  .shrine-cta-card {
+    padding: 48px 32px;
+  }
+
+  .shrine-testimonials__layout {
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+  }
+
+  .shrine-rating-score {
+    font-size: 56px;
+  }
+}
+
+/* === MOBILE (768px and below) === */
+
+@media (max-width: 768px) {
+  /* Section spacing — reduce padding for mobile */
+  .shrine-categories,
+  .shrine-gallery,
+  .shrine-testimonials {
+    padding: 48px 0;
+  }
+
+  .shrine-commitment {
+    padding: 64px 0;
+  }
+
+  .shrine-recipes-cta {
+    padding: 0 0 48px;
+  }
+
+  .shrine-footer-brand {
+    padding: 48px 0 0;
+  }
+
+  .shrine-trust-bar {
+    padding: 36px 0;
+  }
+
+  /* Section headers stack on mobile */
+  .shrine-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .shrine-section-nav {
+    align-self: flex-end;
+    margin-top: -8px;
+  }
+
+  .shrine-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
   .shrine-section-title {
     font-size: 2rem;
+    line-height: 1.1;
   }
+
+  .shrine-eyebrow {
+    font-size: 13px;
+  }
+
+  /* Hero — better mobile typography */
+  .slideshow__text h2,
+  .slideshow__heading {
+    font-size: clamp(2.2rem, 9vw, 3.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .slideshow__text p,
+  .slideshow__subheading {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  .slideshow__text-wrapper .button,
+  .slideshow__text .button {
+    padding: 14px 24px !important;
+    font-size: 14px !important;
+  }
+
+  /* Product grid section titles */
+  .collection .title,
+  .featured-collection .title {
+    font-size: 2rem !important;
+  }
+
+  /* Product cards — tighter on mobile */
+  .card__inner .card__content,
+  .card__information {
+    padding: 12px !important;
+  }
+
+  .card__heading,
+  .card__heading a {
+    font-size: 14px !important;
+  }
+
+  .price-item {
+    font-size: 16px !important;
+  }
+
+  /* Trust bar — compact horizontal layout */
+  .shrine-trust-bar {
+    padding: 28px 0;
+  }
+
+  .shrine-trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .shrine-trust-item {
+    padding: 8px 4px;
+    gap: 8px;
+  }
+
+  .shrine-trust-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .shrine-trust-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .shrine-trust-text strong {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  /* Categories — smaller cards with snap */
+  .shrine-category-track {
+    gap: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .shrine-category-card {
+    flex: 0 0 200px;
+    height: 280px;
+    border-radius: 18px;
+  }
+
+  .shrine-cat-overlay {
+    padding: 14px;
+  }
+
+  .shrine-cat-label {
+    font-size: 18px;
+  }
+
+  .shrine-cat-tag {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  /* Gallery — better mobile layout */
+  .shrine-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+    gap: 10px;
+  }
+
+  .shrine-gallery-img:first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .shrine-gallery-img {
+    border-radius: 12px;
+  }
+
+  /* Testimonials — stack vertically */
+  .shrine-testimonials__layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .shrine-testimonials__rating {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .shrine-rating-score {
+    font-size: 48px;
+  }
+
+  .shrine-rating-stars {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .shrine-rating-text {
+    font-size: 12px;
+  }
+
+  .shrine-testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .shrine-review-card {
+    padding: 20px;
+  }
+
+  .shrine-review-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Commitment statement */
+  .shrine-commitment-text {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    line-height: 1.5;
+    padding: 0 8px;
+  }
+
+  /* Recipes CTA — fully stacked */
+  .shrine-cta-card {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 28px;
+    border-radius: 18px;
+  }
+
+  .shrine-cta-eyebrow {
+    font-size: 12px;
+  }
+
+  .shrine-cta-heading {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+
+  .shrine-cta-text {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .shrine-cta-form {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .shrine-cta-input,
+  .shrine-cta-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 18px;
+  }
+
+  .shrine-cta-images {
+    grid-template-columns: repeat(3, 1fr);
+    height: 140px;
+    gap: 8px;
+  }
+
+  .shrine-cta-img--2 {
+    transform: translateY(12px);
+  }
+
+  /* Mega-brand footer */
+  .shrine-footer-tagline {
+    margin: 0 auto 36px;
+    padding: 0 16px;
+  }
+
+  .shrine-footer-tagline p {
+    font-size: 13px;
+  }
+
   .shrine-megabrand {
-    font-size: clamp(3rem, 20vw, 8rem);
+    font-size: clamp(3.5rem, 22vw, 7rem);
+    letter-spacing: -0.04em;
+  }
+
+  /* Image-with-text — stack image + content */
+  .image-with-text__media-item {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .image-with-text__heading,
+  .image-with-text h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .image-with-text__text {
+    font-size: 14px !important;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    padding: 48px 16px !important;
+  }
+
+  .newsletter__heading {
+    font-size: 1.6rem !important;
+  }
+
+  /* Larger touch targets for all buttons */
+  .button,
+  .quick-add__submit,
+  .shopify-payment-button__button--unbranded {
+    min-height: 44px !important;
+  }
+
+  /* Page-width gutters */
+  .page-width {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* === SMALL MOBILE (480px and below) === */
+
+@media (max-width: 480px) {
+  .shrine-section-title {
+    font-size: 1.7rem;
+  }
+
+  .shrine-eyebrow {
+    font-size: 12px;
+  }
+
+  .shrine-category-card {
+    flex: 0 0 170px;
+    height: 240px;
+  }
+
+  .shrine-cat-label {
+    font-size: 16px;
+  }
+
+  .shrine-gallery-grid {
+    grid-auto-rows: 130px;
+    gap: 8px;
+  }
+
+  .shrine-rating-score {
+    font-size: 42px;
+  }
+
+  .shrine-cta-images {
+    height: 110px;
+  }
+
+  .shrine-megabrand {
+    font-size: clamp(3rem, 24vw, 6rem);
+  }
+
+  /* Tighter card padding */
+  .card__inner .card__content,
+  .card__information {
+    padding: 10px !important;
+  }
+
+  .card__heading,
+  .card__heading a {
+    font-size: 13px !important;
+  }
+
+  /* Trust bar even more compact */
+  .shrine-trust-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .shrine-trust-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .shrine-trust-text strong {
+    font-size: 10px;
+  }
+
+  /* Hero buttons full-width on small */
+  .slideshow__text-wrapper .button,
+  .slideshow__text .button {
+    padding: 12px 20px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* === LANDSCAPE PHONE === */
+
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .slideshow__text h2,
+  .slideshow__heading {
+    font-size: 2rem !important;
+  }
+
+  .slideshow__text p {
+    font-size: 13px !important;
+  }
+}
+
+/* === TOUCH DEVICE OPTIMIZATIONS === */
+
+@media (hover: none) and (pointer: coarse) {
+  .card-wrapper:hover .card {
+    transform: none;
+  }
+
+  .shrine-category-card:hover {
+    transform: none;
+  }
+
+  .shrine-review-card:hover {
+    transform: none;
+  }
+
+  .shrine-gallery-img:hover img {
+    transform: none;
+  }
+
+  /* Show scroll indicator on category track for touch */
+  .shrine-category-track {
+    scroll-padding-left: 16px;
+  }
+
+  .shrine-category-track::after {
+    content: '';
+    flex: 0 0 16px;
   }
 }
