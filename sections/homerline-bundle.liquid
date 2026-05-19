@@ -1,8 +1,5 @@
-{{ 'section-homerline-bundle.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign price = product.selected_or_first_available_variant.price
-  assign compare_price = product.selected_or_first_available_variant.compare_at_price
 
   assign tier_2_discount = section.settings.tier_2_discount | default: 10
   assign tier_3_discount = section.settings.tier_3_discount | default: 20
@@ -12,232 +9,454 @@
   assign tier_3_qty = 3
 
   assign tier_1_total = price | times: tier_1_qty
-  assign tier_2_total = price | times: tier_2_qty | times: 100 | minus: price | times: tier_2_qty | times: tier_2_discount | divided_by: 100
-  assign tier_3_total = price | times: tier_3_qty | times: 100 | minus: price | times: tier_3_qty | times: tier_3_discount | divided_by: 100
+  assign tier_2_full = price | times: tier_2_qty
+  assign tier_3_full = price | times: tier_3_qty
 
-  assign tier_2_save = price | times: tier_2_qty | times: tier_2_discount | divided_by: 100
-  assign tier_3_save = price | times: tier_3_qty | times: tier_3_discount | divided_by: 100
+  assign tier_2_save = tier_2_full | times: tier_2_discount | divided_by: 100
+  assign tier_3_save = tier_3_full | times: tier_3_discount | divided_by: 100
 
-  assign tier_2_compare = price | times: tier_2_qty
-  assign tier_3_compare = price | times: tier_3_qty
+  assign tier_2_total = tier_2_full | minus: tier_2_save
+  assign tier_3_total = tier_3_full | minus: tier_3_save
+
+  assign tier_2_compare = tier_2_full
+  assign tier_3_compare = tier_3_full
 -%}
 
-<section class="hl-bundle-section" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-  <div class="hl-bundle">
-    <div class="hl-bundle__header">
-      <span class="hl-bundle__eyebrow">🎁 {{ section.settings.eyebrow | default: 'Bundle & Save' }}</span>
-      <h3 class="hl-bundle__title">{{ section.settings.title | default: 'Choose your bundle' }}</h3>
-      <p class="hl-bundle__subtitle">{{ section.settings.subtitle | default: 'Stock up and save more with our exclusive bundle offers.' }}</p>
-    </div>
+<section class="hl-bms" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-section-id="{{ section.id }}">
+  <div class="hl-bms__inner">
 
-    <div class="hl-bundle__tiers" role="radiogroup" aria-label="Bundle options">
-
-      <label class="hl-bundle__tier" data-tier="1">
-        <input type="radio" name="hl-bundle-tier" value="1" data-qty="{{ tier_1_qty }}" data-discount="0" class="hl-bundle__radio">
-        <div class="hl-bundle__card">
-          <div class="hl-bundle__badge hl-bundle__badge--single">Single</div>
-          <div class="hl-bundle__qty">
-            <span class="hl-bundle__qty-num">1</span>
-            <span class="hl-bundle__qty-label">Unit</span>
-          </div>
-          <div class="hl-bundle__pricing">
-            <div class="hl-bundle__price-current">{{ tier_1_total | money }}</div>
-            <div class="hl-bundle__price-per">{{ price | money }} / unit</div>
-          </div>
-          <div class="hl-bundle__features">
-            <span>✓ Standard shipping</span>
-          </div>
-        </div>
-      </label>
-
-      <label class="hl-bundle__tier hl-bundle__tier--popular" data-tier="2">
-        <input type="radio" name="hl-bundle-tier" value="2" data-qty="{{ tier_2_qty }}" data-discount="{{ tier_2_discount }}" class="hl-bundle__radio" checked>
-        <div class="hl-bundle__card">
-          <div class="hl-bundle__ribbon">🔥 Most Popular</div>
-          <div class="hl-bundle__badge hl-bundle__badge--popular">Save {{ tier_2_discount }}%</div>
-          <div class="hl-bundle__qty">
-            <span class="hl-bundle__qty-num">2</span>
-            <span class="hl-bundle__qty-label">Units</span>
-          </div>
-          <div class="hl-bundle__pricing">
-            <div class="hl-bundle__price-current">{{ tier_2_total | money }}</div>
-            <div class="hl-bundle__price-compare">{{ tier_2_compare | money }}</div>
-            <div class="hl-bundle__price-per">{{ tier_2_total | divided_by: 2 | money }} / unit</div>
-          </div>
-          <div class="hl-bundle__features">
-            <span>✓ Free shipping</span>
-            <span>✓ Save {{ tier_2_save | money }}</span>
-          </div>
-        </div>
-      </label>
-
-      <label class="hl-bundle__tier hl-bundle__tier--best" data-tier="3">
-        <input type="radio" name="hl-bundle-tier" value="3" data-qty="{{ tier_3_qty }}" data-discount="{{ tier_3_discount }}" class="hl-bundle__radio">
-        <div class="hl-bundle__card">
-          <div class="hl-bundle__ribbon hl-bundle__ribbon--best">⭐ Best Value</div>
-          <div class="hl-bundle__badge hl-bundle__badge--best">Save {{ tier_3_discount }}%</div>
-          <div class="hl-bundle__qty">
-            <span class="hl-bundle__qty-num">3</span>
-            <span class="hl-bundle__qty-label">Units</span>
-          </div>
-          <div class="hl-bundle__pricing">
-            <div class="hl-bundle__price-current">{{ tier_3_total | money }}</div>
-            <div class="hl-bundle__price-compare">{{ tier_3_compare | money }}</div>
-            <div class="hl-bundle__price-per">{{ tier_3_total | divided_by: 3 | money }} / unit</div>
-          </div>
-          <div class="hl-bundle__features">
-            <span>✓ Free express shipping</span>
-            <span>✓ Save {{ tier_3_save | money }}</span>
-            <span>✓ Gift wrap included</span>
-          </div>
-        </div>
-      </label>
-
-    </div>
-
-    <div class="hl-bundle__cta-wrap">
-      <button type="button" class="hl-bundle__cta button button--primary button--full-width" data-bundle-add-to-cart>
-        <span class="hl-bundle__cta-text">Add Bundle to Cart</span>
-        <span class="hl-bundle__cta-price" data-bundle-cta-price>{{ tier_2_total | money }}</span>
-      </button>
-
-      <div class="hl-bundle__trust">
-        <span>🔒 Secure checkout</span>
-        <span>•</span>
-        <span>🚚 Fast shipping</span>
-        <span>•</span>
-        <span>↩ 30-day returns</span>
+    {%- if section.settings.show_header -%}
+      <div class="hl-bms__header">
+        <span class="hl-bms__divider"></span>
+        <h3 class="hl-bms__title">{{ section.settings.title | default: 'BUY MORE SAVE MORE' }}</h3>
+        <span class="hl-bms__divider"></span>
       </div>
+    {%- endif -%}
+
+    <div class="hl-bms__list" role="radiogroup" aria-label="Bundle quantity">
+
+      {%- comment -%} Tier 1: BUY 1 — Default selected {%- endcomment -%}
+      <label class="hl-bms__row hl-bms__row--selected" data-qty="{{ tier_1_qty }}" data-total="{{ tier_1_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="1" checked class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>BUY {{ tier_1_qty }}</strong>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_1_total | money }}</span>
+          {%- if product.selected_or_first_available_variant.compare_at_price and product.selected_or_first_available_variant.compare_at_price > price -%}
+            <span class="hl-bms__compare">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+      </label>
+
+      {%- comment -%} Tier 2: BUY 2 — Most Popular {%- endcomment -%}
+      <label class="hl-bms__row hl-bms__row--has-badge" data-qty="{{ tier_2_qty }}" data-total="{{ tier_2_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="2" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy {{ tier_2_qty }}</strong>
+          <span class="hl-bms__save">You save {{ tier_2_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_2_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_2_compare | money }}</span>
+        </div>
+        <span class="hl-bms__badge">Most Popular</span>
+      </label>
+
+      {%- comment -%} Tier 3: BUY 3 — Best Value {%- endcomment -%}
+      <label class="hl-bms__row" data-qty="{{ tier_3_qty }}" data-total="{{ tier_3_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="3" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy {{ tier_3_qty }}</strong>
+          <span class="hl-bms__save">You save {{ tier_3_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_3_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_3_compare | money }}</span>
+        </div>
+      </label>
+
     </div>
+
+    <button type="button" class="hl-bms__cta" id="hl-bms-cta-{{ section.id }}">
+      {{ section.settings.button_label | default: 'Add to cart' }}
+    </button>
 
   </div>
 </section>
 
 <style>
-  .hl-bundle-section { padding: 24px 0; }
-  .hl-bundle { background: var(--sh-cream, #F4EFE6); border: 1px solid rgba(27,67,50,.08); border-radius: 20px; padding: 32px 24px; max-width: 100%; }
-  .hl-bundle__header { text-align: center; margin-bottom: 24px; }
-  .hl-bundle__eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sh-green-mid, #2D6A4F); background: rgba(45,106,79,.08); padding: 6px 14px; border-radius: 50px; margin-bottom: 12px; }
-  .hl-bundle__title { font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--sh-green-dark, #1B4332); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
-  .hl-bundle__subtitle { font-size: 14px; color: var(--sh-text-soft, #4F5851); margin: 0; line-height: 1.5; }
-  .hl-bundle__tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-  .hl-bundle__tier { position: relative; cursor: pointer; }
-  .hl-bundle__radio { position: absolute; opacity: 0; pointer-events: none; }
-  .hl-bundle__card { background: #fff; border: 2px solid rgba(27,67,50,.12); border-radius: 14px; padding: 20px 14px 16px; text-align: center; transition: .25s cubic-bezier(.4,0,.2,1); position: relative; height: 100%; display: flex; flex-direction: column; }
-  .hl-bundle__radio:checked + .hl-bundle__card { border-color: var(--sh-green-dark, #1B4332); background: linear-gradient(180deg, #fff 0%, #F4EFE6 100%); box-shadow: 0 8px 24px rgba(27,67,50,.15); transform: translateY(-4px); }
-  .hl-bundle__tier:hover .hl-bundle__card { border-color: rgba(27,67,50,.3); }
-  .hl-bundle__ribbon { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #E53935; color: #fff; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; letter-spacing: .05em; box-shadow: 0 4px 12px rgba(229,57,53,.3); }
-  .hl-bundle__ribbon--best { background: var(--sh-green-dark, #1B4332); box-shadow: 0 4px 12px rgba(27,67,50,.3); }
-  .hl-bundle__badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; letter-spacing: .05em; text-transform: uppercase; }
-  .hl-bundle__badge--single { background: rgba(79,88,81,.1); color: var(--sh-text-soft, #4F5851); }
-  .hl-bundle__badge--popular { background: rgba(229,57,53,.1); color: #E53935; }
-  .hl-bundle__badge--best { background: rgba(27,67,50,.1); color: var(--sh-green-dark, #1B4332); }
-  .hl-bundle__qty { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 14px; }
-  .hl-bundle__qty-num { font-size: 42px; font-weight: 700; color: var(--sh-green-dark, #1B4332); line-height: 1; font-family: 'Playfair Display', Georgia, serif; }
-  .hl-bundle__qty-label { font-size: 11px; color: var(--sh-text-soft, #4F5851); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
-  .hl-bundle__pricing { margin-bottom: 14px; }
-  .hl-bundle__price-current { font-size: 20px; font-weight: 700; color: var(--sh-green-dark, #1B4332); line-height: 1.2; }
-  .hl-bundle__price-compare { font-size: 13px; color: var(--sh-text-soft, #4F5851); text-decoration: line-through; opacity: .6; margin-top: 2px; }
-  .hl-bundle__price-per { font-size: 11px; color: var(--sh-text-soft, #4F5851); margin-top: 4px; opacity: .8; }
-  .hl-bundle__features { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--sh-text-soft, #4F5851); margin-top: auto; padding-top: 12px; border-top: 1px dashed rgba(27,67,50,.1); }
-  .hl-bundle__cta-wrap { display: flex; flex-direction: column; gap: 12px; }
-  .hl-bundle__cta { background: var(--sh-green-dark, #1B4332) !important; color: #fff !important; padding: 16px 24px !important; border-radius: 50px !important; border: none !important; font-weight: 600 !important; font-size: 14px !important; cursor: pointer; transition: .25s; display: flex !important; align-items: center; justify-content: center; gap: 12px; letter-spacing: .03em; min-height: 52px !important; width: 100%; }
-  .hl-bundle__cta:hover { background: var(--sh-green-mid, #2D6A4F) !important; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,67,50,.25); }
-  .hl-bundle__cta:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-  .hl-bundle__cta-price { background: rgba(255,255,255,.15); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; }
-  .hl-bundle__trust { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 11px; color: var(--sh-text-soft, #4F5851); flex-wrap: wrap; }
-  @media (max-width: 749px) {
-    .hl-bundle { padding: 24px 16px; }
-    .hl-bundle__tiers { grid-template-columns: 1fr; gap: 10px; }
-    .hl-bundle__card { padding: 18px 16px 14px; flex-direction: row; flex-wrap: wrap; text-align: left; gap: 12px; align-items: center; }
-    .hl-bundle__ribbon { top: -8px; left: 16px; transform: none; font-size: 9px; padding: 3px 10px; }
-    .hl-bundle__badge { margin-bottom: 0; order: -1; }
-    .hl-bundle__qty { flex-direction: row; align-items: baseline; gap: 6px; margin-bottom: 0; flex: 0 0 auto; }
-    .hl-bundle__qty-num { font-size: 28px; }
-    .hl-bundle__qty-label { font-size: 11px; }
-    .hl-bundle__pricing { margin-bottom: 0; flex: 1; text-align: right; }
-    .hl-bundle__price-current { font-size: 18px; }
-    .hl-bundle__features { flex: 1 0 100%; padding-top: 8px; flex-direction: row; flex-wrap: wrap; gap: 10px; font-size: 10px; }
-    .hl-bundle__trust { font-size: 10px; gap: 6px; }
+.hl-bms {
+  margin: 28px 0;
+  font-family: inherit;
+}
+
+.hl-bms__inner {
+  max-width: 100%;
+}
+
+/* Header */
+.hl-bms__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E8DFCF;
+}
+
+.hl-bms__divider {
+  flex: 1;
+  height: 1px;
+  background: #1B4332;
+}
+
+.hl-bms__title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1B4332;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* List */
+.hl-bms__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Row */
+.hl-bms__row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 2px solid #E8DFCF;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hl-bms__row:hover {
+  border-color: #95D5B2;
+}
+
+.hl-bms__row--selected {
+  background: #F4EFE6;
+  border-color: #1B4332;
+}
+
+/* Hide native radio */
+.hl-bms__radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom radio visual */
+.hl-bms__radio-visual {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #C5C5C5;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual {
+  border-color: #1B4332;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: #1B4332;
+  border-radius: 50%;
+}
+
+/* Label */
+.hl-bms__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hl-bms__label strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.hl-bms__save {
+  font-size: 13px;
+  color: #4F5851;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Price block */
+.hl-bms__price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hl-bms__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1B4332;
+  line-height: 1.1;
+}
+
+.hl-bms__compare {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  line-height: 1.1;
+}
+
+/* Most Popular badge */
+.hl-bms__badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: #1B4332;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
+  white-space: nowrap;
+}
+
+/* CTA button */
+.hl-bms__cta {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px 24px;
+  background: #1B4332;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.hl-bms__cta:hover {
+  background: #2D6A4F;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 67, 50, 0.2);
+}
+
+.hl-bms__cta:active {
+  transform: translateY(0);
+}
+
+.hl-bms__cta[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hl-bms__row {
+    padding: 14px 16px;
+    gap: 10px;
+    grid-template-columns: 22px 1fr auto;
   }
+
+  .hl-bms__radio-visual {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hl-bms__label strong {
+    font-size: 14px;
+  }
+
+  .hl-bms__save {
+    font-size: 12px;
+  }
+
+  .hl-bms__price {
+    font-size: 16px;
+  }
+
+  .hl-bms__compare {
+    font-size: 12px;
+  }
+
+  .hl-bms__badge {
+    top: -10px;
+    right: 12px;
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .hl-bms__cta {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .hl-bms__title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+}
 </style>
 
 <script>
-  (function() {
-    var section = document.querySelector('.hl-bundle-section[data-variant-id="{{ product.selected_or_first_available_variant.id }}"]');
-    if (!section) return;
+(function() {
+  var section = document.querySelector('[data-section-id="{{ section.id }}"]');
+  if (!section) return;
 
-    var tiers = section.querySelectorAll('.hl-bundle__radio');
-    var ctaPrice = section.querySelector('[data-bundle-cta-price]');
-    var ctaBtn = section.querySelector('[data-bundle-add-to-cart]');
-    var variantId = section.dataset.variantId;
-    var prices = {
-      1: '{{ tier_1_total | money }}',
-      2: '{{ tier_2_total | money }}',
-      3: '{{ tier_3_total | money }}'
-    };
+  var rows = section.querySelectorAll('.hl-bms__row');
+  var cta = section.querySelector('#hl-bms-cta-{{ section.id }}');
+  var variantId = section.dataset.variantId;
 
-    tiers.forEach(function(tier) {
-      tier.addEventListener('change', function() {
-        if (this.checked && ctaPrice) {
-          ctaPrice.textContent = prices[this.value];
-        }
+  rows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      rows.forEach(function(r) {
+        r.classList.remove('hl-bms__row--selected');
+        var input = r.querySelector('input[type="radio"]');
+        if (input) input.checked = false;
       });
+      row.classList.add('hl-bms__row--selected');
+      var input = row.querySelector('input[type="radio"]');
+      if (input) input.checked = true;
     });
+  });
 
-    if (ctaBtn) {
-      ctaBtn.addEventListener('click', function() {
-        var selected = section.querySelector('.hl-bundle__radio:checked');
-        if (!selected) return;
+  cta.addEventListener('click', function(e) {
+    e.preventDefault();
+    var selected = section.querySelector('.hl-bms__row--selected');
+    if (!selected) return;
 
-        var qty = parseInt(selected.dataset.qty, 10);
-        var originalText = ctaBtn.querySelector('.hl-bundle__cta-text').textContent;
+    var qty = parseInt(selected.dataset.qty, 10) || 1;
+    var originalText = cta.textContent;
+    cta.disabled = true;
+    cta.textContent = 'Adding...';
 
-        ctaBtn.disabled = true;
-        ctaBtn.querySelector('.hl-bundle__cta-text').textContent = 'Adding...';
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.status) {
+        cta.textContent = 'Error - try again';
+        setTimeout(function() {
+          cta.textContent = originalText;
+          cta.disabled = false;
+        }, 2000);
+      } else {
+        cta.textContent = '✓ Added to cart';
+        setTimeout(function() {
+          window.location.href = '/cart';
+        }, 600);
+      }
+    })
+    .catch(function() {
+      cta.textContent = 'Error - try again';
+      setTimeout(function() {
+        cta.textContent = originalText;
+        cta.disabled = false;
+      }, 2000);
+    });
+  });
 
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            items: [{ id: parseInt(variantId, 10), quantity: qty }]
-          })
-        })
-        .then(function(res) { return res.json(); })
-        .then(function() {
-          ctaBtn.querySelector('.hl-bundle__cta-text').textContent = '✓ Added to Cart';
-          setTimeout(function() {
-            window.location.href = '/cart';
-          }, 600);
-        })
-        .catch(function() {
-          ctaBtn.disabled = false;
-          ctaBtn.querySelector('.hl-bundle__cta-text').textContent = originalText;
-          alert('Could not add to cart. Please try again.');
-        });
-      });
+  // Update variant id when variant changes
+  document.addEventListener('variant:change', function(e) {
+    if (e.detail && e.detail.variant && e.detail.variant.id) {
+      section.dataset.variantId = e.detail.variant.id;
+      variantId = e.detail.variant.id;
     }
-  })();
+  });
+})();
 </script>
 
 {% schema %}
 {
   "name": "Homerline Bundle",
   "tag": "section",
-  "class": "section-homerline-bundle",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Bundle & Save" },
-    { "type": "text", "id": "title", "label": "Title", "default": "Choose your bundle" },
-    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Stock up and save more with our exclusive bundle offers." },
-    { "type": "header", "content": "Discount Percentages" },
-    { "type": "range", "id": "tier_2_discount", "label": "2-Pack discount %", "min": 0, "max": 50, "step": 5, "default": 10 },
-    { "type": "range", "id": "tier_3_discount", "label": "3-Pack discount %", "min": 0, "max": 50, "step": 5, "default": 20 }
-  ],
-  "presets": [
-    { "name": "Homerline Bundle" }
-  ],
+  "class": "section section-homerline-bundle",
   "enabled_on": {
     "templates": ["product"]
-  }
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show 'Buy More Save More' header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Header title",
+      "default": "BUY MORE SAVE MORE"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "header",
+      "content": "Discount tiers"
+    },
+    {
+      "type": "range",
+      "id": "tier_2_discount",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Buy 2 discount",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "tier_3_discount",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Buy 3 discount",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homerline Bundle"
+    }
+  ]
 }
 {% endschema %}
