@@ -862,6 +862,146 @@ body {
 }
 
 /* ============================================================
+   PRODUCT IMAGE GALLERY — Thumbnail Slider Polish
+   ============================================================ */
+
+/* Main image — clean rounded card */
+.product__media-wrapper .product__media-item {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: var(--sh-cream-dark);
+}
+
+.product__media-wrapper .product__media-item .product__media {
+  border-radius: 16px;
+}
+
+.product__media img {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Thumbnails — horizontal row under main image */
+.thumbnail-slider {
+  margin-top: 16px;
+  padding: 4px 0;
+}
+
+.thumbnail-list {
+  display: flex !important;
+  gap: 10px !important;
+  padding: 4px 2px;
+  scrollbar-width: thin;
+}
+
+.thumbnail-list__item {
+  flex: 0 0 90px !important;
+  width: 90px !important;
+  height: 90px !important;
+}
+
+.thumbnail-list__item .thumbnail {
+  border-radius: 12px !important;
+  overflow: hidden;
+  border: 2px solid transparent !important;
+  background: var(--sh-cream-dark);
+  transition: all 0.25s ease;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-list__item .thumbnail:hover {
+  border-color: var(--sh-green-soft) !important;
+  transform: translateY(-2px);
+}
+
+.thumbnail-list__item .thumbnail[aria-current="true"],
+.thumbnail-list__item .thumbnail--active {
+  border-color: var(--sh-green-dark) !important;
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.18);
+}
+
+.thumbnail-list__item .thumbnail img {
+  border-radius: 10px;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Slider navigation arrows */
+.slider-button {
+  background: #fff !important;
+  border: 1px solid rgba(27, 67, 50, 0.15) !important;
+  color: var(--sh-green-dark) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.1);
+  transition: all 0.25s ease;
+}
+
+.slider-button:hover:not([disabled]) {
+  background: var(--sh-green-dark) !important;
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+.slider-button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Slideshow dots indicator */
+.slider-counter {
+  background: rgba(27, 67, 50, 0.85);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+/* Mobile gallery */
+@media (max-width: 749px) {
+  .thumbnail-list__item {
+    flex: 0 0 70px !important;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .thumbnail-list__item .thumbnail {
+    border-radius: 10px !important;
+  }
+
+  .product__media-wrapper .product__media-item,
+  .product__media img {
+    border-radius: 12px !important;
+  }
+
+  .slider-button {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-list__item {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .thumbnail-list {
+    gap: 8px !important;
+  }
+}
+
+/* ============================================================
    MOBILE RESPONSIVE — Comprehensive Mobile-First Improvements
    ============================================================ */
 
