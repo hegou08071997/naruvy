@@ -1,0 +1,46 @@
+<style>
+  /* ── Brand Statement image fallback ── */
+  .image-with-text__media:not(:has(img)),
+  .image-with-text__media.image-with-text__media--placeholder {
+    background-image: url("{{ 'banner-brand.jpg' | asset_url }}");
+    background-size: cover;
+    background-position: center;
+    min-height: 480px;
+  }
+
+  /* ── Collection / Category card image fallbacks ── */
+  .collection-list .collection-list__item:nth-child(1) .card__media:not(:has(img)),
+  .collection-list .collection-list__item:nth-child(1) .card__media.placeholder {
+    background-image: url("{{ 'banner-category-1.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+  .collection-list .collection-list__item:nth-child(2) .card__media:not(:has(img)),
+  .collection-list .collection-list__item:nth-child(2) .card__media.placeholder {
+    background-image: url("{{ 'banner-category-2.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+  .collection-list .collection-list__item:nth-child(3) .card__media:not(:has(img)),
+  .collection-list .collection-list__item:nth-child(3) .card__media.placeholder {
+    background-image: url("{{ 'banner-category-3.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+  .collection-list .collection-list__item:nth-child(4) .card__media:not(:has(img)),
+  .collection-list .collection-list__item:nth-child(4) .card__media.placeholder {
+    background-image: url("{{ 'banner-category-4.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+
+  /* ── Collage image fallbacks ── */
+  .collage-card:nth-child(1) .card__media:not(:has(img)) {
+    background-image: url("{{ 'collage-main.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 400px;
+  }
+  .collage-card:nth-child(2) .card__media:not(:has(img)) {
+    background-image: url("{{ 'collage-product.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+  .collage-card:nth-child(3) .card__media:not(:has(img)) {
+    background-image: url("{{ 'banner-category-4.jpg' | asset_url }}");
+    background-size: cover; background-position: center; min-height: 280px;
+  }
+</style>

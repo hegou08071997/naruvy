@@ -1,210 +1,235 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+
+    "slideshow": {
+      "type": "slideshow",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide_1": {
+          "type": "slide",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "heading": "Eco-Friendly\nKitchenware for\na greener home",
+            "heading_size": "h0",
+            "subheading": "Sustainable kitchen essentials crafted from bamboo, glass and recycled steel — thoughtfully designed for the modern eco-conscious home.",
+            "button_label": "Shop Eco Essentials →",
+            "button_link": "shopify://collections/all",
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "box_align": "middle-left",
+            "show_text_box": true,
+            "text_alignment": "left",
+            "image_overlay_opacity": 50,
+            "color_scheme": "scheme-3"
           }
         },
-        "text": {
-          "type": "text",
+        "slide_2": {
+          "type": "slide",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "heading": "Sustainable\nLiving Starts\nin the Kitchen",
+            "heading_size": "h0",
+            "subheading": "Every Homerline piece is made to last — reducing waste, enriching meals and nurturing the planet, one kitchen at a time.",
+            "button_label": "Explore Collection →",
+            "button_link": "shopify://collections/all",
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "box_align": "middle-left",
+            "show_text_box": true,
+            "text_alignment": "left",
+            "image_overlay_opacity": 50,
+            "color_scheme": "scheme-3"
           }
         },
-        "button": {
-          "type": "buttons",
+        "slide_3": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "Beautifully\nCrafted.\nThoughtfully Made.",
+            "heading_size": "h0",
+            "subheading": "Premium bamboo and glass kitchenware that brings warmth, beauty and intention to every meal.",
+            "button_label": "View Collections →",
+            "button_link": "shopify://collections",
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 50,
+            "color_scheme": "scheme-3"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["slide_1", "slide_2", "slide_3"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "accessibility_info": "Homepage slideshow showcasing eco-friendly kitchenware"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+
+    "featured_products": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Bestselling in Products",
+        "heading_size": "h2",
+        "description": "<p>Eco Essentials · Planet-Friendly</p>",
+        "show_description": true,
+        "description_style": "subtitle",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_quick_add": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+
+    "brand_statement": {
+      "type": "image-with-text",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Sustainable kitchenware you can trust for years to come",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>From everyday meals and entertaining lifestyle. Each piece is thoughtfully crafted from sustainable materials to last lifetimes.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Our Story →",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": true
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["heading", "text", "button"],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
+        "image_position": "left",
+        "color_scheme": "scheme-2",
+        "text_alignment": "left",
+        "image_behavior": "zoom-in",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "height": "large"
+      }
+    },
+
+    "trust_bar": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"shrine-trust-bar\"><div class=\"page-width\"><div class=\"shrine-trust-grid\"><div class=\"shrine-trust-item\"><div class=\"shrine-trust-icon\"><svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#1B4332\" stroke-width=\"1.5\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"/><path d=\"M2 17l10 5 10-5\"/><path d=\"M2 12l10 5 10-5\"/></svg></div><div class=\"shrine-trust-text\"><strong>Natural<br>Materials</strong></div></div><div class=\"shrine-trust-item\"><div class=\"shrine-trust-icon\"><svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#1B4332\" stroke-width=\"1.5\"><path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"/></svg></div><div class=\"shrine-trust-text\"><strong>Eco<br>Innovation</strong></div></div><div class=\"shrine-trust-item\"><div class=\"shrine-trust-icon\"><svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#1B4332\" stroke-width=\"1.5\"><path d=\"M7 2v11h3v9l7-12h-4l4-8z\"/></svg></div><div class=\"shrine-trust-text\"><strong>Sustainable<br>Sourcing</strong></div></div></div></div></div>",
+        "padding_top": 0,
         "padding_bottom": 0
       }
     },
-    "featured_collection": {
+
+    "categories_section": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"shrine-categories\"><div class=\"page-width\"><div class=\"shrine-section-header\"><div><span class=\"shrine-eyebrow\">Explore our thoughtful and planet-first</span><h2 class=\"shrine-section-title\">Categories</h2></div><div class=\"shrine-section-nav\"><button class=\"shrine-nav-btn\" id=\"shrine-cat-prev\" aria-label=\"Previous\">&#8592;</button><button class=\"shrine-nav-btn\" id=\"shrine-cat-next\" aria-label=\"Next\">&#8594;</button></div></div><div class=\"shrine-category-track\" id=\"shrine-cat-track\"><a href=\"/collections/all\" class=\"shrine-category-card\"><div class=\"shrine-cat-img\"><img src=\"{{ 'banner-category-1.jpg' | asset_url }}\" alt=\"Eco Crafts\" onerror=\"this.style.background='linear-gradient(135deg,#2D6A4F,#52B788)'\"></div><div class=\"shrine-cat-overlay\"><span class=\"shrine-cat-label\">Eco<br>Crafts</span><span class=\"shrine-cat-tag\">New</span></div></a><a href=\"/collections/all\" class=\"shrine-category-card\"><div class=\"shrine-cat-img\"><img src=\"{{ 'banner-category-2.jpg' | asset_url }}\" alt=\"Smart Innovations\" onerror=\"this.style.background='linear-gradient(135deg,#1B4332,#40916C)'\"></div><div class=\"shrine-cat-overlay\"><span class=\"shrine-cat-label\">Smart<br>Innovations</span><span class=\"shrine-cat-tag\">Hot</span></div></a><a href=\"/collections/all\" class=\"shrine-category-card\"><div class=\"shrine-cat-img\"><img src=\"{{ 'banner-category-3.jpg' | asset_url }}\" alt=\"Reusables\" onerror=\"this.style.background='linear-gradient(135deg,#40916C,#74C69D)'\"></div><div class=\"shrine-cat-overlay\"><span class=\"shrine-cat-label\">Reusables</span><span class=\"shrine-cat-tag\">New</span></div></a><a href=\"/collections/all\" class=\"shrine-category-card\"><div class=\"shrine-cat-img\"><img src=\"{{ 'banner-category-4.jpg' | asset_url }}\" alt=\"Premium Sets\" onerror=\"this.style.background='linear-gradient(135deg,#081C15,#1B4332)'\"></div><div class=\"shrine-cat-overlay\"><span class=\"shrine-cat-label\">Premium<br>Sets</span><span class=\"shrine-cat-tag\">Sale</span></div></a><a href=\"/collections/all\" class=\"shrine-category-card\"><div class=\"shrine-cat-img\"><img src=\"{{ 'banner-hero.jpg' | asset_url }}\" alt=\"Cookware\" onerror=\"this.style.background='linear-gradient(135deg,#52B788,#95D5B2)'\"></div><div class=\"shrine-cat-overlay\"><span class=\"shrine-cat-label\">Cookware</span><span class=\"shrine-cat-tag\">Best</span></div></a></div></div></section><script>(function(){var t=document.getElementById('shrine-cat-track');var p=document.getElementById('shrine-cat-prev');var n=document.getElementById('shrine-cat-next');var s=300;if(n&&t)n.addEventListener('click',function(){t.scrollBy({left:s,behavior:'smooth'});});if(p&&t)p.addEventListener('click',function(){t.scrollBy({left:-s,behavior:'smooth'});});})();</script>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+
+    "new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Best sellers",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_quick_add": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
+
+    "gallery": {
+      "type": "custom-liquid",
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "custom_liquid": "<section class=\"shrine-gallery\"><div class=\"page-width\"><div class=\"shrine-section-header\"><div><span class=\"shrine-eyebrow\">Thoughtful, Planet-Prioritizing Ideas and Inspirations in</span><h2 class=\"shrine-section-title\">Gallery</h2></div><div class=\"shrine-section-nav\"><button class=\"shrine-nav-btn\" aria-label=\"Previous\">&#8592;</button><button class=\"shrine-nav-btn\" aria-label=\"Next\">&#8594;</button></div></div><div class=\"shrine-gallery-grid\"><div class=\"shrine-gallery-img\"><img src=\"{{ 'banner-hero.jpg' | asset_url }}\" alt=\"Greens and herbs\" loading=\"lazy\"></div><div class=\"shrine-gallery-img\"><img src=\"{{ 'banner-category-1.jpg' | asset_url }}\" alt=\"Crafted Tools\" loading=\"lazy\"></div><div class=\"shrine-gallery-img\"><img src=\"{{ 'banner-category-2.jpg' | asset_url }}\" alt=\"Tea moments\" loading=\"lazy\"></div><div class=\"shrine-gallery-img\"><img src=\"{{ 'collage-product.jpg' | asset_url }}\" alt=\"Glassware\" loading=\"lazy\"></div><div class=\"shrine-gallery-img\"><img src=\"{{ 'banner-brand.jpg' | asset_url }}\" alt=\"Wooden craft\" loading=\"lazy\"></div></div></div></section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "video": {
-      "type": "video",
+
+    "testimonials": {
+      "type": "custom-liquid",
       "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "custom_liquid": "<section class=\"shrine-testimonials\"><div class=\"page-width\"><div class=\"shrine-testimonials__layout\"><div class=\"shrine-testimonials__rating\"><div class=\"shrine-rating-score\">4.9</div><div class=\"shrine-rating-stars\">★★★★★</div><div class=\"shrine-rating-text\">From Over 12,000+<br>Real Verified Reviews</div></div><div class=\"shrine-testimonials__grid\"><div class=\"shrine-review-card\"><div class=\"shrine-quote-mark\">“</div><p class=\"shrine-review-text\">Wonderful eco kitchenware! The bamboo utensils feel premium and have lasted over a year of daily use.</p><div class=\"shrine-review-author\"><strong>Sarah M.</strong><span>Verified Buyer</span></div></div><div class=\"shrine-review-card\"><div class=\"shrine-quote-mark\">“</div><p class=\"shrine-review-text\">Beautiful, well-made and worth every penny. The glassware is exquisite and the cookware heats evenly.</p><div class=\"shrine-review-author\"><strong>James T.</strong><span>Verified Buyer</span></div></div><div class=\"shrine-review-card\"><div class=\"shrine-quote-mark\">“</div><p class=\"shrine-review-text\">Sustainable design that actually performs. I love that everything is recyclable and reusable.</p><div class=\"shrine-review-author\"><strong>Anika L.</strong><span>Verified Buyer</span></div></div><div class=\"shrine-review-card\"><div class=\"shrine-quote-mark\">“</div><p class=\"shrine-review-text\">Beautiful packaging, fast delivery and gorgeous products. My new go-to for kitchen gifts.</p><div class=\"shrine-review-author\"><strong>Maya P.</strong><span>Verified Buyer</span></div></div></div></div></div></section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+
+    "commitment_statement": {
+      "type": "custom-liquid",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "custom_liquid": "<section class=\"shrine-commitment\"><div class=\"page-width\"><p class=\"shrine-commitment-text\">Discover our commitment to <span class=\"shrine-highlight-leaf\">🌿 sustainable</span> materials, low-impact production, and <span class=\"shrine-highlight-italic\">ethical sourcing</span> partnerships — all crafted to support a healthier planet and a <span class=\"shrine-highlight-leaf\">🌱 greener kitchen</span>.</p></div></section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+
+    "recipes_cta": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"shrine-recipes-cta\"><div class=\"page-width\"><div class=\"shrine-cta-card\"><div class=\"shrine-cta-content\"><span class=\"shrine-cta-eyebrow\">Get Recipes</span><h2 class=\"shrine-cta-heading\">10% Off</h2><p class=\"shrine-cta-text\">Sign up to our weekly recipes and get an instant 10% discount code in your inbox.</p><form class=\"shrine-cta-form\" action=\"/contact#contact_form\" method=\"post\"><input type=\"hidden\" name=\"form_type\" value=\"contact\"><input type=\"hidden\" name=\"utf8\" value=\"✓\"><input type=\"email\" name=\"contact[email]\" placeholder=\"Enter your email\" required class=\"shrine-cta-input\"><button type=\"submit\" class=\"shrine-cta-btn\">Subscribe →</button></form></div><div class=\"shrine-cta-images\"><div class=\"shrine-cta-img shrine-cta-img--1\"><img src=\"{{ 'banner-category-1.jpg' | asset_url }}\" alt=\"Recipe 1\" loading=\"lazy\"></div><div class=\"shrine-cta-img shrine-cta-img--2\"><img src=\"{{ 'banner-category-2.jpg' | asset_url }}\" alt=\"Recipe 2\" loading=\"lazy\"></div><div class=\"shrine-cta-img shrine-cta-img--3\"><img src=\"{{ 'banner-category-3.jpg' | asset_url }}\" alt=\"Recipe 3\" loading=\"lazy\"></div></div></div></div></section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+
+    "footer_brand": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"shrine-footer-brand\"><div class=\"page-width\"><div class=\"shrine-footer-tagline\"><p>Homerline promotes sustainable dining with beautifully crafted bamboo and glass <em>Kitchenware</em></p></div><h1 class=\"shrine-megabrand\">Homerline</h1></div></section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
+
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "slideshow",
+    "featured_products",
+    "brand_statement",
+    "trust_bar",
+    "categories_section",
+    "new_arrivals",
+    "gallery",
+    "testimonials",
+    "commitment_statement",
+    "recipes_cta",
+    "footer_brand"
   ]
 }

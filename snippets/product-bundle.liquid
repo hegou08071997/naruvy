@@ -1,0 +1,341 @@
+{%- comment -%}
+  Renders the 3-tier "Buy More Save More" bundle inside the product info column.
+  Usage: {% render 'product-bundle', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign price = current_variant.price
+
+  assign tier_2_discount = 10
+  assign tier_3_discount = 20
+
+  assign tier_2_qty = 2
+  assign tier_3_qty = 3
+
+  assign tier_1_total = price
+  assign tier_2_full = price | times: tier_2_qty
+  assign tier_3_full = price | times: tier_3_qty
+
+  assign tier_2_save = tier_2_full | times: tier_2_discount | divided_by: 100
+  assign tier_3_save = tier_3_full | times: tier_3_discount | divided_by: 100
+
+  assign tier_2_total = tier_2_full | minus: tier_2_save
+  assign tier_3_total = tier_3_full | minus: tier_3_save
+-%}
+
+<div class="hl-bms" data-variant-id="{{ current_variant.id }}" data-bundle="true">
+  <div class="hl-bms__inner">
+
+    <div class="hl-bms__header">
+      <span class="hl-bms__divider"></span>
+      <h3 class="hl-bms__title">BUY MORE SAVE MORE</h3>
+      <span class="hl-bms__divider"></span>
+    </div>
+
+    <div class="hl-bms__list" role="radiogroup" aria-label="Bundle quantity">
+
+      <label class="hl-bms__row hl-bms__row--selected" data-qty="1">
+        <input type="radio" name="hl-bundle-tier" value="1" checked class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>BUY 1</strong>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_1_total | money }}</span>
+          {%- if current_variant.compare_at_price and current_variant.compare_at_price > price -%}
+            <span class="hl-bms__compare">{{ current_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+      </label>
+
+      <label class="hl-bms__row hl-bms__row--has-badge" data-qty="2">
+        <input type="radio" name="hl-bundle-tier" value="2" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy 2</strong>
+          <span class="hl-bms__save">You save {{ tier_2_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_2_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_2_full | money }}</span>
+        </div>
+        <span class="hl-bms__badge">Most Popular</span>
+      </label>
+
+      <label class="hl-bms__row" data-qty="3">
+        <input type="radio" name="hl-bundle-tier" value="3" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy 3</strong>
+          <span class="hl-bms__save">You save {{ tier_3_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_3_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_3_full | money }}</span>
+        </div>
+      </label>
+
+    </div>
+
+    <button type="button" class="hl-bms__cta" id="hl-bms-cta">Add to cart</button>
+
+  </div>
+</div>
+
+<style>
+.hl-bms {
+  margin: 24px 0;
+  font-family: inherit;
+}
+
+.hl-bms__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hl-bms__divider {
+  flex: 1;
+  height: 1px;
+  background: #1B4332;
+  opacity: 0.5;
+}
+
+.hl-bms__title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1B4332;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hl-bms__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hl-bms__row {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 2px solid #E8DFCF;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hl-bms__row:hover {
+  border-color: #95D5B2;
+}
+
+.hl-bms__row--selected {
+  background: #F4EFE6;
+  border-color: #1B4332;
+}
+
+.hl-bms__radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hl-bms__radio-visual {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #C5C5C5;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual {
+  border-color: #1B4332;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: #1B4332;
+  border-radius: 50%;
+}
+
+.hl-bms__label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.hl-bms__label strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.hl-bms__save {
+  font-size: 12px;
+  color: #4F5851;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hl-bms__price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hl-bms__price {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1B4332;
+  line-height: 1.1;
+}
+
+.hl-bms__compare {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+  line-height: 1.1;
+}
+
+.hl-bms__badge {
+  position: absolute;
+  top: -11px;
+  right: 14px;
+  background: #1B4332;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
+  white-space: nowrap;
+}
+
+.hl-bms__cta {
+  width: 100%;
+  margin-top: 16px;
+  padding: 16px 22px;
+  background: #1B4332;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.hl-bms__cta:hover {
+  background: #2D6A4F;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 67, 50, 0.2);
+}
+
+.hl-bms__cta[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 480px) {
+  .hl-bms__row {
+    padding: 13px 14px;
+    grid-template-columns: 20px 1fr auto;
+    gap: 10px;
+  }
+  .hl-bms__radio-visual { width: 18px; height: 18px; }
+  .hl-bms__label strong { font-size: 14px; }
+  .hl-bms__save { font-size: 11px; }
+  .hl-bms__price { font-size: 15px; }
+  .hl-bms__compare { font-size: 12px; }
+  .hl-bms__badge { font-size: 9px; padding: 4px 10px; top: -9px; }
+  .hl-bms__cta { padding: 14px 18px; font-size: 14px; }
+  .hl-bms__title { font-size: 11px; }
+}
+</style>
+
+<script>
+(function() {
+  var bundles = document.querySelectorAll('[data-bundle="true"]');
+  bundles.forEach(function(bundle) {
+    var rows = bundle.querySelectorAll('.hl-bms__row');
+    var cta = bundle.querySelector('#hl-bms-cta');
+    if (!cta) return;
+    var variantId = bundle.dataset.variantId;
+
+    rows.forEach(function(row) {
+      row.addEventListener('click', function() {
+        rows.forEach(function(r) {
+          r.classList.remove('hl-bms__row--selected');
+          var input = r.querySelector('input[type="radio"]');
+          if (input) input.checked = false;
+        });
+        row.classList.add('hl-bms__row--selected');
+        var input = row.querySelector('input[type="radio"]');
+        if (input) input.checked = true;
+      });
+    });
+
+    cta.addEventListener('click', function(e) {
+      e.preventDefault();
+      var selected = bundle.querySelector('.hl-bms__row--selected');
+      if (!selected) return;
+      var qty = parseInt(selected.dataset.qty, 10) || 1;
+      var originalText = cta.textContent;
+      cta.disabled = true;
+      cta.textContent = 'Adding...';
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: qty })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status) {
+          cta.textContent = 'Error - try again';
+          setTimeout(function() { cta.textContent = originalText; cta.disabled = false; }, 2000);
+        } else {
+          cta.textContent = '✓ Added';
+          setTimeout(function() { window.location.href = '/cart'; }, 500);
+        }
+      })
+      .catch(function() {
+        cta.textContent = 'Error - try again';
+        setTimeout(function() { cta.textContent = originalText; cta.disabled = false; }, 2000);
+      });
+    });
+
+    // Update variant id if variant picker changes
+    var form = bundle.closest('product-info');
+    if (form) {
+      form.addEventListener('change', function() {
+        var variantInput = form.querySelector('input[name="id"]');
+        if (variantInput) bundle.dataset.variantId = variantInput.value;
+      });
+    }
+  });
+})();
+</script>

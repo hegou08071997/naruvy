@@ -1,0 +1,462 @@
+{%- liquid
+  assign price = product.selected_or_first_available_variant.price
+
+  assign tier_2_discount = section.settings.tier_2_discount | default: 10
+  assign tier_3_discount = section.settings.tier_3_discount | default: 20
+
+  assign tier_1_qty = 1
+  assign tier_2_qty = 2
+  assign tier_3_qty = 3
+
+  assign tier_1_total = price | times: tier_1_qty
+  assign tier_2_full = price | times: tier_2_qty
+  assign tier_3_full = price | times: tier_3_qty
+
+  assign tier_2_save = tier_2_full | times: tier_2_discount | divided_by: 100
+  assign tier_3_save = tier_3_full | times: tier_3_discount | divided_by: 100
+
+  assign tier_2_total = tier_2_full | minus: tier_2_save
+  assign tier_3_total = tier_3_full | minus: tier_3_save
+
+  assign tier_2_compare = tier_2_full
+  assign tier_3_compare = tier_3_full
+-%}
+
+<section class="hl-bms" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-section-id="{{ section.id }}">
+  <div class="hl-bms__inner">
+
+    {%- if section.settings.show_header -%}
+      <div class="hl-bms__header">
+        <span class="hl-bms__divider"></span>
+        <h3 class="hl-bms__title">{{ section.settings.title | default: 'BUY MORE SAVE MORE' }}</h3>
+        <span class="hl-bms__divider"></span>
+      </div>
+    {%- endif -%}
+
+    <div class="hl-bms__list" role="radiogroup" aria-label="Bundle quantity">
+
+      {%- comment -%} Tier 1: BUY 1 — Default selected {%- endcomment -%}
+      <label class="hl-bms__row hl-bms__row--selected" data-qty="{{ tier_1_qty }}" data-total="{{ tier_1_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="1" checked class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>BUY {{ tier_1_qty }}</strong>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_1_total | money }}</span>
+          {%- if product.selected_or_first_available_variant.compare_at_price and product.selected_or_first_available_variant.compare_at_price > price -%}
+            <span class="hl-bms__compare">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+      </label>
+
+      {%- comment -%} Tier 2: BUY 2 — Most Popular {%- endcomment -%}
+      <label class="hl-bms__row hl-bms__row--has-badge" data-qty="{{ tier_2_qty }}" data-total="{{ tier_2_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="2" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy {{ tier_2_qty }}</strong>
+          <span class="hl-bms__save">You save {{ tier_2_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_2_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_2_compare | money }}</span>
+        </div>
+        <span class="hl-bms__badge">Most Popular</span>
+      </label>
+
+      {%- comment -%} Tier 3: BUY 3 — Best Value {%- endcomment -%}
+      <label class="hl-bms__row" data-qty="{{ tier_3_qty }}" data-total="{{ tier_3_total }}">
+        <input type="radio" name="hl-bundle-tier-{{ section.id }}" value="3" class="hl-bms__radio">
+        <span class="hl-bms__radio-visual"></span>
+        <div class="hl-bms__label">
+          <strong>Buy {{ tier_3_qty }}</strong>
+          <span class="hl-bms__save">You save {{ tier_3_discount }}%</span>
+        </div>
+        <div class="hl-bms__price-block">
+          <span class="hl-bms__price">{{ tier_3_total | money }}</span>
+          <span class="hl-bms__compare">{{ tier_3_compare | money }}</span>
+        </div>
+      </label>
+
+    </div>
+
+    <button type="button" class="hl-bms__cta" id="hl-bms-cta-{{ section.id }}">
+      {{ section.settings.button_label | default: 'Add to cart' }}
+    </button>
+
+  </div>
+</section>
+
+<style>
+.hl-bms {
+  margin: 28px 0;
+  font-family: inherit;
+}
+
+.hl-bms__inner {
+  max-width: 100%;
+}
+
+/* Header */
+.hl-bms__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E8DFCF;
+}
+
+.hl-bms__divider {
+  flex: 1;
+  height: 1px;
+  background: #1B4332;
+}
+
+.hl-bms__title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1B4332;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* List */
+.hl-bms__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Row */
+.hl-bms__row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 2px solid #E8DFCF;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hl-bms__row:hover {
+  border-color: #95D5B2;
+}
+
+.hl-bms__row--selected {
+  background: #F4EFE6;
+  border-color: #1B4332;
+}
+
+/* Hide native radio */
+.hl-bms__radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom radio visual */
+.hl-bms__radio-visual {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #C5C5C5;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual {
+  border-color: #1B4332;
+}
+
+.hl-bms__row--selected .hl-bms__radio-visual::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: #1B4332;
+  border-radius: 50%;
+}
+
+/* Label */
+.hl-bms__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hl-bms__label strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.hl-bms__save {
+  font-size: 13px;
+  color: #4F5851;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Price block */
+.hl-bms__price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hl-bms__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1B4332;
+  line-height: 1.1;
+}
+
+.hl-bms__compare {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  line-height: 1.1;
+}
+
+/* Most Popular badge */
+.hl-bms__badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: #1B4332;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
+  white-space: nowrap;
+}
+
+/* CTA button */
+.hl-bms__cta {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px 24px;
+  background: #1B4332;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.hl-bms__cta:hover {
+  background: #2D6A4F;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 67, 50, 0.2);
+}
+
+.hl-bms__cta:active {
+  transform: translateY(0);
+}
+
+.hl-bms__cta[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hl-bms__row {
+    padding: 14px 16px;
+    gap: 10px;
+    grid-template-columns: 22px 1fr auto;
+  }
+
+  .hl-bms__radio-visual {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hl-bms__label strong {
+    font-size: 14px;
+  }
+
+  .hl-bms__save {
+    font-size: 12px;
+  }
+
+  .hl-bms__price {
+    font-size: 16px;
+  }
+
+  .hl-bms__compare {
+    font-size: 12px;
+  }
+
+  .hl-bms__badge {
+    top: -10px;
+    right: 12px;
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .hl-bms__cta {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .hl-bms__title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var section = document.querySelector('[data-section-id="{{ section.id }}"]');
+  if (!section) return;
+
+  var rows = section.querySelectorAll('.hl-bms__row');
+  var cta = section.querySelector('#hl-bms-cta-{{ section.id }}');
+  var variantId = section.dataset.variantId;
+
+  rows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      rows.forEach(function(r) {
+        r.classList.remove('hl-bms__row--selected');
+        var input = r.querySelector('input[type="radio"]');
+        if (input) input.checked = false;
+      });
+      row.classList.add('hl-bms__row--selected');
+      var input = row.querySelector('input[type="radio"]');
+      if (input) input.checked = true;
+    });
+  });
+
+  cta.addEventListener('click', function(e) {
+    e.preventDefault();
+    var selected = section.querySelector('.hl-bms__row--selected');
+    if (!selected) return;
+
+    var qty = parseInt(selected.dataset.qty, 10) || 1;
+    var originalText = cta.textContent;
+    cta.disabled = true;
+    cta.textContent = 'Adding...';
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.status) {
+        cta.textContent = 'Error - try again';
+        setTimeout(function() {
+          cta.textContent = originalText;
+          cta.disabled = false;
+        }, 2000);
+      } else {
+        cta.textContent = '✓ Added to cart';
+        setTimeout(function() {
+          window.location.href = '/cart';
+        }, 600);
+      }
+    })
+    .catch(function() {
+      cta.textContent = 'Error - try again';
+      setTimeout(function() {
+        cta.textContent = originalText;
+        cta.disabled = false;
+      }, 2000);
+    });
+  });
+
+  // Update variant id when variant changes
+  document.addEventListener('variant:change', function(e) {
+    if (e.detail && e.detail.variant && e.detail.variant.id) {
+      section.dataset.variantId = e.detail.variant.id;
+      variantId = e.detail.variant.id;
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Homerline Bundle",
+  "tag": "section",
+  "class": "section section-homerline-bundle",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show 'Buy More Save More' header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Header title",
+      "default": "BUY MORE SAVE MORE"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "header",
+      "content": "Discount tiers"
+    },
+    {
+      "type": "range",
+      "id": "tier_2_discount",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Buy 2 discount",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "tier_3_discount",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Buy 3 discount",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homerline Bundle"
+    }
+  ]
+}
+{% endschema %}
