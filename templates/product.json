@@ -100,16 +100,6 @@
         "padding_bottom": 12
       }
     },
-    "homerline-bundle": {
-      "type": "homerline-bundle",
-      "settings": {
-        "eyebrow": "🎁 Bundle & Save",
-        "title": "Choose your bundle",
-        "subtitle": "Stock up on your favourites and save more — every bundle ships free.",
-        "tier_2_discount": 10,
-        "tier_3_discount": 20
-      }
-    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -207,7 +197,6 @@
   },
   "order": [
     "main",
-    "homerline-bundle",
     "image-with-text",
     "multicolumn",
     "related-products"
