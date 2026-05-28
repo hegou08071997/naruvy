@@ -32,12 +32,15 @@
  */
 
 // Cart custom elements that advertise sections via getSectionsToRender().
+// If Dawn adds a new cart custom element, add its tag here.
 const DAWN_CART_TAGS = ['cart-drawer', 'cart-items', 'cart-drawer-items', 'cart-notification'];
 
 // Sections that Dawn's own pubsub subscribers refresh (cart.js's
-// onCartUpdate fetches and replaces these directly when cart-update
-// fires). We skip them here to avoid double-rendering. Format is
-// '<element-tag>:<getSectionsToRender entry id>'.
+// CartItems#onCartUpdate fetches and replaces these directly when
+// cart-update fires; cart-drawer.js's renderContents handles the
+// drawer body). We skip them here to avoid double-rendering.
+// Format is '<element-tag>:<getSectionsToRender entry id>'.
+// If you change which sections those subscribers refresh, update this set.
 const DAWN_PUBSUB_REFRESHED_SECTIONS = new Set([
   'cart-drawer:cart-drawer',
   'cart-drawer-items:CartDrawer',
@@ -92,34 +95,39 @@ function collectCartSections() {
 // After a Storefront API mutation, refresh every Dawn cart section
 // that isn't already refreshed by Dawn's own pubsub subscribers, then
 // publish 'cart-update' so the subscribers run.
+//
+// We always fetch /cart.js (with sections= when we have any) so that
+// `cartData` is defined for subscribers. quick-add-bulk.js reads
+// `event.cartData.items` unconditionally — publishing without cartData
+// makes it throw.
 async function refreshDawnCartUI() {
   const sections = collectCartSections();
+  const sectionsQuery = sections.size
+    ? `?sections=${[...sections.keys()].join(',')}`
+    : '';
+  const url = `${routes.cart_url}.js${sectionsQuery}`;
+  const cartData = await fetch(url, { headers: { Accept: 'application/json' } })
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null);
 
-  let cartData = null;
-  if (sections.size > 0) {
-    const url = `${routes.cart_url}.js?sections=${[...sections.keys()].join(',')}`;
-    cartData = await fetch(url, { headers: { Accept: 'application/json' } })
-      .then((r) => (r.ok ? r.json() : null))
-      .catch(() => null);
-
-    if (cartData?.sections) {
-      for (const [id, { mount, extractSelector }] of sections) {
-        const html = cartData.sections[id];
-        if (!html) continue;
-        const source = new DOMParser()
-          .parseFromString(html, 'text/html')
-          .querySelector(extractSelector);
-        if (source) mount.replaceChildren(...source.childNodes);
-      }
+  if (cartData?.sections) {
+    for (const [id, { mount, extractSelector }] of sections) {
+      const html = cartData.sections[id];
+      if (!html) continue;
+      const source = new DOMParser()
+        .parseFromString(html, 'text/html')
+        .querySelector(extractSelector);
+      if (source) mount.replaceChildren(...source.childNodes);
     }
   }
 
   // Hand off to Dawn's existing subscribers. cartData is the full
   // Cart Ajax payload (items, item_count, token, …) plus sections;
   // quick-add-bulk.js and price-per-item.js read it directly.
-  const payload = { source: 'external-refresh' };
-  if (cartData) payload.cartData = cartData;
-  publish(PUB_SUB_EVENTS.cartUpdate, payload);
+  publish(PUB_SUB_EVENTS.cartUpdate, {
+    source: 'external-refresh',
+    cartData: cartData ?? undefined,
+  });
 }
 
 function initStandardActions() {
@@ -127,20 +135,22 @@ function initStandardActions() {
   if (!actions) return;
 
   actions.openCart.configure({
-    async handler() {
+    async handler(defaultHandler) {
       const drawer = document.querySelector('cart-drawer');
       if (drawer && typeof drawer.open === 'function') {
         drawer.open();
-      } else {
-        window.location.href = routes?.cart_url || '/cart';
+        return;
       }
-      return {};
+      return defaultHandler();
     },
   });
 
   actions.updateCart.configure({
-    async handler(defaultHandler, ...args) {
-      const result = await defaultHandler(...args);
+    // Dawn doesn't currently listen for shopify:cart:* events, but the
+    // bundle requires an eventTarget. document is the conventional root.
+    eventTarget: () => document,
+    async handler(defaultHandler) {
+      const result = await defaultHandler();
       try {
         await refreshDawnCartUI();
       } catch (error) {
