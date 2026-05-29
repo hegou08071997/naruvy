@@ -12,7 +12,7 @@ source 'https://rubygems.org/' do
   gem 'ostruct', '~> 0.6.3'
   gem 'rake'
   gem 'rubocop'
-  gem 'rubocop-rake', require: false
+  gem 'rubocop-rake',
   gem 'ruby-lsp', require: false
   gem 'theme-check'
   gem 'tty-prompt'

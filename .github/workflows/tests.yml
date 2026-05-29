@@ -5,6 +5,18 @@ on:
   workflow_call:
 
 jobs:
+  # https://github.com/rhysd/actionlint
+  action_lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check Out Code
+        uses: actions/checkout@v4
+
+      - name: Action Lint
+        uses: rhysd/actionlint@v1.7.12
+
   # https://github.com/arthurnn/code-scanning-rubocop
   rubocop:
     runs-on: ubuntu-latest
@@ -19,7 +31,7 @@ jobs:
         with:
           bundler-cache: true
           # runs 'bundle install' and caches installed gems automatically
-          # ruby-version: 3.4.3 - uses .ruby-version file
+          # ruby-version: 4.0.5 - uses .ruby-version file
 
       - name: Rubocop
         run: bundle exec rubocop --display-cop-names
@@ -55,15 +67,3 @@ jobs:
         uses: bewuethr/yamllint-action@v1
         with:
           config-file: .yamllint
-
-  # https://github.com/rhysd/actionlint
-  action_lint:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Check Out Code
-        uses: actions/checkout@v4
-
-      - name: Action Lint
-        uses: rhysd/actionlint@v1.7.12
