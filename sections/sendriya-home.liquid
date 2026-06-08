@@ -1,0 +1,415 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign hero_collection = section.settings.featured_collection
+  assign hero_product = section.settings.hero_product
+
+  if hero_product == blank and hero_collection != blank and hero_collection.products.size > 0
+    assign hero_product = hero_collection.products.first
+  endif
+
+  if hero_product == blank and collections.all.products.size > 0
+    assign hero_product = collections.all.products.first
+  endif
+
+  assign primary_link = section.settings.primary_link
+  if primary_link == blank
+    assign primary_link = routes.all_products_collection_url
+  endif
+
+  assign secondary_link = section.settings.secondary_link
+  if secondary_link == blank
+    assign secondary_link = routes.all_products_collection_url
+  endif
+-%}
+
+<section class="sl-home section-{{ section.id }}" aria-labelledby="SendriyaHomeTitle-{{ section.id }}">
+  <div class="sl-home__hero page-width">
+    <div class="sl-home__copy">
+      {%- if section.settings.kicker != blank -%}
+        <p class="sl-home__kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+
+      <h1 id="SendriyaHomeTitle-{{ section.id }}" class="sl-home__title">
+        {{ section.settings.heading }}
+      </h1>
+
+      {%- if section.settings.text != blank -%}
+        <div class="sl-home__text rte">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+
+      <div class="sl-home__actions">
+        <a class="button button--primary" href="{{ primary_link }}">
+          {{ section.settings.primary_label | escape }}
+        </a>
+        <a class="button button--secondary" href="{{ secondary_link }}">
+          {{ section.settings.secondary_label | escape }}
+        </a>
+      </div>
+
+      <ul class="sl-home__proof" role="list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'trust_badge' -%}
+            <li class="sl-home__proof-item" {{ block.shopify_attributes }}>
+              <span class="sl-home__proof-icon" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'leaf' -%}
+                    {{ 'icon-leaf.svg' | inline_asset_content }}
+                  {%- when 'check' -%}
+                    {{ 'icon-checkmark.svg' | inline_asset_content }}
+                  {%- when 'bottle' -%}
+                    {{ 'icon-bottle.svg' | inline_asset_content }}
+                  {%- when 'star' -%}
+                    {{ 'icon-star.svg' | inline_asset_content }}
+                  {%- else -%}
+                    {{ 'icon-plant.svg' | inline_asset_content }}
+                {%- endcase -%}
+              </span>
+              <span>{{ block.settings.label | escape }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <div class="sl-home__visual" aria-label="{{ section.settings.product_label | escape }}">
+      <div class="sl-home__brand-mark" aria-hidden="true">
+        <img src="{{ 'sendriya-brand-icon.svg' | asset_url }}" alt="" loading="eager" width="180" height="180">
+      </div>
+
+      <div class="sl-home__product-stage">
+        {%- if hero_product != blank and hero_product.featured_media != blank -%}
+          {%- assign hero_image = hero_product.featured_media.preview_image -%}
+          <a href="{{ hero_product.url }}" class="sl-home__product-link" aria-label="{{ hero_product.title | escape }}">
+            <img
+              srcset="
+                {%- if hero_image.width >= 360 -%}{{ hero_image | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if hero_image.width >= 540 -%}{{ hero_image | image_url: width: 540 }} 540w,{%- endif -%}
+                {%- if hero_image.width >= 720 -%}{{ hero_image | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if hero_image.width >= 900 -%}{{ hero_image | image_url: width: 900 }} 900w,{%- endif -%}
+                {{ hero_image | image_url }} {{ hero_image.width }}w
+              "
+              src="{{ hero_image | image_url: width: 720 }}"
+              sizes="(min-width: 990px) 42vw, 86vw"
+              alt="{{ hero_image.alt | default: hero_product.title | escape }}"
+              loading="eager"
+              width="{{ hero_image.width }}"
+              height="{{ hero_image.height }}"
+            >
+          </a>
+          <div class="sl-home__product-caption">
+            <span>{{ section.settings.product_label | escape }}</span>
+            <a href="{{ hero_product.url }}">{{ hero_product.title | escape }}</a>
+            <strong>{{ hero_product.price | money }}</strong>
+          </div>
+        {%- else -%}
+          <div class="sl-home__fallback-product">
+            <img src="{{ 'sendriya-circular-logo.svg' | asset_url }}" alt="Sendriya Life" loading="eager" width="260" height="260">
+            <span>{{ section.settings.product_label | escape }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-home__marquee" aria-hidden="true">
+    <div class="sl-home__marquee-track">
+      <span>Pure by nature</span>
+      <span>Nourish</span>
+      <span>Balance</span>
+      <span>Thrive</span>
+      <span>Good for life</span>
+      <span>Pure by nature</span>
+      <span>Nourish</span>
+      <span>Balance</span>
+      <span>Thrive</span>
+      <span>Good for life</span>
+    </div>
+  </div>
+
+  <div class="sl-home__collection page-width">
+    <div class="sl-home__section-head">
+      <p class="sl-home__kicker">{{ section.settings.collection_kicker | escape }}</p>
+      <h2>{{ section.settings.collection_heading }}</h2>
+      {%- if section.settings.collection_text != blank -%}
+        <div class="rte">{{ section.settings.collection_text }}</div>
+      {%- endif -%}
+    </div>
+
+    <ul class="sl-home__product-grid grid product-grid grid--4-col-desktop grid--2-col-tablet-down" role="list">
+      {%- if hero_collection != blank and hero_collection.products.size > 0 -%}
+        {%- for product in hero_collection.products limit: 4 -%}
+          <li class="grid__item">
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: 'adapt',
+              image_shape: 'default',
+              show_secondary_image: true,
+              show_vendor: false,
+              show_rating: false,
+              section_id: section.id,
+              quick_add: 'standard'
+            %}
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          {%- liquid
+            case i
+              when 1
+                assign placeholder_title = 'Daily Greens'
+                assign placeholder_text = 'Clean plant nourishment for everyday balance.'
+              when 2
+                assign placeholder_title = 'Immunity Support'
+                assign placeholder_text = 'Mindful support for your seasonal wellness routine.'
+              when 3
+                assign placeholder_title = 'Digestive Ease'
+                assign placeholder_text = 'Gentle daily support inspired by natural living.'
+              else
+                assign placeholder_title = 'Calm Ritual'
+                assign placeholder_text = 'A simple way to return to balance each day.'
+            endcase
+          -%}
+          <li class="grid__item">
+            <article class="sl-home__placeholder-card">
+              <img src="{{ 'sendriya-brand-icon.svg' | asset_url }}" alt="" loading="lazy" width="220" height="220">
+              <h3>{{ placeholder_title }}</h3>
+              <p>{{ placeholder_text }}</p>
+            </article>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+  </div>
+
+  <div class="sl-home__ritual page-width">
+    <div class="sl-home__ritual-panel">
+      <div class="sl-home__ritual-intro">
+        <p class="sl-home__kicker">{{ section.settings.ritual_kicker | escape }}</p>
+        <h2>{{ section.settings.ritual_heading }}</h2>
+      </div>
+
+      <div class="sl-home__ritual-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'ritual_card' -%}
+            <article class="sl-home__ritual-card" {{ block.shopify_attributes }}>
+              <span>{{ block.settings.step | escape }}</span>
+              <h3>{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sendriya homepage",
+  "tag": "section",
+  "class": "section section-sendriya-home",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Hero kicker",
+      "default": "Pure by nature"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Hero heading",
+      "default": "Daily wellness, made beautifully simple."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Hero text",
+      "default": "<p>Plant-forward supplements crafted for calm routines, clean nourishment, and everyday balance.</p>"
+    },
+    {
+      "type": "product",
+      "id": "hero_product",
+      "label": "Hero product"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured collection"
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Product label",
+      "default": "Featured supplement"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop supplements"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Explore rituals"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "collection_kicker",
+      "label": "Collection kicker",
+      "default": "Shop the essentials"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "collection_heading",
+      "label": "Collection heading",
+      "default": "Small rituals. Real daily support."
+    },
+    {
+      "type": "richtext",
+      "id": "collection_text",
+      "label": "Collection text",
+      "default": "<p>Choose clean, considered supplements for energy, immunity, digestion, and balanced living.</p>"
+    },
+    {
+      "type": "text",
+      "id": "ritual_kicker",
+      "label": "Ritual kicker",
+      "default": "Nourish. Balance. Thrive."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "ritual_heading",
+      "label": "Ritual heading",
+      "default": "A calmer way to shop wellness."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_badge",
+      "name": "Trust badge",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "leaf",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "check", "label": "Check" },
+            { "value": "bottle", "label": "Bottle" },
+            { "value": "star", "label": "Star" },
+            { "value": "plant", "label": "Plant" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Clean ingredients"
+        }
+      ]
+    },
+    {
+      "type": "ritual_card",
+      "name": "Ritual card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "step",
+          "label": "Step",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Start gentle"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Choose a focused supplement that fits naturally into your morning or evening routine."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sendriya homepage",
+      "blocks": [
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "leaf",
+            "label": "Plant-forward formulas"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "check",
+            "label": "Quality-first sourcing"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "bottle",
+            "label": "Daily wellness support"
+          }
+        },
+        {
+          "type": "ritual_card",
+          "settings": {
+            "step": "01",
+            "title": "Choose your focus",
+            "text": "Browse by the daily support you want: energy, balance, immunity, digestion, or calm."
+          }
+        },
+        {
+          "type": "ritual_card",
+          "settings": {
+            "step": "02",
+            "title": "Build a ritual",
+            "text": "Pair essentials into a simple routine that feels sustainable, clean, and easy to repeat."
+          }
+        },
+        {
+          "type": "ritual_card",
+          "settings": {
+            "step": "03",
+            "title": "Feel consistent",
+            "text": "Return to mindful nourishment every day with products designed for modern natural living."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

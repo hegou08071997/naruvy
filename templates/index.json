@@ -1,189 +1,147 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "sendriya_home": {
+      "type": "sendriya-home",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "trust_clean": {
+          "type": "trust_badge",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "icon": "leaf",
+            "label": "Plant-forward formulas"
           }
         },
-        "text": {
-          "type": "text",
+        "trust_quality": {
+          "type": "trust_badge",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "icon": "check",
+            "label": "Quality-first sourcing"
           }
         },
-        "button": {
-          "type": "buttons",
+        "trust_daily": {
+          "type": "trust_badge",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "bottle",
+            "label": "Daily wellness support"
+          }
+        },
+        "ritual_focus": {
+          "type": "ritual_card",
+          "settings": {
+            "step": "01",
+            "title": "Choose your focus",
+            "text": "Browse by the daily support you want: energy, balance, immunity, digestion, or calm."
+          }
+        },
+        "ritual_build": {
+          "type": "ritual_card",
+          "settings": {
+            "step": "02",
+            "title": "Build a ritual",
+            "text": "Pair essentials into a simple routine that feels sustainable, clean, and easy to repeat."
+          }
+        },
+        "ritual_repeat": {
+          "type": "ritual_card",
+          "settings": {
+            "step": "03",
+            "title": "Feel consistent",
+            "text": "Return to mindful nourishment every day with products designed for modern natural living."
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "trust_clean",
+        "trust_quality",
+        "trust_daily",
+        "ritual_focus",
+        "ritual_build",
+        "ritual_repeat"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "kicker": "Pure by nature",
+        "heading": "Supplements for a calmer, cleaner daily ritual.",
+        "text": "<p>Plant-forward wellness essentials crafted for simple routines, clean nourishment, and everyday balance.</p>",
+        "hero_product": "",
+        "featured_collection": "all",
+        "product_label": "Featured supplement",
+        "primary_label": "Shop supplements",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Explore rituals",
+        "secondary_link": "shopify://collections/all",
+        "collection_kicker": "Shop the essentials",
+        "collection_heading": "Small rituals. Real daily support.",
+        "collection_text": "<p>Choose clean, considered supplements for energy, immunity, digestion, and balanced living.</p>",
+        "ritual_kicker": "Nourish. Balance. Thrive.",
+        "ritual_heading": "A calmer way to shop wellness."
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "Bestselling wellness staples",
+        "heading_size": "h2",
+        "description": "<p>Premium formulas made for people who want natural choices without the noise.</p>",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "swipe_on_mobile": false,
+        "padding_top": 16,
+        "padding_bottom": 56
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
+    "trust_columns": {
       "type": "multicolumn",
       "blocks": {
-        "column1": {
+        "column_pure": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Pure by nature",
+            "text": "<p>Warm, thoughtful formulations inspired by natural wellness and everyday nourishment.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column2": {
+        "column_honest": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Honest essentials",
+            "text": "<p>Clear product stories, approachable routines, and no overwhelming wellness clutter.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column3": {
+        "column_balanced": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Balanced living",
+            "text": "<p>Designed to help customers make small, mindful choices that fit real life.</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "column_pure",
+        "column_honest",
+        "column_balanced"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "Why Sendriya Life",
+        "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -192,19 +150,50 @@
         "button_label": "",
         "button_link": "",
         "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 44,
+        "padding_bottom": 52
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the Sendriya ritual",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get clean routine ideas, new product notes, and thoughtful wellness offers.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 48,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
+    "sendriya_home",
     "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "trust_columns",
+    "newsletter"
   ]
 }
