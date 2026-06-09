@@ -27,6 +27,14 @@
           "type": "price",
           "settings": {}
         },
+        "inventory_MagKWg": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -39,6 +47,7 @@
         "title",
         "caption",
         "price",
+        "inventory_MagKWg",
         "buy_buttons"
       ],
       "settings": {
