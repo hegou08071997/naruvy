@@ -34,6 +34,14 @@
             "swatch_shape": "circle"
           }
         },
+        "inventory_necQ8j": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -51,6 +59,7 @@
         "caption",
         "price",
         "variant_picker",
+        "inventory_necQ8j",
         "buy_buttons",
         "description"
       ],
