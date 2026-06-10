@@ -132,35 +132,44 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var main = new Splide('#main-slider-{{ section.id }}', {
-        type: 'fade',
-        rewind: true,
-        pagination: false,
-        arrows: true,
-      });
+      const initSplide = () => {
+        if (typeof Splide === 'undefined') {
+          setTimeout(initSplide, 50);
+          return;
+        }
 
-      var thumbnails = new Splide('#thumbnail-slider-{{ section.id }}', {
-        fixedWidth: 80,
-        fixedHeight: 80,
-        gap: 10,
-        rewind: true,
-        pagination: false,
-        isNavigation: true,
-        direction: 'ttb',
-        height: '400px',
-        breakpoints: {
-          749: {
-            direction: 'ltr',
-            height: 'auto',
-            fixedWidth: 60,
-            fixedHeight: 60,
+        var main = new Splide('#main-slider-{{ section.id }}', {
+          type: 'fade',
+          rewind: true,
+          pagination: false,
+          arrows: true,
+        });
+
+        var thumbnails = new Splide('#thumbnail-slider-{{ section.id }}', {
+          fixedWidth: 80,
+          fixedHeight: 80,
+          gap: 10,
+          rewind: true,
+          pagination: false,
+          isNavigation: true,
+          direction: 'ttb',
+          height: '400px',
+          breakpoints: {
+            749: {
+              direction: 'ltr',
+              height: 'auto',
+              fixedWidth: 60,
+              fixedHeight: 60,
+            },
           },
-        },
-      });
+        });
 
-      main.sync(thumbnails);
-      main.mount();
-      thumbnails.mount();
+        main.sync(thumbnails);
+        main.mount();
+        thumbnails.mount();
+      };
+
+      initSplide();
     });
   </script>
 
