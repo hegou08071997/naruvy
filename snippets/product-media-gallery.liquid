@@ -51,6 +51,119 @@
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
+  <style>
+    .product-splide-container {
+      display: flex;
+      gap: 20px;
+    }
+    .splide__thumbnails {
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .splide__thumbnails .splide__slide {
+      opacity: 0.3;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .splide__thumbnails .splide__slide.is-active {
+      opacity: 1;
+    }
+    .splide__main {
+      flex-grow: 1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .splide__main img, .splide__thumbnails img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media screen and (max-width: 749px) {
+      .product-splide-container {
+        flex-direction: column-reverse;
+      }
+      .splide__thumbnails {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+      }
+      .splide__thumbnails .splide__slide {
+        width: 60px !important;
+        margin-right: 10px;
+      }
+    }
+    /* Hide default Dawn slider */
+    slider-component#GalleryViewer-{{ section.id }} {
+      display: none;
+    }
+    .thumbnail-list {
+      display: none !important;
+    }
+  </style>
+
+  <div class="product-splide-container">
+    <div id="thumbnail-slider-{{ section.id }}" class="splide splide__thumbnails">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {%- for media in product.media -%}
+            <li class="splide__slide">
+              {{ media.preview_image | image_url: width: 100 | image_tag }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
+    <div id="main-slider-{{ section.id }}" class="splide splide__main">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {%- for media in product.media -%}
+            <li class="splide__slide">
+              {{ media.preview_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var main = new Splide('#main-slider-{{ section.id }}', {
+        type: 'fade',
+        rewind: true,
+        pagination: false,
+        arrows: true,
+      });
+
+      var thumbnails = new Splide('#thumbnail-slider-{{ section.id }}', {
+        fixedWidth: 80,
+        fixedHeight: 80,
+        gap: 10,
+        rewind: true,
+        pagination: false,
+        isNavigation: true,
+        direction: 'ttb',
+        height: '400px',
+        breakpoints: {
+          749: {
+            direction: 'ltr',
+            height: 'auto',
+            fixedWidth: 60,
+            fixedHeight: 60,
+          },
+        },
+      });
+
+      main.sync(thumbnails);
+      main.mount();
+      thumbnails.mount();
+    });
+  </script>
+
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">

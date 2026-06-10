@@ -247,7 +247,44 @@ a.product__text {
 
 .product__title {
   word-break: break-word;
+  margin-bottom: 0.5rem;
+}
+
+.product__title h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.product__text.inline-richtext {
+  color: #8c8c8c;
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
+}
+
+.price-item--sale {
+  color: #4a7c44;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.price-item--regular {
+  text-decoration: line-through;
+  color: #8c8c8c;
+  margin-right: 1rem;
+}
+
+.product-form__submit {
+  background-color: #5d7c5a !important;
+  border-radius: 10px !important;
+  color: white !important;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.product-form__submit::after {
+  box-shadow: none !important;
 }
 
 .product__title > * {
