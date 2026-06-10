@@ -87,6 +87,77 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
+              {%- when 'icon-benefits' -%}
+                {%- style -%}
+                  .icon-benefits-{{ block.id }} {
+                    background-color: #f0f4e9;
+                    padding: 2rem 1.5rem;
+                    margin: 2rem 0;
+                    border-radius: 8px;
+                  }
+                  .icon-benefits-{{ block.id }} .icon-benefits {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 2rem;
+                    justify-items: center;
+                  }
+                  .icon-benefits-{{ block.id }} .icon-benefit__item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                  }
+                  .icon-benefits-{{ block.id }} .icon-benefit__icon {
+                    width: 40px;
+                    height: 40px;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2.4rem;
+                    background: white;
+                    border-radius: 50%;
+                    padding: 0.5rem;
+                  }
+                  .icon-benefits-{{ block.id }} .icon-benefit__text {
+                    font-size: 1.1rem;
+                    line-height: 1.2;
+                    color: #4a4a4a;
+                  }
+                  @media screen and (min-width: 750px) {
+                    .icon-benefits-{{ block.id }} .icon-benefits {
+                      grid-template-columns: repeat(6, 1fr);
+                    }
+                  }
+                {%- endstyle -%}
+                <div class="icon-benefits-{{ block.id }}" {{ block.shopify_attributes }}>
+                  <div class="icon-benefits">
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">🛡️</div>
+                      <div class="icon-benefit__text">Omega-Schutz</div>
+                    </div>
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">🔬</div>
+                      <div class="icon-benefit__text">Laborzertifiziert</div>
+                    </div>
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">🚫</div>
+                      <div class="icon-benefit__text">Gentechnikfrei</div>
+                    </div>
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">🍃</div>
+                      <div class="icon-benefit__text">Vegan</div>
+                    </div>
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">💧</div>
+                      <div class="icon-benefit__text">Omega-3-reich</div>
+                    </div>
+                    <div class="icon-benefit__item">
+                      <div class="icon-benefit__icon">🇩🇪</div>
+                      <div class="icon-benefit__text">Herstellung in Deutschland</div>
+                    </div>
+                  </div>
+                </div>
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
@@ -1463,6 +1534,11 @@
           "default": false
         }
       ]
+    },
+    {
+      "type": "icon-benefits",
+      "name": "Icon Benefits",
+      "limit": 1
     },
     {
       "type": "icon-with-text",

@@ -74,6 +74,41 @@
       flex-grow: 1;
       border-radius: 8px;
       overflow: hidden;
+      position: relative;
+    }
+    .splide__arrows {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .splide__arrow {
+      position: static;
+      transform: none;
+      background: transparent;
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+    }
+    .splide__arrow svg {
+      fill: #4a4a4a;
+      width: 12px;
+      height: 12px;
+    }
+    .splide__arrow--prev svg {
+      transform: rotate(0deg);
+    }
+    .splide__arrow--next svg {
+      transform: rotate(0deg);
+    }
+    .splide__arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    @media screen and (max-width: 749px) {
+      .splide__arrows {
+         margin-bottom: 1rem;
+      }
     }
     .splide__main img, .splide__thumbnails img {
       width: 100%;
@@ -126,6 +161,14 @@
             </li>
           {%- endfor -%}
         </ul>
+      </div>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <svg viewBox="0 0 100 100"><path d="M70 20 L30 50 L70 80" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg viewBox="0 0 100 100"><path d="M30 20 L70 50 L30 80" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
   </div>
