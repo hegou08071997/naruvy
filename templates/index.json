@@ -1,210 +1,2084 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "image_with_text_slider_ajDCYy": {
+      "type": "image-with-text-slider",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "image_slide_XTdxhh": {
+          "type": "image-slide",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "color_scheme": "scheme-1",
+            "image": "shopify://shop_images/make-it-look-real-not-a-an-image-like-very-lively-from-the-greens.png",
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "center",
+            "subheading": "",
+            "heading": "Nature's Wisdom for Modern Living",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "hd2",
+            "text": "<p>Premium Ayurvedic herbs, authentic shilajit, wellness teas, and natural salts crafted for everyday wellbeing.</p>",
+            "text_size": "text-base",
+            "button_label": "Explore Collection",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
           }
         },
-        "text": {
-          "type": "text",
+        "image_slide_f4MKPx": {
+          "type": "image-slide",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "color_scheme": "",
+            "image": "shopify://shop_images/village-and-nature.png",
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "center",
+            "subheading": "",
+            "heading": "Rooted in Nature. Guided by Tradition.",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "hd2",
+            "text": "<p>Inspired by generations of Ayurvedic knowledge and thoughtfully crafted for modern lifestyles.</p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
           }
         },
-        "button": {
-          "type": "buttons",
+        "image_slide_QxDbir": {
+          "type": "image-slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "color_scheme": "",
+            "image": "shopify://shop_images/nature-in-greens.png",
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "center",
+            "subheading": "<em>Enjoy The Offers</em>",
+            "heading": "Nurturing Your Creative Spirit",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "hd2",
+            "text": "<p>Our industry leading standards for product safety give you the power to make better.</p>",
+            "text_size": "text-base",
+            "button_label": "Shop Makeup",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "image_slide_XTdxhh",
+        "image_slide_f4MKPx",
+        "image_slide_QxDbir"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.image-slider__text {max-width: 38.6rem; }}",
+        "@media (max-width: 767px) {.image-with-text-slider {padding-block-start: 0; }}"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
+        "container": "fixed",
+        "color_scheme": "",
+        "image_height": "adapt",
+        "image_width": 65,
+        "image_position": "right",
+        "show_controls": true,
+        "autoplay": true,
+        "autoplay_delay": 4,
+        "desktop_controls_position": "start",
+        "mobile_controls_position": "center",
         "padding_top": 40,
         "padding_bottom": 0
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
+    "collection_list_slider_6qbNfj": {
+      "type": "collection-list-slider",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "featured_collection_L9N3Tg": {
+          "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "",
+            "image": "shopify://shop_images/ayurvedic-powders.png",
+            "title": "Ayurvedic Powders"
           }
         },
-        "product": {
+        "featured_collection_gxdACj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/well-ness-tea.png",
+            "title": "Wellness Tea"
+          }
+        },
+        "featured_collection_jQXtir": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/dont-put-it-in-a-box-or-something.png",
+            "title": "Pure Shilajit"
+          }
+        },
+        "featured_collection_4H9LzM": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/aesthetic-image-forputting-in-product-page-for-sale-lemon-salt.png",
+            "title": "Natural Salts"
+          }
+        },
+        "featured_collection_jMA9xm": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Skincare"
+          }
+        },
+        "featured_collection_J6hxH9": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Makeup"
+          }
+        },
+        "featured_collection_HwzPfD": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Hair"
+          }
+        },
+        "featured_collection_GW3kAL": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Brands"
+          }
+        },
+        "featured_collection_J6V8fx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/moringa-tulsi-ginger-green-tea-aethetic-image-for-product-page.png",
+            "title": "Body"
+          }
+        },
+        "featured_collection_NkFYeg": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Sunscreen"
+          }
+        },
+        "featured_collection_eBphH3": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "Gift Sets"
+          }
+        },
+        "featured_collection_mFCdUY": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "New Arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_L9N3Tg",
+        "featured_collection_gxdACj",
+        "featured_collection_jQXtir",
+        "featured_collection_4H9LzM",
+        "featured_collection_jMA9xm",
+        "featured_collection_J6hxH9",
+        "featured_collection_HwzPfD",
+        "featured_collection_GW3kAL",
+        "featured_collection_J6V8fx",
+        "featured_collection_NkFYeg",
+        "featured_collection_eBphH3",
+        "featured_collection_mFCdUY"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_image_ratio": "1/1",
+        "card_image_width": "medium",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "mobile_layout": "vertical",
+        "carousel_item_size": "auto",
+        "columns_desktop": 6,
+        "carousel_control_color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "featured_collection_bdaamt": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_ydJPzX": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
+            "title": "New Arrivals",
+            "show_banner": false,
+            "color_scheme": "scheme-inverse",
+            "card_link": "",
+            "image_overlay_opacity": 10,
+            "content_position": "split-bottom-button",
+            "content_alignment": "left",
+            "subheading": "Add a tagline",
+            "subheading_style": "",
+            "heading": "Image card",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        },
+        "collection_E83rKg": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": "Best Sellers",
+            "show_banner": false,
+            "color_scheme": "scheme-inverse",
+            "card_link": "",
+            "image_overlay_opacity": 10,
+            "content_position": "split-bottom-button",
+            "content_alignment": "left",
+            "subheading": "Add a tagline",
+            "subheading_style": "",
+            "heading": "Image card",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collection_ydJPzX",
+        "collection_E83rKg"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Best Sellers",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>Discover our most-loved Ayurvedic wellness products, carefully selected for their quality and effectiveness.</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "limit": 7,
+        "columns": 5,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": true,
+        "navigation_position": "bottom",
+        "pcard_image_ratio": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": true,
+        "divider_width": "fixed"
+      }
+    },
+    "buttons_with_icon_XJn7cx": {
+      "type": "buttons-with-icon",
+      "blocks": {
+        "button_item_xVkaBU": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Pure Ingredients",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_UNAajR": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Quality Assured",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_LHei9W": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Inspired by Tradition",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_tccr3T": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Everyday Wellness",
+            "button_link": "",
+            "icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "button_item_xVkaBU",
+        "button_item_UNAajR",
+        "button_item_LHei9W",
+        "button_item_tccr3T"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Why Choose Sendriya Life",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "item_alignment": "left",
+        "item_button_style": "btn--icon",
+        "item_button_font": "button",
+        "enable_slider": true,
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "custom_content_HPgFTK": {
+      "type": "custom-content",
+      "blocks": {
+        "image_card_with_product_qBJGcT": {
+          "type": "image_card_with_product",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image": "shopify://shop_images/ayurvedic-powders.png",
+            "image_ratio": "adapt",
+            "subheading": "",
+            "heading": "Ayurvedic Powders",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "description": "<p>Moringa, Ashwagandha, Brahmi, Tulsi, Triphala, and Dry Ginger.</p>",
+            "button_label": "Shop Now",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "product": "",
+            "width": "25%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "image_card_with_product_EPndYi": {
+          "type": "image_card_with_product",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image": "shopify://shop_images/well-ness-tea.png",
+            "image_ratio": "adapt",
+            "subheading": "",
+            "heading": "Wellness Tea",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "description": "<p>Thoughtfully blended herbal tea for mindful daily rituals.</p>",
+            "button_label": "Shop Now",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "product": "",
+            "width": "25%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "image_card_with_product_BamNhy": {
+          "type": "image_card_with_product",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image": "shopify://shop_images/dont-put-it-in-a-box-or-something.png",
+            "image_ratio": "adapt",
+            "subheading": "",
+            "heading": "Pure Shilajit",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "description": "<p>Authentic Himalayan resin sourced and crafted with care.</p>",
+            "button_label": "Shop Now",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "product": "",
+            "width": "25%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "image_card_with_product_4xbtnf": {
+          "type": "image_card_with_product",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image": "shopify://shop_images/himalayan-pink-salt-nature-aesthetic-image.png",
+            "image_ratio": "adapt",
+            "subheading": "",
+            "heading": "Natural Salts",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "description": "<p>Mineral-rich Himalayan Pink Salt and Lemon Salt.</p>",
+            "button_label": "Shop Now",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "product": "",
+            "width": "25%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_card_with_product_qBJGcT",
+        "image_card_with_product_EPndYi",
+        "image_card_with_product_BamNhy",
+        "image_card_with_product_4xbtnf"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "enable_sticky_column": false,
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Rooted in Tradition. Made for Today.",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<h4>Every generation carries forward something valuable.</h4><h4>For us, it is the belief that nature holds timeless wisdom. The herbs, minerals, and ingredients trusted for centuries were never meant to be forgotten — they were meant to be part of everyday life.</h4><h4>Sendriya Life was created to reconnect modern lifestyles with those simple traditions. Through carefully sourced ingredients and thoughtful craftsmanship, we bring together products that honour the past while fitting naturally into the present.</h4><h4>Whether it's a spoonful of moringa in the morning, a calming cup of herbal tea, or a daily wellness ritual inspired by Ayurveda, we believe small choices can create meaningful change over time.</h4><h4>A small ritual. A mindful choice. A step closer to nature, every day.</h4>",
+        "text_size": "text-lg",
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "swipe_on_mobile": true,
+        "columns_mobile": "1",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "buttons_with_icon_gKPPkz": {
+      "type": "buttons-with-icon",
+      "blocks": {
+        "button_item_A6LEfk": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Pure Sourcing",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_XfjtdU": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Trusted Quality",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_qckC39": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Authentic Heritage",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_3grxp3": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Wellness Support",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_Y6AgGp": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Satisfaction Guaranteed",
+            "button_link": "",
+            "icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "button_item_A6LEfk",
+        "button_item_XfjtdU",
+        "button_item_qckC39",
+        "button_item_3grxp3",
+        "button_item_Y6AgGp"
+      ],
+      "custom_css": [
+        ".section__container {--header-padding-bottom: 2.4rem;}",
+        ".section__header--text {max-width: 56rem;}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Wellness Rituals for Modern Living",
+        "highlight_style": "hand_drawn_circle",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "#ffd3cd",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "item_alignment": "center",
+        "item_button_style": "btn--icon",
+        "item_button_font": "button",
+        "enable_slider": true,
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "featured_countdown_timer_JxbJHw": {
+      "type": "featured-countdown-timer",
+      "blocks": {
+        "countdown_timer_6B88AF": {
+          "type": "countdown-timer",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image_overlay_opacity": 0,
+            "content_spacing": "large",
+            "content_position": "start",
+            "content_alignment": "center",
+            "type": "evergreen",
+            "style": "number",
+            "number_size": "h2",
+            "duration": "every_month",
+            "time": "2025/08/20 03:45 PM",
+            "card_link": "",
+            "subheading": "<em>Countdown Is On</em>",
+            "heading": "Holiday Season Sale",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "Shop The Sale",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_card_ewJfF8": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Serums",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_3YKAYp": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Cleansers",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_xtqhAH": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Shampoo",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_aXactz": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Moisturizers",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_kaHjqW": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Toners",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_9TfRAj": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Masks",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_YzDzp3": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Blush",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_PyFf3K": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Makeup",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_PcXwdL": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Skincare",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_FkhRYM": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Candles",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_7B3aLy": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Treatments",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        },
+        "image_card_pKTXFA": {
+          "type": "image-card",
+          "settings": {
+            "color_scheme": "",
+            "image_link": "",
+            "content_alignment": "center",
+            "heading": "Lipsticks",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "countdown_timer_6B88AF",
+        "image_card_ewJfF8",
+        "image_card_3YKAYp",
+        "image_card_xtqhAH",
+        "image_card_aXactz",
+        "image_card_kaHjqW",
+        "image_card_9TfRAj",
+        "image_card_YzDzp3",
+        "image_card_PyFf3K",
+        "image_card_PcXwdL",
+        "image_card_FkhRYM",
+        "image_card_7B3aLy",
+        "image_card_pKTXFA"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 1280px) {.countdown-with-multi__content {--padding-y: 6rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "columns_desktop": 4,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "columns_mobile": "3",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "promotion_banner_byLFDQ": {
+      "type": "promotion-banner",
+      "blocks": {
+        "subheading_xYwT9w": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<em>For A Limited Time</em>",
+            "subheading_icon": "none"
+          }
+        },
+        "heading_neHCyT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Free Makeup Samples",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_6irLkJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free 5 makeup samples with <br/>every order over $100</p>",
+            "text_color": "subtext"
+          }
+        },
+        "button_mjUrzy": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xYwT9w",
+        "heading_neHCyT",
+        "text_6irLkJ",
+        "button_mjUrzy"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-4",
+        "layout": "horizontal",
+        "content_alignment": "center",
+        "content_alignment_mobile": "center",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "featured_blog_D8iWHq": {
+      "type": "featured-blog",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Wellness Journal",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "View All Posts",
+        "button_link": "",
+        "button_style": "btn--plain",
+        "button_icon": "caret-right",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "large",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "card_title_size": "h4",
+        "show_tags": true,
+        "show_excerpt": false,
+        "show_date": true,
+        "show_author": true,
+        "show_button": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "horizontal_products_list_qwYKGd": {
+      "type": "horizontal-products-list",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "collection": "frontpage",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Trending This Week",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "Shop All Products",
+        "button_link": "",
+        "button_style": "btn--plain",
+        "button_icon": "caret-right",
+        "max_height": 0,
+        "pcard_button_type": "icon",
+        "pcard_title_line_limit": "1-line",
+        "limit": 9,
+        "columns": 3,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "max_height_mobile": 500,
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "favorite_products_aMfFMz": {
+      "type": "favorite-products",
+      "blocks": {
+        "product_D8QWtT": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "product": "",
+            "text": "<p>“The story behind, sustainable production, and the risk-free feeling with the return policy make this a great choice.”</p>",
+            "text_size": "h2",
+            "author": "Jenny Wilson",
+            "bio": "New Mexico"
+          }
+        },
+        "product_Kj3McL": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "product": "",
+            "text": "<p>“With an intriguing backstory, sustainable practices, and a hassle-free return policy, this product stands out as a top choice.”</p>",
+            "text_size": "h2",
+            "author": "Jenny Thompson",
+            "bio": "New Colorado"
+          }
+        }
+      },
+      "block_order": [
+        "product_D8QWtT",
+        "product_Kj3McL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 1280px) {.testimonial__content {max-width: 56rem; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "layout": "content-left",
+        "heading": "<em>Our Favorite Products</em>",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "slide_height": "adapt",
+        "pcard_style": "boxed",
+        "pcard_image_ratio": "",
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collection_list_yzwnVQ": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xHgmqF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Body Oil"
+          }
+        },
+        "featured_collection_D7VDLf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Sunscreen"
+          }
+        },
+        "featured_collection_BqQqhK": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Hand Cream"
+          }
+        },
+        "featured_collection_rtQF3c": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Makeup"
+          }
+        },
+        "featured_collection_jHqfhg": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Essentials"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xHgmqF",
+        "featured_collection_D7VDLf",
+        "featured_collection_BqQqhK",
+        "featured_collection_rtQF3c",
+        "featured_collection_jHqfhg"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Trending Now",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "Shop Trending Now",
+        "button_link": "",
+        "button_style": "btn--plain",
+        "button_icon": "caret-right",
+        "card_color_scheme": "scheme-10",
+        "card_style": "card",
+        "card_heading_size": "h5",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "full",
+        "card_image_padding": "none",
+        "rounded_card_image": false,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 5,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "brand_logos_mtjpT9": {
+      "type": "brand-logos",
+      "blocks": {
+        "logo_qNQF84": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_tAkTPL": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_FD8JBY": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_xPFeWj": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_Wg9Gxm": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_KMdikk": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_w8fETq": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_BwPpkt": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_dpfjtb": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        },
+        "logo_QALd9d": {
+          "type": "logo",
+          "settings": {
+            "image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_qNQF84",
+        "logo_tAkTPL",
+        "logo_FD8JBY",
+        "logo_xPFeWj",
+        "logo_Wg9Gxm",
+        "logo_KMdikk",
+        "logo_w8fETq",
+        "logo_BwPpkt",
+        "logo_dpfjtb",
+        "logo_QALd9d"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Shop By Brands",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-sm",
+        "button_label": "Shop All Brands",
+        "button_link": "",
+        "button_style": "btn--plain",
+        "button_icon": "caret-right",
+        "image_padding": "small",
+        "image_width": "large",
+        "columns_desktop": 5,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "products_bundle_wYQMTX": {
+      "type": "products-bundle",
+      "blocks": {
+        "product_JJx4a6": {
           "type": "product",
           "settings": {
             "product": "",
-            "second_image": false
+            "color_scheme": "",
+            "horizontal_position": 30,
+            "vertical_position": 32,
+            "horizontal_position_mobile": 30,
+            "vertical_position_mobile": 32
           }
         },
-        "collection-1": {
+        "product_MQW7UY": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "color_scheme": "",
+            "horizontal_position": 38,
+            "vertical_position": 60,
+            "horizontal_position_mobile": 38,
+            "vertical_position_mobile": 60
+          }
+        },
+        "product_RPJGxM": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "color_scheme": "",
+            "horizontal_position": 65,
+            "vertical_position": 45,
+            "horizontal_position_mobile": 65,
+            "vertical_position_mobile": 45
+          }
+        }
+      },
+      "block_order": [
+        "product_JJx4a6",
+        "product_MQW7UY",
+        "product_RPJGxM"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image_position": "right",
+        "image_ratio": "adapt",
+        "show_hotspot": false,
+        "subheading": "",
+        "heading": "Saving 20% On Bundle",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>Select 4 products & get 20% discount on bundle</p>",
+        "columns": 3,
+        "column_gap": "2xs",
+        "pcard_image_ratio": "",
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "featured_collection_CrTARf": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_4x7wUE": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "best-sellers",
+            "title": "",
+            "show_banner": true,
+            "color_scheme": "scheme-info",
+            "card_link": "",
+            "image_overlay_opacity": 20,
+            "content_position": "split-bottom-button",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Best Sellers",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Explore Now",
+            "button_style": "btn--plain",
+            "button_icon": "caret-right"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "collection_4x7wUE"
       ],
+      "disabled": true,
       "settings": {
-        "heading": "Multimedia collage",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Best Sellers",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
         "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "description": "<p>Discover our most-loved Ayurvedic wellness products, carefully selected for their quality and effectiveness.</p>",
+        "text_size": "text-base",
+        "button_label": "Shop All Products",
+        "button_link": "",
+        "button_style": "btn--plain",
+        "button_icon": "caret-right",
+        "limit": 11,
+        "columns": 5,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": true,
+        "navigation_position": "bottom",
+        "pcard_image_ratio": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
+    "custom_content_rUmby9": {
+      "type": "custom-content",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "image_card_RrKktC": {
+          "type": "image_card",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "color_scheme": "scheme-info",
+            "image": "shopify://shop_images/ayurvedic-welness-rituals.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "split-bottom-button",
+            "content_alignment": "left",
+            "content_spacing": "small",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Ayurvedic Wellness Rituals",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "Shop Now",
+            "button_style": "btn--secondary",
+            "button_icon": "none",
+            "show_badge": false,
+            "badge_color_scheme": "scheme-2",
+            "badge_shape": "circle",
+            "badge_position": "top-right",
+            "badge_subtext": "Save",
+            "badge_text": "40%",
+            "color_scheme_mobile": "scheme-info",
+            "show_text_below": false,
+            "content_alignment_mobile": "left",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "enable_preload_image": false
           }
         },
-        "column2": {
-          "type": "column",
+        "image_card_JJt8HA": {
+          "type": "image_card",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "color_scheme": "scheme-info",
+            "image": "shopify://shop_images/nature-and-ingredients-fullly-nature-greenery.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "split-bottom-button",
+            "content_alignment": "left",
+            "content_spacing": "small",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Natural Ingredients for Daily Wellness",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "Shop Now",
+            "button_style": "btn--secondary",
+            "button_icon": "none",
+            "show_badge": false,
+            "badge_color_scheme": "scheme-2",
+            "badge_shape": "circle",
+            "badge_position": "top-right",
+            "badge_subtext": "Save",
+            "badge_text": "30%",
+            "color_scheme_mobile": "scheme-info",
+            "show_text_below": false,
+            "content_alignment_mobile": "left",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "enable_preload_image": false
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "image_card_RrKktC",
+        "image_card_JJt8HA"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.card-media__content-wrapper {max-width: 26rem; }}",
+        "@media (max-width: 767px) {.card-media__content-wrapper {max-width: 19rem; --child-margin-top: 6rem; }}"
       ],
       "settings": {
-        "title": "",
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Wellness Begins With Simplicity",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
         "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
+        "description": "<p>We believe that wellbeing doesn't need to be complicated. Through carefully selected herbs, botanicals, minerals, and traditional ingredients, Sendriya Life helps bring nature-inspired wellness into everyday life.</p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "testimonials_masonry_gj8d49": {
+      "type": "testimonials-masonry",
+      "blocks": {
+        "testimonial_RF3GfL": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "text": "<p>\"Sendriya Life's Moringa Powder has become a non-negotiable part of my morning routine. Pure, clean, and genuinely effective.\"</p>",
+            "author": "Priya M.",
+            "bio": "Mumbai",
+            "product": ""
+          }
+        },
+        "testimonial_89g4hG": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "text": "<p>\"The Shilajit resin is unlike anything I've tried before. You can feel the quality from the very first use.\"</p>",
+            "author": "Arjun S.",
+            "bio": "Bengaluru",
+            "product": ""
+          }
+        },
+        "testimonial_Uxca3h": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "text": "<p>\"Finally, a wellness brand that keeps it simple and honest. No gimmicks — just real ingredients that work.\"</p>",
+            "author": "Meera R.",
+            "bio": "Delhi",
+            "product": ""
+          }
+        },
+        "testimonial_iRHPkP": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "text": "<p>\"The Ashwagandha powder has made a noticeable difference in my stress levels. Beautifully sourced and packaged.\"</p>",
+            "author": "Vikram T.",
+            "bio": "Pune",
+            "product": ""
+          }
+        },
+        "testimonial_NjEjPa": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "<p>“I’ve been using this face wash for a while now, and it’s been a game-changer for my skin!..”</p>",
+            "author": "Cooper",
+            "bio": "Verified Buyer",
+            "product": ""
+          }
+        },
+        "testimonial_Uyknkc": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "<p>\"After trying this face wash for a while, I can say it has made a significant difference for my complexion!\"</p>",
+            "author": "Kelly D.",
+            "bio": "Verified Buyer",
+            "product": ""
+          }
+        },
+        "testimonial_VwePU3": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "<p>“This face wash has been a part of my daily routine for a bit now, and it's been a remarkable addition that has significantly improved my skin!”</p>",
+            "author": "Taylor Smith",
+            "bio": "Verified Buyer",
+            "product": ""
+          }
+        },
+        "testimonial_HTCpED": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "<p>“Since I started using this cleanser, my skin has seen such a positive change—it’s a total game changer, and I can’t imagine my routine without it!”</p>",
+            "author": "Ashley Miller",
+            "bio": "Verified Buyer",
+            "product": ""
+          }
+        },
+        "testimonial_VDXYqn": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "<p>“I’ve been using this face wash for a while now, and it’s been a game-changer for my skin!..”</p>",
+            "author": "Cameron Scott",
+            "bio": "Verified Buyer",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_RF3GfL",
+        "testimonial_89g4hG",
+        "testimonial_Uxca3h",
+        "testimonial_iRHPkP",
+        "testimonial_NjEjPa",
+        "testimonial_Uyknkc",
+        "testimonial_VwePU3",
+        "testimonial_HTCpED",
+        "testimonial_VDXYqn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".rich-text__heading {max-width: 41.3rem;}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Trusted by Wellness Seekers",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "max_height": 540,
+        "card_color_scheme": "scheme-10",
+        "card_image_ratio": "adapt",
+        "show_image": false,
+        "show_author_image": true,
         "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "shop_the_feed_UbPriU": {
+      "type": "shop-the-feed",
+      "blocks": {
+        "feed_QTHQWE": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Stephanie",
+            "account": "@glamourgirl",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_yq8ngT": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Ella Kate",
+            "account": "@fashionista",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_FeRLDT": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Sara Jane",
+            "account": "@makeupdiva",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_nDDeXG": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Lucy Belle",
+            "account": "@trendygirl",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_ibdpEr": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Ava Marie",
+            "account": "@lovelyvibes",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_tenmdB": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Emma Rose",
+            "account": "@sparklequeen",
+            "icon": "tiktok",
+            "product": ""
+          }
+        },
+        "feed_jq8bnQ": {
+          "type": "feed",
+          "settings": {
+            "link": "",
+            "author": "Ruby Claire",
+            "account": "@chicandunique",
+            "icon": "tiktok",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "feed_QTHQWE",
+        "feed_yq8ngT",
+        "feed_FeRLDT",
+        "feed_nDDeXG",
+        "feed_ibdpEr",
+        "feed_tenmdB",
+        "feed_jq8bnQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "What Trending On Social",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "columns_desktop": 4,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "card_color_scheme": "scheme-10",
+        "card_image_ratio": "3/4",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_JAYiif": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_pBnbUG": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "desktop_image_position": "left",
+            "image_width": 40,
+            "alignment": "center",
+            "image": "shopify://shop_images/Sendriya_Circular_logo.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "#A41616",
+            "highlight_text_color": "#840505",
+            "heading_size": "h2",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_KaQDaL": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Frequently Asked Questions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "collapsible_item_HmF9JE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "What does Sendriya Life stand for?",
+            "content": "<p>Sendriya Life is built on the belief that wellness begins with simple, mindful choices. We create products inspired by nature and tradition, designed to fit naturally into modern lifestyles.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_etnetz": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Are your products inspired by Ayurveda?",
+            "content": "<p>Yes. Our collection draws inspiration from traditional Ayurvedic wisdom and carefully selected natural ingredients that have been valued for generations.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_PE7q4r": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "What makes Sendriya Life different?",
+            "content": "<p>We focus on simplicity, authenticity, and quality. Every product is thoughtfully crafted to help people reconnect with everyday wellness rituals through ingredients inspired by nature.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_KTfFLR": {
+          "type": "collapsible_item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "heading": "What are your sizing options?",
+            "content": "<p>Our products are available in a range of sizes to ensure the perfect fit. Detailed sizing information is provided on each product page, and our size guide can help you choose the best option.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_pBnbUG",
+        "heading_KaQDaL",
+        "collapsible_item_HmF9JE",
+        "collapsible_item_etnetz",
+        "collapsible_item_PE7q4r",
+        "collapsible_item_KTfFLR"
+      ],
+      "settings": {
+        "container": "narrow",
         "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "extra-large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "multicolumn_icon_C6634r": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_RyfyAc": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "max_width": 60,
+            "max_width_mb": 60,
+            "title": "Vegan, Cruelty-Free",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "heading_font": "heading",
+            "text": "<p>We have always used vegan and <br/>cruelty-free ingredients.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_4PiDHh": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "max_width": 60,
+            "max_width_mb": 60,
+            "title": "Gluten Free",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "heading_font": "heading",
+            "text": "<p>We continuously use vegan and <br/>cruelty-free formulas</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_yqB7VU": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "max_width": 60,
+            "max_width_mb": 60,
+            "title": "Paraben Free",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "heading_font": "heading",
+            "text": "<p>We’ve always selected vegan and <br/>cruelty-free ingredients.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_xWb4w6": {
+          "type": "column",
+          "settings": {
+            "icon": "map-pin",
+            "max_width": 60,
+            "max_width_mb": 60,
+            "title": "Packaging",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "heading_font": "heading",
+            "text": "<p>We have consistently made vegan and <br/>cruelty-free choices.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_RyfyAc",
+        "column_4PiDHh",
+        "column_yqB7VU",
+        "column_xWb4w6"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-8",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "scheme-8",
+        "content_alignment": "center",
+        "image_position": "top",
+        "icon_color": "#64b7a6",
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": false,
         "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "image_with_text_slider_ajDCYy",
+    "collection_list_slider_6qbNfj",
+    "featured_collection_bdaamt",
+    "buttons_with_icon_XJn7cx",
+    "custom_content_HPgFTK",
+    "buttons_with_icon_gKPPkz",
+    "featured_countdown_timer_JxbJHw",
+    "promotion_banner_byLFDQ",
+    "featured_blog_D8iWHq",
+    "horizontal_products_list_qwYKGd",
+    "favorite_products_aMfFMz",
+    "collection_list_yzwnVQ",
+    "brand_logos_mtjpT9",
+    "products_bundle_wYQMTX",
+    "featured_collection_CrTARf",
+    "custom_content_rUmby9",
+    "testimonials_masonry_gj8d49",
+    "shop_the_feed_UbPriU",
+    "collapsible_tabs_JAYiif",
+    "multicolumn_icon_C6634r"
   ]
 }

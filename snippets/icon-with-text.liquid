@@ -1,54 +1,43 @@
 {% comment %}
-  Renders icon with text block
+  Renders icon or image with text list up to 3 items
 
   Accepts:
-  - block: {Object} passes in the block information.
-
+  - layout: {String} List layout to display. Accepts: horizontal or vertical.
+  - title_font: {String} Font family for headings. Accepts: heading or body.
+  - title_size: {String} Font size for headings.
+  - heading_1: {String} Text of heading to display
+  - image_1: {String} Image to show
+  - icon_1: {String} Icon to show if the given image blank
 
   Usage:
   {% render 'icon-with-text',
-    block: block
+    heading_1: 'Icon with text',
+    icon_1: 'check',
   %}
 {% endcomment %}
 {%- liquid
-  assign heading_1_empty = false
-  assign heading_2_empty = false
-  assign heading_3_empty = false
-  assign text_only_all_items = true
+  assign title_font = title_font | default: 'heading'
+  assign layout = layout | default: 'horizontal'
 
-  if block.settings.heading_1 == empty
-    assign heading_1_empty = true
-  endif
-
-  if block.settings.heading_2 == empty
-    assign heading_2_empty = true
-  endif
-
-  if block.settings.heading_3 == empty
-    assign heading_3_empty = true
-  endif
-
-  if heading_1_empty == false and block.settings.icon_1 != 'none' or block.settings.image_1 != null
-    assign text_only_all_items = false
-  elsif heading_2_empty == false and block.settings.icon_2 != 'none' or block.settings.image_2 != null
-    assign text_only_all_items = false
-  elsif heading_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
-    assign text_only_all_items = false
+  assign heading_css_class = title_size | default: 'h5'
+  if title_font == 'body'
+    assign heading_css_class = heading_css_class | append: ' font-body'
+  elsif title_font == 'body-bolder'
+    assign heading_css_class = heading_css_class | append: ' font-body-bolder'
+  else
+    assign heading_css_class = heading_css_class | append: ' font-heading'
   endif
 -%}
 <ul
-  class="icon-with-text icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
-  {{ block.shopify_attributes }}
+  class="list-unstyled icon-with-text icon-with-text--{{ layout }} {{ class }}"
 >
-  {%- unless heading_1_empty -%}
+  {%- if heading_1 != blank -%}
     <li class="icon-with-text__item">
-      {%- if block.settings.image_1 == null -%}
-        {%- render 'icon-accordion', icon: block.settings.icon_1 -%}
-      {%- else -%}
+      {%- if image_1 != blank -%}
         <img
-          src="{{ block.settings.image_1 | image_url }}"
-          {% if block.settings.image_1.alt != blank %}
-            alt="{{ block.settings.image_1.alt | escape }}"
+          src="{{ image_1 | image_url }}"
+          {% if image_1.alt != blank %}
+            alt="{{ image_1.alt | escape }}"
           {% else %}
             role="presentation"
           {% endif %}
@@ -56,21 +45,21 @@
           width="auto"
           loading="lazy"
         >
+      {%- else -%}
+        {%- render 'icons', icon: icon_1 -%}
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_1 -}}
+      <span class="inline-richtext {{ heading_css_class }}">
+        {{- heading_1 -}}
       </span>
     </li>
-  {%- endunless -%}
-  {%- unless heading_2_empty -%}
+  {%- endif -%}
+  {%- if heading_2 != blank -%}
     <li class="icon-with-text__item">
-      {%- if block.settings.image_2 == null -%}
-        {% render 'icon-accordion', icon: block.settings.icon_2 -%}
-      {%- else -%}
+      {%- if image_2 != blank -%}
         <img
-          src="{{ block.settings.image_2 | image_url }}"
-          {% if block.settings.image_2.alt != blank %}
-            alt="{{ block.settings.image_2.alt | escape }}"
+          src="{{ image_2 | image_url }}"
+          {% if image_2.alt != blank %}
+            alt="{{ image_2.alt | escape }}"
           {% else %}
             role="presentation"
           {% endif %}
@@ -78,21 +67,21 @@
           width="auto"
           loading="lazy"
         >
+      {%- else -%}
+        {%- render 'icons', icon: icon_2 -%}
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_2 -}}
+      <span class="inline-richtext {{ heading_css_class }}">
+        {{- heading_2 -}}
       </span>
     </li>
-  {%- endunless -%}
-  {%- unless heading_3_empty -%}
+  {%- endif -%}
+  {%- if heading_3 != blank -%}
     <li class="icon-with-text__item">
-      {%- if block.settings.image_3 == null -%}
-        {% render 'icon-accordion', icon: block.settings.icon_3 -%}
-      {%- else -%}
+      {%- if image_3 != blank -%}
         <img
-          src="{{ block.settings.image_3 | image_url }}"
-          {% if block.settings.image_3.alt != blank %}
-            alt="{{ block.settings.image_3.alt | escape }}"
+          src="{{ image_3 | image_url }}"
+          {% if image_3.alt != blank %}
+            alt="{{ image_3.alt | escape }}"
           {% else %}
             role="presentation"
           {% endif %}
@@ -100,10 +89,12 @@
           width="auto"
           loading="lazy"
         >
+      {%- else -%}
+        {%- render 'icons', icon: icon_3 -%}
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_3 -}}
+      <span class="inline-richtext {{ heading_css_class }}">
+        {{- heading_3 -}}
       </span>
     </li>
-  {%- endunless -%}
+  {%- endif -%}
 </ul>

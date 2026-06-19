@@ -4,113 +4,443 @@ if (!customElements.get('media-gallery')) {
     class MediaGallery extends HTMLElement {
       constructor() {
         super();
-        this.elements = {
-          liveRegion: this.querySelector('[id^="GalleryStatus"]'),
-          viewer: this.querySelector('[id^="GalleryViewer"]'),
-          thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
+
+        this.selectors = {
+          viewer: '[id^="GalleryViewer"]',
+          thumbnails: '[id^="GalleryThumbnails"]',
+          mediaList: '[id^="Slider-Gallery"]',
+          mediaItems: ['.product__media-item'],
         };
-        this.mql = window.matchMedia('(min-width: 750px)');
-        if (!this.elements.thumbnails) return;
 
-        this.elements.viewer.addEventListener('slideChanged', debounce(this.onSlideChanged.bind(this), 500));
-        this.elements.thumbnails.querySelectorAll('[data-target]').forEach((mediaToSwitch) => {
-          mediaToSwitch
-            .querySelector('button')
-            .addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
-        });
-        if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
+        this.initialized = false;
+        this.sliderInstance = false;
+        this.thumbsInstance = false;
       }
 
-      onSlideChanged(event) {
-        const thumbnail = this.elements.thumbnails.querySelector(
-          `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
-        );
-        this.setActiveThumbnail(thumbnail);
+      connectedCallback() {
+        FoxTheme.Motion.inView(this, this.init.bind(this));
       }
 
-      setActiveMedia(mediaId, prepend) {
-        const activeMedia =
-          this.elements.viewer.querySelector(`[data-media-id="${mediaId}"]`) ||
-          this.elements.viewer.querySelector('[data-media-id]');
-        if (!activeMedia) {
-          return;
-        }
-        this.elements.viewer.querySelectorAll('[data-media-id]').forEach((element) => {
-          element.classList.remove('is-active');
-        });
-        activeMedia?.classList?.add('is-active');
+      init() {
+        if (this.initialized === true) return;
 
-        if (prepend) {
-          activeMedia.parentElement.firstChild !== activeMedia && activeMedia.parentElement.prepend(activeMedia);
+        this.elements = window.FoxTheme.utils.queryDomNodes(this.selectors, this);
+        this.mediaLayout = this.dataset.mediaLayout;
+        this.onlyImage = this.dataset.onlyImage === 'true';
+        this.enableDesktopSlider = this.dataset.enableDesktopSlider === 'true';
+        this.enableMobileThumbnails = this.dataset.enableMobileThumbnails === 'true';
+        this.enableImageZoom = this.dataset.enableImageZoom === 'true';
+        this.context = this.dataset.context;
+        this.setSliderOptions();
 
-          if (this.elements.thumbnails) {
-            const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
-            activeThumbnail.parentElement.firstChild !== activeThumbnail && activeThumbnail.parentElement.prepend(activeThumbnail);
-          }
+        const mql = window.matchMedia(FoxTheme.config.mediaQueryMobile);
+        mql.onchange = this.updateMediaLayout.bind(this);
+        this.updateMediaLayout();
 
-          if (this.elements.viewer.slider) this.elements.viewer.resetPages();
+        if (this.enableImageZoom) {
+          this.initImageZoom();
         }
 
-        this.preventStickyHeader();
-        window.setTimeout(() => {
-          if (!this.mql.matches || this.elements.thumbnails) {
-            activeMedia.parentElement.scrollTo({ left: activeMedia.offsetLeft });
-          }
-          const activeMediaRect = activeMedia.getBoundingClientRect();
-          // Don't scroll if the image is already in view
-          if (activeMediaRect.top > -0.5) return;
-          const top = activeMediaRect.top + window.scrollY;
-          window.scrollTo({ top: top, behavior: 'smooth' });
-        });
-        this.playActiveMedia(activeMedia);
-
-        if (!this.elements.thumbnails) return;
-        const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
-        this.setActiveThumbnail(activeThumbnail);
-        this.announceLiveRegion(activeMedia, activeThumbnail.dataset.mediaPosition);
+        this.initialized = true;
       }
 
-      setActiveThumbnail(thumbnail) {
-        if (!this.elements.thumbnails || !thumbnail) return;
+      setSliderOptions() {
+        const mediaItemGap = parseInt(this.dataset.mediaItemGap);
+        const mediaItemGapMobile = parseInt(this.dataset.mediaItemGapMobile);
 
-        this.elements.thumbnails
-          .querySelectorAll('button')
-          .forEach((element) => element.removeAttribute('aria-current'));
-        thumbnail.querySelector('button').setAttribute('aria-current', true);
-        if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
-
-        this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });
-      }
-
-      announceLiveRegion(activeItem, position) {
-        const image = activeItem.querySelector('.product__modal-opener--image img');
-        if (!image) return;
-        image.onload = () => {
-          this.elements.liveRegion.setAttribute('aria-hidden', false);
-          this.elements.liveRegion.innerHTML = window.accessibilityStrings.imageAvailable.replace('[index]', position);
-          setTimeout(() => {
-            this.elements.liveRegion.setAttribute('aria-hidden', true);
-          }, 2000);
+        this.sliderOptions = {
+          init: false,
+          slidesPerView: this.enableMobileThumbnails ? 1 : 'auto',
+          spaceBetween: mediaItemGapMobile,
+          loop: false,
+          grabCursor: true,
+          allowTouchMove: true,
+          autoHeight: true,
+          breakpoints: {
+            768: {
+              spaceBetween: mediaItemGap,
+            },
+          },
+          navigation: {
+            nextEl: this.querySelector('.swiper-button-next'),
+            prevEl: this.querySelector('.swiper-button-prev'),
+          },
+          pagination: {
+            el: this.querySelector('.swiper-pagination'),
+            clickable: true,
+            type: 'fraction',
+          },
+          threshold: 2,
         };
-        image.src = image.src;
+
+        this.thumbsOptions = {
+          slidesPerView: 4,
+          breakpoints: {
+            461: {
+              slidesPerView: 5,
+              direction: 'horizontal',
+            },
+          },
+          spaceBetween: mediaItemGapMobile,
+          loop: false,
+          freeMode: true,
+          watchSlidesProgress: true,
+          threshold: 2,
+          breakpoints: {
+            768: {
+              spaceBetween: mediaItemGap,
+            },
+          },
+        };
+
+        switch (this.mediaLayout) {
+          case 'vertical-carousel':
+            this.thumbsOptions.breakpoints = {
+              ...this.thumbsOptions.breakpoints,
+              768: {
+                direction: 'vertical',
+                slidesPerView: 'auto',
+                spaceBetween: mediaItemGap,
+              },
+            };
+            break;
+          case 'carousel':
+            this.thumbsOptions.breakpoints = {
+              ...this.thumbsOptions.breakpoints,
+              1024: {
+                slidesPerView: 5,
+              },
+              1536: {
+                slidesPerView: 7,
+              },
+            };
+            break;
+        }
       }
 
-      playActiveMedia(activeItem) {
-        window.pauseAllMedia();
-        const deferredMedia = activeItem.querySelector('.deferred-media');
+      updateMediaLayout() {
+        if (FoxTheme.config.mqlMobile) {
+          this.initSlider();
+        } else {
+          if (this.enableDesktopSlider) {
+            this.initSlider();
+          } else {
+            this.destroySlider();
+          }
+        }
+      }
+
+      initSlider() {
+        if (typeof this.sliderInstance !== 'object') {
+          if ((this.enableDesktopSlider || this.enableMobileThumbnails) && this.elements.thumbnails) {
+            this.thumbsInstance = new window.FoxTheme.Carousel(this.elements.thumbnails, this.thumbsOptions);
+            this.thumbsInstance.init();
+
+            this.sliderOptions.thumbs = {
+              swiper: this.thumbsInstance.slider,
+              autoScrollOffset: 2,
+            };
+          }
+
+          this.sliderInstance = new window.FoxTheme.Carousel(this.elements.viewer, this.sliderOptions, [
+            FoxTheme.Swiper.Thumbs,
+          ]);
+          this.sliderInstance.init();
+
+          this.handleSliderAfterInit();
+          this.handleSlideChange();
+
+          this.sliderInstance.slider.init();
+        }
+      }
+
+      destroySlider() {
+        if (typeof this.sliderInstance === 'object') {
+          this.sliderInstance.slider.destroy();
+          this.sliderInstance = false;
+        }
+      }
+
+      initThumbsSlider() {
+        if (typeof this.thumbsInstance !== 'object') {
+          this.thumbsInstance = new window.FoxTheme.Carousel(this.selectors.thumbnails, this.thumbsOptions);
+          this.thumbsInstance.init();
+        }
+      }
+
+      initImageZoom() {
+        let dataSource = [];
+        const allMedia = [...this.querySelectorAll('.product__media-item:not(.swiper-slide-duplicate)')];
+        if (allMedia) {
+          allMedia.forEach((media) => {
+            const { mediaType, mediaIndex, src, pswpWidth, pswpHeight } = media.dataset;
+
+            let source = {
+              id: mediaIndex,
+              mediaType: mediaType,
+            };
+
+            switch (mediaType) {
+              case 'model':
+              case 'video':
+              case 'external_video':
+                const htmlTag = mediaType === 'model' ? 'product-model' : 'video-element';
+
+                source = {
+                  ...source,
+                  html: `<div class="pswp__item--${mediaType}">${media.querySelector(htmlTag).outerHTML}</div>`,
+                };
+                break;
+              default: // Image.
+                source = {
+                  ...source,
+                  src: src,
+                  width: pswpWidth,
+                  height: pswpHeight,
+                };
+                break;
+            }
+
+            dataSource.push(source);
+          });
+        }
+
+        this.lightbox = new window.FoxTheme.PhotoSwipeLightbox({
+          dataSource: dataSource,
+          pswpModule: window.FoxTheme.PhotoSwipe,
+          bgOpacity: 1,
+          arrowPrev: false,
+          arrowNext: false,
+          zoom: false,
+          close: false,
+          counter: false,
+          preloader: false,
+        });
+
+        this.lightbox.addFilter('thumbEl', (thumbEl, { id }, index) => {
+          const slider = this.sliderInstance?.slider;
+
+          if (slider) {
+            const { slides, activeIndex } = slider;
+            if (slides[activeIndex]) {
+              const el = slides[activeIndex].querySelector('img');
+              if (el) {
+                return el;
+              }
+            }
+          }
+
+          return thumbEl;
+        });
+
+        this.lightbox.addFilter('placeholderSrc', (placeholderSrc, { data: { id } }) => {
+          const slider = this.sliderInstance?.slider;
+
+          if (slider) {
+            const { slides, activeIndex } = slider;
+            if (slides[activeIndex]) {
+              const el = slides[activeIndex].querySelector('img');
+              if (el) {
+                return el.src;
+              }
+            }
+          }
+
+          return placeholderSrc;
+        });
+
+        this.lightbox.on('change', () => {
+          window.pauseAllMedia(this);
+        });
+
+        // Store the current index before closing
+        let lastLightboxIndex = null;
+        this.lightbox.on('close', () => {
+          if (this.lightbox?.pswp?.currIndex) {
+            lastLightboxIndex = this.lightbox.pswp.currIndex;
+          }
+        });
+
+        // Update slider after lightbox is destroyed
+        this.lightbox.on('destroy', () => {
+          const slider = this.sliderInstance?.slider;
+
+          if (slider && lastLightboxIndex !== null) {
+            const targetIndex = lastLightboxIndex;
+            // currIndex from lightbox is the index in dataSource array
+            // which should match the slider index since both are created from the same media items in the same order
+            if (targetIndex >= 0 && targetIndex < slider.slides.length && slider.activeIndex !== targetIndex) {
+              // Use requestAnimationFrame to ensure DOM is ready
+              requestAnimationFrame(() => {
+                slider.slideTo(targetIndex, 0);
+              });
+            }
+            lastLightboxIndex = null;
+          }
+        });
+
+        this.lightbox.on('pointerDown', (e) => {
+          if (this.lightbox?.pswp?.currSlide?.data?.mediaType != 'image') {
+            e.preventDefault();
+          }
+        });
+
+        this.lightbox.on('uiRegister', () => {
+          const lightboxUI = this.lightbox?.pswp?.ui;
+
+          if (!lightboxUI) return;
+
+          if (!this.onlyImage) {
+            lightboxUI.registerElement({
+              name: 'next',
+              ariaLabel: 'Next slide',
+              order: 3,
+              isButton: true,
+              html: '<svg class="pswp-icon-next flip-x" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 65,90 L 25,50  L 65,10 L 60,0 Z"></path></svg>',
+              onClick: (event, el) => {
+                this.lightbox?.pswp?.next();
+              },
+            });
+            lightboxUI.registerElement({
+              name: 'prev',
+              ariaLabel: 'Previous slide',
+              order: 1,
+              isButton: true,
+              html: '<svg class="pswp-icon-prev rtl-flip-x" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 65,90 L 25,50  L 65,10 L 60,0 Z"></path></svg>',
+              onClick: (event, el) => {
+                this.lightbox?.pswp?.prev();
+              },
+            });
+          }
+          lightboxUI.registerElement({
+            name: 'close-zoom',
+            ariaLabel: 'Close zoom image',
+            order: 2,
+            isButton: true,
+            html: '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+            onClick: (event, el) => {
+              this.lightbox?.pswp?.close();
+            },
+          });
+        });
+
+        this.lightbox.init();
+
+        FoxTheme.utils.addEventDelegate({
+          selector: '.js-photoswipe--zoom',
+          context: this,
+          handler: (e, media) => {
+            if (media.dataset?.mediaType === 'image') {
+              const index = Number(media.dataset.mediaIndex) || 0;
+              this.lightbox.loadAndOpen(index);
+            }
+          },
+        });
+      }
+
+      handleSliderAfterInit() {
+        this.sliderInstance.slider.on('afterInit', (swiper) => {
+          const { slides, activeIndex } = swiper;
+
+          if (slides[activeIndex]) {
+            const isModelMediaType = slides[activeIndex].dataset.mediaType === 'model';
+            this.toggleSliderDraggableState(!isModelMediaType);
+          }
+        });
+      }
+
+      handleSlideChange() {
+        this.sliderInstance.slider.on('realIndexChange', (swiper) => {
+          const { slides, activeIndex, thumbs } = swiper;
+
+          if (thumbs.swiper) {
+            thumbs.swiper.slideTo(activeIndex);
+          }
+
+          if (slides[activeIndex]) {
+            this.playActiveMedia(slides[activeIndex]);
+
+            const isModelMediaType = slides[activeIndex].dataset.mediaType === 'model';
+            this.toggleSliderDraggableState(!isModelMediaType);
+          }
+        });
+      }
+
+      toggleSliderDraggableState(isDraggable) {
+        if (this.sliderInstance.slider.allowTouchMove !== isDraggable) {
+          this.sliderInstance.slider.allowTouchMove = isDraggable;
+        }
+      }
+
+      playActiveMedia(selected) {
+        const deferredMedia = selected.querySelector('product-model');
         if (deferredMedia) deferredMedia.loadContent(false);
       }
 
-      preventStickyHeader() {
-        this.stickyHeader = this.stickyHeader || document.querySelector('sticky-header');
-        if (!this.stickyHeader) return;
-        this.stickyHeader.dispatchEvent(new Event('preventHeaderReveal'));
+      setActiveMedia(variant) {
+        if (!variant) return;
+
+        let featuredMedia = variant.featured_media;
+
+        if (!featuredMedia && variant.featured_image) {
+          featuredMedia = {
+            id: variant.featured_image.id,
+            position: variant.featured_image.position || 0,
+            media_type: 'image',
+          };
+        }
+
+        if (!featuredMedia) return;
+
+        if (this.sliderInstance.slider) {
+          const slideIndex = featuredMedia.position || 0;
+          this.sliderInstance.slider.slideTo(slideIndex - 1, 0, false);
+        } else {
+          this.sortMediaItems(variant, featuredMedia);
+        }
       }
 
-      removeListSemantic() {
-        if (!this.elements.viewer.slider) return;
-        this.elements.viewer.slider.setAttribute('role', 'presentation');
-        this.elements.viewer.sliderItems.forEach((slide) => slide.setAttribute('role', 'presentation'));
+      sortMediaItems(variant, featuredMedia) {
+        if (!featuredMedia) {
+          featuredMedia =
+            variant.featured_media ||
+            (variant.featured_image
+              ? {
+                  id: variant.featured_image.id,
+                  position: variant.featured_image.position || 0,
+                  media_type: 'image',
+                }
+              : null);
+        }
+
+        if (!featuredMedia) return;
+
+        let newMedias = this.elements.mediaItems;
+
+        // Reset ordering.
+        newMedias.sort(function (a, b) {
+          return a.dataset.mediaIndex - b.dataset.mediaIndex;
+        });
+
+        newMedias.some((media, index) => {
+          if (media.dataset.mediaId == featuredMedia.id) {
+            const [element] = newMedias.splice(index, 1);
+            newMedias.unshift(element);
+            return true;
+          }
+        });
+
+        this.elements.mediaList.innerHTML = '';
+        newMedias.forEach((media) => {
+          this.elements.mediaList.appendChild(media);
+        });
+
+        if (!FoxTheme.config.mqlMobile && this.context !== 'quickview') {
+          const selectedMedia = this.querySelector(`[data-media-id="${featuredMedia.id}"]`);
+          if (selectedMedia) {
+            window.scrollTo({ top: selectedMedia.offsetTop, behavior: 'smooth' });
+          }
+        }
       }
     }
   );

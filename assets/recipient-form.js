@@ -4,6 +4,7 @@ if (!customElements.get('recipient-form')) {
     class RecipientForm extends HTMLElement {
       constructor() {
         super();
+
         this.recipientFieldsLiveRegion = this.querySelector(`#Recipient-fields-live-region-${this.dataset.sectionId}`);
         this.checkboxInput = this.querySelector(`#Recipient-checkbox-${this.dataset.sectionId}`);
         this.checkboxInput.disabled = false;
@@ -30,19 +31,22 @@ if (!customElements.get('recipient-form')) {
       cartErrorUnsubscriber = undefined;
 
       connectedCallback() {
-        this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
+        this.cartUpdateUnsubscriber = FoxTheme.pubsub.subscribe(FoxTheme.pubsub.PUB_SUB_EVENTS.cartUpdate, (event) => {
           if (event.source === 'product-form' && event.productVariantId.toString() === this.currentProductVariantId) {
             this.resetRecipientForm();
           }
         });
 
-        this.variantChangeUnsubscriber = subscribe(PUB_SUB_EVENTS.variantChange, (event) => {
-          if (event.data.sectionId === this.dataset.sectionId) {
-            this.currentProductVariantId = event.data.variant.id.toString();
+        this.variantChangeUnsubscriber = FoxTheme.pubsub.subscribe(
+          FoxTheme.pubsub.PUB_SUB_EVENTS.variantChange,
+          (event) => {
+            if (event.data.sectionId === this.dataset.sectionId) {
+              this.currentProductVariantId = event.data.variant.id.toString();
+            }
           }
-        });
+        );
 
-        this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartError, (event) => {
+        this.cartUpdateUnsubscriber = FoxTheme.pubsub.subscribe(FoxTheme.pubsub.PUB_SUB_EVENTS.cartError, (event) => {
           if (event.source === 'product-form' && event.productVariantId.toString() === this.currentProductVariantId) {
             this.displayErrorMessage(event.message, event.errors);
           }
@@ -66,12 +70,12 @@ if (!customElements.get('recipient-form')) {
       onChange() {
         if (this.checkboxInput.checked) {
           this.enableInputFields();
-          this.recipientFieldsLiveRegion.innerText = window.accessibilityStrings.recipientFormExpanded;
+          this.recipientFieldsLiveRegion.innerText = FoxTheme.accessibilityStrings.recipientFormExpanded;
         } else {
           this.clearInputFields();
           this.disableInputFields();
           this.clearErrorMessage();
-          this.recipientFieldsLiveRegion.innerText = window.accessibilityStrings.recipientFormCollapsed;
+          this.recipientFieldsLiveRegion.innerText = FoxTheme.accessibilityStrings.recipientFormCollapsed;
         }
       }
 

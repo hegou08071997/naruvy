@@ -11,10 +11,7 @@
   - loop: {Boolean} Enable video looping (optional)
   - modal_id: {String} The product modal that will be shown by clicking the thumbnail
   - xr_button: {Boolean} Renders the "View in your space" button (shopify-xr-button) if the media is a 3D Model
-  - constrain_to_viewport: {Boolean} Force media height to fit within viewport
-  - media_fit: {String} Method ("contain" or "cover") to fit image into container
   - media_width: {Float} The width percentage that the media column occupies on desktop.
-  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
 
   Usage:
   {% render 'product-thumbnail',
@@ -24,149 +21,131 @@
     modal_id: section.id
   %}
 {% endcomment %}
-
 {%- liquid
-  unless lazy_load == false
-    assign lazy = 'lazy'
-  endunless
-
   assign desktop_columns = 1
   if desktop_layout == 'columns' and media_count > 1
     assign desktop_columns = 2
   endif
 
-  assign mobile_columns = 1
-  if mobile_layout == 'columns' and media_count > 1
-    assign mobile_columns = 2
-  endif
+  assign loading = 'lazy'
+  assign fetchpriority = 'low'
 
-  if media.media_type == 'image'
-    assign image_class = 'image-magnify-' | append: section.settings.image_zoom
+  if position < desktop_columns
+    assign loading = 'eager'
+    assign fetchpriority = 'high'
   endif
 -%}
-
 {%- capture sizes -%}
-  (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | divided_by: desktop_columns | round }}px, (min-width: 990px) calc({{ media_width | times: 100 | divided_by: desktop_columns }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / {{ mobile_columns }} - 4rem)
+{%- if desktop_columns > 1 -%}
+(max-width: 767px) calc(100vw - 3rem), calc(((min({{ settings.page_width | plus: 30 }}px, 100vw) * {{ media_width }}) - 4.5rem - {{ desktop_columns | times: 1 | minus: 1 }}rem) / {{ desktop_columns }})
+{%- else -%}
+(max-width: 767px) calc(100vw - 3rem), calc(((min({{ settings.page_width | plus: 30 }}px, 100vw) * {{ media_width }}) - 4.5rem) / {{ desktop_columns }})
+{%- endif -%}
 {%- endcapture -%}
-
 <div
-  class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
-  style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
+  tabindex="-1"
+  class="product__media-item swiper-slide"
+  data-media-id="{{ media.id }}"
+  data-media-type="{{ media.media_type }}"
+  data-media-index="{{ position }}"
+  data-src="{{ media.preview_image | image_url: width: 1946 }}"
+  data-pswp-width="{{ media.preview_image.width }}"
+  data-pswp-height="{{ media.preview_image.width | divided_by: media.preview_image.aspect_ratio | ceil }}"
 >
-  <modal-opener
-    class="product__modal-opener product__modal-opener--{{ media.media_type }}"
-    data-modal="#ProductModal-{{ modal_id }}"
+  <div
+    class="product__media-item-container relative flex overflow-hidden blocks-radius media-type-{{ media.media_type }}"
+    style="--aspect-ratio: {{ media.aspect_ratio | default: 1.0 }};"
   >
-    <span
-      class="product__media-icon motion-reduce quick-add-hidden{% if media.media_type == 'image' %} product__media-icon--{{ section.settings.image_zoom }}{% endif %}"
-      aria-hidden="true"
-    >
-      {% case media.media_type %}
-        {% when 'video', 'external_video' %}
-          <span class="svg-wrapper">
-            {{- 'icon-play.svg' | inline_asset_content -}}
-          </span>
-        {% when 'model' %}
-          <span class="svg-wrapper">
-            {{- 'icon-3d-model.svg' | inline_asset_content -}}
-          </span>
-        {% else %}
-          <span class="svg-wrapper">
-            {{- 'icon-zoom.svg' | inline_asset_content -}}
-          </span>
-      {% endcase %}
-    </span>
-    {%- render 'loading-spinner' -%}
-    <div class="product__media media media--transparent">
-      {{
-        media.preview_image
-        | image_url: width: 1946
-        | image_tag:
-          class: image_class,
-          loading: lazy,
-          sizes: sizes,
-          widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
-      }}
-    </div>
-    <button
-      class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
-      type="button"
-      aria-haspopup="dialog"
-      data-media-id="{{ media.id }}"
-    >
-      <span class="visually-hidden">
-        {{ 'products.product.media.open_media' | t: index: position }}
-      </span>
-    </button>
-  </modal-opener>
-
-  {%- if media.media_type != 'image' -%}
-    {%- if media.media_type == 'model' -%}
-      <product-model class="deferred-media media media--transparent" data-media-id="{{ media.id }}">
-    {%- else -%}
-      <deferred-media class="deferred-media media media--transparent" data-media-id="{{ media.id }}">
-    {%- endif -%}
-    <button id="Deferred-Poster-Modal-{{ media.id }}" class="deferred-media__poster" type="button">
-      <span class="deferred-media__poster-button motion-reduce">
-        {%- if media.media_type == 'model' -%}
-          <span class="visually-hidden">{{ 'products.product.media.play_model' | t }}</span>
-          <span class="svg-wrapper">
-            {{- 'icon-3d-model.svg' | inline_asset_content -}}
-          </span>
-        {%- else -%}
-          <span class="visually-hidden">{{ 'products.product.media.play_video' | t }}</span>
-          <span class="svg-wrapper">
-            {{- 'icon-play.svg' | inline_asset_content -}}
-          </span>
+    {%- case media.media_type -%}
+      {%- when 'model' -%}
+        <product-model class="deferred-media no-js-hidden" data-media-id="{{ media.id }}">
+          <button id="Deferred-Poster-{{ media.id }}" class="deferred-media__poster media-wrapper" type="button">
+            {{
+              media.preview_image
+              | image_url: width: 1946
+              | image_tag:
+                is: 'image-lazy',
+                loading: loading,
+                fetchpriority: fetchpriority,
+                sizes: sizes,
+                widths: '400, 620, 690, 810, 980, 1240, 1380, 1620, 1960'
+            }}
+            <span class="deferred-media__poster-button motion-reduce">
+              <span class="visually-hidden">{{ 'products.product.media.play_model' | t }}</span>
+              {%- render 'icon-3d-model' -%}
+            </span>
+          </button>
+          <template>
+            {{- media | media_tag: image_size: '2048x', toggleable: true -}}
+          </template>
+        </product-model>
+        {%- if xr_button -%}
+          <button
+            class="product__xr-button btn btn--primary absolute z-1 bottom-0 left-0 right-0"
+            type="button"
+            aria-label="{{ 'products.product.xr_button_label' | t }}"
+            data-shopify-xr
+            data-shopify-model3d-id="{{ media.id }}"
+            data-shopify-title="{{ product.title | escape }}"
+            data-shopify-xr-hidden
+          >
+            {{ 'products.product.xr_button' | t }}
+          </button>
         {%- endif -%}
-      </span>
-      {{
-        media.preview_image
-        | image_url: width: 1946
-        | image_tag:
-          loading: lazy,
-          sizes: sizes,
-          widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
-      }}
-    </button>
-    <template>
-      {%- liquid
-        case media.media_type
-          when 'external_video'
-            assign video_class = 'js-' | append: media.host
-            if media.host == 'youtube'
-              echo media | external_video_url: autoplay: true, loop: loop, playlist: media.external_id | external_video_tag: class: video_class, loading: 'lazy'
-            else
-              echo media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: video_class, loading: 'lazy'
-            endif
-          when 'video'
-            echo media | media_tag: image_size: '2048x', autoplay: true, loop: loop, controls: true, preload: 'none'
-          when 'model'
-            echo media | media_tag: image_size: '2048x', toggleable: true
-        endcase
-      -%}
-    </template>
-
-    {%- if media.media_type == 'model' -%}
-      </product-model>
-      {%- if xr_button -%}
-        <button
-          class="button button--full-width product__xr-button"
-          type="button"
-          aria-label="{{ 'products.product.xr_button_label' | t }}"
-          data-shopify-xr
-          data-shopify-model3d-id="{{ media.id }}"
-          data-shopify-title="{{ product.title | escape }}"
-          data-shopify-xr-hidden
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-3d-model.svg' | inline_asset_content -}}
-          </span>
-          {{ 'products.product.xr_button' | t }}
-        </button>
-      {%- endif -%}
-    {%- else -%}
-      </deferred-media>
-    {%- endif -%}
-  {%- endif -%}
+      {%- when 'video' -%}
+        {%- render 'video',
+          video: media,
+          muted: true,
+          autoplay: true,
+          controls: true,
+          loop: loop,
+          show_play_button: true
+        -%}
+      {%- when 'external_video' -%}
+        {%- render 'video',
+          video_url: media,
+          video_url_type: media.host,
+          video_url_id: media.external_id,
+          cover_image: media.preview_image,
+          muted: true,
+          autoplay: true,
+          controls: true,
+          loop: loop,
+          show_play_button: true
+        -%}
+      {%- else -%}
+        <motion-element data-motion="zoom-out-sm" class="block product__media media-wrapper">
+          {{
+            media.preview_image
+            | image_url: width: 1946
+            | image_tag:
+              is: 'image-lazy',
+              loading: loading,
+              fetchpriority: fetchpriority,
+              sizes: sizes,
+              widths: '400, 620, 690, 810, 980, 1240, 1380, 1620, 1960'
+          }}
+        </motion-element>
+        {%- if enable_image_zoom -%}
+          <div
+            class="product__media-icon btn btn--white btn--small btn--icon btn--icon-circle"
+            aria-hidden="true"
+          >
+            <span class="btn__text flex items-center">{%- render 'icon-zoom' -%}</span>
+          </div>
+          <button
+            class="product__media-zoom btn--inherit js-photoswipe--zoom"
+            type="button"
+            aria-haspopup="dialog"
+            data-media-id="{{ media.id }}"
+            data-media-type="{{ media.media_type }}"
+            data-media-index="{{ position }}"
+          >
+            <span class="visually-hidden">
+              {{ 'products.product.media.open_media' | t: index: position }}
+            </span>
+          </button>
+        {%- endif -%}
+    {%- endcase -%}
+  </div>
 </div>

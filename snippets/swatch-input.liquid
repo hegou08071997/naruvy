@@ -10,9 +10,7 @@
   - checked: {Boolean} default checked status
   - disabled: {Boolean} default disabled status (optional)
   - visually_disabled: {Boolean} style the swatch as disabled, but leave the input enabled (optional)
-  - shape: {String} swatch shape. Accepts 'square', defaults to circle (optional)
   - help_text: {String} additional content to render inside the label (optional)
-  - additional_props: {String} (optional) additional properties to attach to the input
 
   Usage:
    {% render 'swatch-input',
@@ -24,14 +22,22 @@
       checked: checked
     %}
 {% endcomment %}
-
+{%- liquid
+  assign swatch_value = null
+  if swatch.image
+    assign image_url = swatch.image | image_url: width: image_size
+    assign swatch_value = 'url(' | append: image_url | append: ')'
+  elsif swatch.color
+    assign swatch_value = 'rgb(' | append: swatch.color.rgb | append: ')'
+  endif
+-%}
 <input
   type="{{ type | default: 'radio' }}"
   id="{{ id }}"
   name="{{ name }}"
   value="{{ value }}"
   form="{{ product_form_id }}"
-  class="swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
+  class="swatch-input__input{% if visually_disabled %} disabled{% endif %}"
   {% if checked %}
     checked
   {% endif %}
@@ -45,8 +51,13 @@
 <label
   for="{{ id }}"
   title="{{ value }}"
-  class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
+  class="swatch-input__label relative"
+  data-swatch-type="shopify_swatch"
+  data-tooltip
 >
-  {% render 'swatch', swatch: swatch, shape: shape %}
-  {{ help_text }}
+  <span class="tooltip pointer-events-none">{{ value | escape }}</span>
+  <span
+    class="swatch-color block"
+    style="--swatch-background: {{ swatch_value }};{% if swatch_focal_point %} --swatch-focal-point: {{ swatch_focal_point }};{% endif %}"
+  ></span>
 </label>

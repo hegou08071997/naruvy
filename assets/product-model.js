@@ -1,13 +1,26 @@
 if (!customElements.get('product-model')) {
   customElements.define(
     'product-model',
-    class ProductModel extends DeferredMedia {
+    class ProductModel extends HTMLElement {
       constructor() {
         super();
+
+        const poster = this.querySelector('[id^="Deferred-Poster-"]');
+        if (poster) {
+          poster.addEventListener('click', this.loadContent.bind(this));
+        }
       }
 
-      loadContent() {
-        super.loadContent();
+      loadContent(focus = true) {
+        window.pauseAllMedia();
+        if (!this.getAttribute('loaded')) {
+          const content = document.createElement('div');
+          content.appendChild(this.querySelector('template').content.firstElementChild.cloneNode(true));
+
+          this.setAttribute('loaded', true);
+          const deferredElement = this.appendChild(content.querySelector('model-viewer'));
+          if (focus) deferredElement.focus();
+        }
 
         Shopify.loadFeatures([
           {
