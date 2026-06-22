@@ -1,321 +1,593 @@
 {% comment %}
-  GK Shop Categories (Shop Landing Section)
-  - Dark glassy cards
-  - Subtle orange glow hover
-  - Bold hero like tour dates
-  - Uses collection pickers (Theme Editor)
-  - Hides tiles when no collection assigned
-  - Scoped CSS only (no global conflicts)
+  GK Shop Categories (Shop Landing Section) — Premium animated rebuild
+  - Glassmorphism cards on near-black, single burnt-orange accent (#C8601A)
+  - Animated inline SVG icon per category (CSS only, GPU friendly)
+  - Staggered fade-up on load, resting "breathing" glow, rich hover state
+  - Live item count from the linked collection (hidden gracefully when none)
+  - Repeatable blocks: collection, title, description, icon, featured
+  - All motion respects prefers-reduced-motion
+  - Scoped CSS only (prefix: .gk-shop) so nothing leaks into other Dawn sections
 
-  OPTIONAL AUTO-SCROLL:
-  - If the collection URL has #products at the end, we auto-scroll to the product grid.
+  AUTO-SCROLL (preserved):
+  - If a collection URL ends with #products we smooth-scroll to the product grid.
   - Example: /collections/cds#products
 {% endcomment %}
 
-<section class="gk-shopcats" data-gk-shopcats>
-  <div class="gk-shopcats__wrap">
-    <header class="gk-shopcats__hero">
+{%- assign accent = '#C8601A' -%}
+
+<section class="gk-shop" data-gk-shop>
+  <div class="gk-shop__wrap">
+    <header class="gk-shop__hero">
       {% if section.settings.kicker != blank %}
-        <div class="gk-shopcats__kicker">{{ section.settings.kicker | escape }}</div>
+        <div class="gk-shop__kicker">{{ section.settings.kicker | escape }}</div>
       {% endif %}
 
       {% if section.settings.heading != blank %}
-        <h1 class="gk-shopcats__heading">{{ section.settings.heading | escape }}</h1>
+        <h1 class="gk-shop__heading">{{ section.settings.heading | escape }}</h1>
       {% endif %}
 
-      {% if section.settings.subtext != blank %}
-        <div class="gk-shopcats__subtext">{{ section.settings.subtext }}</div>
+      {% if section.settings.subheading != blank %}
+        <div class="gk-shop__subheading">{{ section.settings.subheading }}</div>
       {% endif %}
     </header>
 
-    <div class="gk-shopcats__grid" role="list">
-      {% assign count = 0 %}
+    {%- comment -%} Count category blocks so we know where to drop the row divider. {%- endcomment -%}
+    {%- assign cat_total = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'category' -%}{%- assign cat_total = cat_total | plus: 1 -%}{%- endif -%}
+    {%- endfor -%}
+
+    <div class="gk-shop__grid" role="list">
+      {%- assign rendered = 0 -%}
 
       {% for block in section.blocks %}
-        {% if block.type == "category" %}
-          {% assign col = block.settings.collection %}
-          {% if col != blank %}
-            {% assign count = count | plus: 1 %}
-            <a
-              class="gk-shopcats__card"
-              href="{{ col.url }}#products"
-              role="listitem"
-              aria-label="Shop {{ block.settings.title | escape }}"
-              {{ block.shopify_attributes }}
-            >
-              <div class="gk-shopcats__cardTop">
-                <div class="gk-shopcats__titleRow">
-                  <div class="gk-shopcats__title">{{ block.settings.title | escape }}</div>
-                  <span class="gk-shopcats__arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-                      <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
+        {% if block.type == 'category' %}
+          {%- assign rendered = rendered | plus: 1 -%}
+          {%- assign col = block.settings.collection -%}
+          {%- if col != blank -%}
+            {%- assign card_url = col.url | append: '#products' -%}
+          {%- else -%}
+            {%- assign card_url = '#' -%}
+          {%- endif -%}
 
-                {% if block.settings.desc != blank %}
-                  <div class="gk-shopcats__desc">{{ block.settings.desc | escape }}</div>
+          {%- comment -%} Wider cards on the second row (cards 5+). {%- endcomment -%}
+          {%- assign card_mod = '' -%}
+          {%- if rendered > 4 -%}{%- assign card_mod = 'gk-shop__card--wide' -%}{%- endif -%}
+
+          <a
+            class="gk-shop__card {{ card_mod }}{% if block.settings.featured %} is-featured{% endif %}"
+            href="{{ card_url }}"
+            role="listitem"
+            aria-label="Shop {{ block.settings.title | escape }}"
+            style="--gk-delay: {{ rendered | times: 70 }}ms;"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.featured %}
+              <span class="gk-shop__badge" aria-hidden="true">New</span>
+            {% endif %}
+
+            <div class="gk-shop__top">
+              <div class="gk-shop__iconTile" aria-hidden="true">
+                <span class="gk-shop__iconGlow"></span>
+                <span class="gk-shop__sheen"></span>
+                {% render 'gk-shop-icon', icon: block.settings.icon %}
+              </div>
+
+              <div class="gk-shop__titleRow">
+                <span class="gk-shop__title">{{ block.settings.title | escape }}</span>
+                {% if col != blank %}
+                  <span class="gk-shop__count">{{ col.products_count }} items</span>
                 {% endif %}
               </div>
 
-              <div class="gk-shopcats__cta">
-                <span class="gk-shopcats__ctaText">{{ block.settings.cta | default: "Explore" | escape }}</span>
-                <span class="gk-shopcats__ctaPip" aria-hidden="true"></span>
-              </div>
-            </a>
-          {% endif %}
+              {% if block.settings.description != blank %}
+                <p class="gk-shop__desc">{{ block.settings.description | escape }}</p>
+              {% endif %}
+            </div>
+
+            <div class="gk-shop__cta">
+              <span class="gk-shop__pip" aria-hidden="true"></span>
+              <span class="gk-shop__ctaText">Explore</span>
+              <span class="gk-shop__arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          {%- if rendered == 4 and cat_total > 4 -%}
+            <div class="gk-shop__divider" aria-hidden="true"></div>
+          {%- endif -%}
         {% endif %}
       {% endfor %}
 
-      {% if count == 0 %}
-        <div class="gk-shopcats__empty">
-          <div class="gk-shopcats__emptyTitle">No categories assigned yet.</div>
-          <div class="gk-shopcats__emptyText">
-            Open Theme Editor → Shop page → GK Shop Categories, then select collections for each category tile.
+      {% if cat_total == 0 %}
+        <div class="gk-shop__empty">
+          <div class="gk-shop__emptyTitle">No categories assigned yet.</div>
+          <div class="gk-shop__emptyText">
+            Open Theme Editor, then GK Shop Categories, and add category blocks with a collection for each tile.
           </div>
         </div>
       {% endif %}
     </div>
   </div>
 
-  <style>
-    /* =========================
-       GK SHOP CATEGORIES (SCOPED)
-       ========================= */
-    .gk-shopcats{
+  {% style %}
+    /* =========================================================
+       GK SHOP CATEGORIES (fully scoped under .gk-shop)
+       Single accent: {{ accent }}
+       ========================================================= */
+    .gk-shop {
+      --gk-accent: {{ accent }};
+      --gk-accent-soft: rgba(200, 96, 26, 0.6);
+      --gk-accent-glow: rgba(200, 96, 26, 0.28);
+      --gk-hi: #f0a060;
+      --gk-card: rgba(255, 255, 255, 0.038);
+      --gk-card-line: rgba(255, 255, 255, 0.08);
       position: relative;
       padding: clamp(44px, 6vw, 84px) 0;
       background: transparent;
-      color: inherit;
+      color: #f4f4f5;
     }
 
-    .gk-shopcats__wrap{
+    .gk-shop__wrap {
       width: min(1200px, calc(100% - 48px));
       margin: 0 auto;
     }
 
-    .gk-shopcats__hero{
-      margin-bottom: clamp(22px, 3vw, 36px);
+    .gk-shop__hero {
+      margin-bottom: clamp(26px, 3.4vw, 44px);
     }
 
-    .gk-shopcats__kicker{
-      letter-spacing: .14em;
+    .gk-shop__kicker {
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-size: 12px;
-      opacity: .8;
-      margin-bottom: 10px;
-    }
-
-    .gk-shopcats__heading{
-      margin: 0;
-      line-height: 1;
       font-weight: 800;
+      color: var(--gk-accent);
+      margin-bottom: 12px;
+    }
+
+    .gk-shop__heading {
+      margin: 0;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
-      font-size: clamp(44px, 6.2vw, 86px);
+      font-size: clamp(44px, 8vw, 86px);
     }
 
-    .gk-shopcats__subtext{
-      margin-top: 12px;
-      max-width: 62ch;
-      opacity: .9;
+    .gk-shop__subheading {
+      margin-top: 14px;
+      max-width: 60ch;
+      opacity: 0.82;
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .gk-shopcats__grid{
+    .gk-shop__grid {
       display: grid;
       gap: 18px;
       grid-template-columns: repeat(12, 1fr);
       align-items: stretch;
     }
 
-    /* Card layout: 4 columns on wide screens */
-    .gk-shopcats__card{
-      grid-column: span 3;
+    /* Row divider (full width thin gradient line between the two rows) */
+    .gk-shop__divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      margin: 6px 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(200, 96, 26, 0.55) 22%,
+        rgba(240, 160, 96, 0.65) 50%,
+        rgba(200, 96, 26, 0.55) 78%,
+        transparent
+      );
+      opacity: 0.7;
+    }
+
+    /* ---- Card ---- */
+    .gk-shop__card {
+      grid-column: span 3;            /* 4-up on desktop */
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-radius: 18px;
-      padding: 18px 18px 16px 18px;
+      min-height: 230px;
+      border-radius: 12px;
+      padding: 20px 20px 18px;
       text-decoration: none;
       color: inherit;
-
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.05);
-
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      will-change: transform;
+      isolation: isolate;
       overflow: hidden;
+
+      background: var(--gk-card);
+      border: 1px solid var(--gk-card-line);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+      transition:
+        transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+      will-change: transform;
+
+      /* load-in */
+      opacity: 0;
+      transform: translateY(16px);
+      animation: gk-fadeUp 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--gk-delay, 0ms);
     }
 
-    .gk-shopcats__card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(800px 220px at 15% 10%, rgba(255,153,0,.18), transparent 55%),
-        radial-gradient(700px 240px at 85% 0%, rgba(255,153,0,.10), transparent 60%);
-      opacity: .35;
-      pointer-events:none;
+    .gk-shop__card--wide {
+      grid-column: span 4;            /* 3-up second row */
     }
 
-    .gk-shopcats__card:after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.25));
-      opacity: .6;
-      pointer-events:none;
+    /* Corner orange glow that sweeps in from top-left on hover */
+    .gk-shop__card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(
+        420px 260px at 0% 0%,
+        var(--gk-accent-glow),
+        transparent 60%
+      );
+      opacity: 0;
+      transform: translate(-12px, -12px);
+      transition: opacity 260ms ease, transform 260ms ease;
+      pointer-events: none;
     }
 
-    .gk-shopcats__cardTop,
-    .gk-shopcats__cta{
-      position: relative;
-      z-index: 1;
+    .gk-shop__card.is-featured {
+      border-top: 2px solid var(--gk-accent);
     }
 
-    .gk-shopcats__titleRow{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .gk-shopcats__title{
-      font-weight: 800;
+    .gk-shop__badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: .02em;
-      font-size: 18px;
+      color: #120a04;
+      background: var(--gk-accent);
+      padding: 4px 8px;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(200, 96, 26, 0.5);
     }
 
-    .gk-shopcats__arrow{
-      opacity: .9;
-      transform: translateX(0);
-      transition: transform 160ms ease, opacity 160ms ease;
+    /* ---- Icon tile ---- */
+    .gk-shop__iconTile {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--gk-card-line);
+      overflow: hidden;
+      color: var(--gk-accent);
     }
 
-    .gk-shopcats__desc{
-      margin-top: 8px;
-      opacity: .85;
-      font-size: 13px;
-      line-height: 1.45;
+    /* breathing glow behind the icon (alive at rest) */
+    .gk-shop__iconGlow {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 50%, var(--gk-accent-glow), transparent 68%);
+      opacity: 0.5;
+      transform: scale(0.85);
+      animation: gk-breathe 4s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    .gk-shopcats__cta{
-      margin-top: 16px;
-      display:flex;
-      align-items:center;
+    /* light sheen wipe across the tile on hover */
+    .gk-shop__sheen {
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+      );
+      transform: skewX(-18deg);
+      pointer-events: none;
+    }
+
+    .gk-shop__iconTile svg {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      overflow: visible;
+    }
+
+    /* ---- Title row + count ---- */
+    .gk-shop__titleRow {
+      display: flex;
+      align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      opacity: .95;
     }
 
-    .gk-shopcats__ctaText{
-      font-size: 13px;
-      letter-spacing: .08em;
+    .gk-shop__title {
+      font-weight: 900;
       text-transform: uppercase;
-      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 17px;
+      line-height: 1.1;
     }
 
-    .gk-shopcats__ctaPip{
+    .gk-shop__count {
+      flex: 0 0 auto;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gk-hi);
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .gk-shop__desc {
+      margin: 10px 0 0;
+      opacity: 0.7;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ---- CTA ---- */
+    .gk-shop__cta {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--gk-card-line);
+    }
+
+    .gk-shop__pip {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: rgba(255,153,0,.95);
-      box-shadow: 0 0 18px rgba(255,153,0,.55);
+      background: var(--gk-accent);
+      box-shadow: 0 0 16px rgba(200, 96, 26, 0.6);
       flex: 0 0 auto;
-      opacity: .9;
+      transition: transform 220ms ease;
     }
 
-    .gk-shopcats__card:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,153,0,.35);
-      box-shadow:
-        0 12px 34px rgba(0,0,0,.45),
-        0 0 24px rgba(255,153,0,.10),
-        inset 0 1px 0 rgba(255,255,255,.06);
-    }
-
-    .gk-shopcats__card:hover .gk-shopcats__arrow{
-      transform: translateX(2px);
-      opacity: 1;
-    }
-
-    .gk-shopcats__card:focus-visible{
-      outline: none;
-      border-color: rgba(255,153,0,.55);
-      box-shadow:
-        0 0 0 3px rgba(255,153,0,.20),
-        0 12px 34px rgba(0,0,0,.45);
-    }
-
-    @media (max-width: 980px){
-      .gk-shopcats__card{ grid-column: span 6; }
-    }
-    @media (max-width: 520px){
-      .gk-shopcats__wrap{ width: calc(100% - 28px); }
-      .gk-shopcats__card{ grid-column: span 12; }
-      .gk-shopcats__heading{ font-size: clamp(36px, 10vw, 54px); }
-    }
-
-    .gk-shopcats__empty{
-      grid-column: 1 / -1;
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .gk-shopcats__emptyTitle{
-      font-weight: 800;
+    .gk-shop__ctaText {
+      font-size: 12px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      font-weight: 800;
+    }
+
+    .gk-shop__arrow {
+      margin-left: auto;
+      display: inline-flex;
+      color: var(--gk-accent);
+      transform: translateX(0);
+      transition: transform 220ms ease;
+    }
+
+    /* ---- Hover / focus states ---- */
+    .gk-shop__card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gk-accent-soft);
+      box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(200, 96, 26, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .gk-shop__card:hover::before {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .gk-shop__card:hover .gk-shop__sheen {
+      animation: gk-sheen 850ms ease;
+    }
+
+    .gk-shop__card:hover .gk-shop__arrow {
+      transform: translateX(4px);
+    }
+
+    .gk-shop__card:hover .gk-shop__pip {
+      transform: scale(1.45);
+    }
+
+    .gk-shop__card:focus-visible {
+      outline: none;
+      border-color: var(--gk-accent);
+      box-shadow:
+        0 0 0 3px rgba(200, 96, 26, 0.35),
+        0 18px 44px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ---- Empty state ---- */
+    .gk-shop__empty {
+      grid-column: 1 / -1;
+      border-radius: 12px;
+      padding: 20px;
+      background: var(--gk-card);
+      border: 1px solid var(--gk-card-line);
+    }
+    .gk-shop__emptyTitle {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       margin-bottom: 6px;
     }
-    .gk-shopcats__emptyText{
-      opacity: .85;
+    .gk-shop__emptyText {
+      opacity: 0.78;
       font-size: 14px;
-      line-height: 1.45;
+      line-height: 1.5;
     }
-  </style>
+
+    /* =========================================================
+       ICON ANIMATIONS (continuous, subtle)
+       ========================================================= */
+    .gk-ico { color: var(--gk-accent); }
+    .gk-ico [stroke] { stroke: var(--gk-accent); }
+
+    /* NEW star floats */
+    .gk-ico__star { transform-box: fill-box; transform-origin: center; animation: gk-float 4s ease-in-out infinite; }
+
+    /* CD disc spins */
+    .gk-ico__cdDisc { transform-box: fill-box; transform-origin: 14px 12px; animation: gk-spin 6s linear infinite; }
+
+    /* Vinyl disc spins, tonearm sways */
+    .gk-ico__vinylDisc { transform-box: fill-box; transform-origin: 11px 12px; animation: gk-spin 8s linear infinite; }
+    .gk-ico__vinylArm  { transform-box: fill-box; transform-origin: 20px 4px; animation: gk-sway 5s ease-in-out infinite; }
+
+    /* Merch shirt floats */
+    .gk-ico__shirt { transform-box: fill-box; transform-origin: center; animation: gk-float 4.5s ease-in-out infinite; }
+
+    /* Book cover flips open/closed */
+    .gk-ico__bookCover { transform-box: fill-box; transform-origin: left center; animation: gk-flip 5s ease-in-out infinite; }
+
+    /* DVD rings pulse */
+    .gk-ico__dvdRings { animation: gk-pulse 3.2s ease-in-out infinite; }
+
+    /* Guitar gently rocks, strings vibrate */
+    .gk-ico__guitar  { transform-box: fill-box; transform-origin: 18px 12px; animation: gk-rock 6s ease-in-out infinite; }
+    .gk-ico__strings { transform-box: fill-box; transform-origin: center; animation: gk-vibe 0.18s ease-in-out infinite; }
+
+    @keyframes gk-fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gk-breathe {
+      0%, 100% { opacity: 0.35; transform: scale(0.82); }
+      50%      { opacity: 0.7;  transform: scale(1.04); }
+    }
+    @keyframes gk-sheen {
+      0%   { left: -120%; }
+      100% { left: 140%; }
+    }
+    @keyframes gk-float {
+      0%, 100% { transform: translateY(1.2px); }
+      50%      { transform: translateY(-1.6px); }
+    }
+    @keyframes gk-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes gk-sway {
+      0%, 100% { transform: rotate(-6deg); }
+      50%      { transform: rotate(4deg); }
+    }
+    @keyframes gk-flip {
+      0%, 18%  { transform: rotateY(0deg); }
+      50%      { transform: rotateY(-150deg); }
+      82%, 100%{ transform: rotateY(0deg); }
+    }
+    @keyframes gk-pulse {
+      0%, 100% { opacity: 0.35; }
+      50%      { opacity: 1; }
+    }
+    @keyframes gk-rock {
+      0%, 100% { transform: rotate(-2.2deg); }
+      50%      { transform: rotate(2.2deg); }
+    }
+    @keyframes gk-vibe {
+      0%, 100% { transform: scaleY(1); }
+      50%      { transform: scaleY(1.12); }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 980px) {
+      .gk-shop__card,
+      .gk-shop__card--wide { grid-column: span 6; }   /* 2-up tablet */
+      .gk-shop__divider { display: none; }
+    }
+    @media (max-width: 560px) {
+      .gk-shop__wrap { width: calc(100% - 28px); }
+      .gk-shop__card,
+      .gk-shop__card--wide { grid-column: span 12; }   /* 1-up mobile */
+      .gk-shop__heading { font-size: clamp(38px, 12vw, 60px); }
+    }
+
+    /* =========================================================
+       REDUCED MOTION — kill all animation/transition
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .gk-shop__card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .gk-shop__card::before { transition: none !important; }
+      .gk-shop__iconGlow,
+      .gk-shop__sheen,
+      .gk-ico__star,
+      .gk-ico__cdDisc,
+      .gk-ico__vinylDisc,
+      .gk-ico__vinylArm,
+      .gk-ico__shirt,
+      .gk-ico__bookCover,
+      .gk-ico__dvdRings,
+      .gk-ico__guitar,
+      .gk-ico__strings {
+        animation: none !important;
+      }
+      .gk-shop__card:hover .gk-shop__sheen { animation: none !important; }
+      .gk-shop__pip,
+      .gk-shop__arrow { transition: none !important; }
+    }
+  {% endstyle %}
 
   <script>
-  (function() {
-    function scrollToProductsIfNeeded() {
-      if (window.location.hash !== "#products") return;
+    (function () {
+      function scrollToProductsIfNeeded() {
+        if (window.location.hash !== '#products') return;
 
-      var el =
-        document.getElementById("ProductGridContainer") ||
-        document.querySelector("#product-grid") ||
-        document.querySelector(".product-grid-container") ||
-        document.querySelector(".collection .product-grid") ||
-        document.querySelector(".collection");
+        var el =
+          document.getElementById('ProductGridContainer') ||
+          document.querySelector('#product-grid') ||
+          document.querySelector('.product-grid-container') ||
+          document.querySelector('.collection .product-grid') ||
+          document.querySelector('.collection');
 
-      if (!el) return;
+        if (!el) return;
 
-      setTimeout(function() {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 150);
-    }
+        setTimeout(function () {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+      }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", scrollToProductsIfNeeded);
-    } else {
-      scrollToProductsIfNeeded();
-    }
-  })();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', scrollToProductsIfNeeded);
+      } else {
+        scrollToProductsIfNeeded();
+      }
+    })();
   </script>
 </section>
 
 {% schema %}
 {
   "name": "GK Shop Categories",
+  "tag": "section",
   "settings": [
     {
       "type": "text",
@@ -331,8 +603,8 @@
     },
     {
       "type": "richtext",
-      "id": "subtext",
-      "label": "Subtext",
+      "id": "subheading",
+      "label": "Subheading",
       "default": "<p>Records. Gear. Tools of tone. Wear the sound.</p>"
     }
   ],
@@ -342,6 +614,12 @@
       "name": "Category tile",
       "settings": [
         {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Drives the link and the live item count."
+        },
+        {
           "type": "text",
           "id": "title",
           "label": "Title",
@@ -349,20 +627,30 @@
         },
         {
           "type": "text",
-          "id": "desc",
+          "id": "description",
           "label": "Description",
           "default": "Studio albums and live records."
         },
         {
-          "type": "text",
-          "id": "cta",
-          "label": "CTA text",
-          "default": "Explore"
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "new", "label": "New (star)" },
+            { "value": "cds", "label": "CDs (jewel case)" },
+            { "value": "vinyl", "label": "Vinyl (turntable)" },
+            { "value": "merch", "label": "Merch (t-shirt)" },
+            { "value": "gear", "label": "Gear (guitar)" },
+            { "value": "books", "label": "Instructional Books" },
+            { "value": "dvds", "label": "DVDs (disc case)" }
+          ],
+          "default": "cds"
         },
         {
-          "type": "collection",
-          "id": "collection",
-          "label": "Collection"
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Featured (New treatment + top accent line)",
+          "default": false
         }
       ]
     }
@@ -372,13 +660,13 @@
     {
       "name": "GK Shop Categories",
       "blocks": [
-        { "type": "category", "settings": { "title": "NEW!", "desc": "Latest drops and fresh arrivals.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "CDs", "desc": "Studio albums and live records.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "Vinyl", "desc": "Wax. Analog. Real.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "Merch", "desc": "Wear the gristle.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "Gear", "desc": "Pedals, pickups, tone tools.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "Instructional Books", "desc": "Learn from the Gristleman.", "cta": "Explore" } },
-        { "type": "category", "settings": { "title": "DVDs", "desc": "Classic guitar instruction.", "cta": "Explore" } }
+        { "type": "category", "settings": { "title": "NEW!", "description": "Latest drops and fresh arrivals.", "icon": "new", "featured": true } },
+        { "type": "category", "settings": { "title": "CDs", "description": "Studio albums and live records.", "icon": "cds" } },
+        { "type": "category", "settings": { "title": "Vinyl", "description": "Wax. Analog. Real.", "icon": "vinyl" } },
+        { "type": "category", "settings": { "title": "Merch", "description": "Wear the gristle.", "icon": "merch" } },
+        { "type": "category", "settings": { "title": "Gear", "description": "Pedals, pickups, tone tools.", "icon": "gear" } },
+        { "type": "category", "settings": { "title": "Instructional Books", "description": "Learn from the Gristleman.", "icon": "books" } },
+        { "type": "category", "settings": { "title": "DVDs", "description": "Classic guitar instruction.", "icon": "dvds" } }
       ]
     }
   ]

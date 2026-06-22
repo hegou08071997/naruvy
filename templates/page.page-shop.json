@@ -23,73 +23,71 @@
         "category_EnefxE": {
           "type": "category",
           "settings": {
+            "collection": "new",
             "title": "NEW!",
-            "desc": "Latest drops and fresh arrivals.",
-            "cta": "Explore",
-            "collection": "new"
+            "description": "Latest drops and fresh arrivals.",
+            "icon": "new",
+            "featured": true
           }
         },
         "category_fjLqRH": {
           "type": "category",
           "settings": {
+            "collection": "cds",
             "title": "CDs",
-            "desc": "Studio albums and live records.",
-            "cta": "Explore",
-            "collection": "cds"
+            "description": "Studio albums and live records.",
+            "icon": "cds",
+            "featured": false
           }
         },
         "category_yXfR4W": {
           "type": "category",
           "settings": {
+            "collection": "vinyl",
             "title": "Vinyl",
-            "desc": "Wax. Analog. Real.",
-            "cta": "Explore",
-            "collection": "vinyl"
+            "description": "Wax. Analog. Real.",
+            "icon": "vinyl",
+            "featured": false
           }
         },
         "category_wCWXhd": {
           "type": "category",
           "settings": {
+            "collection": "merch",
             "title": "Merch",
-            "desc": "Wear the gristle.",
-            "cta": "Explore",
-            "collection": "merch"
-          }
-        },
-        "category_ejArQB": {
-          "type": "category",
-          "settings": {
-            "title": "CDs",
-            "desc": "Studio albums and live records.",
-            "cta": "Explore",
-            "collection": ""
+            "description": "Wear the gristle.",
+            "icon": "merch",
+            "featured": false
           }
         },
         "category_JDyWJn": {
           "type": "category",
           "settings": {
+            "collection": "gear",
             "title": "Gear",
-            "desc": "Pedals, pickups, tone tools.",
-            "cta": "Explore",
-            "collection": "gear"
+            "description": "Pedals, pickups, tone tools.",
+            "icon": "gear",
+            "featured": false
           }
         },
         "category_r7z3hp": {
           "type": "category",
           "settings": {
+            "collection": "instructional-books",
             "title": "Instructional Books",
-            "desc": "Learn from the Gristleman.",
-            "cta": "Explore",
-            "collection": "instructional-books"
+            "description": "Learn from the Gristleman.",
+            "icon": "books",
+            "featured": false
           }
         },
         "category_RJjqz6": {
           "type": "category",
           "settings": {
+            "collection": "dvds",
             "title": "DVDs",
-            "desc": "Classic guitar instruction.",
-            "cta": "Explore",
-            "collection": "dvds"
+            "description": "Classic guitar instruction.",
+            "icon": "dvds",
+            "featured": false
           }
         }
       },
@@ -98,7 +96,6 @@
         "category_fjLqRH",
         "category_yXfR4W",
         "category_wCWXhd",
-        "category_ejArQB",
         "category_JDyWJn",
         "category_r7z3hp",
         "category_RJjqz6"
@@ -107,7 +104,7 @@
       "settings": {
         "kicker": "Browse the goods",
         "heading": "The Gristle Shop",
-        "subtext": "<p>Records. Gear. Tools of tone. Wear the sound.</p>"
+        "subheading": "<p>Records. Gear. Tools of tone. Wear the sound.</p>"
       }
     }
   },
