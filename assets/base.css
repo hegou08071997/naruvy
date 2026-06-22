@@ -3595,3 +3595,169 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* ============================================================
+   GK MOLTEN BUTTONS - site-wide premium restyle
+   Overrides Dawn's default button visuals. All Dawn classes,
+   data-attrs, ARIA, and checkout behaviours are untouched.
+   ============================================================ */
+
+/* ── Reset Dawn pseudo-elements so we own the visuals ──────── */
+.button::before,
+.shopify-challenge__button::before,
+.customer button::before,
+.shopify-payment-button__button--unbranded::before {
+  box-shadow: none;
+}
+.button::after,
+.shopify-challenge__button::after,
+.customer button::after,
+.shopify-payment-button__button--unbranded::after {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* ── PRIMARY - molten orange gradient ───────────────────────── */
+.button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: none;
+  color: #1f0f02;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 15px 32px;
+  background: linear-gradient(180deg, #ffc879 0%, #e8893a 50%, #c8601a 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 240, 220, 0.7) inset,
+    0 -4px 10px rgba(120, 48, 0, 0.55) inset,
+    0 0 0 1px rgba(255, 180, 110, 0.35),
+    0 12px 28px -8px rgba(232, 137, 58, 0.9),
+    0 3px 6px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease, filter 0.25s ease;
+}
+
+/* ── Shimmer sweep (::before) ─────────────────────────────── */
+.button::before,
+.shopify-challenge__button::before,
+.customer button::before,
+button.shopify-payment-button__button--unbranded::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep label / children above the shimmer layer */
+.button > *,
+.shopify-challenge__button > *,
+.customer button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.button:hover,
+.shopify-challenge__button:hover,
+.customer button:hover,
+button.shopify-payment-button__button--unbranded:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.button:hover::before,
+.shopify-challenge__button:hover::before,
+.customer button:hover::before,
+button.shopify-payment-button__button--unbranded:hover::before {
+  opacity: 1;
+  animation: gkShimmer 1.15s ease-out;
+}
+
+.button:active,
+.shopify-challenge__button:active,
+.customer button:active,
+button.shopify-payment-button__button--unbranded:active {
+  transform: translateY(1px);
+  filter: brightness(0.97);
+}
+
+.button:focus-visible,
+.shopify-challenge__button:focus-visible,
+.customer button:focus-visible,
+button.shopify-payment-button__button--unbranded:focus-visible {
+  outline: 2px solid #f0a060;
+  outline-offset: 3px;
+  box-shadow:
+    0 1px 0 rgba(255, 240, 220, 0.7) inset,
+    0 -4px 10px rgba(120, 48, 0, 0.55) inset,
+    0 0 0 1px rgba(255, 180, 110, 0.35),
+    0 12px 28px -8px rgba(232, 137, 58, 0.9),
+    0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ── SECONDARY - dark glass ─────────────────────────────────── */
+.button--secondary {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(200, 96, 26, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 8px 20px -8px rgba(0, 0, 0, 0.8);
+  filter: none;
+}
+
+.button--secondary:hover {
+  border-color: #C8601A;
+  background: linear-gradient(180deg, rgba(200, 96, 26, 0.18), rgba(200, 96, 26, 0.04));
+  transform: translateY(-2px);
+  filter: none;
+}
+
+.button--secondary::before {
+  display: none;
+}
+
+/* ── Disabled - keep Dawn opacity, kill transform ──────────── */
+.button:disabled,
+.button[aria-disabled='true'],
+.button.disabled,
+.customer button:disabled,
+.customer button[aria-disabled='true'] {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ── Shimmer keyframe ───────────────────────────────────────── */
+@keyframes gkShimmer {
+  0%        { transform: translateX(-150%) skewX(-20deg); }
+  55%, 100% { transform: translateX(280%) skewX(-20deg); }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .button::before,
+  .shopify-challenge__button::before,
+  .customer button::before,
+  button.shopify-payment-button__button--unbranded::before {
+    display: none;
+  }
+  .button:hover,
+  .button--secondary:hover,
+  .shopify-challenge__button:hover,
+  .customer button:hover,
+  button.shopify-payment-button__button--unbranded:hover {
+    transform: none;
+  }
+}
+/* ── End GK Molten Buttons ─────────────────────────────────── */
