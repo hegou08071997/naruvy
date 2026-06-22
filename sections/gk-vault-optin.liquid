@@ -1,0 +1,1155 @@
+{% comment %}
+  GK Vault Opt-in (Landing Page) - premium dark/orange rebuild
+  - Matches the GK Shop + Press design system exactly:
+    single burnt-orange accent (#C8601A), highlight (#f0a060), near-black text on
+    orange molten buttons, glass card depth (gradient bg + 1px top-edge highlight +
+    soft shadow), kicker labels, bold condensed all-caps headings.
+  - Sections: Hero / Opt-in form (photo + Klaviyo form) / What's inside grid.
+  - Greg photo is an image_picker so it is swappable in the Shopify theme editor.
+  - Form submits to Klaviyo via the client subscriptions API (Option A) so fields
+    stay theme-editable and submissions land in Greg's Vault list.
+  - All motion respects prefers-reduced-motion. Scoped under .gk-vault only.
+{% endcomment %}
+
+{%- assign accent = '#C8601A' -%}
+
+{%- comment -%} Color the highlight phrase inside the headline orange. {%- endcomment -%}
+{%- assign heading_safe = section.settings.heading | escape -%}
+{%- if section.settings.highlight_text != blank -%}
+  {%- assign hl_safe = section.settings.highlight_text | escape -%}
+  {%- capture hl_span -%}<span class="gk-vault__hl">{{ hl_safe }}</span>{%- endcapture -%}
+  {%- assign heading_html = heading_safe | replace: hl_safe, hl_span -%}
+{%- else -%}
+  {%- assign heading_html = heading_safe -%}
+{%- endif -%}
+
+<section class="gk-vault" data-gk-vault id="section-{{ section.id }}">
+  {% comment %} ============ HERO ============ {% endcomment %}
+  <header class="gk-vault__hero">
+    <div class="gk-vault__hero-glow" aria-hidden="true"></div>
+    <div class="gk-vault__wrap gk-vault__hero-inner">
+
+      <div class="gk-vault__vaultTile" aria-hidden="true">
+        <span class="gk-vault__vaultGlow"></span>
+        <svg class="gk-vault__vaultIco" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="10.5" width="17" height="10" rx="2" stroke="currentColor" fill="rgba(200,96,26,0.10)"/>
+          <path d="M7 10.5V7.5a5 5 0 0 1 10 0v3" stroke="currentColor"/>
+          <circle cx="12" cy="15" r="1.6" fill="rgba(200,96,26,0.85)" stroke="none"/>
+          <line x1="12" y1="16.4" x2="12" y2="18.2" stroke="currentColor"/>
+        </svg>
+      </div>
+
+      {% if section.settings.kicker != blank %}
+        <div class="gk-vault__kicker">{{ section.settings.kicker | escape }}</div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1 class="gk-vault__heading">{{ heading_html }}</h1>
+      {% endif %}
+
+      {% if section.settings.subhead != blank %}
+        <p class="gk-vault__subhead">{{ section.settings.subhead | escape }}</p>
+      {% endif %}
+
+      {% if section.settings.italic_line != blank %}
+        <p class="gk-vault__italic">{{ section.settings.italic_line | escape }}</p>
+      {% endif %}
+
+      <div class="gk-vault__stats" role="list">
+        <div class="gk-vault__stat" role="listitem">
+          <span class="gk-vault__statNum">{{ section.settings.stat_1_num | escape }}</span>
+          <span class="gk-vault__statLabel">{{ section.settings.stat_1_label | escape }}</span>
+        </div>
+        <div class="gk-vault__stat" role="listitem">
+          <span class="gk-vault__statNum">{{ section.settings.stat_2_num | escape }}</span>
+          <span class="gk-vault__statLabel">{{ section.settings.stat_2_label | escape }}</span>
+        </div>
+        <div class="gk-vault__stat" role="listitem">
+          <span class="gk-vault__statNum">{{ section.settings.stat_3_num | escape }}</span>
+          <span class="gk-vault__statLabel">{{ section.settings.stat_3_label | escape }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% comment %} ============ OPT-IN FORM ============ {% endcomment %}
+  <div class="gk-vault__wrap">
+    <div class="gk-vault__optin">
+
+      <div class="gk-vault__photoCol">
+        {% if section.settings.greg_photo != blank %}
+          <div class="gk-vault__photoFrame">
+            {{
+              section.settings.greg_photo
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 880px) 100vw, 480px',
+                widths: '480, 640, 800, 1000, 1200',
+                class: 'gk-vault__photo',
+                alt: section.settings.greg_photo.alt | default: 'Greg Koch'
+            }}
+          </div>
+        {% else %}
+          <div class="gk-vault__photoFrame gk-vault__photoFrame--empty">
+            {{ 'image' | placeholder_svg_tag: 'gk-vault__photo placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div
+        class="gk-vault__formCard"
+        data-gk-vault-form
+        data-klaviyo-company="{{ section.settings.klaviyo_api_key | escape }}"
+        data-klaviyo-list="{{ section.settings.klaviyo_list_id | escape }}"
+      >
+        <span class="gk-vault__formEdge" aria-hidden="true"></span>
+
+        {% if section.settings.form_kicker != blank %}
+          <div class="gk-vault__formKicker">{{ section.settings.form_kicker | escape }}</div>
+        {% endif %}
+        {% if section.settings.form_heading != blank %}
+          <h2 class="gk-vault__formHeading">{{ section.settings.form_heading | escape }}</h2>
+        {% endif %}
+
+        <form class="gk-vault__form" novalidate>
+          <div class="gk-vault__row">
+            <div class="gk-vault__field">
+              <label for="gkv-first-{{ section.id }}">First Name</label>
+              <input type="text" id="gkv-first-{{ section.id }}" name="first_name" autocomplete="given-name" placeholder="First name">
+            </div>
+            <div class="gk-vault__field">
+              <label for="gkv-last-{{ section.id }}">Last Name</label>
+              <input type="text" id="gkv-last-{{ section.id }}" name="last_name" autocomplete="family-name" placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="gk-vault__field">
+            <label for="gkv-email-{{ section.id }}">Email <span class="gk-vault__req">*</span></label>
+            <input type="email" id="gkv-email-{{ section.id }}" name="email" autocomplete="email" placeholder="you@email.com" required>
+          </div>
+
+          <label class="gk-vault__consent">
+            <input type="checkbox" name="consent" value="yes">
+            <span class="gk-vault__consentBox" aria-hidden="true"></span>
+            <span class="gk-vault__consentText">{{ section.settings.consent_label | escape }}</span>
+          </label>
+
+          <button type="submit" class="gk-vault__submit">
+            <span class="gk-vault__submitSheen" aria-hidden="true"></span>
+            <span class="gk-vault__submitLabel">{{ section.settings.submit_label | default: 'GET INSTANT ACCESS' | escape }}</span>
+          </button>
+
+          <p class="gk-vault__formMsg" data-gk-vault-msg role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <div class="gk-vault__success" data-gk-vault-success hidden>
+          <div class="gk-vault__successIco" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor"/>
+            </svg>
+          </div>
+          <p class="gk-vault__successText">{{ section.settings.success_message | default: 'Check your email for vault access.' | escape }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% comment %} ============ WHAT'S INSIDE ============ {% endcomment %}
+  {%- assign vault_blocks = section.blocks | where: 'type', 'vault_item' -%}
+  {%- if section.settings.inside_heading != blank or vault_blocks.size > 0 -%}
+    <div class="gk-vault__wrap gk-vault__inside">
+      <div class="gk-vault__insideHead">
+        {% if section.settings.inside_kicker != blank %}
+          <div class="gk-vault__kicker">{{ section.settings.inside_kicker | escape }}</div>
+        {% endif %}
+        {% if section.settings.inside_heading != blank %}
+          <h2 class="gk-vault__insideHeading">{{ section.settings.inside_heading | escape }}</h2>
+        {% endif %}
+        {% if section.settings.inside_intro != blank %}
+          <p class="gk-vault__insideIntro">{{ section.settings.inside_intro | escape }}</p>
+        {% endif %}
+      </div>
+
+      {%- if vault_blocks.size > 0 -%}
+        <div class="gk-vault__grid" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'vault_item' -%}
+              <article
+                class="gk-vault__card{% if block.settings.bonus %} gk-vault__card--bonus{% endif %}"
+                role="listitem"
+                style="--gk-delay: {{ forloop.index | times: 60 }}ms;"
+                {{ block.shopify_attributes }}
+              >
+                <span class="gk-vault__cardEdge" aria-hidden="true"></span>
+                {% if block.settings.bonus %}
+                  <span class="gk-vault__cardBadge">Bonus</span>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <h3 class="gk-vault__cardTitle">{{ block.settings.title | escape }}</h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                  <p class="gk-vault__cardDesc">{{ block.settings.description | escape }}</p>
+                {% endif %}
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {% if section.settings.closing_line != blank %}
+        {%- assign closing_safe = section.settings.closing_line | escape -%}
+        {%- if section.settings.closing_highlight != blank -%}
+          {%- assign chl = section.settings.closing_highlight | escape -%}
+          {%- capture chl_span -%}<span class="gk-vault__hl">{{ chl }}</span>{%- endcapture -%}
+          {%- assign closing_html = closing_safe | replace: chl, chl_span -%}
+        {%- else -%}
+          {%- assign closing_html = closing_safe -%}
+        {%- endif -%}
+        <p class="gk-vault__closing">{{ closing_html }}</p>
+      {% endif %}
+    </div>
+  {%- endif -%}
+
+  {% style %}
+    /* =========================================================
+       GK VAULT OPT-IN (scoped under .gk-vault)
+       Single accent: {{ accent }}
+       ========================================================= */
+    .gk-vault {
+      --gk-accent: {{ accent }};
+      --gk-accent-soft: rgba(200, 96, 26, 0.6);
+      --gk-accent-glow: rgba(200, 96, 26, 0.28);
+      --gk-hi: #f0a060;
+      --gk-card-line: rgba(255, 255, 255, 0.12);
+      position: relative;
+      background: #0D0D0D;
+      color: #f4f4f5;
+      overflow: hidden;
+    }
+
+    .gk-vault__wrap {
+      width: min(1140px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ---- Hero ---- */
+    .gk-vault__hero {
+      position: relative;
+      padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 64px);
+      text-align: center;
+    }
+
+    .gk-vault__hero-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(720px, 90%);
+      height: 440px;
+      background: radial-gradient(ellipse at center, rgba(200, 96, 26, 0.20) 0%, transparent 66%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .gk-vault__hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gk-vault__vaultTile {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 22px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--gk-accent);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 60%),
+        rgba(200, 96, 26, 0.08);
+      border: 1px solid rgba(200, 96, 26, 0.35);
+      box-shadow:
+        0 10px 30px -12px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 28px rgba(200, 96, 26, 0.22);
+      overflow: hidden;
+    }
+
+    .gk-vault__vaultGlow {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 45%, var(--gk-accent-glow), transparent 68%);
+      opacity: 0.5;
+      transform: scale(0.85);
+      animation: gkv-breathe 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .gk-vault__vaultIco {
+      position: relative;
+      width: 36px;
+      height: 36px;
+    }
+
+    .gk-vault__kicker {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gk-accent);
+      margin-bottom: 14px;
+    }
+
+    .gk-vault__heading {
+      margin: 0 auto;
+      max-width: 16ch;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      font-size: clamp(40px, 7vw, 78px);
+      color: #ffffff;
+    }
+
+    .gk-vault__hl { color: var(--gk-accent); }
+
+    .gk-vault__subhead {
+      margin: 18px auto 0;
+      max-width: 52ch;
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.55;
+      opacity: 0.85;
+    }
+
+    .gk-vault__italic {
+      margin: 12px auto 0;
+      max-width: 52ch;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--gk-hi);
+      opacity: 0.85;
+    }
+
+    /* Stat row: 3 cells split by hairlines */
+    .gk-vault__stats {
+      margin: clamp(30px, 4vw, 46px) auto 0;
+      max-width: 620px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--gk-card-line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+      box-shadow:
+        0 10px 30px -12px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .gk-vault__stat {
+      padding: 22px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .gk-vault__stat + .gk-vault__stat {
+      border-left: 1px solid var(--gk-card-line);
+    }
+
+    .gk-vault__statNum {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--gk-accent);
+    }
+
+    .gk-vault__statLabel {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* ---- Opt-in (two-column) ---- */
+    .gk-vault__optin {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(20px, 3vw, 40px);
+      align-items: stretch;
+      padding: clamp(20px, 3vw, 36px) 0 clamp(44px, 6vw, 80px);
+    }
+
+    .gk-vault__photoCol { display: flex; }
+
+    .gk-vault__photoFrame {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gk-card-line);
+      box-shadow:
+        0 18px 44px -16px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .gk-vault__photoFrame::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .gk-vault__photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gk-vault__photoFrame--empty .gk-vault__photo {
+      aspect-ratio: 4 / 5;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Form glass card */
+    .gk-vault__formCard {
+      position: relative;
+      border-radius: 16px;
+      padding: clamp(24px, 3vw, 40px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 22%),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--gk-card-line);
+      box-shadow:
+        0 18px 44px -16px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .gk-vault__formEdge {
+      position: absolute;
+      top: 0;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      pointer-events: none;
+    }
+
+    .gk-vault__formKicker {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gk-accent);
+      margin-bottom: 10px;
+    }
+
+    .gk-vault__formHeading {
+      margin: 0 0 22px;
+      font-size: clamp(24px, 3.4vw, 34px);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .gk-vault__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .gk-vault__field { margin-bottom: 16px; }
+
+    .gk-vault__field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .gk-vault__req { color: var(--gk-accent); }
+
+    .gk-vault__field input {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      color: #f4f4f5;
+      font-size: 16px;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gk-vault__field input::placeholder { color: rgba(255, 255, 255, 0.32); }
+
+    .gk-vault__field input:focus {
+      border-color: var(--gk-accent);
+      box-shadow: 0 0 0 3px rgba(200, 96, 26, 0.28);
+    }
+
+    .gk-vault__field input.gk-vault--invalid {
+      border-color: #e0563f;
+      box-shadow: 0 0 0 3px rgba(224, 86, 63, 0.25);
+    }
+
+    /* Consent checkbox */
+    .gk-vault__consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 4px 0 22px;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .gk-vault__consent input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .gk-vault__consentBox {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(0, 0, 0, 0.35);
+      display: grid;
+      place-items: center;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .gk-vault__consentBox::after {
+      content: "";
+      width: 10px;
+      height: 6px;
+      border-left: 2px solid #1a0e04;
+      border-bottom: 2px solid #1a0e04;
+      transform: rotate(-45deg) scale(0);
+      transform-origin: center;
+      transition: transform 0.18s ease;
+      margin-top: -2px;
+    }
+
+    .gk-vault__consent input:checked + .gk-vault__consentBox {
+      background: var(--gk-accent);
+      border-color: var(--gk-accent);
+    }
+
+    .gk-vault__consent input:checked + .gk-vault__consentBox::after {
+      transform: rotate(-45deg) scale(1);
+    }
+
+    .gk-vault__consent input:focus-visible + .gk-vault__consentBox {
+      box-shadow: 0 0 0 3px rgba(200, 96, 26, 0.35);
+    }
+
+    /* Molten primary submit button + hover shimmer */
+    .gk-vault__submit {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border: none;
+      border-radius: 12px;
+      padding: 17px 28px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #1a0e04;
+      background: linear-gradient(180deg, #f0a85a 0%, #c8601a 60%, #a8490d 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.5) inset,
+        0 -3px 8px rgba(100, 40, 0, 0.5) inset,
+        0 10px 24px -8px rgba(200, 96, 26, 0.75),
+        0 3px 6px rgba(0, 0, 0, 0.6);
+      transition: transform 0.15s ease, filter 0.25s ease;
+    }
+
+    .gk-vault__submit:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    .gk-vault__submit:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 3px rgba(200, 96, 26, 0.45),
+        0 10px 24px -8px rgba(200, 96, 26, 0.75);
+    }
+
+    .gk-vault__submit[disabled] {
+      opacity: 0.7;
+      cursor: progress;
+      transform: none;
+    }
+
+    .gk-vault__submitLabel { position: relative; z-index: 1; }
+
+    .gk-vault__submitSheen {
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+    }
+
+    .gk-vault__submit:hover .gk-vault__submitSheen {
+      animation: gkv-sheen 850ms ease;
+    }
+
+    .gk-vault__formMsg {
+      margin: 14px 0 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #e0563f;
+    }
+
+    /* Success state */
+    .gk-vault__success {
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .gk-vault__successIco {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gk-accent);
+      background: rgba(200, 96, 26, 0.12);
+      border: 1px solid rgba(200, 96, 26, 0.4);
+    }
+
+    .gk-vault__successIco svg { width: 28px; height: 28px; }
+
+    .gk-vault__successText {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* ---- What's inside ---- */
+    .gk-vault__inside {
+      padding-bottom: clamp(56px, 8vw, 104px);
+    }
+
+    .gk-vault__insideHead {
+      max-width: 720px;
+      margin: 0 0 clamp(26px, 3.4vw, 40px);
+    }
+
+    .gk-vault__insideHeading {
+      margin: 0 0 14px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 0.96;
+      font-size: clamp(32px, 5.5vw, 56px);
+    }
+
+    .gk-vault__insideIntro {
+      margin: 0;
+      max-width: 62ch;
+      opacity: 0.82;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .gk-vault__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .gk-vault__card {
+      position: relative;
+      grid-column: span 1;
+      border-radius: 12px;
+      padding: 24px 24px 22px;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 22%),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--gk-card-line);
+      box-shadow:
+        0 10px 30px -12px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      transition:
+        transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: gkv-fadeUp 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--gk-delay, 0ms);
+    }
+
+    .gk-vault__cardEdge {
+      position: absolute;
+      top: 0;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      pointer-events: none;
+    }
+
+    .gk-vault__card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gk-accent-soft);
+      box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(200, 96, 26, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    /* Bonus card: full width, orange accent */
+    .gk-vault__card--bonus {
+      grid-column: 1 / -1;
+      border-color: rgba(200, 96, 26, 0.45);
+      border-top: 2px solid var(--gk-accent);
+      background:
+        linear-gradient(180deg, rgba(200, 96, 26, 0.14), rgba(200, 96, 26, 0.03) 40%),
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .gk-vault__cardBadge {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #1a0e04;
+      background: var(--gk-accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(200, 96, 26, 0.5);
+    }
+
+    .gk-vault__cardTitle {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.12;
+      color: #ffffff;
+    }
+
+    .gk-vault__card--bonus .gk-vault__cardTitle { color: var(--gk-hi); }
+
+    .gk-vault__cardDesc {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.78;
+    }
+
+    .gk-vault__closing {
+      margin: clamp(30px, 4vw, 48px) auto 0;
+      max-width: 60ch;
+      text-align: center;
+      font-size: clamp(17px, 2.4vw, 22px);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 880px) {
+      .gk-vault__optin {
+        grid-template-columns: 1fr;   /* photo stacks above form */
+      }
+      .gk-vault__photoFrame { aspect-ratio: 16 / 11; }
+      .gk-vault__grid {
+        grid-template-columns: 1fr;   /* cards 1-up */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gk-vault__wrap { width: calc(100% - 28px); }
+      .gk-vault__row { grid-template-columns: 1fr; }
+      .gk-vault__stat { padding: 18px 8px; }
+    }
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
+    @keyframes gkv-fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes gkv-breathe {
+      0%, 100% { opacity: 0.4; transform: scale(0.82); }
+      50%      { opacity: 0.7; transform: scale(1.04); }
+    }
+    @keyframes gkv-sheen {
+      0%   { left: -120%; }
+      100% { left: 140%; }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .gk-vault__card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .gk-vault__card:hover { transform: none; }
+      .gk-vault__vaultGlow { animation: none !important; }
+      .gk-vault__submit:hover { transform: none; }
+      .gk-vault__submit:hover .gk-vault__submitSheen { animation: none !important; }
+    }
+  {% endstyle %}
+
+  <script>
+    (function () {
+      var scriptEl = document.currentScript;
+      var sectionEl = scriptEl ? scriptEl.closest('.gk-vault') : document.getElementById('section-{{ section.id }}');
+      var root = sectionEl ? sectionEl.querySelector('[data-gk-vault-form]') : null;
+      if (!root) return;
+
+      var form = root.querySelector('.gk-vault__form');
+      var msgEl = root.querySelector('[data-gk-vault-msg]');
+      var successEl = root.querySelector('[data-gk-vault-success]');
+      var submitBtn = root.querySelector('.gk-vault__submit');
+      var company = root.getAttribute('data-klaviyo-company');
+      var listId = root.getAttribute('data-klaviyo-list');
+
+      function showMsg(text) {
+        if (!msgEl) return;
+        msgEl.textContent = text;
+        msgEl.hidden = false;
+      }
+
+      function clearMsg() {
+        if (!msgEl) return;
+        msgEl.textContent = '';
+        msgEl.hidden = true;
+      }
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearMsg();
+
+        var emailInput = form.querySelector('input[name="email"]');
+        var email = (emailInput.value || '').trim();
+        var first = (form.querySelector('input[name="first_name"]').value || '').trim();
+        var last = (form.querySelector('input[name="last_name"]').value || '').trim();
+
+        emailInput.classList.remove('gk-vault--invalid');
+        if (!isEmail(email)) {
+          emailInput.classList.add('gk-vault--invalid');
+          emailInput.focus();
+          showMsg('Please enter a valid email address.');
+          return;
+        }
+
+        if (!company || !listId || listId.indexOf('REPLACE') !== -1) {
+          showMsg('This form is not connected yet. Add your Klaviyo Vault list ID in the theme editor.');
+          return;
+        }
+
+        var attrs = { email: email };
+        if (first) attrs.first_name = first;
+        if (last) attrs.last_name = last;
+        attrs.subscriptions = { email: { marketing: { consent: 'SUBSCRIBED' } } };
+
+        var payload = {
+          data: {
+            type: 'subscription',
+            attributes: { profile: { data: { type: 'profile', attributes: attrs } } },
+            relationships: { list: { data: { type: 'list', id: listId } } }
+          }
+        };
+
+        submitBtn.disabled = true;
+
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(company), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            revision: '2024-10-15'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            if (res.status === 202 || res.ok) {
+              form.hidden = true;
+              if (successEl) successEl.hidden = false;
+            } else {
+              return res.text().then(function () {
+                submitBtn.disabled = false;
+                showMsg('Something went wrong. Please try again in a moment.');
+              });
+            }
+          })
+          .catch(function () {
+            submitBtn.disabled = false;
+            showMsg('Network error. Please check your connection and try again.');
+          });
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "GK Vault Opt-in",
+  "tag": "section",
+  "class": "gk-vault-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "The Gristle Vault"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "Access the Gristle Vault"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Headline phrase in orange",
+      "info": "This exact text inside the headline renders in the accent orange.",
+      "default": "Gristle Vault"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "8 videos. 4+ hours. One PDF that ties it all together. All of it free."
+    },
+    {
+      "type": "text",
+      "id": "italic_line",
+      "label": "Italic line",
+      "default": "Every secret Greg probably shouldn't have shared."
+    },
+    {
+      "type": "header",
+      "content": "Stat Row"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_num",
+      "label": "Stat 1 number",
+      "default": "8"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 label",
+      "default": "Video Lessons"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_num",
+      "label": "Stat 2 number",
+      "default": "4+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 label",
+      "default": "Hours"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_num",
+      "label": "Stat 3 number",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 label",
+      "default": "Master PDF"
+    },
+    {
+      "type": "header",
+      "content": "Opt-in Form"
+    },
+    {
+      "type": "image_picker",
+      "id": "greg_photo",
+      "label": "Greg photo",
+      "info": "Swappable here in the theme editor. Shown left of the form on desktop, above it on mobile."
+    },
+    {
+      "type": "text",
+      "id": "form_kicker",
+      "label": "Form kicker",
+      "default": "Free Instant Access"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Get the Vault"
+    },
+    {
+      "type": "text",
+      "id": "consent_label",
+      "label": "Consent checkbox label",
+      "default": "I agree to receiving marketing and promotional materials from Greg Koch."
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit button label",
+      "default": "GET INSTANT ACCESS"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Check your email for vault access."
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Connection"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_api_key",
+      "label": "Klaviyo public API key (company ID)",
+      "default": "XBDmgJ"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo Vault list ID",
+      "info": "Find this in Klaviyo under Lists & Segments. Paste the Vault list ID here.",
+      "default": "REPLACE_WITH_VAULT_LIST_ID"
+    },
+    {
+      "type": "header",
+      "content": "What's Inside"
+    },
+    {
+      "type": "text",
+      "id": "inside_kicker",
+      "label": "Section kicker",
+      "default": "The Full Stash"
+    },
+    {
+      "type": "text",
+      "id": "inside_heading",
+      "label": "Section heading",
+      "default": "What's Inside the Vault"
+    },
+    {
+      "type": "textarea",
+      "id": "inside_intro",
+      "label": "Intro paragraph",
+      "default": "Not one throwaway lesson. A full stash of Greg's core techniques, tone ideas, harmonic concepts, gear breakdowns, and real-world playing insights from multiple full-length sessions."
+    },
+    {
+      "type": "text",
+      "id": "closing_line",
+      "label": "Closing line",
+      "default": "Total value: 4+ hours of instruction, 8 sessions, 1 reference guide. All free."
+    },
+    {
+      "type": "text",
+      "id": "closing_highlight",
+      "label": "Closing phrase in orange",
+      "default": "All free."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "vault_item",
+      "name": "Vault item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Chicken Picking Masterclass"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "The complete breakdown of Greg's most requested technique, from the thumb-and-finger foundation to full hybrid picking integration."
+        },
+        {
+          "type": "checkbox",
+          "id": "bonus",
+          "label": "Bonus item (full-width orange accent)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "GK Vault Opt-in",
+      "blocks": [
+        { "type": "vault_item", "settings": { "title": "Chicken Picking Masterclass", "description": "The complete breakdown of Greg's most requested technique, from the thumb-and-finger foundation to full hybrid picking integration." } },
+        { "type": "vault_item", "settings": { "title": "Travis Picking Deep Dive", "description": "How Greg learned it with a flat pick instead of a thumb pick, and how to build the boom-chuck foundation without rushing." } },
+        { "type": "vault_item", "settings": { "title": "Chord Vocabulary Breakdown", "description": "The James Burton ninth bend, Robben Ford chord melody, artificial harmonics, the Allan Holdsworth minor 11th, the Steely Dan sus chord." } },
+        { "type": "vault_item", "settings": { "title": "Outside Playing & Harmonic Color", "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale." } },
+        { "type": "vault_item", "settings": { "title": "Tone & Gear Rundown", "description": "The full live rig: Reverend signature guitars, Fishman Fluence pickups, the Tone King Royalist, and every pedal on the board." } },
+        { "type": "vault_item", "settings": { "title": "Blues Soloing Concepts", "description": "Playing over changes, the Jeff Beck whammy and harmonic techniques, self-accompanied blues, the Allman Brothers approach." } },
+        { "type": "vault_item", "settings": { "title": "Song Breakdown: Tonus Diabolicus", "description": "Note-for-note construction of a signature composition and where every idea came from." } },
+        { "type": "vault_item", "settings": { "title": "Song Breakdown: Spank It", "description": "The 1988 riff that became a cornerstone, with exact right-hand mechanics." } },
+        { "type": "vault_item", "settings": { "title": "The Gristle Vault Master Reference PDF", "description": "A 12-page compiled reference covering every technique, concept, voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch.", "bonus": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

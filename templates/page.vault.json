@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "gk_vault_optin": {
+      "type": "gk-vault-optin",
+      "blocks": {
+        "item_chicken": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Chicken Picking Masterclass",
+            "description": "The complete breakdown of Greg's most requested technique, from the thumb-and-finger foundation to full hybrid picking integration.",
+            "bonus": false
+          }
+        },
+        "item_travis": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Travis Picking Deep Dive",
+            "description": "How Greg learned it with a flat pick instead of a thumb pick, and how to build the boom-chuck foundation without rushing.",
+            "bonus": false
+          }
+        },
+        "item_chords": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Chord Vocabulary Breakdown",
+            "description": "The James Burton ninth bend, Robben Ford chord melody, artificial harmonics, the Allan Holdsworth minor 11th, the Steely Dan sus chord.",
+            "bonus": false
+          }
+        },
+        "item_outside": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Outside Playing & Harmonic Color",
+            "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale.",
+            "bonus": false
+          }
+        },
+        "item_tone": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Tone & Gear Rundown",
+            "description": "The full live rig: Reverend signature guitars, Fishman Fluence pickups, the Tone King Royalist, and every pedal on the board.",
+            "bonus": false
+          }
+        },
+        "item_blues": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Blues Soloing Concepts",
+            "description": "Playing over changes, the Jeff Beck whammy and harmonic techniques, self-accompanied blues, the Allman Brothers approach.",
+            "bonus": false
+          }
+        },
+        "item_tonus": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Song Breakdown: Tonus Diabolicus",
+            "description": "Note-for-note construction of a signature composition and where every idea came from.",
+            "bonus": false
+          }
+        },
+        "item_spank": {
+          "type": "vault_item",
+          "settings": {
+            "title": "Song Breakdown: Spank It",
+            "description": "The 1988 riff that became a cornerstone, with exact right-hand mechanics.",
+            "bonus": false
+          }
+        },
+        "item_pdf": {
+          "type": "vault_item",
+          "settings": {
+            "title": "The Gristle Vault Master Reference PDF",
+            "description": "A 12-page compiled reference covering every technique, concept, voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch.",
+            "bonus": true
+          }
+        }
+      },
+      "block_order": [
+        "item_chicken",
+        "item_travis",
+        "item_chords",
+        "item_outside",
+        "item_tone",
+        "item_blues",
+        "item_tonus",
+        "item_spank",
+        "item_pdf"
+      ],
+      "settings": {
+        "kicker": "The Gristle Vault",
+        "heading": "Access the Gristle Vault",
+        "highlight_text": "Gristle Vault",
+        "subhead": "8 videos. 4+ hours. One PDF that ties it all together. All of it free.",
+        "italic_line": "Every secret Greg probably shouldn't have shared.",
+        "stat_1_num": "8",
+        "stat_1_label": "Video Lessons",
+        "stat_2_num": "4+",
+        "stat_2_label": "Hours",
+        "stat_3_num": "1",
+        "stat_3_label": "Master PDF",
+        "form_kicker": "Free Instant Access",
+        "form_heading": "Get the Vault",
+        "consent_label": "I agree to receiving marketing and promotional materials from Greg Koch.",
+        "submit_label": "GET INSTANT ACCESS",
+        "success_message": "Check your email for vault access.",
+        "klaviyo_api_key": "XBDmgJ",
+        "klaviyo_list_id": "REPLACE_WITH_VAULT_LIST_ID",
+        "inside_kicker": "The Full Stash",
+        "inside_heading": "What's Inside the Vault",
+        "inside_intro": "Not one throwaway lesson. A full stash of Greg's core techniques, tone ideas, harmonic concepts, gear breakdowns, and real-world playing insights from multiple full-length sessions.",
+        "closing_line": "Total value: 4+ hours of instruction, 8 sessions, 1 reference guide. All free.",
+        "closing_highlight": "All free."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "gk_vault_optin"
+  ]
+}
