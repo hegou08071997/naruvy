@@ -3597,167 +3597,184 @@ details-disclosure > details {
 }
 
 /* ============================================================
-   GK MOLTEN BUTTONS - site-wide premium restyle
-   Overrides Dawn's default button visuals. All Dawn classes,
-   data-attrs, ARIA, and checkout behaviours are untouched.
+   GK MOLTEN BUTTONS - site-wide premium restyle (v2)
+   Root cause of v1 defects: Dawn draws the button border via
+   .button::after, its hover shadow via .button::before, and the
+   label color via the --color-button-text variable. v2 explicitly
+   neutralizes those pseudo-elements and forces the dark label,
+   then repurposes ::before as the shimmer sheen so it does not
+   fight Dawn. Tertiary (icon/link/close) buttons are left alone.
+   All Dawn classes, data-attrs, ARIA and checkout JS are untouched.
    ============================================================ */
 
-/* ── Reset Dawn pseudo-elements so we own the visuals ──────── */
-.button::before,
-.shopify-challenge__button::before,
-.customer button::before,
-.shopify-payment-button__button--unbranded::before {
-  box-shadow: none;
-}
-.button::after,
+/* -- DEFECT 2: kill Dawn's ::after border ring on skinned buttons -- */
+.button:not(.button--tertiary)::after,
 .shopify-challenge__button::after,
-.customer button::after,
-.shopify-payment-button__button--unbranded::after {
-  box-shadow: none;
-  border-radius: 0;
+.customer button:not(.button--tertiary)::after,
+button.shopify-payment-button__button--unbranded::after {
+  content: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* ── PRIMARY - molten orange gradient ───────────────────────── */
-.button,
+/* -- DEFECT 3 + shimmer: reset Dawn's ::before shadow, repurpose as sheen -- */
+.button:not(.button--tertiary)::before,
+.shopify-challenge__button::before,
+.customer button:not(.button--tertiary)::before,
+button.shopify-payment-button__button--unbranded::before {
+  content: '' !important;
+  box-shadow: none !important;
+  top: 0 !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 32% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  border-radius: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent) !important;
+  transform: translateX(-150%) skewX(-20deg);
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+/* -- Shared: positioning + clip so the sheen stays inside the button -- */
+.button:not(.button--tertiary),
 .shopify-challenge__button,
-.customer button,
+.customer button:not(.button--tertiary),
 button.shopify-payment-button__button--unbranded {
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-  border: none;
-  color: #1f0f02;
+  border: none !important;
+  border-radius: 10px;
+  padding: 15px 32px;
   font-weight: 800;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  border-radius: 10px;
-  padding: 15px 32px;
-  background: linear-gradient(180deg, #ffc879 0%, #e8893a 50%, #c8601a 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 240, 220, 0.7) inset,
-    0 -4px 10px rgba(120, 48, 0, 0.55) inset,
-    0 0 0 1px rgba(255, 180, 110, 0.35),
-    0 12px 28px -8px rgba(232, 137, 58, 0.9),
-    0 3px 6px rgba(0, 0, 0, 0.6);
   transition: transform 0.15s ease, filter 0.25s ease;
 }
 
-/* ── Shimmer sweep (::before) ─────────────────────────────── */
-.button::before,
-.shopify-challenge__button::before,
-.customer button::before,
-button.shopify-payment-button__button--unbranded::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 32%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: translateX(-150%) skewX(-20deg);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* keep label / children above the shimmer layer */
-.button > *,
+/* keep any wrapped label above the sheen layer */
+.button:not(.button--tertiary) > *,
 .shopify-challenge__button > *,
-.customer button > * {
+.customer button:not(.button--tertiary) > *,
+button.shopify-payment-button__button--unbranded > * {
   position: relative;
   z-index: 1;
 }
 
-.button:hover,
+/* -- PRIMARY - molten orange body + DEFECT 1 dark label -- */
+.button:not(.button--tertiary):not(.button--secondary),
+.shopify-challenge__button,
+.customer button:not(.button--tertiary):not(.button--secondary),
+button.shopify-payment-button__button--unbranded {
+  color: #1f0f02 !important;
+  background: linear-gradient(180deg, #ffc879 0%, #e8893a 50%, #c8601a 100%) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 240, 220, 0.7) inset,
+    0 -4px 10px rgba(120, 48, 0, 0.55) inset,
+    0 0 0 1px rgba(255, 180, 110, 0.35),
+    0 12px 28px -8px rgba(232, 137, 58, 0.55),
+    0 3px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* force dark label on any inner span / label node (DEFECT 1) */
+.button:not(.button--tertiary):not(.button--secondary) span,
+.button:not(.button--tertiary):not(.button--secondary) .button-label,
+.shopify-challenge__button span,
+.customer button:not(.button--tertiary):not(.button--secondary) span,
+button.shopify-payment-button__button--unbranded span {
+  color: #1f0f02 !important;
+}
+
+/* -- Hover / active / focus (primary + payment) -- */
+.button:not(.button--tertiary):not(.button--secondary):hover,
 .shopify-challenge__button:hover,
-.customer button:hover,
+.customer button:not(.button--tertiary):not(.button--secondary):hover,
 button.shopify-payment-button__button--unbranded:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
 }
 
-.button:hover::before,
-.shopify-challenge__button:hover::before,
-.customer button:hover::before,
-button.shopify-payment-button__button--unbranded:hover::before {
-  opacity: 1;
-  animation: gkShimmer 1.15s ease-out;
-}
-
-.button:active,
+.button:not(.button--tertiary):active,
 .shopify-challenge__button:active,
-.customer button:active,
+.customer button:not(.button--tertiary):active,
 button.shopify-payment-button__button--unbranded:active {
   transform: translateY(1px);
   filter: brightness(0.97);
 }
 
-.button:focus-visible,
+.button:not(.button--tertiary):focus-visible,
 .shopify-challenge__button:focus-visible,
-.customer button:focus-visible,
+.customer button:not(.button--tertiary):focus-visible,
 button.shopify-payment-button__button--unbranded:focus-visible {
-  outline: 2px solid #f0a060;
+  outline: 2px solid #f0a060 !important;
   outline-offset: 3px;
-  box-shadow:
-    0 1px 0 rgba(255, 240, 220, 0.7) inset,
-    0 -4px 10px rgba(120, 48, 0, 0.55) inset,
-    0 0 0 1px rgba(255, 180, 110, 0.35),
-    0 12px 28px -8px rgba(232, 137, 58, 0.9),
-    0 3px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* ── SECONDARY - dark glass ─────────────────────────────────── */
+/* trigger the sheen sweep on hover */
+.button:not(.button--tertiary):hover::before,
+.shopify-challenge__button:hover::before,
+.customer button:not(.button--tertiary):hover::before,
+button.shopify-payment-button__button--unbranded:hover::before {
+  opacity: 1;
+  animation: gkShimmer 1.15s ease-out;
+}
+
+/* -- SECONDARY - dark glass, white label -- */
 .button--secondary {
-  color: #fff;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(200, 96, 26, 0.5);
+  color: #fff !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)) !important;
+  border: 1px solid rgba(200, 96, 26, 0.5) !important;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.12) inset,
-    0 8px 20px -8px rgba(0, 0, 0, 0.8);
+    0 8px 20px -8px rgba(0, 0, 0, 0.8) !important;
   filter: none;
 }
 
+.button--secondary span,
+.button--secondary .button-label {
+  color: #fff !important;
+}
+
 .button--secondary:hover {
-  border-color: #C8601A;
-  background: linear-gradient(180deg, rgba(200, 96, 26, 0.18), rgba(200, 96, 26, 0.04));
+  border-color: #C8601A !important;
+  background: linear-gradient(180deg, rgba(200, 96, 26, 0.18), rgba(200, 96, 26, 0.04)) !important;
   transform: translateY(-2px);
   filter: none;
 }
 
-.button--secondary::before {
-  display: none;
-}
-
-/* ── Disabled - keep Dawn opacity, kill transform ──────────── */
+/* -- Disabled - keep Dawn opacity, kill motion -- */
 .button:disabled,
 .button[aria-disabled='true'],
 .button.disabled,
 .customer button:disabled,
-.customer button[aria-disabled='true'] {
+.customer button[aria-disabled='true'],
+button.shopify-payment-button__button--unbranded:disabled {
   transform: none !important;
   filter: none !important;
 }
 
-/* ── Shimmer keyframe ───────────────────────────────────────── */
+/* -- Shimmer keyframe -- */
 @keyframes gkShimmer {
   0%        { transform: translateX(-150%) skewX(-20deg); }
   55%, 100% { transform: translateX(280%) skewX(-20deg); }
 }
 
-/* ── Reduced motion ─────────────────────────────────────────── */
+/* -- Reduced motion -- */
 @media (prefers-reduced-motion: reduce) {
-  .button::before,
+  .button:not(.button--tertiary)::before,
   .shopify-challenge__button::before,
-  .customer button::before,
+  .customer button:not(.button--tertiary)::before,
   button.shopify-payment-button__button--unbranded::before {
-    display: none;
+    display: none !important;
   }
-  .button:hover,
+  .button:not(.button--tertiary):hover,
   .button--secondary:hover,
   .shopify-challenge__button:hover,
-  .customer button:hover,
+  .customer button:not(.button--tertiary):hover,
   button.shopify-payment-button__button--unbranded:hover {
     transform: none;
   }
 }
-/* ── End GK Molten Buttons ─────────────────────────────────── */
+/* -- End GK Molten Buttons v2 -- */
