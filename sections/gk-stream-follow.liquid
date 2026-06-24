@@ -1,76 +1,74 @@
 {% comment %}
-  GK Stream + Follow (Modern)
+  GK Stream + Follow (Modern — dark premium / burnt-orange redesign)
   4 fixed columns: Stream Greg / Stream KMT / Podcast / Watch Greg Live
   - platform_link blocks get assigned to a column via dropdown
-  - follow_link blocks render as pills under FOLLOW
+  - follow_link blocks render as buttons under FOLLOW
+  Aesthetic only: all hrefs come from block.settings.url (unchanged).
 {% endcomment %}
 
 <section class="gk-stream" data-section-id="{{ section.id }}">
   <div class="gk-stream__inner">
     {% if section.settings.eyebrow != blank %}
-      <div class="gk-stream__eyebrow">{{ section.settings.eyebrow }}</div>
+      <p class="sf-eyebrow"><span class="glow-dot"></span>{{ section.settings.eyebrow }}</p>
     {% endif %}
 
     {% if section.settings.heading != blank %}
-      <h2 class="gk-stream__heading">{{ section.settings.heading }}</h2>
+      <h2 class="sf-heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
     {% if section.settings.subtext != blank %}
-      <div class="gk-stream__subtext">{{ section.settings.subtext }}</div>
+      <p class="sf-sub">{{ section.settings.subtext }}</p>
     {% endif %}
 
     {% assign col_keys = "stream_greg,stream_kmt,podcast,watch_live" | split: "," %}
 
-    <div class="gk-stream__grid" role="list">
+    <div class="sf-grid" role="list">
       {% for col in col_keys %}
-        <div class="gk-stream__card" role="listitem">
-          <div class="gk-stream__card-head">
-            <h3 class="gk-stream__card-title">
-              {% case col %}
-                {% when "stream_greg" %}{{ section.settings.col_1_title }}
-                {% when "stream_kmt" %}{{ section.settings.col_2_title }}
-                {% when "podcast" %}{{ section.settings.col_3_title }}
-                {% when "watch_live" %}{{ section.settings.col_4_title }}
-              {% endcase %}
-            </h3>
-
-            {% if section.settings.show_dividers %}
-              <div class="gk-stream__divider"></div>
-            {% endif %}
+        <div class="sf-card" role="listitem">
+          <div class="sf-card-label">
+            {% case col %}
+              {% when "stream_greg" %}{{ section.settings.col_1_title }}
+              {% when "stream_kmt" %}{{ section.settings.col_2_title }}
+              {% when "podcast" %}{{ section.settings.col_3_title }}
+              {% when "watch_live" %}{{ section.settings.col_4_title }}
+            {% endcase %}
           </div>
 
-          <ul class="gk-stream__links">
-            {% assign has_any = false %}
+          {% assign has_any = false %}
 
-            {% for block in section.blocks %}
-              {% if block.type == "platform_link" and block.settings.column == col %}
-                {% assign has_any = true %}
-                <li class="gk-stream__link" {{ block.shopify_attributes }}>
-                  <a href="{{ block.settings.url }}" target="_blank" rel="noopener">
-                    {% if section.settings.show_icons and block.settings.icon != blank %}
-                      <img
-                        class="gk-stream__icon"
-                        src="{{ block.settings.icon | image_url: width: 96 }}"
-                        alt=""
-                        loading="lazy"
-                        width="24"
-                        height="24"
-                      >
-                    {% endif %}
-
-                    <span class="gk-stream__link-text">{{ block.settings.label }}</span>
-                    <span class="gk-stream__chev" aria-hidden="true">↗</span>
-                  </a>
-                </li>
-              {% endif %}
-            {% endfor %}
-
-            {% if has_any == false %}
-              <li class="gk-stream__link gk-stream__link--empty">
-                <span>{{ section.settings.empty_column_text }}</span>
-              </li>
+          {% for block in section.blocks %}
+            {% if block.type == "platform_link" and block.settings.column == col %}
+              {% assign has_any = true %}
+              <a
+                class="sf-link"
+                href="{{ block.settings.url }}"
+                target="_blank"
+                rel="noopener"
+                {{ block.shopify_attributes }}
+              >
+                <span class="sf-link-text">
+                  {% if section.settings.show_icons and block.settings.icon != blank %}
+                    <img
+                      class="gk-stream__icon"
+                      src="{{ block.settings.icon | image_url: width: 96 }}"
+                      alt=""
+                      loading="lazy"
+                      width="24"
+                      height="24"
+                    >
+                  {% endif %}
+                  {{ block.settings.label }}
+                </span>
+                <span class="arrow" aria-hidden="true">&#8599;</span>
+              </a>
             {% endif %}
-          </ul>
+          {% endfor %}
+
+          {% if has_any == false %}
+            <div class="sf-link sf-link--empty">
+              <span>{{ section.settings.empty_column_text }}</span>
+            </div>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -83,30 +81,37 @@
     {% endfor %}
 
     {% if has_follow %}
-      <div class="gk-stream__follow">
-        {% if section.settings.follow_heading != blank %}
-          <h3 class="gk-stream__follow-title">{{ section.settings.follow_heading }}</h3>
-        {% endif %}
+      <div class="sf-divider"></div>
 
-        <div class="gk-stream__follow-row" role="list">
-          {% for block in section.blocks %}
-            {% if block.type == "follow_link" %}
-              <a class="gk-stream__follow-pill" href="{{ block.settings.url }}" target="_blank" rel="noopener" role="listitem" {{ block.shopify_attributes }}>
-                {% if block.settings.icon != blank %}
-                  <img
-                    class="gk-stream__follow-icon"
-                    src="{{ block.settings.icon | image_url: width: 96 }}"
-                    alt="{{ block.settings.label | escape }}"
-                    loading="lazy"
-                    width="22"
-                    height="22"
-                  >
-                {% endif %}
-                <span class="gk-stream__follow-text">{{ block.settings.label }}</span>
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
+      {% if section.settings.follow_heading != blank %}
+        <div class="sf-follow-label"><span class="glow-dot"></span>{{ section.settings.follow_heading }}</div>
+      {% endif %}
+
+      <div class="sf-socials" role="list">
+        {% for block in section.blocks %}
+          {% if block.type == "follow_link" %}
+            <a
+              class="sf-social-btn"
+              href="{{ block.settings.url }}"
+              target="_blank"
+              rel="noopener"
+              role="listitem"
+              {{ block.shopify_attributes }}
+            >
+              {% if block.settings.icon != blank %}
+                <img
+                  class="sf-social-icon"
+                  src="{{ block.settings.icon | image_url: width: 96 }}"
+                  alt="{{ block.settings.label | escape }}"
+                  loading="lazy"
+                  width="22"
+                  height="22"
+                >
+              {% endif %}
+              <span class="sf-social-text">{{ block.settings.label }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
       </div>
     {% endif %}
   </div>
@@ -114,12 +119,8 @@
 
 <style>
   .gk-stream{
-    --bg: {{ section.settings.bg_color }};
-    --text: {{ section.settings.text_color }};
-    --line: rgba(255,255,255,0.12);
-
-    background: var(--bg);
-    color: var(--text);
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
     padding: {{ section.settings.pad_y }}px 20px;
   }
 
@@ -128,181 +129,199 @@
     margin: 0 auto;
   }
 
-  .gk-stream__eyebrow{
-    font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    letter-spacing: 0.16em;
+  .sf-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-size: 12px;
-    color: rgba(255,255,255,0.62);
-    margin-bottom: 10px;
+    color: #C8601A;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
   }
 
-  .gk-stream__heading{
-    margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.03em;
+  .sf-heading {
+    font-size: 48px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.35rem;
     line-height: 1;
-    font-size: clamp(44px, 6vw, 76px);
   }
 
-  .gk-stream__subtext{
-    margin-top: 10px;
-    font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    color: rgba(255,255,255,0.75);
-    font-size: 16px;
-    line-height: 1.4;
-    max-width: 60ch;
+  .sf-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin: 0 0 2.5rem;
   }
 
-  .gk-stream__grid{
-    margin-top: 28px;
+  .sf-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 14px;
+    margin-bottom: 2.5rem;
   }
 
-  .gk-stream__card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    border: 1px solid var(--line);
+  .sf-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.13);
     border-radius: 14px;
-    padding: 16px;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    transition: transform 160ms ease, border-color 160ms ease;
+    padding: 1.25rem 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
   }
 
-  .gk-stream__card:hover{
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.22);
-  }
-
-  .gk-stream__card-title{
-    margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-size: 20px;
-  }
-
-  .gk-stream__divider{
-    margin-top: 12px;
+  .sf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
     height: 1px;
-    background: var(--line);
+    background: linear-gradient(90deg, transparent, rgba(200,96,26,0.6), transparent);
   }
 
-  .gk-stream__links{
-    list-style: none;
-    padding: 0;
-    margin: 12px 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .sf-card:hover {
+    background: rgba(255,255,255,0.055);
+    border-color: rgba(200,96,26,0.45);
   }
 
-  .gk-stream__link a{
+  .sf-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #C8601A;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(200,96,26,0.25);
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 10px;
-    border-radius: 12px;
+    gap: 6px;
+  }
+
+  .sf-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: rgba(255,255,255,0.72);
+    font-size: 13px;
+    font-weight: 400;
     text-decoration: none;
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.10);
-    background: rgba(0,0,0,0.20);
-    transition: background 160ms ease, border-color 160ms ease;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 6px;
+    background: rgba(255,255,255,0.02);
   }
 
-  .gk-stream__link a:hover{
-    background: rgba(0,0,0,0.34);
-    border-color: rgba(255,255,255,0.18);
+  .sf-link:last-child { margin-bottom: 0; }
+
+  .sf-link:hover {
+    background: rgba(200,96,26,0.14);
+    border-color: rgba(200,96,26,0.35);
+    color: #fff;
   }
 
-  .gk-stream__icon{
+  .sf-link-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .sf-link svg, .sf-link .arrow {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    transition: color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .sf-link:hover svg, .sf-link:hover .arrow { color: #C8601A; }
+
+  .sf-link--empty {
+    cursor: default;
+    color: rgba(255,255,255,0.35);
+    border-style: dashed;
+    justify-content: flex-start;
+  }
+
+  .sf-link--empty:hover {
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.35);
+  }
+
+  .gk-stream__icon {
     border-radius: 6px;
     filter: brightness(1.1);
   }
 
-  .gk-stream__link-text{
-    font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 15px;
-    line-height: 1.2;
-  }
-
-  .gk-stream__chev{
-    margin-left: auto;
-    color: rgba(255,255,255,0.45);
-    font-size: 13px;
-  }
-
-  .gk-stream__link--empty{
-    opacity: 0.6;
-    font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 14px;
-    padding: 10px 10px;
-    border-radius: 12px;
-    border: 1px dashed rgba(255,255,255,0.14);
-    background: rgba(0,0,0,0.14);
-  }
-
-  .gk-stream__follow{
-    margin-top: 26px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
-  }
-
-  .gk-stream__follow-title{
-    margin: 0 0 12px;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.06em;
+  .sf-follow-label {
+    font-size: 11px;
     text-transform: uppercase;
-    font-size: 22px;
-  }
-
-  .gk-stream__follow-row{
+    letter-spacing: 0.13em;
+    color: #C8601A;
+    font-weight: 700;
+    margin-bottom: 1rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .gk-stream__follow-pill{
-    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 999px;
-    text-decoration: none;
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(0,0,0,0.20);
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    gap: 6px;
   }
 
-  .gk-stream__follow-pill:hover{
-    transform: translateY(-1px);
-    border-color: rgba(255,255,255,0.22);
-    background: rgba(0,0,0,0.34);
+  .sf-socials {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
-  .gk-stream__follow-icon{
+  .sf-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
     border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
   }
 
-  .gk-stream__follow-text{
-    font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: rgba(255,255,255,0.82);
+  .sf-social-btn:hover {
+    background: rgba(200,96,26,0.14);
+    border-color: rgba(200,96,26,0.4);
+    color: #fff;
+  }
+
+  .sf-social-icon { border-radius: 6px; }
+
+  .sf-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 2rem 0;
+  }
+
+  .glow-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C8601A;
+    box-shadow: 0 0 7px #C8601A;
+    margin-right: 5px;
+    vertical-align: middle;
   }
 
   @media (max-width: 1000px){
-    .gk-stream__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sf-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sf-heading{ font-size: 40px; }
   }
 
   @media (max-width: 620px){
-    .gk-stream__grid{ grid-template-columns: 1fr; }
+    .sf-grid{ grid-template-columns: 1fr; }
+    .sf-heading{ font-size: 34px; }
   }
 </style>
 
