@@ -1,0 +1,453 @@
+{%- style -%}
+  #WaitlistHero-{{ section.id }} {
+    --wh-scrim: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+{%- endstyle -%}
+
+<section id="WaitlistHero-{{ section.id }}" class="waitlist-hero" aria-label="{{ section.settings.heading | escape }}">
+
+  {%- comment -%} ── Background media ──────────────────────────────────── {%- endcomment -%}
+  <div class="waitlist-hero__media" aria-hidden="true">
+
+    {%- if section.settings.video_url != blank -%}
+      {%- assign poster_src = '' -%}
+      {%- if section.settings.poster_image != blank -%}
+        {%- assign poster_src = section.settings.poster_image | image_url: width: 1800 -%}
+      {%- endif -%}
+      <video
+        class="waitlist-hero__video"
+        src="{{ section.settings.video_url }}"
+        autoplay
+        loop
+        muted
+        playsinline
+        {%- if poster_src != '' %} poster="{{ poster_src }}"{% endif %}
+      ></video>
+    {%- endif -%}
+
+    {%- comment -%} Poster: always rendered; visible when video absent or motion reduced {%- endcomment -%}
+    {%- if section.settings.poster_image != blank -%}
+      {{
+        section.settings.poster_image
+        | image_url: width: 1800
+        | image_tag:
+          loading: 'eager',
+          widths: '375, 750, 1100, 1500, 1800',
+          sizes: '100vw',
+          class: 'waitlist-hero__poster',
+          alt: ''
+      }}
+    {%- else -%}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg waitlist-hero__poster' }}
+    {%- endif -%}
+
+    <div class="waitlist-hero__scrim"></div>
+  </div>
+
+  {%- comment -%} ── Foreground content ────────────────────────────────── {%- endcomment -%}
+  <div class="waitlist-hero__content">
+
+    {%- if section.settings.heading != blank -%}
+      <h1 class="waitlist-hero__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="waitlist-hero__subheading">{{ section.settings.subheading | escape }}</p>
+    {%- endif -%}
+
+    <form
+      class="waitlist-hero__form"
+      id="WaitlistForm-{{ section.id }}"
+      novalidate
+    >
+      <div class="waitlist-hero__row" id="WaitlistRow-{{ section.id }}">
+        <label for="WaitlistEmail-{{ section.id }}" class="visually-hidden">
+          Email address
+        </label>
+        <input
+          type="email"
+          id="WaitlistEmail-{{ section.id }}"
+          class="waitlist-hero__input"
+          name="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+        <button type="submit" class="waitlist-hero__btn">
+          {{- section.settings.button_label | escape -}}
+        </button>
+      </div>
+
+      <p
+        class="waitlist-hero__msg waitlist-hero__msg--success"
+        id="WaitlistSuccess-{{ section.id }}"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+        {{ section.settings.success_message | escape }}
+      </p>
+
+      <p
+        class="waitlist-hero__msg waitlist-hero__msg--error"
+        id="WaitlistError-{{ section.id }}"
+        role="alert"
+        aria-live="assertive"
+        hidden
+      >
+        Something went wrong — please try again.
+      </p>
+    </form>
+
+  </div>
+</section>
+
+<style>
+  /* ── Reset body chrome that Dawn's theme.liquid grid adds ── */
+  body:has(.waitlist-hero) {
+    display: block;
+    min-height: 100vh;
+  }
+
+  /* ── Shell ────────────────────────────────────────────────── */
+  .waitlist-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* ── Media layer ──────────────────────────────────────────── */
+  .waitlist-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .waitlist-hero__video,
+  .waitlist-hero__poster,
+  .waitlist-hero__media .placeholder-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* When a video is present, hide the poster behind it */
+  .waitlist-hero:has(.waitlist-hero__video) .waitlist-hero__poster {
+    opacity: 0;
+  }
+
+  /* Reduced-motion: kill the video, reveal the poster */
+  @media (prefers-reduced-motion: reduce) {
+    .waitlist-hero__video {
+      display: none;
+    }
+    .waitlist-hero:has(.waitlist-hero__video) .waitlist-hero__poster {
+      opacity: 1;
+    }
+  }
+
+  .waitlist-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: var(--wh-scrim, 0.5);
+  }
+
+  /* ── Content ──────────────────────────────────────────────── */
+  .waitlist-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    padding: 4rem 2rem;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .waitlist-hero__heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(3.6rem, 10vw, 8rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.8rem;
+    color: #fff;
+  }
+
+  .waitlist-hero__subheading {
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    line-height: 1.65;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 3.6rem;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  /* ── Form ─────────────────────────────────────────────────── */
+  .waitlist-hero__form {
+    width: 100%;
+  }
+
+  .waitlist-hero__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  @media screen and (min-width: 600px) {
+    .waitlist-hero__row {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  .waitlist-hero__input {
+    flex: 1 1 auto;
+    height: 5.2rem;
+    padding: 0 1.8rem;
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: box-shadow 0.15s ease;
+  }
+
+  .waitlist-hero__input::placeholder {
+    color: #888;
+  }
+
+  .waitlist-hero__input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
+  }
+
+  .waitlist-hero__btn {
+    flex: 0 0 auto;
+    height: 5.2rem;
+    padding: 0 2.8rem;
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  @media screen and (min-width: 600px) {
+    .waitlist-hero__btn {
+      border-left: none;
+    }
+  }
+
+  .waitlist-hero__btn:hover,
+  .waitlist-hero__btn:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.95);
+    outline: none;
+  }
+
+  .waitlist-hero__btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  /* ── State messages ───────────────────────────────────────── */
+  .waitlist-hero__msg {
+    margin: 1.4rem 0 0;
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .waitlist-hero__msg--success {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .waitlist-hero__msg--error {
+    color: #ffaaaa;
+  }
+</style>
+
+<script>
+(function () {
+  var form    = document.getElementById('WaitlistForm-{{ section.id }}');
+  var row     = document.getElementById('WaitlistRow-{{ section.id }}');
+  var success = document.getElementById('WaitlistSuccess-{{ section.id }}');
+  var error   = document.getElementById('WaitlistError-{{ section.id }}');
+  if (!form) return;
+
+  var COMPANY_ID = {{ section.settings.klaviyo_company_id | json }};
+  var LIST_ID    = {{ section.settings.klaviyo_list_id | json }};
+
+  form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+
+    var emailInput = form.querySelector('.waitlist-hero__input');
+    var btn        = form.querySelector('.waitlist-hero__btn');
+    var email      = emailInput.value.trim();
+    if (!email) return;
+
+    btn.disabled = true;
+    success.hidden = true;
+    error.hidden   = true;
+
+    fetch(
+      'https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(COMPANY_ID),
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'revision': '2024-10-15'
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: { email: email }
+                }
+              },
+              list_id: LIST_ID
+            }
+          }
+        })
+      }
+    )
+    .then(function (res) {
+      if (res.ok || res.status === 202) {
+        row.hidden     = true;
+        success.hidden = false;
+        emailInput.value = '';
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
+    })
+    .catch(function () {
+      error.hidden  = false;
+      btn.disabled  = false;
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Waitlist Hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Coming soon."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Be first on the trail. Join the waitlist."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join the waitlist"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You're on the list. We'll be in touch."
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Background video URL",
+      "info": "Upload your MP4 to Shopify Admin → Content → Files, then paste the CDN URL here. Alternatively, upload to theme Assets and use the full asset URL."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Poster / fallback image",
+      "info": "Shown while the video loads, on reduced-motion devices, and when no video URL is set."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Dark scrim opacity",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Public key (company_id)",
+      "default": "W9QAij",
+      "info": "Klaviyo → Settings → API Keys → Public API key."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "List ID",
+      "default": "RgzXQa",
+      "info": "Klaviyo → Lists & Segments → select your list → the ID in the URL."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Waitlist Hero",
+      "settings": {
+        "heading": "Coming soon.",
+        "subheading": "Be first on the trail. Join the waitlist.",
+        "button_label": "Join the waitlist",
+        "success_message": "You're on the list. We'll be in touch.",
+        "overlay_opacity": 50,
+        "klaviyo_company_id": "W9QAij",
+        "klaviyo_list_id": "RgzXQa"
+      }
+    }
+  ]
+}
+{% endschema %}
