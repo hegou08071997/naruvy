@@ -6,7 +6,6 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- * Last synced: 2026-06-27
  */
 {
   "sections": {
@@ -97,7 +96,17 @@
         "text_align": "left",
         "home_visible_count": 3,
         "home_reveal_step": 3,
-        "home_more_label": "Show more dates"
+        "home_more_label": "Show more dates",
+        "page_visible_count": 10,
+        "page_reveal_step": 10,
+        "page_more_label": "Show more dates",
+        "page_less_label": "Show fewer dates",
+        "view_all_label": "View all dates",
+        "view_all_url": "",
+        "bg_color": "#0d0d0d",
+        "accent_color": "#e8690a",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "gk_stream_follow_GVbNme": {
@@ -309,61 +318,6 @@
         "text_color": "#ffffff"
       }
     },
-    "gk_featured_gristle_w9Up6E": {
-      "type": "gk-featured-gristle",
-      "blocks": {
-        "card_gPVNAw": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/lessons-cover_orig.jpg",
-            "label": "Lessons",
-            "title": "Virtual Lessons",
-            "description": "One-on-one virtual guitar lessons with Greg Koch via Zoom.",
-            "button_label": "BOOK NOW",
-            "link": ""
-          }
-        },
-        "card_JPQw3d": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/homepage-digital-lessons_orig.jpg",
-            "label": "On Demand",
-            "title": "On-Demand Courses",
-            "description": "Self-paced video courses covering technique, tone, and more.",
-            "button_label": "BROWSE COURSES",
-            "link": ""
-          }
-        },
-        "card_xDpydz": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/3CWSPtHqKbKH5WNFR9g6Rn.jpg",
-            "label": "TrueFire",
-            "title": "TrueFire Courses",
-            "description": "Full-length instructional courses on the TrueFire platform.",
-            "button_label": "VIEW ON TRUEFIRE",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_gPVNAw",
-        "card_JPQw3d",
-        "card_xDpydz"
-      ],
-      "name": "GK Featured Gristle",
-      "settings": {
-        "bg_color": "#0d0d0d",
-        "eyebrow": "Learn from the Gristleman",
-        "heading": "FEATURED GRISTLE",
-        "subtext": "Lessons, courses, and on-demand content from Greg Koch.",
-        "text_alignment": "center",
-        "columns_desktop": "3",
-        "image_ratio": "16/9",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "video": {
       "type": "video",
       "settings": {
@@ -512,13 +466,16 @@
       "name": "GK Sponsors",
       "settings": {
         "heading": "Sponsors",
-        "show_labels": false,
-        "accent": "#E8690A",
+        "subheading": ".",
+        "accent": "#e8690a",
         "columns_desktop": 6,
         "columns_tablet": 4,
         "columns_mobile": 2,
         "gap": 16,
         "logo_height": 34,
+        "logo_boost": 160,
+        "hover_scale": 110,
+        "glow_strength": 110,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -529,7 +486,6 @@
     "featured_collection",
     "gk_tour_dates_home_dLWg9B",
     "gk_stream_follow_GVbNme",
-    "gk_featured_gristle_w9Up6E",
     "video",
     "multicolumn",
     "gk_spotify_embed_k4K4EF",
