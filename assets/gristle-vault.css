@@ -450,28 +450,58 @@
   gap: 32px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
-.gv-guide-stamp { flex-shrink: 0; }
+.gv-guide-scroll { flex-shrink: 0; }
 .gv-guide-copy { flex: 1; min-width: 0; }
-.gv-guide-copy .gv-eyebrow { margin-bottom: 10px; }
+.gv-guide-copy .gv-eyebrow { margin-bottom: 12px; }
 .gv-guide-title {
   font-family: var(--gv-font-heading);
   font-weight: var(--font-heading-weight, 400);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gv-text);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 .gv-guide-desc {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.7;
-  color: var(--gv-muted);
+  color: #d8d4cf;
   margin: 0;
-  max-width: 560px;
+  max-width: 600px;
+}
+
+/* CTA: arrow pointing at the download button */
+.gv-guide-cta {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gv-guide-arrow {
+  flex-shrink: 0;
+  animation: gvNudge 1.4s ease-in-out infinite;
+}
+@keyframes gvNudge {
+  0%, 100% { transform: translateX(0); opacity: 0.7; }
+  50%      { transform: translateX(8px); opacity: 1; }
 }
 .gv-guide-btn {
   flex-shrink: 0;
   white-space: nowrap;
+  font-size: 1.15rem;
+  padding: 1.4rem 2.4rem;
+}
+
+/* Belt-and-suspenders: hide store-wide signup popups on the Vault page */
+.klaviyo-form,
+[class*="kl-private"],
+[class*="klaviyo"],
+[data-testid="POPUP"],
+.newsletter-popup,
+.pop-up,
+.popup,
+#PopupModal {
+  display: none !important;
 }
 
 /* ============================================================

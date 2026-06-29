@@ -109,11 +109,20 @@
     {%- assign pdf_blocks = section.blocks | where: 'type', 'pdf' -%}
     {% for block in pdf_blocks %}
       <section class="gv-guide" {{ block.shopify_attributes }}>
-        <div class="gv-guide-stamp" aria-hidden="true">
-          <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 2h24l8 8v38H4z" stroke="#E8690A" stroke-width="2"/>
-            <path d="M28 2v8h8" stroke="#E8690A" stroke-width="2"/>
-            <path d="M11 24h18M11 31h18M11 38h11" stroke="#E8690A" stroke-width="1.5"/>
+        <div class="gv-guide-scroll" aria-hidden="true">
+          <svg width="92" height="118" viewBox="0 0 92 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- top roller -->
+            <rect x="8" y="4" width="76" height="16" rx="8" fill="#1a1209" stroke="#E8690A" stroke-width="2"/>
+            <circle cx="14" cy="12" r="3.5" fill="#E8690A"/>
+            <circle cx="78" cy="12" r="3.5" fill="#E8690A"/>
+            <!-- parchment body -->
+            <path d="M14 18h64v82c0 0 -6 -6 -14 -6H28c-8 0 -14 6 -14 6z" fill="#120d07" stroke="#E8690A" stroke-width="2"/>
+            <!-- bottom roller -->
+            <rect x="8" y="98" width="76" height="16" rx="8" fill="#1a1209" stroke="#E8690A" stroke-width="2"/>
+            <circle cx="14" cy="106" r="3.5" fill="#E8690A"/>
+            <circle cx="78" cy="106" r="3.5" fill="#E8690A"/>
+            <!-- script lines -->
+            <path d="M26 36h40M26 46h40M26 56h32M26 66h40M26 76h24" stroke="#E8690A" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
           </svg>
         </div>
         <div class="gv-guide-copy">
@@ -126,15 +135,56 @@
           {% endif %}
         </div>
         {% if block.settings.pdf_url != blank %}
-          <a href="{{ block.settings.pdf_url }}" class="button gv-guide-btn" target="_blank" rel="noopener">
-            Gristle Vault Guide
-          </a>
+          <div class="gv-guide-cta">
+            <svg class="gv-guide-arrow" width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 20h104" stroke="#E8690A" stroke-width="3" stroke-linecap="round"/>
+              <path d="M96 8l16 12-16 12" stroke="#E8690A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <a href="{{ block.settings.pdf_url }}" class="button gv-guide-btn" target="_blank" rel="noopener">
+              Gristle Vault Guide
+            </a>
+          </div>
         {% endif %}
       </section>
     {% endfor %}
 
   </div>
 </div>
+
+<script>
+  // The Vault is a lead-magnet delivery page, not an opt-in page.
+  // Suppress any store-wide signup/newsletter popups (Klaviyo, theme modals, etc.).
+  (function () {
+    var SELECTORS = [
+      '.klaviyo-form',
+      '[class*="kl-private"]',
+      '[class*="klaviyo"]',
+      '[data-testid="POPUP"]',
+      '.needsclick.go-flow',
+      '.newsletter-popup',
+      '.pop-up',
+      '.popup',
+      '#PopupModal',
+      '[id*="newsletter"][class*="popup"]'
+    ].join(',');
+
+    function nuke() {
+      document.querySelectorAll(SELECTORS).forEach(function (el) {
+        // Don't touch our own content
+        if (el.closest('.gristle-vault')) return;
+        el.style.setProperty('display', 'none', 'important');
+        el.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    nuke();
+    document.addEventListener('DOMContentLoaded', nuke);
+    var obs = new MutationObserver(nuke);
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    // Keep watching for delayed popups for the first 20s, then stop.
+    setTimeout(function () { obs.disconnect(); }, 20000);
+  })();
+</script>
 
 {% schema %}
 {
