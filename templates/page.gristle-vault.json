@@ -106,6 +106,7 @@
         "pdf_guide"
       ],
       "settings": {
+        "hero_logo": "shopify://shop_images/gristle-vault-logo-wide.png",
         "heading": "The Gristle Vault",
         "subheading": "Technique. Tone. Theory.",
         "body_text": "Eight sessions of real guitar knowledge. The kind that takes decades to collect.. Phrasing, tone, theory, and the slightly-wrong choices that make a player impossible to copy."
