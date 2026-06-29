@@ -24,7 +24,7 @@
         "enable_animation": true,
         "eyebrow": "",
         "heading": "About Greg",
-        "image": "shopify://shop_images/gregkoch-hallway-1317-2025cjfoeckler.jpg",
+        "image": "shopify://shop_images/gregkoch-hallway-1317-2025cjfoeckler_1.jpg",
         "photo_credit": "above photo credit: ©2025CJFoeckler",
         "subheading": ".",
         "body": "<p>It is not a stretch to say that Milwaukee native Greg Koch is one of the most famous unknown guitar players in the world. His fierce creative spirit and crazed sense of fun fused with a tremendous degree of versatility has made him an island of six-stringed mirth in a sea of guitar warlords. Fifteen critically acclaimed CD’s featuring his unique and incendiary brand of playing and composing, international tours as band leader, fourteen best-selling guitar instructional materials for the Hal Leonard Publishing empire, articles and columns in some the biggest guitar magazines, a lengthy past tenure as an ambassador for Fender Guitars and a similar position in that capacity for Fishman Transducers has generated a respectable following for Greg throughout the world. Ultimately, Greg's 4000 plus videos exceeding 50 million views for Wildwood Guitars of Louisville Colorado showcasing Greg’s wild guitar test drives and random humorous commentary have made him a household name for guitar players throughout the galaxy.​<br/>​</p><p>Greg’s latest original music outlet, The Koch-Marshall Trio, is perhaps the best vehicle yet to convey his bold improvisational explorations and ever increasing arsenal of original material. The trio blends the explosive guitar manipulations of Greg, the groove-centric, power-pocket playing of his son Dylan on drums (who share many telepathic musical moments) and the glorious, Hammond organ stylings of the uber-talented Toby Marshall, Greg’s compositions are properly portrayed in the blues drenched, funk, chicken-fried, gospelly, jazz-rock panorama in which they were conceived. Their first release, “Toby Arrives” will be released in the February 23, 2018 on the Mascot Label Group / Players Club Imprint and features the first moments of their unexpected musical partnership captured at an extemporaneous jam session earlier in the year. </p>",
@@ -85,12 +85,14 @@
       "name": "GK Spotify Embed",
       "settings": {
         "enable_animation": true,
+        "eyebrow": ".",
         "heading": "Listen on Spotify",
         "subheading": ".",
-        "spotify_embed_url": "https://open.spotify.com/embed/artist/5Y6wPwVr2krTASRASpMLsC?utm_source=generator",
-        "height": 380,
+        "embed_src": "https://open.spotify.com/embed/artist/5Y6wPwVr2krTASRASpMLsC?utm_source=generator",
+        "open_url": "https://open.spotify.com/artist/5Y6wPwVr2krTASRASpMLsC",
         "show_open_button": true,
-        "accent": "#E8690A",
+        "height": 380,
+        "accent": "#e8690a",
         "padding_top": 44,
         "padding_bottom": 52
       }
