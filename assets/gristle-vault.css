@@ -1,136 +1,292 @@
 /* ============================================================
-   Gristle Vault — scoped to .gristle-vault only
+   THE GRISTLE VAULT — scoped to .gristle-vault
+   Naked page: dark medieval stone, drifting smoke,
+   swing-open vault door intro, two-column video sessions.
    ============================================================ */
 
-/* Stone wall background via repeating SVG data URI */
+.gv-body { background: #0b0907; }
+
 .gristle-vault {
-  background-color: #0e0b08;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect width='120' height='80' fill='%230e0b08'/%3E%3Crect x='1' y='1' width='58' height='37' fill='%23111009' rx='0'/%3E%3Crect x='61' y='1' width='58' height='37' fill='%230f0d0a' rx='0'/%3E%3Crect x='1' y='40' width='38' height='38' fill='%2312100c' rx='0'/%3E%3Crect x='41' y='40' width='38' height='38' fill='%230d0b08' rx='0'/%3E%3Crect x='81' y='40' width='38' height='38' fill='%23110f0b' rx='0'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 120px 80px;
-  color: #e8e8e8;
+  --gv-orange: #e8690a;
+  --gv-stone-dark: #0e0b08;
+  --gv-mortar: #1c1510;
+  --gv-text: #e8e8e8;
+  --gv-muted: #8a8178;
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
+  color: var(--gv-text);
+  font-family: var(--font-body-family, "DM Sans", sans-serif);
+  /* Dark ashlar stone wall — staggered blocks, rough mortar */
+  background-color: var(--gv-stone-dark);
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(40, 30, 20, 0.18), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Crect width='160' height='120' fill='%230e0b08'/%3E%3Cg fill='none' stroke='%231c1510' stroke-width='2'%3E%3Crect x='1' y='1' width='96' height='38'/%3E%3Crect x='99' y='1' width='60' height='38'/%3E%3Crect x='1' y='41' width='52' height='38'/%3E%3Crect x='55' y='41' width='104' height='38'/%3E%3Crect x='1' y='81' width='96' height='38'/%3E%3Crect x='99' y='81' width='60' height='38'/%3E%3C/g%3E%3Cg fill='%23120e0a'%3E%3Crect x='3' y='3' width='92' height='34'/%3E%3Crect x='101' y='3' width='56' height='34'/%3E%3Crect x='3' y='43' width='48' height='34'/%3E%3Crect x='57' y='43' width='100' height='34'/%3E%3Crect x='3' y='83' width='92' height='34'/%3E%3Crect x='101' y='83' width='56' height='34'/%3E%3C/g%3E%3Cg fill='%23161009'%3E%3Crect x='101' y='3' width='56' height='34'/%3E%3Crect x='3' y='43' width='48' height='34'/%3E%3Crect x='3' y='83' width='92' height='34'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 320px 240px;
+}
+
+/* Vignette to keep edges dark and deep */
+.gristle-vault::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse at 50% 35%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ——— Atmosphere: smoke + torchlight ——— */
+.gv-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
   overflow: hidden;
 }
 
-/* ——— Vault Door ——— */
-.gv-door-wrapper {
+.gv-torchlight {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 900px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(232, 105, 10, 0.10) 0%, rgba(232, 105, 10, 0.03) 35%, transparent 70%);
+  animation: gvFlicker 6s ease-in-out infinite;
+}
+
+@keyframes gvFlicker {
+  0%, 100% { opacity: 0.85; }
+  45% { opacity: 1; }
+  60% { opacity: 0.7; }
+  75% { opacity: 0.95; }
+}
+
+.gv-smoke {
+  position: absolute;
+  bottom: -25%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 720px;
+  max-height: 720px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  background: radial-gradient(circle, rgba(60, 48, 38, 0.45) 0%, rgba(20, 16, 12, 0.2) 45%, transparent 70%);
+}
+
+.gv-smoke--1 { left: 8%;  animation: gvDrift 26s ease-in-out infinite; }
+.gv-smoke--2 { left: 42%; width: 75vw; animation: gvDrift 34s ease-in-out 6s infinite; }
+.gv-smoke--3 { left: 70%; animation: gvDrift 30s ease-in-out 12s infinite; }
+
+@keyframes gvDrift {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  20%  { opacity: 0.5; }
+  80%  { opacity: 0.35; }
+  100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
+}
+
+/* ============================================================
+   VAULT DOOR INTRO
+   ============================================================ */
+.gv-vault-intro {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(232, 105, 10, 0.12), transparent 55%),
+    #080604;
+  animation: gvIntroExit 0.9s ease 3.6s forwards;
+}
+
+@keyframes gvIntroExit {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.gv-vault-frame {
+  position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  z-index: 1000;
-  pointer-events: none;
+  perspective: 1600px;
+  perspective-origin: 50% 45%;
 }
 
-.gv-door-wrapper.gv-doors-done {
-  display: none;
-}
-
+/* iron door halves */
 .gv-door {
+  position: absolute;
+  top: 0;
   width: 50%;
   height: 100%;
-  perspective: 1200px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 12%),
+    repeating-linear-gradient(0deg, #181410, #181410 38px, #1d1812 39px, #181410 40px),
+    #181410;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.8);
 }
 
 .gv-door--left {
+  left: 0;
   transform-origin: left center;
-  animation: vaultOpenLeft 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-  background: #181410;
+  border-right: 2px solid #07050300;
+  animation: gvOpenLeft 2s cubic-bezier(0.45, 0, 0.2, 1) 1.5s forwards;
 }
 
 .gv-door--right {
+  right: 0;
   transform-origin: right center;
-  animation: vaultOpenRight 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-  background: #181410;
+  animation: gvOpenRight 2s cubic-bezier(0.45, 0, 0.2, 1) 1.5s forwards;
 }
 
-@keyframes vaultOpenLeft {
+@keyframes gvOpenLeft {
   from { transform: rotateY(0deg); }
-  to   { transform: rotateY(-70deg); }
+  to   { transform: rotateY(-115deg); }
 }
-
-@keyframes vaultOpenRight {
+@keyframes gvOpenRight {
   from { transform: rotateY(0deg); }
-  to   { transform: rotateY(70deg); }
+  to   { transform: rotateY(115deg); }
 }
 
-.gv-door__panel {
-  width: 100%;
-  height: 100%;
-  background: #181410;
-  border: 3px solid #2a1e12;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* inset panel border on each door */
+.gv-door::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border: 2px solid #2a1e12;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6);
 }
 
-.gv-inset {
-  width: 70%;
-  height: 60%;
-  background: #2a1e12;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.gv-door-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.7), transparent);
 }
+.gv-door--left .gv-door-seam { right: -3px; }
+.gv-door--right .gv-door-seam { left: -3px; }
 
-.gv-door__letter {
-  font-family: var(--font-heading-family, serif);
-  font-size: clamp(4rem, 15vw, 10rem);
-  color: rgba(232, 105, 10, 0.18);
-  line-height: 1;
-  user-select: none;
-}
-
-/* Rivets */
+/* rivets */
 .gv-rivet {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #4a3828, #1c1410);
-  border: 1px solid #3a2c1c;
+  background: radial-gradient(circle at 35% 30%, #5a4632, #1a120c 70%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
+.gv-rivet--1 { top: 44px; left: 44px; }
+.gv-rivet--2 { top: 44px; right: 44px; }
+.gv-rivet--3 { bottom: 44px; left: 44px; }
+.gv-rivet--4 { bottom: 44px; right: 44px; }
 
-.gv-rivet--tl { top: 24px; left: 24px; }
-.gv-rivet--tr { top: 24px; right: 24px; }
-.gv-rivet--bl { bottom: 24px; left: 24px; }
-.gv-rivet--br { bottom: 24px; right: 24px; }
-
-/* ——— Hero ——— */
-.gv-hero {
-  position: relative;
-  padding: 120px 24px 80px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.gv-hero__glow {
+/* central locking wheel */
+.gv-wheel {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -60%);
-  width: 800px;
-  height: 500px;
-  background: radial-gradient(ellipse at center, rgba(232, 105, 10, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 10px solid #241a10;
+  background: radial-gradient(circle at 40% 35%, #2c2014, #14100a 75%);
+  box-shadow: 0 0 0 6px #0f0b07, inset 0 0 30px rgba(0,0,0,0.8);
+  z-index: 3;
+  animation:
+    gvWheelSpin 1.2s cubic-bezier(0.5, 0, 0.2, 1) 0.6s forwards,
+    gvWheelFade 0.6s ease 1.6s forwards;
 }
 
-.gv-hero__content {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+@keyframes gvWheelSpin { to { transform: rotate(160deg); } }
+@keyframes gvWheelFade { to { opacity: 0; } }
+
+.gv-wheel-spoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 168px;
+  height: 12px;
+  margin: -6px 0 0 -84px;
+  background: linear-gradient(90deg, #2c2014, #3a2a18, #2c2014);
+  border-radius: 6px;
+}
+.gv-wheel-spoke:nth-child(1) { transform: rotate(0deg); }
+.gv-wheel-spoke:nth-child(2) { transform: rotate(60deg); }
+.gv-wheel-spoke:nth-child(3) { transform: rotate(120deg); }
+.gv-wheel-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #3a2a18, #100b07);
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.9);
+}
+
+/* emblem mounted above the wheel */
+.gv-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -150px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   opacity: 0;
-  animation: gvFadeIn 0.8s ease 2s forwards;
+  animation:
+    gvEmblemIn 0.8s ease 0.2s forwards,
+    gvEmblemOut 0.6s ease 1.7s forwards;
 }
 
-@keyframes gvFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes gvEmblemIn  { from { opacity: 0; transform: translate(-50%, -42%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+@keyframes gvEmblemOut { to { opacity: 0; transform: translate(-50%, -58%) scale(1.06); } }
+
+.gv-emblem-eyebrow {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gv-muted);
+  margin-bottom: 4px;
+  padding-left: 0.5em;
+}
+.gv-emblem-title {
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-size: clamp(3.5rem, 13vw, 9rem);
+  line-height: 0.86;
+  letter-spacing: 0.04em;
+  color: var(--gv-text);
+  text-shadow: 0 2px 30px rgba(232, 105, 10, 0.25);
+}
+.gv-emblem-title--accent {
+  color: var(--gv-orange);
+  text-shadow: 0 0 40px rgba(232, 105, 10, 0.55);
+}
+.gv-emblem-rule {
+  width: 120px;
+  height: 2px;
+  margin-top: 18px;
+  background: linear-gradient(90deg, transparent, var(--gv-orange), transparent);
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+.gv-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 120px;
 }
 
 .gv-eyebrow {
@@ -138,183 +294,214 @@
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #e8690a;
-  margin: 0 0 16px;
+  color: var(--gv-orange);
+  margin: 0;
 }
 
-.gv-hero__title {
-  font-family: var(--font-heading-family, serif);
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  text-transform: uppercase;
+/* ——— Hero ——— */
+.gv-hero {
+  text-align: center;
+  padding: 26vh 0 14vh;
+  opacity: 0;
+  animation: gvRise 1s ease 3s forwards;
+}
+
+@keyframes gvRise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gv-hero-title {
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-weight: var(--font-heading-weight, 400);
+  font-size: clamp(3.2rem, 10vw, 7rem);
+  line-height: 0.95;
   letter-spacing: 0.12em;
-  color: #e8e8e8;
-  margin: 0 0 16px;
-  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--gv-text);
+  margin: 14px 0 0;
+  text-shadow: 0 4px 40px rgba(232, 105, 10, 0.2);
 }
-
-.gv-hero__sub {
-  font-family: var(--font-heading-family, serif);
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  letter-spacing: 0.08em;
-  color: #e8e8e8;
-  margin: 0 0 24px;
+.gv-hero-sub {
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gv-orange);
+  margin: 18px 0 0;
 }
-
-.gv-hero__body {
-  font-family: var(--font-body-family, sans-serif);
+.gv-hero-body {
+  max-width: 600px;
+  margin: 22px auto 0;
   font-size: 1rem;
-  color: #888;
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.8;
+  color: var(--gv-muted);
 }
 
-/* ——— Section label ——— */
-.gv-section-label {
-  padding: 0 24px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+.gv-scroll-cue {
+  display: block;
+  width: 1px;
+  height: 56px;
+  margin: 56px auto 0;
+  background: linear-gradient(180deg, var(--gv-orange), transparent);
+  animation: gvCue 2s ease-in-out infinite;
+}
+@keyframes gvCue { 0%,100% { opacity: 0.3; transform: scaleY(0.7); } 50% { opacity: 1; transform: scaleY(1); } }
+
+/* ——— Sessions (two-column rows) ——— */
+.gv-sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
 }
 
-/* ——— Video Grid ——— */
-.gv-grid {
+.gv-session {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-  padding: 0 24px 80px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
 }
+.gv-session:nth-child(even) .gv-session-media { order: 2; }
 
-.gv-card {
-  background: #141414;
-  border: 1px solid rgba(232, 105, 10, 0.15);
-  transition: border-color 0.2s;
-}
+.gv-session-media { position: relative; }
 
-.gv-card:hover {
-  border-color: rgba(232, 105, 10, 0.45);
-}
-
-.gv-card__media {
-  position: relative;
-  padding-top: 56.25%;
-  background: #0d0d0d;
-}
-
-.gv-card__media iframe {
+.gv-session-no {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -38px;
+  left: -10px;
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-size: 5.5rem;
+  line-height: 1;
+  color: rgba(232, 105, 10, 0.14);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gv-embed {
+  position: relative;
+  z-index: 1;
+  padding-top: 56.25%;
+  background: #000;
+  border: 1px solid rgba(232, 105, 10, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.gv-session:hover .gv-embed {
+  border-color: rgba(232, 105, 10, 0.5);
+  box-shadow: 0 24px 70px rgba(232, 105, 10, 0.12);
+}
+.gv-embed iframe,
+.gv-embed-empty {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
-
-.gv-card__badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  background: #e8690a;
-  color: #0d0d0d;
-  font-family: var(--font-heading-family, serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 4px 8px;
-  line-height: 1;
-}
-
-.gv-card__body {
+.gv-embed-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gv-muted);
+  font-size: 0.85rem;
+  text-align: center;
   padding: 20px;
 }
 
-.gv-card__tag {
-  margin: 0 0 10px;
-}
-
-.gv-card__title {
-  font-family: var(--font-heading-family, serif);
-  font-size: 1.1rem;
-  color: #e8e8e8;
-  margin: 0 0 10px;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-}
-
-.gv-card__desc {
+.gv-session-tag { margin-bottom: 14px; }
+.gv-session-label {
+  display: block;
   font-family: var(--font-body-family, sans-serif);
-  font-size: 0.875rem;
-  color: #888;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gv-orange);
+  margin-bottom: 8px;
+}
+.gv-session-title {
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-weight: var(--font-heading-weight, 400);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.02;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gv-text);
+  margin: 0 0 16px;
+}
+.gv-session-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--gv-muted);
   margin: 0;
-  line-height: 1.65;
 }
 
-/* ——— PDF Block ——— */
-.gv-pdf {
-  background: #0d0d0d;
-  border-top: 2px solid #e8690a;
-  padding: 48px 24px;
+/* ——— PDF Guide ——— */
+.gv-guide {
+  margin-top: 110px;
+  padding: 56px 48px;
+  background: linear-gradient(180deg, #100c08, #0a0806);
+  border: 1px solid rgba(232, 105, 10, 0.22);
+  border-top: 2px solid var(--gv-orange);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 20px;
+  gap: 32px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
-
-.gv-pdf__icon {
-  flex-shrink: 0;
-}
-
-.gv-pdf__text {
-  max-width: 560px;
-}
-
-.gv-pdf__title {
-  font-family: var(--font-heading-family, serif);
-  font-size: 1.25rem;
-  color: #e8e8e8;
-  margin: 0 0 10px;
+.gv-guide-stamp { flex-shrink: 0; }
+.gv-guide-copy { flex: 1; min-width: 0; }
+.gv-guide-copy .gv-eyebrow { margin-bottom: 10px; }
+.gv-guide-title {
+  font-family: var(--font-heading-family, "Bebas Neue", sans-serif);
+  font-weight: var(--font-heading-weight, 400);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--gv-text);
+  margin: 0 0 12px;
 }
-
-.gv-pdf__desc {
-  font-family: var(--font-body-family, sans-serif);
-  font-size: 0.9rem;
-  color: #888;
+.gv-guide-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gv-muted);
   margin: 0;
-  line-height: 1.65;
+  max-width: 520px;
+}
+.gv-guide-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-/* ——— Mobile ——— */
-@media (max-width: 600px) {
-  .gv-door__letter {
-    font-size: clamp(2.5rem, 20vw, 5rem);
-  }
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 749px) {
+  .gv-inner { padding: 0 18px 80px; }
+  .gv-hero { padding: 24vh 0 12vh; }
 
-  .gv-rivet {
-    width: 10px;
-    height: 10px;
-  }
-
-  .gv-rivet--tl { top: 12px; left: 12px; }
-  .gv-rivet--tr { top: 12px; right: 12px; }
-  .gv-rivet--bl { bottom: 12px; left: 12px; }
-  .gv-rivet--br { bottom: 12px; right: 12px; }
-
-  .gv-hero {
-    padding: 80px 16px 48px;
-  }
-
-  .gv-grid {
+  .gv-sessions { gap: 64px; }
+  .gv-session {
     grid-template-columns: 1fr;
-    padding: 0 16px 48px;
-    gap: 16px;
+    gap: 22px;
   }
+  .gv-session:nth-child(even) .gv-session-media { order: 0; }
+  .gv-session-no { top: -30px; font-size: 4rem; }
 
-  .gv-pdf {
-    padding: 32px 16px;
+  .gv-guide {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 24px;
+    gap: 22px;
   }
+  .gv-guide-desc { margin: 0 auto; }
+
+  .gv-wheel { width: 110px; height: 110px; margin: -55px 0 0 -55px; }
+  .gv-wheel-spoke { width: 124px; margin-left: -62px; }
+  .gv-emblem { margin-top: -120px; }
+}
+
+/* Accessibility: respect reduced motion — skip the theatrics */
+@media (prefers-reduced-motion: reduce) {
+  .gv-vault-intro { display: none; }
+  .gv-smoke, .gv-torchlight, .gv-scroll-cue { animation: none; }
+  .gv-hero { opacity: 1; animation: none; }
 }

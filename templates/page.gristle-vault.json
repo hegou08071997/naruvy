@@ -1,4 +1,5 @@
 {
+  "layout": "vault",
   "sections": {
     "gristle-vault": {
       "type": "gristle-vault",

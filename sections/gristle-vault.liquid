@@ -1,118 +1,144 @@
-{{ 'gristle-vault.css' | asset_url | stylesheet_tag }}
+<div class="gristle-vault" id="gristle-vault">
 
-<div class="gristle-vault">
-
-  <!-- Vault Door Animation -->
-  <div class="gv-door-wrapper" id="gv-doors">
-    <div class="gv-door gv-door--left">
-      <div class="gv-door__panel">
-        <div class="gv-rivet gv-rivet--tl"></div>
-        <div class="gv-rivet gv-rivet--bl"></div>
-        <div class="gv-inset">
-          <span class="gv-door__letter">G</span>
-        </div>
-        <div class="gv-rivet gv-rivet--tr"></div>
-        <div class="gv-rivet gv-rivet--br"></div>
+  {%- comment -%} ——— Vault door intro (pure CSS swing-open) ——— {%- endcomment -%}
+  <div class="gv-vault-intro" aria-hidden="true">
+    <div class="gv-vault-frame">
+      <div class="gv-door gv-door--left">
+        <span class="gv-rivet gv-rivet--1"></span>
+        <span class="gv-rivet gv-rivet--2"></span>
+        <span class="gv-rivet gv-rivet--3"></span>
+        <span class="gv-rivet gv-rivet--4"></span>
+        <span class="gv-door-seam"></span>
       </div>
-    </div>
-    <div class="gv-door gv-door--right">
-      <div class="gv-door__panel">
-        <div class="gv-rivet gv-rivet--tl"></div>
-        <div class="gv-rivet gv-rivet--bl"></div>
-        <div class="gv-inset">
-          <span class="gv-door__letter">K</span>
-        </div>
-        <div class="gv-rivet gv-rivet--tr"></div>
-        <div class="gv-rivet gv-rivet--br"></div>
+      <div class="gv-door gv-door--right">
+        <span class="gv-rivet gv-rivet--1"></span>
+        <span class="gv-rivet gv-rivet--2"></span>
+        <span class="gv-rivet gv-rivet--3"></span>
+        <span class="gv-rivet gv-rivet--4"></span>
+        <span class="gv-door-seam"></span>
+      </div>
+
+      {%- comment -%} central locking wheel {%- endcomment -%}
+      <div class="gv-wheel">
+        <span class="gv-wheel-spoke"></span>
+        <span class="gv-wheel-spoke"></span>
+        <span class="gv-wheel-spoke"></span>
+        <span class="gv-wheel-hub"></span>
+      </div>
+
+      {%- comment -%} emblem on the door {%- endcomment -%}
+      <div class="gv-emblem">
+        <span class="gv-emblem-eyebrow">The</span>
+        <span class="gv-emblem-title">Gristle</span>
+        <span class="gv-emblem-title gv-emblem-title--accent">Vault</span>
+        <span class="gv-emblem-rule"></span>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
-  <div class="gv-hero">
-    <div class="gv-hero__glow"></div>
-    <div class="gv-hero__content">
-      <p class="gv-eyebrow">Members Only</p>
-      <h1 class="gv-hero__title">{{ section.settings.heading }}</h1>
-      <p class="gv-hero__sub">{{ section.settings.subheading }}</p>
-      <p class="gv-hero__body">{{ section.settings.body_text }}</p>
-    </div>
+  {%- comment -%} ——— Atmosphere: stone wall + drifting smoke + torchlight ——— {%- endcomment -%}
+  <div class="gv-atmosphere" aria-hidden="true">
+    <span class="gv-smoke gv-smoke--1"></span>
+    <span class="gv-smoke gv-smoke--2"></span>
+    <span class="gv-smoke gv-smoke--3"></span>
+    <span class="gv-torchlight"></span>
   </div>
 
-  <!-- Video Grid -->
-  {% assign video_blocks = section.blocks | where: 'type', 'video' %}
-  {% if video_blocks.size > 0 %}
-    <div class="gv-section-label">
-      <span class="gv-eyebrow">The Sessions</span>
-    </div>
-    <div class="gv-grid">
-      {% for block in video_blocks %}
-        {% assign video_id = block.settings.youtube_url | split: 'v=' | last | split: '&' | first %}
-        {% if block.settings.youtube_url contains 'youtu.be' %}
-          {% assign video_id = block.settings.youtube_url | split: 'youtu.be/' | last | split: '?' | first %}
-        {% endif %}
-        <div class="gv-card" {{ block.shopify_attributes }}>
-          <div class="gv-card__media">
-            <span class="gv-card__badge">{{ forloop.index }}</span>
-            {% if video_id != blank %}
-              <iframe
-                src="https://www.youtube.com/embed/{{ video_id }}"
-                title="{{ block.settings.video_title | escape }}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            {% endif %}
-          </div>
-          <div class="gv-card__body">
-            {% if block.settings.video_tag != blank %}
-              <p class="gv-eyebrow gv-card__tag">{{ block.settings.video_tag }}</p>
-            {% endif %}
-            {% if block.settings.video_title != blank %}
-              <h3 class="gv-card__title">{{ block.settings.video_title }}</h3>
-            {% endif %}
-            {% if block.settings.video_description != blank %}
-              <p class="gv-card__desc">{{ block.settings.video_description }}</p>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="gv-inner">
 
-  <!-- PDF Block -->
-  {% assign pdf_blocks = section.blocks | where: 'type', 'pdf' %}
-  {% for block in pdf_blocks %}
-    <div class="gv-pdf" {{ block.shopify_attributes }}>
-      <div class="gv-pdf__icon">
-        <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="1" y="1" width="30" height="38" rx="0" stroke="#E8690A" stroke-width="2"/>
-          <path d="M8 14h16M8 20h16M8 26h10" stroke="#E8690A" stroke-width="1.5"/>
-          <path d="M20 1v9h11" stroke="#E8690A" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      <div class="gv-pdf__text">
-        {% if block.settings.pdf_title != blank %}
-          <h3 class="gv-pdf__title">{{ block.settings.pdf_title }}</h3>
-        {% endif %}
-        {% if block.settings.pdf_description != blank %}
-          <p class="gv-pdf__desc">{{ block.settings.pdf_description }}</p>
-        {% endif %}
-      </div>
-      {% if block.settings.pdf_url != blank %}
-        <a href="{{ block.settings.pdf_url }}" class="button" target="_blank" rel="noopener">Download Guide</a>
+    {%- comment -%} ——— Hero ——— {%- endcomment -%}
+    <header class="gv-hero">
+      <p class="gv-eyebrow">Members Only · The Vault Is Open</p>
+      <h1 class="gv-hero-title">{{ section.settings.heading }}</h1>
+      {% if section.settings.subheading != blank %}
+        <p class="gv-hero-sub">{{ section.settings.subheading }}</p>
       {% endif %}
-    </div>
-  {% endfor %}
+      {% if section.settings.body_text != blank %}
+        <p class="gv-hero-body">{{ section.settings.body_text }}</p>
+      {% endif %}
+      <span class="gv-scroll-cue" aria-hidden="true"></span>
+    </header>
 
+    {%- comment -%} ——— Sessions ——— {%- endcomment -%}
+    {%- assign video_blocks = section.blocks | where: 'type', 'video' -%}
+    {% if video_blocks.size > 0 %}
+      <section class="gv-sessions">
+        {% for block in video_blocks %}
+          {%- assign video_id = block.settings.youtube_url | split: 'v=' | last | split: '&' | first -%}
+          {% if block.settings.youtube_url contains 'youtu.be' %}
+            {%- assign video_id = block.settings.youtube_url | split: 'youtu.be/' | last | split: '?' | first -%}
+          {% endif %}
+
+          <article class="gv-session" {{ block.shopify_attributes }}>
+            <div class="gv-session-media">
+              <span class="gv-session-no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <div class="gv-embed">
+                {% if video_id != blank %}
+                  <iframe
+                    src="https://www.youtube.com/embed/{{ video_id }}?rel=0"
+                    title="{{ block.settings.video_title | escape }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                  ></iframe>
+                {% else %}
+                  <div class="gv-embed-empty">Paste a YouTube URL in the theme editor</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="gv-session-copy">
+              {% if block.settings.video_tag != blank %}
+                <p class="gv-eyebrow gv-session-tag">{{ block.settings.video_tag }}</p>
+              {% endif %}
+              <h2 class="gv-session-title">
+                <span class="gv-session-label">Session {{ forloop.index }}</span>
+                {{ block.settings.video_title }}
+              </h2>
+              {% if block.settings.video_description != blank %}
+                <p class="gv-session-desc">{{ block.settings.video_description }}</p>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {%- comment -%} ——— PDF guide ——— {%- endcomment -%}
+    {%- assign pdf_blocks = section.blocks | where: 'type', 'pdf' -%}
+    {% for block in pdf_blocks %}
+      <section class="gv-guide" {{ block.shopify_attributes }}>
+        <div class="gv-guide-stamp" aria-hidden="true">
+          <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2h24l8 8v38H4z" stroke="#E8690A" stroke-width="2"/>
+            <path d="M28 2v8h8" stroke="#E8690A" stroke-width="2"/>
+            <path d="M11 24h18M11 31h18M11 38h11" stroke="#E8690A" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="gv-guide-copy">
+          <p class="gv-eyebrow">The Reference Document</p>
+          {% if block.settings.pdf_title != blank %}
+            <h2 class="gv-guide-title">{{ block.settings.pdf_title }}</h2>
+          {% endif %}
+          {% if block.settings.pdf_description != blank %}
+            <p class="gv-guide-desc">{{ block.settings.pdf_description }}</p>
+          {% endif %}
+        </div>
+        {% if block.settings.pdf_url != blank %}
+          <a href="{{ block.settings.pdf_url }}" class="button gv-guide-btn" target="_blank" rel="noopener">
+            Gristle Vault Guide
+          </a>
+        {% endif %}
+      </section>
+    {% endfor %}
+
+  </div>
 </div>
 
 {% schema %}
 {
   "name": "Gristle Vault",
-  "tag": "section",
-  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -130,7 +156,7 @@
       "type": "textarea",
       "id": "body_text",
       "label": "Body Text",
-      "default": "Eight sessions of real guitar knowledge. The kind that takes decades to collect."
+      "default": "Eight sessions of real guitar knowledge. The kind that takes decades to collect — phrasing, tone, theory, and the slightly-wrong choices that make a player impossible to copy."
     }
   ],
   "blocks": [
@@ -145,26 +171,14 @@
           "label": "YouTube URL",
           "info": "Paste the full YouTube URL (e.g. https://www.youtube.com/watch?v=...)"
         },
-        {
-          "type": "text",
-          "id": "video_title",
-          "label": "Video Title"
-        },
-        {
-          "type": "textarea",
-          "id": "video_description",
-          "label": "Video Description"
-        },
-        {
-          "type": "text",
-          "id": "video_tag",
-          "label": "Tag (e.g. Rhythm · Phrasing)"
-        }
+        { "type": "text", "id": "video_title", "label": "Video Title" },
+        { "type": "textarea", "id": "video_description", "label": "Video Description" },
+        { "type": "text", "id": "video_tag", "label": "Tag (e.g. Rhythm · Phrasing)" }
       ]
     },
     {
       "type": "pdf",
-      "name": "PDF Download",
+      "name": "PDF Guide",
       "limit": 1,
       "settings": [
         {
@@ -177,7 +191,7 @@
           "type": "textarea",
           "id": "pdf_description",
           "label": "PDF Description",
-          "default": "Every concept from all 8 sessions in one reference document."
+          "default": "Every concept from all eight sessions in one reference document. Techniques, tones, and theory from a lifetime of playing."
         },
         {
           "type": "text",
@@ -269,7 +283,7 @@
           "type": "pdf",
           "settings": {
             "pdf_title": "The Gristle Vault Master Guide",
-            "pdf_description": "Every concept from all 8 sessions in one reference document.",
+            "pdf_description": "Every concept from all eight sessions in one reference document. Techniques, tones, and theory from a lifetime of playing.",
             "pdf_url": "https://cdn.shopify.com/s/files/1/0976/0210/9761/files/gristle_vault_guide.pdf?v=1782747864"
           }
         }
