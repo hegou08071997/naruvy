@@ -2,7 +2,7 @@
   <div class="vopt-divider"><hr></div>
 {%- endif -%}
 
-<section class="vopt-stash vopt-wrap">
+<section class="vopt-stash vopt-wrap--wide">
   {%- if section.settings.eyebrow != blank -%}
     <p class="vopt-eyebrow">{{ section.settings.eyebrow | escape }}</p>
   {%- endif -%}
@@ -17,10 +17,16 @@
     {%- for block in section.blocks -%}
       {%- if block.type == 'card' -%}
         <article class="vopt-card-item" data-w="{{ block.settings.width | default: 'third' }}" {{ block.shopify_attributes }}>
-          {%- if block.settings.free_label != blank -%}
-            <div class="vopt-card-head"><span class="vopt-card-free">{{ block.settings.free_label | escape }}</span></div>
-          {%- endif -%}
-          <div class="vopt-card-well"><i class="ti {{ block.settings.icon | default: 'ti-music' | escape }}" aria-hidden="true"></i></div>
+          <div class="vopt-card-head">
+            {%- if block.settings.free_label != blank -%}
+              <span class="vopt-card-free">{{ block.settings.free_label | escape }}</span>
+            {%- endif -%}
+            <span class="vopt-card-stamp"><i class="ti {{ block.settings.icon | default: 'ti-music' | escape }}" aria-hidden="true"></i></span>
+          </div>
+          <div class="vopt-card-well">
+            <span class="vopt-play" aria-hidden="true"></span>
+            <span class="vopt-wave" aria-hidden="true"></span>
+          </div>
           <div class="vopt-card-body">
             {%- if block.settings.title != blank -%}
               <h3 class="vopt-card-title">{{ block.settings.title | escape }}</h3>
@@ -36,7 +42,7 @@
 
   {%- if section.settings.show_pdf -%}
     <div class="vopt-pdf">
-      <i class="ti {{ section.settings.pdf_icon | default: 'ti-file-description' | escape }}" aria-hidden="true"></i>
+      <span class="vopt-pdf-badge"><i class="ti {{ section.settings.pdf_icon | default: 'ti-file-description' | escape }}" aria-hidden="true"></i></span>
       <div class="vopt-pdf-text">
         {%- if section.settings.pdf_title != blank -%}
           <p class="vopt-pdf-title">{{ section.settings.pdf_title | escape }}</p>

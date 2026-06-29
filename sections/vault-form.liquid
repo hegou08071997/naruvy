@@ -5,7 +5,7 @@
 
 <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ kl_company }}"></script>
 
-<section class="vopt-split vopt-wrap">
+<section class="vopt-split vopt-wrap--wide">
 
   {%- comment -%} Photo card {%- endcomment -%}
   <div class="vopt-card vopt-photo-card">
@@ -43,6 +43,9 @@
 
   {%- comment -%} Form card (scroll anchor for every CTA button) {%- endcomment -%}
   <div class="vopt-card vopt-form-card" id="vopt-form-card">
+    {%- if section.settings.form_eyebrow != blank -%}
+      <p class="vopt-form-eyebrow">{{ section.settings.form_eyebrow | escape }}</p>
+    {%- endif -%}
     {%- if section.settings.form_heading != blank -%}
       <h2 class="vopt-form-heading">{{ section.settings.form_heading | escape }}</h2>
     {%- endif -%}
@@ -198,9 +201,15 @@
     },
     {
       "type": "text",
+      "id": "form_eyebrow",
+      "label": "Form eyebrow",
+      "default": "Free Instant Access"
+    },
+    {
+      "type": "text",
       "id": "form_heading",
       "label": "Form heading",
-      "default": "Get Instant Access"
+      "default": "Get the Vault"
     },
     {
       "type": "text",

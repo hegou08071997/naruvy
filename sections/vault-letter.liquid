@@ -28,11 +28,17 @@
         {%- endif -%}
       </div>
       {%- if section.settings.caption != blank -%}
-        <p class="vopt-letter-caption">{{ section.settings.caption | escape }}</p>
+        <p class="vopt-letter-caption">
+          {{- section.settings.caption | escape -}}
+          {%- if section.settings.caption_role != blank -%}<small>{{ section.settings.caption_role | escape }}</small>{%- endif -%}
+        </p>
       {%- endif -%}
     </div>
 
     <div class="vopt-letter-copy">
+      {%- if section.settings.lead != blank -%}
+        <p class="vopt-letter-lead">{{ section.settings.lead | escape }}</p>
+      {%- endif -%}
       {{ section.settings.body }}
     </div>
   </div>
@@ -84,11 +90,23 @@
       "default": "Greg Koch"
     },
     {
+      "type": "text",
+      "id": "caption_role",
+      "label": "Photo caption subtitle",
+      "default": "The Gristle Vault"
+    },
+    {
+      "type": "text",
+      "id": "lead",
+      "label": "Lead line (large)",
+      "default": "Yeah. It’s actually free."
+    },
+    {
       "type": "richtext",
       "id": "body",
       "label": "Letter body",
       "info": "Use bold for light emphasis and italic for orange emphasis.",
-      "default": "<p><em>Yeah. It is.</em></p><p>Look, I have spent decades on stage and in clinics sharing this stuff with players who actually want to go deeper. The techniques in the Vault are the ones people ask about <strong>every single night after the show.</strong></p><p>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just fell down the stairs.</p><p>Most guitar content online is someone talking about playing. The Vault is eight sessions of me <strong>actually showing you the mechanics.</strong> The exact picking motions. The specific voicings. The actual pedal settings.</p><p>I recorded it. I compiled a 12-page reference PDF so you can keep it open while you watch. And I made the whole thing <em>free because that is how I have always operated.</em></p><p>Give your people the real thing. <strong>They will stick around.</strong></p><p><strong>Greg Koch</strong></p>"
+      "default": "<p>Look, I have spent decades on stage and in clinics sharing this stuff with players who actually want to go deeper. The techniques in the Vault are the ones people ask about <strong>every single night after the show.</strong></p><p>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just fell down the stairs.</p><p>Most guitar content online is someone talking about playing. The Vault is eight sessions of me <strong>actually showing you the mechanics.</strong> The exact picking motions. The specific voicings. The actual pedal settings.</p><p>I recorded it. I compiled a 12-page reference PDF so you can keep it open while you watch. And I made the whole thing <em>free because that is how I have always operated.</em></p><p>Give your people the real thing. <strong>They will stick around.</strong></p><p><strong>Greg Koch</strong></p>"
     },
     {
       "type": "header",
