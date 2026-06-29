@@ -1,0 +1,13 @@
+{
+  "layout": "vault-optin",
+  "sections": {
+    "main": {
+      "type": "vault-optin",
+      "settings": {
+        "klaviyo_company_id": "XBDmgJ",
+        "klaviyo_list_id": "Wbqf9S"
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#111111">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>{{ page_title }}</title>
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {%- comment -%}
+      Naked conversion layout. No Dawn header, footer, navigation, drawers or
+      page padding. The page chrome lives entirely inside the section.
+    {%- endcomment -%}
+    {% style %}
+      *,
+      *::before,
+      *::after { box-sizing: border-box; }
+
+      html {
+        height: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #111111;
+        color: #e8e2d9;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      img { max-width: 100%; height: auto; display: block; }
+
+      a { color: inherit; }
+    {% endstyle %}
+  </head>
+
+  <body class="vault-optin-body">
+    <main id="MainContent" class="content-for-layout" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>

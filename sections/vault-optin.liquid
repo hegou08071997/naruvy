@@ -1,0 +1,1057 @@
+{%- liquid
+  assign kl_company = section.settings.klaviyo_company_id | default: 'XBDmgJ'
+  assign kl_list = section.settings.klaviyo_list_id | default: 'Wbqf9S'
+-%}
+
+{%- comment -%} ——— External resources loaded once in the section head ——— {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ kl_company }}"></script>
+
+{% style %}
+  .vopt {
+    --vopt-bg: #111111;
+    --vopt-card: #161616;
+    --vopt-card-border: #222222;
+    --vopt-card-dark: #181818;
+    --vopt-card-dark-border: #252525;
+    --vopt-accent: #c8601a;
+    --vopt-head: #f2ede4;
+    --vopt-text: #e8e2d9;
+    --vopt-muted: #9a9080;
+    --vopt-dim: #5a5550;
+    --vopt-vdim: #4a4540;
+    --vopt-display: "Bebas Neue", "Inter", sans-serif;
+    --vopt-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    width: 100%;
+    background: var(--vopt-bg);
+    color: var(--vopt-text);
+    font-family: var(--vopt-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .vopt *,
+  .vopt *::before,
+  .vopt *::after { box-sizing: border-box; }
+
+  .vopt-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin-inline: auto;
+    padding-inline: 28px;
+  }
+
+  .vopt-eyebrow {
+    margin: 0;
+    font-family: var(--vopt-body);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vopt-accent);
+  }
+
+  .vopt-accent-text { color: var(--vopt-accent); }
+
+  .vopt-h2 {
+    margin: 10px 0 0;
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 0.96;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--vopt-head);
+  }
+
+  /* ——— Buttons (pill CTA) ——— */
+  .vopt-btn {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 40px;
+    background: var(--vopt-accent);
+    color: #ffffff;
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 16px 22px;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .vopt-btn:hover { opacity: 0.92; }
+  .vopt-btn:focus-visible { outline: 2px solid #f2ede4; outline-offset: 2px; }
+
+  /* ——— Dividers ——— */
+  .vopt-divider {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-inline: 28px;
+  }
+
+  .vopt-divider hr {
+    border: 0;
+    border-top: 1px solid #1a1a1a;
+    margin: 0;
+  }
+
+  /* ——— 1. Nav ——— */
+  .vopt-nav { border-bottom: 1px solid #1e1e1e; }
+
+  .vopt-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+  }
+
+  .vopt-brand {
+    font-family: var(--vopt-display);
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+
+  .vopt-nav-tag {
+    font-family: var(--vopt-body);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vopt-accent);
+    background: #1c130b;
+    border: 1px solid #2a1a08;
+    border-radius: 40px;
+    padding: 5px 12px;
+  }
+
+  /* ——— 2. Hero ——— */
+  .vopt-hero { padding: 44px 28px 0; }
+
+  .vopt-h1 {
+    margin: 14px 0 0;
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--vopt-head);
+  }
+
+  .vopt-hero-sub {
+    margin: 18px 0 0;
+    max-width: 600px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #b0a898;
+  }
+
+  /* ——— 3. Two column split ——— */
+  .vopt-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding-top: 30px;
+    padding-bottom: 8px;
+  }
+
+  .vopt-card {
+    background: var(--vopt-card);
+    border: 1px solid var(--vopt-card-border);
+    border-radius: 12px;
+  }
+
+  .vopt-photo-card { overflow: hidden; display: flex; flex-direction: column; }
+
+  .vopt-photo-well {
+    position: relative;
+    flex: 1 1 auto;
+    aspect-ratio: 4 / 5;
+    background: #141414;
+    overflow: hidden;
+  }
+
+  .vopt-photo-well img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vopt-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    color: var(--vopt-vdim);
+  }
+
+  .vopt-photo-placeholder i { font-size: 34px; color: #3a3530; }
+
+  .vopt-photo-placeholder span {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4a4540;
+  }
+
+  .vopt-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--vopt-card-border);
+  }
+
+  .vopt-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 12px 4px;
+    text-align: center;
+  }
+
+  .vopt-stat + .vopt-stat { border-left: 1px solid #1d1d1d; }
+
+  .vopt-stat-num {
+    font-family: var(--vopt-display);
+    font-size: 22px;
+    line-height: 1;
+    color: var(--vopt-accent);
+  }
+
+  .vopt-stat-label {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #3a3530;
+  }
+
+  /* ——— Form card ——— */
+  .vopt-form-card { padding: 22px 20px; }
+
+  .vopt-form-heading {
+    margin: 0;
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--vopt-head);
+  }
+
+  .vopt-form-note {
+    margin: 6px 0 16px;
+    font-size: 12px;
+    color: var(--vopt-muted);
+  }
+
+  .vopt-form { margin: 0; }
+
+  .vopt-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .vopt-input {
+    width: 100%;
+    background: #111111;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    color: var(--vopt-text);
+    font-family: var(--vopt-body);
+    font-size: 14px;
+    padding: 10px 12px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .vopt-input::placeholder { color: #333028; }
+  .vopt-input:focus { outline: none; border-color: var(--vopt-accent); }
+  .vopt-input:last-of-type { margin-bottom: 14px; }
+
+  .vopt-consent {
+    margin: 12px 0 0;
+    font-size: 9px;
+    line-height: 1.5;
+    color: #333028;
+  }
+
+  .vopt-error {
+    margin: 10px 0 0;
+    font-size: 11px;
+    color: #b9572c;
+  }
+
+  .vopt-success {
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--vopt-accent);
+    padding: 40px 10px;
+  }
+
+  /* ——— 5. Letter ——— */
+  .vopt-letter { padding-block: 40px; }
+
+  .vopt-letter-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 22px;
+    margin-top: 22px;
+  }
+
+  .vopt-letter-photo { width: 140px; }
+
+  .vopt-letter-well {
+    width: 140px;
+    aspect-ratio: 3 / 4;
+    background: var(--vopt-card-dark);
+    border: 1px solid var(--vopt-card-dark-border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vopt-letter-well img { width: 100%; height: 100%; object-fit: cover; }
+  .vopt-letter-well i { font-size: 28px; color: #3a3530; }
+
+  .vopt-letter-caption {
+    margin: 8px 0 0;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--vopt-dim);
+  }
+
+  .vopt-letter-copy p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--vopt-muted);
+  }
+
+  .vopt-letter-copy p:last-child { margin-bottom: 0; }
+  .vopt-bold { color: var(--vopt-text); font-weight: 600; }
+  .vopt-orange { color: var(--vopt-accent); font-weight: 600; }
+
+  .vopt-letter-sign {
+    color: var(--vopt-text);
+    font-weight: 600;
+  }
+
+  .vopt-pullquote {
+    margin: 22px 0 0;
+    border-left: 3px solid var(--vopt-accent);
+    background: #1a1a1a;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+  }
+
+  .vopt-pullquote span { display: block; font-family: var(--vopt-display); font-size: 20px; line-height: 1.1; letter-spacing: 0.01em; }
+  .vopt-pullquote .vopt-pq-1 { color: #ffffff; }
+  .vopt-pullquote .vopt-pq-2 { color: var(--vopt-accent); }
+
+  /* ——— 7. Stash / gift cards ——— */
+  .vopt-stash { padding-block: 40px; }
+
+  .vopt-section-sub {
+    margin: 12px 0 0;
+    max-width: 560px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--vopt-muted);
+  }
+
+  .vopt-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .vopt-card-item {
+    grid-column: span 2;
+    background: var(--vopt-card);
+    border: 1px solid var(--vopt-card-border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vopt-card-item--wide { grid-column: span 3; }
+
+  .vopt-card-head {
+    background: #1e1008;
+    border-bottom: 1px solid #2a1a08;
+    padding: 10px 12px;
+  }
+
+  .vopt-card-free {
+    font-family: var(--vopt-display);
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    color: var(--vopt-accent);
+  }
+
+  .vopt-card-well {
+    background: #1a1a1a;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vopt-card-well i { font-size: 28px; color: var(--vopt-accent); opacity: 0.6; }
+
+  .vopt-card-body { padding: 12px; }
+
+  .vopt-card-title {
+    margin: 0 0 6px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--vopt-text);
+  }
+
+  .vopt-card-desc {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.55;
+    color: #524e4a;
+  }
+
+  .vopt-pdf {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 16px;
+    background: #160f04;
+    border: 1px solid #2a1a08;
+    border-left: 3px solid var(--vopt-accent);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .vopt-pdf > i { font-size: 22px; color: var(--vopt-accent); flex: 0 0 auto; line-height: 1.2; }
+
+  .vopt-pdf-title {
+    margin: 0 0 5px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--vopt-text);
+  }
+
+  .vopt-pdf-desc {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--vopt-muted);
+  }
+
+  /* ——— 8. CTA repeat block ——— */
+  .vopt-cta-section { padding-block: 32px; }
+
+  .vopt-cta-block {
+    border-color: #202020;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .vopt-cta-h {
+    margin: 0;
+    font-family: var(--vopt-display);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .vopt-cta-sub {
+    margin: 10px 0 18px;
+    font-size: 13px;
+    color: var(--vopt-dim);
+  }
+
+  .vopt-cta-consent {
+    margin: 12px 0 0;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--vopt-dim);
+  }
+
+  /* ——— 10. FAQ ——— */
+  .vopt-faq { padding-block: 40px; }
+  .vopt-faq-h { font-size: 28px; }
+  .vopt-faq-list { margin-top: 20px; }
+
+  .vopt-faq-item {
+    border-top: 1px solid #1e1e1e;
+    padding: 16px 0;
+  }
+
+  .vopt-faq-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--vopt-text);
+  }
+
+  .vopt-faq-q i { color: var(--vopt-accent); font-size: 15px; flex: 0 0 auto; line-height: 1.45; }
+
+  .vopt-faq-a {
+    margin: 8px 0 0 25px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #6a6258;
+  }
+
+  /* ——— 11. P.S. ——— */
+  .vopt-ps-wrap { padding-block: 8px; }
+
+  .vopt-ps {
+    background: #141414;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 24px 22px;
+    margin: 28px 0;
+  }
+
+  .vopt-ps-label {
+    margin: 0 0 8px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vopt-accent);
+  }
+
+  .vopt-ps-body {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #7a7268;
+  }
+
+  .vopt-ps-body strong { color: #c8bfb0; font-weight: 600; }
+
+  /* ——— 12. Final CTA ——— */
+  .vopt-final { padding: 24px 28px 40px; }
+
+  .vopt-final-consent {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--vopt-dim);
+  }
+
+  /* ——— Klaviyo native form overrides (defensive, dark theme) ——— */
+  .klaviyo-form input,
+  .klaviyo-form input[type="text"],
+  .klaviyo-form input[type="email"],
+  .klaviyo-form input[type="tel"] {
+    background: #111111 !important;
+    border: 1px solid #2a2a2a !important;
+    color: #e8e2d9 !important;
+    border-radius: 6px !important;
+    font-family: "Inter", sans-serif !important;
+    padding: 10px 12px !important;
+  }
+
+  .klaviyo-form button[type="submit"],
+  .klaviyo-form button {
+    background: #c8601a !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border-radius: 40px !important;
+    font-family: "Bebas Neue", sans-serif !important;
+    text-transform: uppercase !important;
+  }
+
+  /* ——— Mobile ——— */
+  @media (max-width: 640px) {
+    .vopt-wrap { padding-inline: 16px; }
+    .vopt-divider { padding-inline: 16px; }
+    .vopt-hero { padding: 28px 16px 0; }
+    .vopt-h1 { font-size: 44px; }
+    .vopt-form-heading { font-size: 26px; }
+
+    .vopt-split { grid-template-columns: 1fr; }
+    .vopt-photo-well { aspect-ratio: 16 / 11; }
+
+    .vopt-letter-grid { grid-template-columns: 1fr; }
+    .vopt-letter-photo,
+    .vopt-letter-well { width: 160px; }
+
+    .vopt-grid { grid-template-columns: 1fr; }
+    .vopt-card-item,
+    .vopt-card-item--wide { grid-column: auto; }
+
+    /* All padding reduces to 16px on mobile */
+    .vopt-letter,
+    .vopt-stash,
+    .vopt-faq,
+    .vopt-cta-section { padding-block: 16px; }
+
+    .vopt-form-card,
+    .vopt-cta-block,
+    .vopt-ps,
+    .vopt-pdf { padding: 16px; }
+
+    .vopt-final { padding: 16px 16px 40px; }
+    .vopt-ps { margin: 16px 0; }
+  }
+{% endstyle %}
+
+<div class="vopt" id="vault-optin">
+
+  {%- comment -%} ——— 1. Minimal nav ——— {%- endcomment -%}
+  <nav class="vopt-nav">
+    <div class="vopt-nav-inner vopt-wrap">
+      <span class="vopt-brand">Greg Koch</span>
+      <span class="vopt-nav-tag">Free Resource</span>
+    </div>
+  </nav>
+
+  {%- comment -%} ——— 2. Hero ——— {%- endcomment -%}
+  <header class="vopt-hero vopt-wrap">
+    <p class="vopt-eyebrow">8 Videos &middot; 4 Hours &middot; One Master PDF &middot; Completely Free</p>
+    <h1 class="vopt-h1">EVERY SECRET GREG PROBABLY SHOULDN&rsquo;T HAVE<br><span class="vopt-accent-text">SHARED.</span></h1>
+    <p class="vopt-hero-sub">Access the full Gristle Vault. Live clinics, technique masterclasses, a complete gear breakdown, and the 12-page reference PDF that ties it all together. All of it free. No credit card. No tricks.</p>
+  </header>
+
+  {%- comment -%} ——— 3. Two column: photo + form ——— {%- endcomment -%}
+  <section class="vopt-split vopt-wrap">
+
+    {%- comment -%} Photo card {%- endcomment -%}
+    <div class="vopt-card vopt-photo-card">
+      <div class="vopt-photo-well">
+        {%- if section.settings.hero_image != blank -%}
+          <img
+            src="{{ section.settings.hero_image | image_url: width: 800 }}"
+            srcset="{{ section.settings.hero_image | image_url: width: 400 }} 400w, {{ section.settings.hero_image | image_url: width: 800 }} 800w, {{ section.settings.hero_image | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 760px) 360px, 100vw"
+            width="{{ section.settings.hero_image.width }}"
+            height="{{ section.settings.hero_image.height }}"
+            alt="Greg Koch performing"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="vopt-photo-placeholder">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Add performance photo in theme editor</span>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="vopt-stats">
+        <div class="vopt-stat"><span class="vopt-stat-num">8</span><span class="vopt-stat-label">Videos</span></div>
+        <div class="vopt-stat"><span class="vopt-stat-num">4+</span><span class="vopt-stat-label">Hours</span></div>
+        <div class="vopt-stat"><span class="vopt-stat-num">1</span><span class="vopt-stat-label">PDF</span></div>
+        <div class="vopt-stat"><span class="vopt-stat-num">$0</span><span class="vopt-stat-label">Cost</span></div>
+      </div>
+    </div>
+
+    {%- comment -%} Form card {%- endcomment -%}
+    <div class="vopt-card vopt-form-card" id="vopt-form-card">
+      <h2 class="vopt-form-heading">Get Instant Access</h2>
+      <p class="vopt-form-note">Delivered to your inbox.</p>
+
+      <form class="vopt-form" id="vopt-form" novalidate>
+        <div class="vopt-field-row">
+          <input type="text" id="vopt-firstname" name="first_name" class="vopt-input" placeholder="First name" autocomplete="given-name" aria-label="First name">
+          <input type="text" id="vopt-lastname" name="last_name" class="vopt-input" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
+        </div>
+        <input type="email" id="vopt-email" name="email" class="vopt-input" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+        <button type="submit" class="vopt-btn" id="vopt-submit">SEND ME THE VAULT &rarr;</button>
+        <p class="vopt-consent">By submitting you agree to receive emails from Greg Koch. Unsubscribe anytime.</p>
+        <p class="vopt-error" id="vopt-error" hidden>Something went wrong. Please check your email and try again.</p>
+      </form>
+
+      <div class="vopt-success" id="vopt-success" hidden>You are in. Check your inbox.</div>
+    </div>
+
+  </section>
+
+  {%- comment -%} ——— 4. Divider ——— {%- endcomment -%}
+  <div class="vopt-divider"><hr></div>
+
+  {%- comment -%} ——— 5. Letter ——— {%- endcomment -%}
+  <section class="vopt-letter vopt-wrap">
+    <p class="vopt-eyebrow">A note from Greg</p>
+    <h2 class="vopt-h2">WAIT. IS THIS ACTUALLY FREE?</h2>
+
+    <div class="vopt-letter-grid">
+      <div class="vopt-letter-photo">
+        <div class="vopt-letter-well">
+          {%- if section.settings.letter_image != blank -%}
+            <img
+              src="{{ section.settings.letter_image | image_url: width: 320 }}"
+              srcset="{{ section.settings.letter_image | image_url: width: 160 }} 160w, {{ section.settings.letter_image | image_url: width: 320 }} 320w"
+              sizes="160px"
+              width="{{ section.settings.letter_image.width }}"
+              height="{{ section.settings.letter_image.height }}"
+              alt="Greg Koch"
+              loading="lazy"
+            >
+          {%- else -%}
+            <i class="ti ti-photo" aria-hidden="true"></i>
+          {%- endif -%}
+        </div>
+        <p class="vopt-letter-caption">Greg Koch</p>
+      </div>
+
+      <div class="vopt-letter-copy">
+        <p><span class="vopt-orange">Yeah. It is.</span></p>
+        <p>Look, I have spent decades on stage and in clinics sharing this stuff with players who actually want to go deeper. The techniques in the Vault are the ones people ask about <span class="vopt-bold">every single night after the show.</span></p>
+        <p>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just fell down the stairs.</p>
+        <p>Most guitar content online is someone talking about playing. The Vault is eight sessions of me <span class="vopt-bold">actually showing you the mechanics.</span> The exact picking motions. The specific voicings. The actual pedal settings.</p>
+        <p>I recorded it. I compiled a 12-page reference PDF so you can keep it open while you watch. And I made the whole thing <span class="vopt-orange">free because that is how I have always operated.</span></p>
+        <p>Give your people the real thing. <span class="vopt-bold">They will stick around.</span></p>
+        <p class="vopt-letter-sign">Greg Koch</p>
+      </div>
+    </div>
+
+    <blockquote class="vopt-pullquote">
+      <span class="vopt-pq-1">This is not a teaser.</span>
+      <span class="vopt-pq-2">It is the full stash.</span>
+    </blockquote>
+  </section>
+
+  {%- comment -%} ——— 6. Divider ——— {%- endcomment -%}
+  <div class="vopt-divider"><hr></div>
+
+  {%- comment -%} ——— 7. Stash / gift cards ——— {%- endcomment -%}
+  <section class="vopt-stash vopt-wrap">
+    <p class="vopt-eyebrow">What is inside the vault</p>
+    <h2 class="vopt-h2">THE FULL STASH.</h2>
+    <p class="vopt-section-sub">Eight complete sessions. Every one a real lesson. Not a teaser. Not a highlight reel.</p>
+
+    <div class="vopt-grid">
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 01</span></div>
+        <div class="vopt-card-well"><i class="ti ti-guitar-pick" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Chicken Picking Masterclass</h3>
+          <p class="vopt-card-desc">Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 02</span></div>
+        <div class="vopt-card-well"><i class="ti ti-music" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Travis Picking Deep Dive</h3>
+          <p class="vopt-card-desc">Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 03</span></div>
+        <div class="vopt-card-well"><i class="ti ti-piano" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Chord Vocabulary</h3>
+          <p class="vopt-card-desc">James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 04</span></div>
+        <div class="vopt-card-well"><i class="ti ti-wave-sine" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Outside Playing</h3>
+          <p class="vopt-card-desc">Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 05</span></div>
+        <div class="vopt-card-well"><i class="ti ti-adjustments" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Tone and Gear Rundown</h3>
+          <p class="vopt-card-desc">The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 06</span></div>
+        <div class="vopt-card-well"><i class="ti ti-microphone" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Blues Soloing Concepts</h3>
+          <p class="vopt-card-desc">Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item vopt-card-item--wide">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 07</span></div>
+        <div class="vopt-card-well"><i class="ti ti-file-music" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Song Breakdowns</h3>
+          <p class="vopt-card-desc">Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it.</p>
+        </div>
+      </article>
+
+      <article class="vopt-card-item vopt-card-item--wide">
+        <div class="vopt-card-head"><span class="vopt-card-free">FREE &middot; 08</span></div>
+        <div class="vopt-card-well"><i class="ti ti-video" aria-hidden="true"></i></div>
+        <div class="vopt-card-body">
+          <h3 class="vopt-card-title">Live Clinics and Q&amp;A</h3>
+          <p class="vopt-card-desc">Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&amp;A with working musicians.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="vopt-pdf">
+      <i class="ti ti-file-description" aria-hidden="true"></i>
+      <div class="vopt-pdf-text">
+        <p class="vopt-pdf-title">Gristle Vault Master Reference PDF &middot; Downloadable</p>
+        <p class="vopt-pdf-desc">A 12-page document covering every technique, chord voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch.</p>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ——— 8. CTA repeat block ——— {%- endcomment -%}
+  <section class="vopt-cta-section vopt-wrap">
+    <div class="vopt-card vopt-cta-block">
+      <h2 class="vopt-cta-h">4+ Hours. 8 Videos. 1 PDF. All of it free.</h2>
+      <p class="vopt-cta-sub">Enter your email and Greg sends it straight to your inbox.</p>
+      <button type="button" class="vopt-btn vopt-scroll-btn">YES. SEND ME THE VAULT &rarr;</button>
+      <p class="vopt-cta-consent">Free. No credit card. No nonsense.</p>
+    </div>
+  </section>
+
+  {%- comment -%} ——— 9. Divider ——— {%- endcomment -%}
+  <div class="vopt-divider"><hr></div>
+
+  {%- comment -%} ——— 10. FAQ ——— {%- endcomment -%}
+  <section class="vopt-faq vopt-wrap">
+    <p class="vopt-eyebrow">Common questions</p>
+    <h2 class="vopt-h2 vopt-faq-h">WAIT. IS THERE A CATCH?</h2>
+
+    <div class="vopt-faq-list">
+      <div class="vopt-faq-item">
+        <p class="vopt-faq-q"><i class="ti ti-circle-check" aria-hidden="true"></i><span>Is this actually free?</span></p>
+        <p class="vopt-faq-a">Yes. All eight videos and the PDF are free. You will be added to Greg&rsquo;s email list where he sends new content, show dates, and gear news. You can leave anytime.</p>
+      </div>
+
+      <div class="vopt-faq-item">
+        <p class="vopt-faq-q"><i class="ti ti-circle-check" aria-hidden="true"></i><span>Who is this for?</span></p>
+        <p class="vopt-faq-a">Guitar players who want to go deeper than pentatonic noodling. Whether you are into chicken picking, jazz harmony, or just want to understand how Greg gets that tone, there is something in here for you.</p>
+      </div>
+
+      <div class="vopt-faq-item">
+        <p class="vopt-faq-q"><i class="ti ti-circle-check" aria-hidden="true"></i><span>What happens after I sign up?</span></p>
+        <p class="vopt-faq-a">You will get an email with access to all 8 videos and a download link for the PDF. After that you will receive occasional emails from Greg with new content, show dates, and gear news. Unsubscribe anytime.</p>
+      </div>
+
+      <div class="vopt-faq-item">
+        <p class="vopt-faq-q"><i class="ti ti-circle-check" aria-hidden="true"></i><span>Is this the same as the Patreon?</span></p>
+        <p class="vopt-faq-a">Different thing entirely. The Patreon has lessons, backing tracks and more as an ongoing paid membership. The Vault is a standalone free resource. No overlap and nothing to buy on the other side.</p>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ——— 11. P.S. ——— {%- endcomment -%}
+  <section class="vopt-ps-wrap vopt-wrap">
+    <div class="vopt-ps">
+      <p class="vopt-ps-label">P.S.</p>
+      <p class="vopt-ps-body">If you scrolled straight to the bottom, here is the short version. Greg built a vault of 8 full-length guitar videos covering chicken picking, Travis picking, chord vocabulary, outside playing, his full live rig, blues soloing concepts, and note-for-note breakdowns of two originals. Plus a 12-page PDF that ties it all together. <strong>All of it is free.</strong> Put in your email above and he will send it to you.</p>
+    </div>
+  </section>
+
+  {%- comment -%} ——— 12. Final CTA ——— {%- endcomment -%}
+  <section class="vopt-final vopt-wrap">
+    <button type="button" class="vopt-btn vopt-scroll-btn">GET FREE ACCESS TO THE VAULT &rarr;</button>
+    <p class="vopt-final-consent">Free. No credit card. Unsubscribe anytime.</p>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+    var COMPANY_ID = {{ kl_company | json }};
+    var LIST_ID = {{ kl_list | json }};
+
+    var form = document.getElementById('vopt-form');
+    var success = document.getElementById('vopt-success');
+    var errorEl = document.getElementById('vopt-error');
+    var submitBtn = document.getElementById('vopt-submit');
+    var firstName = document.getElementById('vopt-firstname');
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function showSuccess() {
+      if (form) form.setAttribute('hidden', 'hidden');
+      if (success) success.removeAttribute('hidden');
+    }
+
+    function showError() {
+      if (errorEl) errorEl.removeAttribute('hidden');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SEND ME THE VAULT →';
+      }
+    }
+
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (errorEl) errorEl.setAttribute('hidden', 'hidden');
+
+        var emailEl = document.getElementById('vopt-email');
+        var lastEl = document.getElementById('vopt-lastname');
+        var email = emailEl ? emailEl.value.trim() : '';
+
+        if (!isValidEmail(email)) {
+          showError();
+          if (emailEl) emailEl.focus();
+          return;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'SENDING…';
+        }
+
+        var payload = {
+          data: {
+            type: 'subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email,
+                    first_name: firstName ? firstName.value.trim() : '',
+                    last_name: lastEl ? lastEl.value.trim() : ''
+                  }
+                }
+              }
+            },
+            relationships: {
+              list: { data: { type: 'list', id: LIST_ID } }
+            }
+          }
+        };
+
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(COMPANY_ID), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            revision: '2024-10-15'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            if (response.ok || response.status === 202) {
+              showSuccess();
+            } else {
+              showError();
+            }
+          })
+          .catch(showError);
+      });
+    }
+
+    // Mid-page and final CTA buttons scroll to the form and focus the first name field.
+    var scrollButtons = document.querySelectorAll('.vopt-scroll-btn');
+    var formCard = document.getElementById('vopt-form-card');
+    for (var i = 0; i < scrollButtons.length; i++) {
+      scrollButtons[i].addEventListener('click', function () {
+        if (formCard) {
+          formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        window.setTimeout(function () {
+          if (firstName && !form.hasAttribute('hidden')) firstName.focus({ preventScroll: true });
+        }, 550);
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Vault Opt-In",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero performance photo",
+      "info": "Shown in the photo card beside the opt-in form. Leave blank to show a placeholder well."
+    },
+    {
+      "type": "image_picker",
+      "id": "letter_image",
+      "label": "Letter photo (Greg)",
+      "info": "Shown beside the note from Greg. Leave blank to show a placeholder well."
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Klaviyo public API key",
+      "default": "XBDmgJ",
+      "info": "Company ID / public key used to load Klaviyo and subscribe profiles."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo list ID",
+      "default": "Wbqf9S",
+      "info": "The list new subscribers are added to."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vault Opt-In"
+    }
+  ]
+}
+{% endschema %}
