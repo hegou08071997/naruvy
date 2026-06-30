@@ -21,10 +21,10 @@
             {%- if block.settings.free_label != blank -%}
               <span class="vopt-card-free">{{ block.settings.free_label | escape }}</span>
             {%- endif -%}
-            <span class="vopt-card-stamp"><i class="ti {{ block.settings.icon | default: 'ti-music' | escape }}" aria-hidden="true"></i></span>
+            <span class="vopt-card-rivet" aria-hidden="true"></span>
           </div>
           <div class="vopt-card-well">
-            <span class="vopt-play" aria-hidden="true"></span>
+            {% render 'vault-emblem', key: block.settings.emblem %}
             <span class="vopt-wave" aria-hidden="true"></span>
           </div>
           <div class="vopt-card-body">
@@ -42,8 +42,11 @@
 
   {%- if section.settings.show_pdf -%}
     <div class="vopt-pdf">
-      <span class="vopt-pdf-badge"><i class="ti {{ section.settings.pdf_icon | default: 'ti-file-description' | escape }}" aria-hidden="true"></i></span>
+      <span class="vopt-pdf-badge">{% render 'vault-emblem', key: 'pdf' %}</span>
       <div class="vopt-pdf-text">
+        {%- if section.settings.pdf_kicker != blank -%}
+          <p class="vopt-pdf-kicker">{{ section.settings.pdf_kicker | escape }}</p>
+        {%- endif -%}
         {%- if section.settings.pdf_title != blank -%}
           <p class="vopt-pdf-title">{{ section.settings.pdf_title | escape }}</p>
         {%- endif -%}
@@ -94,22 +97,16 @@
       "default": true
     },
     {
-      "type": "select",
-      "id": "pdf_icon",
-      "label": "PDF icon",
-      "default": "ti-file-description",
-      "options": [
-        { "value": "ti-file-description", "label": "File" },
-        { "value": "ti-file-music", "label": "File music" },
-        { "value": "ti-book", "label": "Book" },
-        { "value": "ti-download", "label": "Download" }
-      ]
+      "type": "text",
+      "id": "pdf_kicker",
+      "label": "PDF kicker",
+      "default": "Vault file · PDF included"
     },
     {
       "type": "text",
       "id": "pdf_title",
       "label": "PDF title",
-      "default": "Gristle Vault Master Reference PDF · Downloadable"
+      "default": "The Gristle Vault Master Reference"
     },
     {
       "type": "textarea",
@@ -136,22 +133,18 @@
         },
         {
           "type": "select",
-          "id": "icon",
-          "label": "Icon",
-          "default": "ti-music",
+          "id": "emblem",
+          "label": "Lesson emblem",
+          "default": "pick",
           "options": [
-            { "value": "ti-guitar-pick", "label": "Guitar pick" },
-            { "value": "ti-music", "label": "Music note" },
-            { "value": "ti-piano", "label": "Piano" },
-            { "value": "ti-wave-sine", "label": "Sine wave" },
-            { "value": "ti-adjustments", "label": "Adjustments" },
-            { "value": "ti-microphone", "label": "Microphone" },
-            { "value": "ti-file-music", "label": "File music" },
-            { "value": "ti-video", "label": "Video" },
-            { "value": "ti-headphones", "label": "Headphones" },
-            { "value": "ti-disc", "label": "Disc" },
-            { "value": "ti-volume", "label": "Volume" },
-            { "value": "ti-bolt", "label": "Bolt" }
+            { "value": "pick", "label": "Guitar pick medallion" },
+            { "value": "travis", "label": "Fingerpicking marks" },
+            { "value": "chords", "label": "Fretboard chord dots" },
+            { "value": "outside", "label": "Note breaking outside" },
+            { "value": "tone", "label": "Amp knob" },
+            { "value": "blues", "label": "String bend" },
+            { "value": "song", "label": "Film strip waveform" },
+            { "value": "clinic", "label": "Ribbon microphone" }
           ]
         },
         {

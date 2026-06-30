@@ -32,7 +32,7 @@
         "first_name_placeholder": "First name",
         "last_name_placeholder": "Last name",
         "email_placeholder": "Email address",
-        "submit_label": "SEND ME THE VAULT →",
+        "submit_label": "YES, SEND ME THE VAULT →",
         "sending_label": "Sending…",
         "consent": "By submitting you agree to receive emails from Greg Koch. Unsubscribe anytime.",
         "error_text": "Something went wrong. Please check your email and try again.",
@@ -49,23 +49,23 @@
         "heading": "STOP PIECING TOGETHER RANDOM GUITAR ADVICE",
         "subhead": "You can spend years bouncing between clips, tabs, and half-explained tricks. Or you can grab one clean stash of Greg's chicken pickin', outside playing, tone, chord vocabulary, blues ideas, and clinic breakdowns.",
         "pain_title": "The scattered way",
-        "pain_list": "Random licks from fifty different videos\nTabs that never quite line up\nHalf-explained tricks with no context\nNothing that connects into real playing",
+        "pain_list": "Random clips\nIsolated licks\nNo clear next step\nHard to know what matters",
         "gain_title": "The Vault way",
-        "gain_list": "Eight full lessons in one place\nClinics, breakdowns, and technique\nThe exact picking, voicings, and settings\nA 12-page PDF that ties it together",
+        "gain_list": "Greg's real lessons in one place\nTechniques, clinics, breakdowns, and PDF\nA clear stash you can return to",
         "foot": "Here’s what’s inside the free stash."
       }
     },
     "stash": {
       "type": "vault-stash",
       "blocks": {
-        "card_1": { "type": "card", "settings": { "width": "third", "icon": "ti-guitar-pick", "free_label": "FREE · 01", "title": "Chicken Picking Masterclass", "description": "Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything." } },
-        "card_2": { "type": "card", "settings": { "width": "third", "icon": "ti-music", "free_label": "FREE · 02", "title": "Travis Picking Deep Dive", "description": "Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready." } },
-        "card_3": { "type": "card", "settings": { "width": "third", "icon": "ti-piano", "free_label": "FREE · 03", "title": "Chord Vocabulary", "description": "James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord." } },
-        "card_4": { "type": "card", "settings": { "width": "third", "icon": "ti-wave-sine", "free_label": "FREE · 04", "title": "Outside Playing", "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost." } },
-        "card_5": { "type": "card", "settings": { "width": "third", "icon": "ti-adjustments", "free_label": "FREE · 05", "title": "Tone and Gear Rundown", "description": "The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used." } },
-        "card_6": { "type": "card", "settings": { "width": "third", "icon": "ti-microphone", "free_label": "FREE · 06", "title": "Blues Soloing Concepts", "description": "Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor." } },
-        "card_7": { "type": "card", "settings": { "width": "half", "icon": "ti-file-music", "free_label": "FREE · 07", "title": "Song Breakdowns", "description": "Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it." } },
-        "card_8": { "type": "card", "settings": { "width": "half", "icon": "ti-video", "free_label": "FREE · 08", "title": "Live Clinics and Q&A", "description": "Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&A with working musicians." } }
+        "card_1": { "type": "card", "settings": { "width": "third", "emblem": "pick", "free_label": "FREE · 01", "title": "Chicken Picking Masterclass", "description": "Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything." } },
+        "card_2": { "type": "card", "settings": { "width": "third", "emblem": "travis", "free_label": "FREE · 02", "title": "Travis Picking Deep Dive", "description": "Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready." } },
+        "card_3": { "type": "card", "settings": { "width": "third", "emblem": "chords", "free_label": "FREE · 03", "title": "Chord Vocabulary", "description": "James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord." } },
+        "card_4": { "type": "card", "settings": { "width": "third", "emblem": "outside", "free_label": "FREE · 04", "title": "Outside Playing", "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost." } },
+        "card_5": { "type": "card", "settings": { "width": "third", "emblem": "tone", "free_label": "FREE · 05", "title": "Tone and Gear Rundown", "description": "The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used." } },
+        "card_6": { "type": "card", "settings": { "width": "third", "emblem": "blues", "free_label": "FREE · 06", "title": "Blues Soloing Concepts", "description": "Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor." } },
+        "card_7": { "type": "card", "settings": { "width": "half", "emblem": "song", "free_label": "FREE · 07", "title": "Song Breakdowns", "description": "Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it." } },
+        "card_8": { "type": "card", "settings": { "width": "half", "emblem": "clinic", "free_label": "FREE · 08", "title": "Live Clinics and Q&A", "description": "Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&A with working musicians." } }
       },
       "block_order": ["card_1", "card_2", "card_3", "card_4", "card_5", "card_6", "card_7", "card_8"],
       "settings": {
@@ -74,8 +74,8 @@
         "heading": "THE FULL STASH.",
         "subhead": "Eight complete sessions. Every one a real lesson. Not a teaser. Not a highlight reel.",
         "show_pdf": true,
-        "pdf_icon": "ti-file-description",
-        "pdf_title": "Gristle Vault Master Reference PDF · Downloadable",
+        "pdf_kicker": "Vault file · PDF included",
+        "pdf_title": "The Gristle Vault Master Reference",
         "pdf_desc": "A 12-page document covering every technique, chord voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch."
       }
     },
@@ -98,9 +98,9 @@
       "type": "vault-cta",
       "settings": {
         "show_top_divider": false,
-        "heading": "4+ Hours. 8 Videos. 1 PDF. All of it free.",
+        "heading": "4+ Hours. 8 Videos. 1 Master PDF. All Free.",
         "subhead": "Enter your email and Greg sends the whole stash straight to your inbox.",
-        "button_label": "SEND ME THE VAULT →",
+        "button_label": "YES, SEND ME THE VAULT →",
         "consent": "Free. No credit card. No nonsense."
       }
     },

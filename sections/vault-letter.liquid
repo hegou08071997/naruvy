@@ -3,6 +3,7 @@
 {%- endif -%}
 
 <section class="vopt-letter vopt-wrap">
+  <div class="vopt-letter-card">
   {%- if section.settings.eyebrow != blank -%}
     <p class="vopt-eyebrow">{{ section.settings.eyebrow | escape }}</p>
   {%- endif -%}
@@ -15,9 +16,9 @@
       <div class="vopt-letter-well">
         {%- if section.settings.letter_image != blank -%}
           <img
-            src="{{ section.settings.letter_image | image_url: width: 320 }}"
-            srcset="{{ section.settings.letter_image | image_url: width: 160 }} 160w, {{ section.settings.letter_image | image_url: width: 320 }} 320w"
-            sizes="160px"
+            src="{{ section.settings.letter_image | image_url: width: 500 }}"
+            srcset="{{ section.settings.letter_image | image_url: width: 250 }} 250w, {{ section.settings.letter_image | image_url: width: 500 }} 500w"
+            sizes="250px"
             width="{{ section.settings.letter_image.width }}"
             height="{{ section.settings.letter_image.height }}"
             alt="{{ section.settings.caption | escape }}"
@@ -53,6 +54,7 @@
       {%- endif -%}
     </blockquote>
   {%- endif -%}
+  </div>
 </section>
 
 {% schema %}
