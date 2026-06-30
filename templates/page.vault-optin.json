@@ -87,7 +87,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "pick",
             "free_label": "FREE · 01",
             "title": "Chicken Picking Masterclass",
             "description": "Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything."
@@ -97,7 +97,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "travis",
             "free_label": "FREE · 02",
             "title": "Travis Picking Deep Dive",
             "description": "Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready."
@@ -107,7 +107,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "chords",
             "free_label": "FREE · 03",
             "title": "Chord Vocabulary",
             "description": "James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord."
@@ -117,7 +117,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "outside",
             "free_label": "FREE · 04",
             "title": "Outside Playing",
             "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost."
@@ -127,7 +127,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "tone",
             "free_label": "FREE · 05",
             "title": "Tone and Gear Rundown",
             "description": "The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used."
@@ -137,7 +137,7 @@
           "type": "card",
           "settings": {
             "width": "third",
-            "icon": "ti-music",
+            "emblem": "blues",
             "free_label": "FREE · 06",
             "title": "Blues Soloing Concepts",
             "description": "Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor."
@@ -147,7 +147,7 @@
           "type": "card",
           "settings": {
             "width": "half",
-            "icon": "ti-music",
+            "emblem": "song",
             "free_label": "FREE · 07",
             "title": "Song Breakdowns",
             "description": "Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it."
@@ -157,7 +157,7 @@
           "type": "card",
           "settings": {
             "width": "half",
-            "icon": "ti-music",
+            "emblem": "clinic",
             "free_label": "FREE · 08",
             "title": "Live Clinics and Q&A",
             "description": "Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&A with working musicians."
