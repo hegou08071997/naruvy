@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "vault-optin",
   "sections": {
@@ -11,18 +20,48 @@
         "lead": "Stop digging through random clips. Get the actual stash.",
         "pain": "Most players collect random licks, scattered YouTube clips, and half-finished lessons. The Vault gives you a clear stash of Greg's real lessons, clinics, and breakdowns in one place.",
         "button_label": "UNLOCK THE FREE STASH →",
+        "button_link": "",
         "microcopy": "Free. No credit card. Instant access."
       }
     },
     "form": {
       "type": "vault-form",
       "blocks": {
-        "stat_videos": { "type": "stat", "settings": { "num": "8", "label": "Videos" } },
-        "stat_hours": { "type": "stat", "settings": { "num": "4+", "label": "Hours" } },
-        "stat_pdf": { "type": "stat", "settings": { "num": "1", "label": "Master PDF" } },
-        "stat_cost": { "type": "stat", "settings": { "num": "$0", "label": "Cost" } }
+        "stat_videos": {
+          "type": "stat",
+          "settings": {
+            "num": "8",
+            "label": "Videos"
+          }
+        },
+        "stat_hours": {
+          "type": "stat",
+          "settings": {
+            "num": "4+",
+            "label": "Hours"
+          }
+        },
+        "stat_pdf": {
+          "type": "stat",
+          "settings": {
+            "num": "1",
+            "label": "Master PDF"
+          }
+        },
+        "stat_cost": {
+          "type": "stat",
+          "settings": {
+            "num": "$0",
+            "label": "Cost"
+          }
+        }
       },
-      "block_order": ["stat_videos", "stat_hours", "stat_pdf", "stat_cost"],
+      "block_order": [
+        "stat_videos",
+        "stat_hours",
+        "stat_pdf",
+        "stat_cost"
+      ],
       "settings": {
         "hero_image": "shopify://shop_images/bfd3a1ed-2938-4b4f-95e4-d991cec6c59e.png",
         "photo_placeholder": "Add performance photo in theme editor",
@@ -58,23 +97,104 @@
     "stash": {
       "type": "vault-stash",
       "blocks": {
-        "card_1": { "type": "card", "settings": { "width": "third", "emblem": "pick", "free_label": "FREE · 01", "title": "Chicken Picking Masterclass", "description": "Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything." } },
-        "card_2": { "type": "card", "settings": { "width": "third", "emblem": "travis", "free_label": "FREE · 02", "title": "Travis Picking Deep Dive", "description": "Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready." } },
-        "card_3": { "type": "card", "settings": { "width": "third", "emblem": "chords", "free_label": "FREE · 03", "title": "Chord Vocabulary", "description": "James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord." } },
-        "card_4": { "type": "card", "settings": { "width": "third", "emblem": "outside", "free_label": "FREE · 04", "title": "Outside Playing", "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost." } },
-        "card_5": { "type": "card", "settings": { "width": "third", "emblem": "tone", "free_label": "FREE · 05", "title": "Tone and Gear Rundown", "description": "The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used." } },
-        "card_6": { "type": "card", "settings": { "width": "third", "emblem": "blues", "free_label": "FREE · 06", "title": "Blues Soloing Concepts", "description": "Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor." } },
-        "card_7": { "type": "card", "settings": { "width": "half", "emblem": "song", "free_label": "FREE · 07", "title": "Song Breakdowns", "description": "Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it." } },
-        "card_8": { "type": "card", "settings": { "width": "half", "emblem": "clinic", "free_label": "FREE · 08", "title": "Live Clinics and Q&A", "description": "Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&A with working musicians." } }
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 01",
+            "title": "Chicken Picking Masterclass",
+            "description": "Thumb and finger foundation to full hybrid integration. The muted note, the pop, the banjo rolls, the Magic Sam lick. Everything."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 02",
+            "title": "Travis Picking Deep Dive",
+            "description": "Learned with a flat pick. How to build the boom-chuck foundation without speeding up before you are ready."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 03",
+            "title": "Chord Vocabulary",
+            "description": "James Burton ninth chord bend, Robben Ford chord melody, Allan Holdsworth minor 11th, the Steely Dan sus chord."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 04",
+            "title": "Outside Playing",
+            "description": "Pentatonic substitutions, chromatic approaches, diminished arpeggios, the tritone sub, and the Mahavishnu scale. Sound outside without sounding lost."
+          }
+        },
+        "card_5": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 05",
+            "title": "Tone and Gear Rundown",
+            "description": "The full live rig. Reverend guitars, Fishman Fluence pickups, Tone King Royalist, every pedal on the board with context for why each one gets used."
+          }
+        },
+        "card_6": {
+          "type": "card",
+          "settings": {
+            "width": "third",
+            "icon": "ti-music",
+            "free_label": "FREE · 06",
+            "title": "Blues Soloing Concepts",
+            "description": "Playing over changes instead of camping on pentatonic. Jeff Beck whammy techniques, self-accompanied blues, the Allman Brothers approach to major and minor."
+          }
+        },
+        "card_7": {
+          "type": "card",
+          "settings": {
+            "width": "half",
+            "icon": "ti-music",
+            "free_label": "FREE · 07",
+            "title": "Song Breakdowns",
+            "description": "Note-for-note construction of Tonus Diabolicus and Spank It. Where every idea came from, how it was mutated, and exactly how to play it."
+          }
+        },
+        "card_8": {
+          "type": "card",
+          "settings": {
+            "width": "half",
+            "icon": "ti-music",
+            "free_label": "FREE · 08",
+            "title": "Live Clinics and Q&A",
+            "description": "Full workshop recordings. A gear walkthrough, a backstage interview, and a live Q&A with working musicians."
+          }
+        }
       },
-      "block_order": ["card_1", "card_2", "card_3", "card_4", "card_5", "card_6", "card_7", "card_8"],
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5",
+        "card_6",
+        "card_7",
+        "card_8"
+      ],
       "settings": {
         "show_top_divider": true,
         "eyebrow": "What is inside the vault",
         "heading": "THE FULL STASH.",
         "subhead": "Eight complete sessions. Every one a real lesson. Not a teaser. Not a highlight reel.",
         "show_pdf": true,
-        "pdf_kicker": "Vault file · PDF included",
+        "pdf_icon": "ti-file-description",
         "pdf_title": "The Gristle Vault Master Reference",
         "pdf_desc": "A 12-page document covering every technique, chord voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch."
       }
@@ -89,7 +209,7 @@
         "caption": "Greg Koch",
         "caption_role": "The Gristle Vault",
         "lead": "Yeah. It’s actually free.",
-        "body": "<p>Look, I have spent decades on stage and in clinics sharing this stuff with players who actually want to go deeper. The techniques in the Vault are the ones people ask about <strong>every single night after the show.</strong></p><p>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just fell down the stairs.</p><p>Most guitar content online is someone talking about playing. The Vault is eight sessions of me <strong>actually showing you the mechanics.</strong> The exact picking motions. The specific voicings. The actual pedal settings.</p><p>I recorded it. I compiled a 12-page reference PDF so you can keep it open while you watch. And I made the whole thing <em>free because that is how I have always operated.</em></p><p>Give your people the real thing. <strong>They will stick around.</strong></p><p><strong>Greg Koch</strong></p>",
+        "body": "<p>Look, I have spent decades up on stages and holed up in clinics handing this stuff over to players who actually want to go deeper into the Ways of Gristle. </p><p>The techniques in the Vault are the ones <strong>folks have asked me about backstage more times than I can count</strong>, in the deep and abiding Ways of Gristle.</p><p><br/>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just tumbled down a flight of stairs mid-solo.<br/><br/>I sat there and compiled it myself into a 12-page reference PDF so you can keep it propped open while you watch, I can dig it. And <strong>I made the whole thing free because that is how I have always operated, ancient code and all.</strong><br/><br/>Give your People of the Gristle Night the real thing. They will stick around. We ride!</p><p><strong>Greg Koch</strong></p>",
         "pullquote_line1": "This is not a teaser.",
         "pullquote_line2": "It is the full stash."
       }
@@ -101,18 +221,52 @@
         "heading": "4+ Hours. 8 Videos. 1 Master PDF. All Free.",
         "subhead": "Enter your email and Greg sends the whole stash straight to your inbox.",
         "button_label": "YES, SEND ME THE VAULT →",
+        "button_link": "",
         "consent": "Free. No credit card. No nonsense."
       }
     },
     "faq": {
       "type": "vault-faq",
       "blocks": {
-        "q1": { "type": "qa", "settings": { "icon": "ti-circle-check", "question": "Is this actually free?", "answer": "Yes. All eight videos and the PDF are free. You will be added to Greg’s email list where he sends new content, show dates, and gear news. You can leave anytime." } },
-        "q2": { "type": "qa", "settings": { "icon": "ti-circle-check", "question": "Who is this for?", "answer": "Guitar players who want to go deeper than pentatonic noodling. Whether you are into chicken picking, jazz harmony, or just want to understand how Greg gets that tone, there is something in here for you." } },
-        "q3": { "type": "qa", "settings": { "icon": "ti-circle-check", "question": "What happens after I sign up?", "answer": "You will get an email with access to all 8 videos and a download link for the PDF. After that you will receive occasional emails from Greg with new content, show dates, and gear news. Unsubscribe anytime." } },
-        "q4": { "type": "qa", "settings": { "icon": "ti-circle-check", "question": "Is this the same as the Patreon?", "answer": "Different thing entirely. The Patreon has lessons, backing tracks and more as an ongoing paid membership. The Vault is a standalone free resource. No overlap and nothing to buy on the other side." } }
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "icon": "ti-circle-check",
+            "question": "Is this actually free?",
+            "answer": "Yes. All eight videos and the PDF are free. You will be added to Greg’s email list where he sends new content, show dates, and gear news. You can leave anytime."
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "icon": "ti-circle-check",
+            "question": "Who is this for?",
+            "answer": "Guitar players who want to go deeper than pentatonic noodling. Whether you are into chicken picking, jazz harmony, or just want to understand how Greg gets that tone, there is something in here for you."
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "icon": "ti-circle-check",
+            "question": "What happens after I sign up?",
+            "answer": "You will get an email with access to all 8 videos and a download link for the PDF. After that you will receive occasional emails from Greg with new content, show dates, and gear news. Unsubscribe anytime."
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "icon": "ti-circle-check",
+            "question": "Is this the same as the Patreon?",
+            "answer": "Different thing entirely. The Patreon has lessons, backing tracks and more as an ongoing paid membership. The Vault is a standalone free resource. No overlap and nothing to buy on the other side."
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
       "settings": {
         "show_top_divider": true,
         "eyebrow": "Common questions",
@@ -131,9 +285,20 @@
       "settings": {
         "show_top_divider": true,
         "button_label": "GET INSTANT ACCESS →",
+        "button_link": "",
         "consent": "Free. No credit card. Unsubscribe anytime."
       }
     }
   },
-  "order": ["hero", "form", "bridge", "stash", "letter", "cta", "faq", "ps", "final"]
+  "order": [
+    "hero",
+    "form",
+    "stash",
+    "bridge",
+    "letter",
+    "cta",
+    "faq",
+    "ps",
+    "final"
+  ]
 }
