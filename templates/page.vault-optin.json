@@ -205,7 +205,7 @@
         "show_top_divider": true,
         "eyebrow": "A note from Greg",
         "heading": "WAIT. IS THIS ACTUALLY FREE?",
-        "letter_image": "shopify://shop_images/untitled-website-2_orig.png",
+        "letter_image": "shopify://shop_images/s180342207891963160_p100_i6_w960.jpg",
         "caption": "Greg Koch",
         "caption_role": "The Gristle Vault",
         "lead": "Yeah. It’s actually free.",
@@ -295,8 +295,8 @@
     "form",
     "stash",
     "bridge",
-    "letter",
     "cta",
+    "letter",
     "faq",
     "ps",
     "final"
