@@ -24,8 +24,9 @@
             <span class="vopt-card-rivet" aria-hidden="true"></span>
           </div>
           <div class="vopt-card-well">
-            {% render 'vault-emblem', key: block.settings.emblem %}
-            <span class="vopt-wave" aria-hidden="true"></span>
+            {% render 'vault-scene', key: block.settings.emblem %}
+            <span class="vopt-play" aria-hidden="true"></span>
+            <span class="vopt-wave vopt-wave--{{ block.settings.emblem | escape }}" aria-hidden="true"></span>
           </div>
           <div class="vopt-card-body">
             {%- if block.settings.title != blank -%}
