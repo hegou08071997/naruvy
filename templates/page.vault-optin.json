@@ -80,20 +80,6 @@
         "klaviyo_list_id": "Wbqf9S"
       }
     },
-    "bridge": {
-      "type": "vault-bridge",
-      "settings": {
-        "show_top_divider": true,
-        "eyebrow": "The problem with scattered learning",
-        "heading": "STOP PIECING TOGETHER RANDOM GUITAR ADVICE",
-        "subhead": "You can spend years bouncing between clips, tabs, and half-explained tricks. Or you can grab one clean stash of Greg's chicken pickin', outside playing, tone, chord vocabulary, blues ideas, and clinic breakdowns.",
-        "pain_title": "The scattered way",
-        "pain_list": "Random clips\nIsolated licks\nNo clear next step\nHard to know what matters",
-        "gain_title": "The Vault way",
-        "gain_list": "Greg's real lessons in one place\nTechniques, clinics, breakdowns, and PDF\nA clear stash you can return to",
-        "foot": "Here’s what’s inside the free stash."
-      }
-    },
     "stash": {
       "type": "vault-stash",
       "blocks": {
@@ -199,6 +185,20 @@
         "pdf_desc": "A 12-page document covering every technique, chord voicing, gear spec, and principle from all 8 videos. Built to keep open while you watch."
       }
     },
+    "bridge": {
+      "type": "vault-bridge",
+      "settings": {
+        "show_top_divider": true,
+        "eyebrow": "The problem with scattered learning",
+        "heading": "STOP PIECING TOGETHER RANDOM GUITAR ADVICE",
+        "subhead": "You can spend years bouncing between clips, tabs, and half-explained tricks. Or you can grab one clean stash of Greg's chicken pickin', outside playing, tone, chord vocabulary, blues ideas, and clinic breakdowns.",
+        "pain_title": "The scattered way",
+        "pain_list": "Random clips\nIsolated licks\nNo clear next step\nHard to know what matters",
+        "gain_title": "The Vault way",
+        "gain_list": "Greg's real lessons in one place\nTechniques, clinics, breakdowns, and PDF\nA clear stash you can return to",
+        "foot": "Here’s what’s inside the free stash."
+      }
+    },
     "letter": {
       "type": "vault-letter",
       "settings": {
@@ -209,7 +209,7 @@
         "caption": "Greg Koch",
         "caption_role": "The Gristle Vault",
         "lead": "Yeah. It’s actually free.",
-        "body": "<p>Look, I have spent decades up on stages and holed up in clinics handing this stuff over to players who actually want to go deeper into the Ways of Gristle. </p><p>The techniques in the Vault are the ones <strong>folks have asked me about backstage more times than I can count</strong>, in the deep and abiding Ways of Gristle.</p><p><br/>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just tumbled down a flight of stairs mid-solo.<br/><br/>I sat there and compiled it myself into a 12-page reference PDF so you can keep it propped open while you watch, I can dig it. And <strong>I made the whole thing free because that is how I have always operated, ancient code and all.</strong><br/><br/>Give your People of the Gristle Night the real thing. They will stick around. We ride!</p><p><strong>Greg Koch</strong></p>",
+        "body": "<p>Look, I have spent decades up on stages and holed up in clinics handing this stuff over to players who actually want to go deeper into the Ways of Gristle. </p><p>The techniques in the Vault are the ones <strong>folks have asked me about backstage more times than I can count</strong>, in the deep and abiding Ways of Gristle.</p><p>The chicken picking. The chord substitutions. The rig. How to play outside without sounding like you just tumbled down a flight of stairs mid-solo.<br/></p><p>It has all been compiled into a 12-page reference PDF so you can keep it propped open while you watch, I can dig it. And <strong>the whole thing is free because that is how we roll, ancient code and all.</strong><br/><br/>Give your People of the Gristle Night the real thing. They will stick around. We ride!</p><p><strong>Greg Koch</strong></p>",
         "pullquote_line1": "This is not a teaser.",
         "pullquote_line2": "It is the full stash."
       }
